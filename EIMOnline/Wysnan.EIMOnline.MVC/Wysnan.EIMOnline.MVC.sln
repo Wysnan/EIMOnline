@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wysnan.EIMOnline.MVC", "Wysnan.EIMOnline.MVC\Wysnan.EIMOnline.MVC.csproj", "{90E7BB87-BB8D-41BF-9E8D-34F50BF2B601}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wysnan.EIMOnline.Common", "Wysnan.EIMOnline.Common\Wysnan.EIMOnline.Common.csproj", "{5592AE09-77D2-483E-8068-EE36DA6872B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wysnan.EIMOnline.IDAL", "Wysnan.EIMOnline.IDAL\Wysnan.EIMOnline.IDAL.csproj", "{3575FA9C-D45B-481D-AD01-4509136B97C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wysnan.EIMOnline.IBLL", "Wysnan.EIMOnline.IBLL\Wysnan.EIMOnline.IBLL.csproj", "{FCBA070C-E4E3-45F5-96F2-7095342A4B58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wysnan.EIMOnline.EF", "Wysnan.EIMOnline.EF\Wysnan.EIMOnline.EF.csproj", "{D16CC864-9DB4-47DC-82CC-7E8311C97E62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wysnan.EIMOnline.Business", "Wysnan.EIMOnline.Business\Wysnan.EIMOnline.Business.csproj", "{5D38C1E7-99C7-4074-B9FB-1413E4F89C8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wysnan.EIMOnline.Tool", "Wysnan.EIMOnline.Tool\Wysnan.EIMOnline.Tool.csproj", "{B7502FFB-F636-417B-98C6-1D95F776288C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90E7BB87-BB8D-41BF-9E8D-34F50BF2B601}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90E7BB87-BB8D-41BF-9E8D-34F50BF2B601}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90E7BB87-BB8D-41BF-9E8D-34F50BF2B601}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90E7BB87-BB8D-41BF-9E8D-34F50BF2B601}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5592AE09-77D2-483E-8068-EE36DA6872B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5592AE09-77D2-483E-8068-EE36DA6872B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5592AE09-77D2-483E-8068-EE36DA6872B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5592AE09-77D2-483E-8068-EE36DA6872B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3575FA9C-D45B-481D-AD01-4509136B97C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3575FA9C-D45B-481D-AD01-4509136B97C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3575FA9C-D45B-481D-AD01-4509136B97C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3575FA9C-D45B-481D-AD01-4509136B97C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCBA070C-E4E3-45F5-96F2-7095342A4B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCBA070C-E4E3-45F5-96F2-7095342A4B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCBA070C-E4E3-45F5-96F2-7095342A4B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCBA070C-E4E3-45F5-96F2-7095342A4B58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D16CC864-9DB4-47DC-82CC-7E8311C97E62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D16CC864-9DB4-47DC-82CC-7E8311C97E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D16CC864-9DB4-47DC-82CC-7E8311C97E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D16CC864-9DB4-47DC-82CC-7E8311C97E62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D38C1E7-99C7-4074-B9FB-1413E4F89C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D38C1E7-99C7-4074-B9FB-1413E4F89C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D38C1E7-99C7-4074-B9FB-1413E4F89C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D38C1E7-99C7-4074-B9FB-1413E4F89C8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7502FFB-F636-417B-98C6-1D95F776288C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7502FFB-F636-417B-98C6-1D95F776288C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7502FFB-F636-417B-98C6-1D95F776288C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7502FFB-F636-417B-98C6-1D95F776288C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

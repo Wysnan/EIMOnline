@@ -1,0 +1,43 @@
+﻿<objects xmlns="http://www.springframework.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/xsd/spring-objects.xsd">
+
+  <!--<object id="TenantTokenProvider" type="Genuit.Promys.MVC.Models.Providers.WebTenantTokenProvider" singleton="false">
+    <property name="AppCache" ref="ApplicationCache"/>
+  </object>-->
+
+  <!--<object name="PromysConnectionString" type="System.String" factory-method="GetPromysConnectionString" factory-object="TenantProvider" singleton="false" />-->
+
+  <!--<object name="MasterModel" type="Genuit.Promys.Model.EF.EntityFrameworkModel, Genuit.Promys.Model.EF" scope="request" >
+    <constructor-arg name="context" ref="MasterDbContext"></constructor-arg>
+  </object>
+
+  <object id="RealUserCache" type="Genuit.Promys.MVC.Models.Cache.SessionCache" singleton="true"/>
+
+  <object id="RequestCache" type="Genuit.Promys.MVC.Models.Cache.WebRequestCache" scope="request"/>
+
+  <object id="UserCache" type="Genuit.Promys.MVC.Models.Cache.RequestBufferedUserCache" singleton="false">
+    <property name="UserCache" ref="RealUserCache"/>
+    <property name="RequestCache" ref="RequestCache"/>
+  </object>
+
+  <object id="ApplicationCache" type="Genuit.Promys.MVC.Models.Cache.HttpContextCache" singleton="true">
+    <property name="Configuration" ref="SystemConfig"/>
+  </object>
+
+  <object id="SystemConfig" type="Genuit.Promys.MVC.Models.WebSystemConfiguration" singleton="true"/>
+
+  <object id="SessionInfoProvider" type="Genuit.Promys.MVC.Models.Providers.WebSessionInfoProvider" singleton="false">
+  </object>
+  
+  <object id="PasswordGeneratorProvider" type="Genuit.Promys.MVC.Models.Providers.WebPasswordGeneratorProvider">
+  </object>
+
+  <object id="HttpContextBase" type="System.Web.HttpContextBase" factory-method="Get" factory-object="HttpContextBaseProvider" singleton="false">
+  </object>
+
+  <object id="HttpContextBaseProvider" type="Genuit.Promys.MVC.Models.Providers.HttpContextBaseProvider" singleton="true">
+  </object>-->
+  <!--<object id="SecurityUserController" type="Wysnan.EIMOnline.MVC.Controllers.SecurityUserController" parent="BaseController" singleton="false">
+    <property name="Model" ref="SecurityUserModel" />
+  </object>-->
+</objects>

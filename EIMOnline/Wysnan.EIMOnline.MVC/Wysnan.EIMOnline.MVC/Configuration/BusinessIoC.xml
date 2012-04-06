@@ -1,0 +1,10 @@
+﻿<objects xmlns="http://www.springframework.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/xsd/spring-objects.xsd">
+
+  <object id="BusinessModel" type="Wysnan.EIMOnline.Business.BusinessModel" singleton="false" >
+    <property name="Model" ref="Model"/>
+  </object>
+  <object id="SecurityUserModel" type="Wysnan.EIMOnline.Business.SecurityUserModel" singleton="false" parent="BusinessModel">
+    <!--<property name="Model" ref="Model"/>-->
+  </object>
+</objects>

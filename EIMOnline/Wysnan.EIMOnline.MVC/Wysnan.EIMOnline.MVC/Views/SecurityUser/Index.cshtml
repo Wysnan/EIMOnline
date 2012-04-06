@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Wysnan.EIMOnline.Common
+@model List<Wysnan.EIMOnline.Common.Poco.SecurityUser>
+<link href="/Content/themes/jquery-ui-1.8.17.custom.css" rel="stylesheet" type="text/css" />
+<link href="/Content/themes/base/ui.jqgrid.css" rel="stylesheet" type="text/css" />
+<script src="/Scripts/jquery-ui-1.8.17.custom.min.js" type="text/javascript"></script>
+<script src="/Scripts/JqGrid/i18n/grid.locale-cn.js" type="text/javascript"></script>
+<script src="/Scripts/JqGrid/jquery.jqGrid.src.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#list").jqGrid({
+            url: '/Handler1.ashx',
+            datatype: 'json',
+            mtype: 'GET',
+            colNames: ['编号', '姓名', '年龄', '生日', '班级'],
+            colModel: [
+                         { name: 'Id', index: 'Id', width: 180, editable: false, search: false,hidden:false, hidedlg: true },
+                         { name: 'Name', index: 'Name', width: 120, editable: true },
+                         { name: 'Age', index: 'Age', width: 90, editable: true },
+                         { name: 'Birthday', index: 'Birthday', align: 'center', width: 60, editable: true },
+                         { name: 'ClassId', index: 'ClassId', width: 200, sorttype: "ClassId", sortable: false, editable: true }
+                         ],
+            pager: '#pager',
+            sortable: true,
+            rowNum: 10,
+            multiselect: true,
+            prmNames: { rows: "pageSize", page: "page" },
+            jsonReader: {
+                root: "stus",
+                repeatitems: true
+            },
+            rowList: [10, 20, 30],
+            sortname: 'Id',
+            sortorder: 'desc',
+            viewrecords: true,
+            caption: 'My first grid'
+            });
+        $("#list").jqGrid('navGrid', '#pager', { refresh: true, view: true, edit: true, add: true, del: true, searchtext: '查询' }, {}, {}, {}, { multipleSearch: true });
+
+    });
+</script>
+<h2>
+    Index</h2>
+@*<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td>
+            编号
+        </td>
+        <td>
+            姓名
+        </td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID
+            </td>
+            <td>
+                @item.Name
+            </td>
+        </tr>
+    }
+</table>*@
+<table id="list">
+</table>
+<div id="pager">
+</div>
+@*@{Html.RenderAction("Index", "Grid");}*@ 
