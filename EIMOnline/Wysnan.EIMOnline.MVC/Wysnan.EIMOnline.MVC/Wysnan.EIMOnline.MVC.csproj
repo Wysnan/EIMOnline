@@ -91,6 +91,7 @@
   <ItemGroup>
     <Content Include="Configuration\BusinessIoC.xml" />
     <Content Include="Configuration\EFIoC.xml" />
+    <Content Include="Configuration\InjectionIoC.xml" />
     <Content Include="Configuration\MVCIoC.xml" />
     <Content Include="Content\JqGrid\ellipsis-xbl.xml" />
     <Content Include="Content\JqGrid\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />

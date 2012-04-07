@@ -6,12 +6,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Wysnan.EIMOnline.Common.Poco
 {
-    public class SecurityUser : IBaseEntity, ITransactionalEntity
+    public class SecurityUser : IBaseEntity
     {
         public int ID { get; set; }
 
-
-        public int SystemStatus { get; set; }
+        public byte? SystemStatus { get; set; }
 
         [ConcurrencyCheck]
         [Timestamp]

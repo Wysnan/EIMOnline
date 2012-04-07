@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D16CC864-9DB4-47DC-82CC-7E8311C97E62}</ProjectGuid>
+    <ProjectGuid>{78E214C4-A31A-46E3-960A-525A7FEBB37A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Wysnan.EIMOnline.EF</RootNamespace>
-    <AssemblyName>Wysnan.EIMOnline.EF</AssemblyName>
+    <RootNamespace>Wysnan.EIMOnline.Injection</RootNamespace>
+    <AssemblyName>Wysnan.EIMOnline.Injection</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,13 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\Reference\entityFramework\EntityFramework.dll</HintPath>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\Reference\spring\Spring.Aop.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,31 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context.cs" />
-    <Compile Include="EntityFrameworkModel.cs" />
-    <Compile Include="Mapping\SecurityUserMap.cs" />
-    <Compile Include="Migrations\201203211128252_SecurityUser.cs" />
-    <Compile Include="Migrations\201203211128252_SecurityUser.Designer.cs">
-      <DependentUpon>201203211128252_SecurityUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\DBScript\SqlMigration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Wysnan.EIMOnline.Common\Wysnan.EIMOnline.Common.csproj">
-      <Project>{5592AE09-77D2-483E-8068-EE36DA6872B0}</Project>
-      <Name>Wysnan.EIMOnline.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Wysnan.EIMOnline.IDAL\Wysnan.EIMOnline.IDAL.csproj">
-      <Project>{3575FA9C-D45B-481D-AD01-4509136B97C9}</Project>
-      <Name>Wysnan.EIMOnline.IDAL</Name>
-    </ProjectReference>
+    <Compile Include="Transaction\TransactionAttribute.cs" />
+    <Compile Include="Transaction\TransactionInterceptor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

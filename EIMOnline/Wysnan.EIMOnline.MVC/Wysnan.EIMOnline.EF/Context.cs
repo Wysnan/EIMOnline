@@ -11,8 +11,6 @@ namespace Wysnan.EIMOnline.EF
 {
     public class Context : DbContext
     {
-        //public const string connectionString = null;
-
         public Context()
             : base()
         {
@@ -22,7 +20,7 @@ namespace Wysnan.EIMOnline.EF
         public Context(string connectionString)
             : base(connectionString)
         {
-
+            
         }
 
         DbSet<SecurityUser> SecurityUser { get; set; }
