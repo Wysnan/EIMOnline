@@ -9,22 +9,45 @@ using Wysnan.EIMOnline.IBLL.Framework;
 using Wysnan.EIMOnline.Common.Framework.Enum;
 using Wysnan.EIMOnline.Common.Poco;
 using Wysnan.EIMOnline.Common.Framework;
+using Wysnan.EIMOnline.Business.Framework.Cache;
 
 namespace Wysnan.EIMOnline.Business.Framework
 {
     /// <summary>
-    /// 
+    /// 系统消息管理
     /// </summary>
     public class MessageModel : IMessageModel
     {
+        private MessageModel()
+        {
+            this.DicMessage = GetMessage();
+        }
+
         #region 属性定义
 
         /// <summary>
-        ///  
+        ///  消息文件路径
         /// </summary>
         private static string messageConfigPath = HttpContext.Current.Server.MapPath(ConstEntity.Message_ConfigFile);
 
+        static readonly MessageModel instance = new MessageModel();
+
+        public static MessageModel Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
+
+        public Dictionary<string, string> DicMessage { get; set; }
+
         #endregion
+
+        public void Reload()
+        {
+            this.DicMessage = GetMessage();
+        }
 
         #region 内部方法
 
@@ -51,49 +74,38 @@ namespace Wysnan.EIMOnline.Business.Framework
         #region 对外调用方法
 
         /// <summary>
-        ///读取code对应的value
+        /// 根据消息code读取消息内容
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
-        public string GetMessage(string code)
+        private Dictionary<string, string> GetMessage()
         {
-            Dictionary<string, string> dicMessage = null;
-            string message = string.Empty;
+            Dictionary<string, string> dicMessage = new Dictionary<string, string>();
             if (getElement() != null)
             {
                 XElement elements = getElement();
                 var queryResults = from element in elements.Elements()
-                                   select new 
+                                   select new MessageEntity
                                    {
-                                       code = string.IsNullOrWhiteSpace(element.Attribute(ConstEntity.Message_Code).Value) ? "" : element.Attribute(ConstEntity.Message_Code).Value,
-                                       value = string.IsNullOrWhiteSpace(element.Attribute(ConstEntity.Message_Value).Value) ? "" : element.Attribute(ConstEntity.Message_Value).Value,
+                                       Code = string.IsNullOrWhiteSpace(element.Attribute(ConstEntity.Message_Code).Value) ? "" : element.Attribute(ConstEntity.Message_Code).Value,
+                                       Value = string.IsNullOrWhiteSpace(element.Attribute(ConstEntity.Message_Value).Value) ? "" : element.Attribute(ConstEntity.Message_Value).Value,
                                    };
-                if (queryResults!=null)
+
+                /// 定义错误缓存
+                if (queryResults != null && queryResults.ToList().Count > 0)
                 {
-                    dicMessage = new Dictionary<string, string>();
                     foreach (var item in queryResults)
                     {
-                        dicMessage.Add(item.code, item.value);
+                        dicMessage.Add(item.Code, item.Value);
                     }
                 }
-
-                var messageMember = from item in queryResults
-                                    where item.code == code
-                                    select item;
-                if (messageMember == null)
-                {
-                    throw new ArgumentException("消息定义错误");
-                }
-                else if (messageMember.Count() > 1) throw new ArgumentException("消息定义错误，同一错误有多个类型");
-                message = messageMember.FirstOrDefault().value;
             }
             else
             {
                 throw new ArgumentException("消息配置文件为空");
             }
-            return message;
+            return dicMessage;
         }
-
-        #endregion
     }
+        #endregion
 }

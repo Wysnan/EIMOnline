@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Wysnan.EIMOnline.Business.Framework;
 
 namespace Wysnan.EIMOnline.MVC.TestFile
 {
@@ -11,8 +12,8 @@ namespace Wysnan.EIMOnline.MVC.TestFile
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Wysnan.EIMOnline.Business.Framework.MessageModel message=new Business.Framework.MessageModel();
-            Response.Write(message.GetMessage("1"));
+            Response.Write(GlobalEntity.Instance.Cache_Message.GetMessge("1"));
+            Cache_Message.Instance.ReLoadData();
         }
     }
 }

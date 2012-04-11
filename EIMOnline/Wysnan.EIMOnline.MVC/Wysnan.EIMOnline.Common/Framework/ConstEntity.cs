@@ -30,7 +30,22 @@ namespace Wysnan.EIMOnline.Common.Framework
         /// <summary>
         /// 消息节点属性value
         /// </summary>
-        public const string Message_Value = "value"; 
+        public const string Message_Value = "value";
+
+        #endregion
+
+        #region 缓存
+
+        /// <summary>
+        /// Message缓存key
+        /// </summary>
+        public const string Cache_Message = "Cache_Message";
+
+        /// <summary>
+        /// JqGrid缓存key
+        /// </summary>
+        public const string Cache_JqGrid = "Cache_JqGrid";
+
 
         #endregion
     }

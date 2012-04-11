@@ -7,9 +7,7 @@ namespace Wysnan.EIMOnline.Common.Framework
 {
     public class MessageEntity
     {
-
-        public int code { get; set; }
-
+        public string Code { get; set; }
         public string Value { get; set; }
     }
 }
