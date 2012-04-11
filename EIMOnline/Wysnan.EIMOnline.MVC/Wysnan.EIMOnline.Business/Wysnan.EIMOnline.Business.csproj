@@ -48,6 +48,7 @@
     <Compile Include="Framework\Cache_JqGrid.cs" />
     <Compile Include="Framework\Cache_Message.cs" />
     <Compile Include="Framework\ICache.cs" />
+    <Compile Include="Framework\MessageModel.cs" />
     <Compile Include="Framework\SystemInitialization.cs" />
     <Compile Include="GenericBusinessModel.cs" />
     <Compile Include="GridModel.cs" />
@@ -71,9 +72,6 @@
       <Project>{78E214C4-A31A-46E3-960A-525A7FEBB37A}</Project>
       <Name>Wysnan.EIMOnline.Injection</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Config\Message.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

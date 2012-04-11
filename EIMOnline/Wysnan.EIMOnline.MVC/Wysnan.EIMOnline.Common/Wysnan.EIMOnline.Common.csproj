@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Framework\ConstEntity.cs" />
     <Compile Include="Framework\Enum\GridEnum.cs" />
     <Compile Include="Framework\Grid\Enum\GridColumnEdittype.cs" />
     <Compile Include="Framework\Grid\Enum\GridColumnSorttype.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Framework\Grid\JqGridConfig.cs" />
     <Compile Include="Framework\Grid\GridColumnCollection.cs" />
     <Compile Include="Framework\Grid\POCO\JqGridColumnTextBox.cs" />
+    <Compile Include="Framework\MessageEntity.cs" />
     <Compile Include="Poco\IBaseEntity.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -12,6 +12,6 @@ namespace Wysnan.EIMOnline.IBLL.Framework
         /// </summary>
         /// <param name="code">Message.Config中Code属性值</param>
         /// <returns>消息字符串</returns>
-        string GetMessage(int code);
+        string GetMessage(string code);
     }
 }
