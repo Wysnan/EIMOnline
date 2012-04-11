@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using Wysnan.EIMOnline.Common.Poco;
 using Wysnan.EIMOnline.Common.Framework;
+using Wysnan.EIMOnline.Common.Framework.Grid;
 
 namespace Wysnan.EIMOnline.IBLL
 {
     public interface IBusinessLogicModel<T> where T : IBaseEntity
     {
-
         Result Add(T t);
 
         Result Update(T t);

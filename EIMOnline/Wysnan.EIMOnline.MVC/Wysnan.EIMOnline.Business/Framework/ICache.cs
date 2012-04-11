@@ -5,8 +5,10 @@ using System.Text;
 
 namespace Wysnan.EIMOnline.Business.Framework
 {
-    public class MessageModel
+    public interface ICache
     {
-        
+        void LoadData();
+
+        void ReLoadData();
     }
 }

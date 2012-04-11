@@ -41,6 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Framework\Enum\GridEnum.cs" />
+    <Compile Include="Framework\Grid\Enum\GridColumnEdittype.cs" />
+    <Compile Include="Framework\Grid\Enum\GridColumnSorttype.cs" />
+    <Compile Include="Framework\Grid\Enum\GridColumnAlign.cs" />
+    <Compile Include="Framework\Grid\Enum\GridColumnDateType.cs" />
+    <Compile Include="Framework\Grid\Interfaces\IJqGridColumn.cs" />
+    <Compile Include="Framework\Grid\JqGrid.cs" />
+    <Compile Include="Framework\Grid\JqGridConfig.cs" />
+    <Compile Include="Framework\Grid\GridColumnCollection.cs" />
+    <Compile Include="Framework\Grid\POCO\JqGridColumnTextBox.cs" />
     <Compile Include="Poco\IBaseEntity.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -53,7 +63,7 @@
     <Compile Include="Framework\Result.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Framework\Exception\" />
+    <Folder Include="Framework\Poco\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

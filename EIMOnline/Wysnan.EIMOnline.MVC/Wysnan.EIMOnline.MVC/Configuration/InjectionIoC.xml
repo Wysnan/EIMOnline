@@ -1,7 +1,7 @@
 ﻿<objects xmlns="http://www.springframework.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/xsd/spring-objects.xsd">
 
-  <object id="TransactionInterceptor" type="Wysnan.EIMOnline.Injection.Transaction.Transaction.TransactionInterceptor" singleton="false">
+  <object id="TransactionInterceptor" type="Wysnan.EIMOnline.Injection.Transaction.TransactionInterceptor" singleton="false">
   </object>
   
   <object id="AutoProxy.TransactionAdvisor" type="Spring.Aop.Support.AttributeMatchMethodPointcutAdvisor, Spring.Aop" singleton="false">
@@ -9,5 +9,9 @@
     <property name="advice" ref="TransactionInterceptor"/>
     <property name="order" value="100"/>
   </object>
-  
+
+  <object id="ProxyCreator" type="Spring.Aop.Framework.AutoProxy.DefaultAdvisorAutoProxyCreator, Spring.Aop">
+    <property name="AdvisorObjectNamePrefix" value="AutoProxy"></property>
+    <property name="UsePrefix" value="true"></property>
+  </object>
 </objects>

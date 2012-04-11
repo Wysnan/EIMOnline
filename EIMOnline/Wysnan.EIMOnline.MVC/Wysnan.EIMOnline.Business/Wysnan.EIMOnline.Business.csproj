@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,8 +43,14 @@
   <ItemGroup>
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="BusinessModel.cs" />
-    <Compile Include="Framework\MessageModel.cs" />
+    <Compile Include="Framework\Cache\CacheModel.cs" />
+    <Compile Include="Framework\GlobalEntity.cs" />
+    <Compile Include="Framework\Cache_JqGrid.cs" />
+    <Compile Include="Framework\Cache_Message.cs" />
+    <Compile Include="Framework\ICache.cs" />
+    <Compile Include="Framework\SystemInitialization.cs" />
     <Compile Include="GenericBusinessModel.cs" />
+    <Compile Include="GridModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecurityUserModel.cs" />
   </ItemGroup>
@@ -60,10 +67,15 @@
       <Project>{3575FA9C-D45B-481D-AD01-4509136B97C9}</Project>
       <Name>Wysnan.EIMOnline.IDAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Wysnan.EIMOnline.Injection\Wysnan.EIMOnline.Injection.csproj">
+      <Project>{78E214C4-A31A-46E3-960A-525A7FEBB37A}</Project>
+      <Name>Wysnan.EIMOnline.Injection</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\Message.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

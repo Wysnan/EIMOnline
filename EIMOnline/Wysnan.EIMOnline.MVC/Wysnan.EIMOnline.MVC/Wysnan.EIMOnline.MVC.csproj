@@ -82,6 +82,7 @@
     <Compile Include="Areas\Administration\Controllers\SecurityUserController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Framework\Extensions\HtmlHelperExtension.cs" />
     <Compile Include="Framework\MyViewEngine.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -391,6 +392,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Controls\Views\Shared\_DialogMessage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\SecurityUser\Add.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

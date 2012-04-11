@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using Wysnan.EIMOnline.IBLL;
 using Wysnan.EIMOnline.Common.Poco;
+using Wysnan.EIMOnline.Common.Framework;
+using Wysnan.EIMOnline.Injection.Transaction;
+using Wysnan.EIMOnline.Common.Framework.Grid.POCO;
+using Wysnan.EIMOnline.Common.Framework.Grid;
 
 namespace Wysnan.EIMOnline.Business
 {
@@ -11,7 +15,12 @@ namespace Wysnan.EIMOnline.Business
     {
         public SecurityUserModel()
         {
+        }
 
+        [TransactionAttribute]
+        public new Result Add(SecurityUser t)
+        {
+            return null;
         }
 
         //public int Add(Common.Poco.SecurityUser t)
@@ -33,5 +42,6 @@ namespace Wysnan.EIMOnline.Business
         //{
         //    return Model.List();
         //}
+
     }
 }

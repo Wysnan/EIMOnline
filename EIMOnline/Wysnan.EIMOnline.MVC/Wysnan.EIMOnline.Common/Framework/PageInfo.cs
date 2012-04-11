@@ -7,6 +7,8 @@ namespace Wysnan.EIMOnline.Common.Framework
 {
     public class PageInfo
     {
-
+        public PageInfo()
+        {
+        }
     }
 }

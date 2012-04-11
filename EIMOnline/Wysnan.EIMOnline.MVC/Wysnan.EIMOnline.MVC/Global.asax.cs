@@ -27,7 +27,6 @@ namespace Wysnan.EIMOnline.MVC
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Index", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
-
         }
 
         protected void Application_Start()

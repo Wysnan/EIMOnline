@@ -11,7 +11,7 @@ namespace Wysnan.EIMOnline.EF.Migrations
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        SystemStatus = c.Int(nullable: false),
+                        SystemStatus = c.Byte(),
                         TimeStamp = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                         Name = c.String(),
                         LoginID = c.String(),

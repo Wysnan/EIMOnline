@@ -49,9 +49,9 @@
     <Compile Include="Context.cs" />
     <Compile Include="EntityFrameworkModel.cs" />
     <Compile Include="Mapping\SecurityUserMap.cs" />
-    <Compile Include="Migrations\201203211128252_SecurityUser.cs" />
-    <Compile Include="Migrations\201203211128252_SecurityUser.Designer.cs">
-      <DependentUpon>201203211128252_SecurityUser.cs</DependentUpon>
+    <Compile Include="Migrations\201204100723306_SecurityUser.cs" />
+    <Compile Include="Migrations\201204100723306_SecurityUser.Designer.cs">
+      <DependentUpon>201204100723306_SecurityUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\DBScript\SqlMigration.cs" />

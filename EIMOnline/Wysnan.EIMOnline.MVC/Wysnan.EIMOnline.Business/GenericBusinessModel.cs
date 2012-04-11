@@ -5,11 +5,16 @@ using System.Text;
 using Wysnan.EIMOnline.IBLL;
 using Wysnan.EIMOnline.Common.Poco;
 using Wysnan.EIMOnline.Common.Framework;
+using Wysnan.EIMOnline.Common.Framework.Grid;
 
 namespace Wysnan.EIMOnline.Business
 {
     public class GenericBusinessModel<T> : BusinessModel, IBusinessLogicModel<T> where T : class,IBaseEntity
     {
+        #region 属性
+        
+        #endregion
+
         public GenericBusinessModel()
             : base()
         {
@@ -88,10 +93,6 @@ namespace Wysnan.EIMOnline.Business
 
         #endregion
 
-        #region 事务
-
-        #endregion
-
         #region 操作日志
 
         #endregion
@@ -103,5 +104,8 @@ namespace Wysnan.EIMOnline.Business
         #region 异常
 
         #endregion
+
+
+
     }
 }
