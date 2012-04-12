@@ -55,16 +55,19 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Poco\IModificationTrackableEntity.cs" />
+    <Compile Include="Poco\SecurityRole.cs" />
     <Compile Include="Poco\SecurityUser.cs" />
+    <Compile Include="Poco\SecurityUserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Framework\Enum\SystemStatus.cs" />
     <Compile Include="Framework\ISystemBaseEntity.cs" />
     <Compile Include="Framework\PageInfo.cs" />
     <Compile Include="Framework\Result.cs" />
+    <Compile Include="ViewModel\CombinedSecurityUser.cs" />
+    <Compile Include="ViewModel\ICombined.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Framework\Poco\" />
-    <Folder Include="ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

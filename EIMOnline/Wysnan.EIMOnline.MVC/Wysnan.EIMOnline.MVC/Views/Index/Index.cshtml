@@ -11,17 +11,17 @@
         <legend>登录信息</legend>
         <table cellpadding="0" cellspacing="0" border="0">
             <tr>
-                <td>@Html.LabelFor(a => a.LoginID)
+                <td>@Html.LabelFor(a => a.UserLoginID)
                 </td>
                 <td>
-                    @Html.EditorFor(a => a.LoginID) @Html.ValidationMessageFor(a => a.LoginID)
+                    @Html.EditorFor(a => a.UserLoginID) @Html.ValidationMessageFor(a => a.UserLoginID)
                 </td>
             </tr>
             <tr>
-                <td>@Html.LabelFor(a => a.Pwd)
+                <td>@Html.LabelFor(a => a.UserLoginPwd)
                 </td>
                 <td>
-                    @Html.EditorFor(a => a.Pwd) @Html.ValidationMessageFor(a => a.Pwd)
+                    @Html.EditorFor(a => a.UserLoginPwd) @Html.ValidationMessageFor(a => a.UserLoginPwd)
                 </td>
             </tr>
         </table>

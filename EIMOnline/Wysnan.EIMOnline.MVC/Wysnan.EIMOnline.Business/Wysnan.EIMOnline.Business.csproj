@@ -71,6 +71,10 @@
       <Project>{78E214C4-A31A-46E3-960A-525A7FEBB37A}</Project>
       <Name>Wysnan.EIMOnline.Injection</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Wysnan.EIMOnline.Tool\Wysnan.EIMOnline.Tool.csproj">
+      <Project>{B7502FFB-F636-417B-98C6-1D95F776288C}</Project>
+      <Name>Wysnan.EIMOnline.Tool</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\Message.config" />

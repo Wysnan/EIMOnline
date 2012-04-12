@@ -22,7 +22,7 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         [HttpPost]
         public ActionResult Index(SecurityUser user)
         {
-            if (user.LoginID == "admin" && user.Pwd == "admin")
+            if (user.UserLoginID == "admin" && user.UserLoginPwd == "admin")
             {
                 return RedirectToRoute("Administration_default", new { controller = "SecurityUser", action = "Index" });
                 //return RedirectToAction("Index", "SecurityUser", new { area = "Administration" });

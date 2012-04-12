@@ -44,8 +44,16 @@ namespace Wysnan.EIMOnline.Business
                     Name=grid.Path(a=>a.ID)
                 },
                 new JqGridColumnTextBox(){
-                    Label="名称",
-                    Name=grid.Path(a=>a.Name)
+                    Label="姓名",
+                    Name=grid.Path(a=>a.UserName)
+                },
+                new JqGridColumnTextBox(){
+                    Label="账号",
+                    Name=grid.Path(a=>a.UserLoginID)
+                },
+                new JqGridColumnTextBox(){
+                    Label="密码",
+                    Name=grid.Path(a=>a.UserLoginPwd)
                 }
             };
             grid.GridColumnCollection= columns;

@@ -16,10 +16,7 @@ namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
     {
         public ActionResult Index()
         {
-            //HtmlHelper a = null;
-            //a.Grid<SecurityUser, SecurityUser>(GridEnum.SecurityUser);
-            List<SecurityUser> users = new List<SecurityUser>();
-            users.Add(new SecurityUser() { ID = 1, Name = "zhangsan" });
+            List<SecurityUser> users = Model.List().ToList();
             return View(users);
         }
 
