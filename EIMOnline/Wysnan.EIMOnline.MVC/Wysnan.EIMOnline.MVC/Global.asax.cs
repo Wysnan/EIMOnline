@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Wysnan.EIMOnline.MVC.Framework;
+using Wysnan.EIMOnline.Business.Framework;
 
 namespace Wysnan.EIMOnline.MVC
 {

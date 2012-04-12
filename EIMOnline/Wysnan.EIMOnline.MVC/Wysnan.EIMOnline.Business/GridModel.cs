@@ -20,7 +20,7 @@ namespace Wysnan.EIMOnline.Business
             get { return instance; }
         }
 
-        public GridModel()
+        private GridModel()
         {
             JqGrids = new Dictionary<GridEnum, JqGrid>();
 

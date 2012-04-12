@@ -8,6 +8,7 @@ using Wysnan.EIMOnline.Common.Framework;
 using Wysnan.EIMOnline.Injection.Transaction;
 using Wysnan.EIMOnline.Common.Framework.Grid.POCO;
 using Wysnan.EIMOnline.Common.Framework.Grid;
+using Wysnan.EIMOnline.Business.Framework;
 
 namespace Wysnan.EIMOnline.Business
 {
@@ -16,7 +17,6 @@ namespace Wysnan.EIMOnline.Business
         public SecurityUserModel()
         {
         }
-
         [TransactionAttribute]
         public new Result Add(SecurityUser t)
         {
