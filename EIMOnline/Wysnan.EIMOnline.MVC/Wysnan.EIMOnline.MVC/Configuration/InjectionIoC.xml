@@ -10,6 +10,16 @@
     <property name="order" value="100"/>
   </object>
 
+
+  <object id="LogListInterceptor" type="Wysnan.EIMOnline.Injection.Logs.LogListInterceptor" singleton="false">
+  </object>
+
+  <object id="AutoProxy.LogListAdvisor" type="Spring.Aop.Support.AttributeMatchMethodPointcutAdvisor, Spring.Aop" singleton="false">
+    <property name="attribute" value="Wysnan.EIMOnline.Injection.Logs.LogListAttribute"/>
+    <property name="advice" ref="LogListInterceptor"/>
+    <property name="order" value="100"/>
+  </object>
+
   <object id="ProxyCreator" type="Spring.Aop.Framework.AutoProxy.DefaultAdvisorAutoProxyCreator, Spring.Aop">
     <property name="AdvisorObjectNamePrefix" value="AutoProxy"></property>
     <property name="UsePrefix" value="true"></property>

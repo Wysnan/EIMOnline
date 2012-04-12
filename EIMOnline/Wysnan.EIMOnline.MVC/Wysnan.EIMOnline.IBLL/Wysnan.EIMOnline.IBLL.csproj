@@ -43,6 +43,7 @@
     <Compile Include="Framework\IMessageModel.cs" />
     <Compile Include="Framework\IBaseConfigModel.cs" />
     <Compile Include="IBusinessLogicModel.cs" />
+    <Compile Include="ILogs.cs" />
     <Compile Include="ISecurityUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

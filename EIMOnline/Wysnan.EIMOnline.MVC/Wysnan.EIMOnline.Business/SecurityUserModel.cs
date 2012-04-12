@@ -8,6 +8,7 @@ using Wysnan.EIMOnline.Common.Framework;
 using Wysnan.EIMOnline.Injection.Transaction;
 using Wysnan.EIMOnline.Common.Framework.Grid.POCO;
 using Wysnan.EIMOnline.Common.Framework.Grid;
+using Wysnan.EIMOnline.Injection.Logs;
 
 namespace Wysnan.EIMOnline.Business
 {
@@ -23,6 +24,11 @@ namespace Wysnan.EIMOnline.Business
             return null;
         }
 
+        [LogList]
+        public new Result Add2()
+        {
+            return null;
+        }
         //public int Add(Common.Poco.SecurityUser t)
         //{
         //    return Model.Add(t);
