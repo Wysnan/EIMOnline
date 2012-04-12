@@ -81,6 +81,7 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\SecurityUserController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\GeneralController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Framework\Extensions\HtmlHelperExtension.cs" />
     <Compile Include="Framework\MyViewEngine.cs" />

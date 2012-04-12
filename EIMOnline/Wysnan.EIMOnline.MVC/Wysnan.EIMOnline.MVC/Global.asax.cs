@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Wysnan.EIMOnline.MVC.Framework;
+using Wysnan.EIMOnline.Business.Framework;
 
 namespace Wysnan.EIMOnline.MVC
 {
@@ -31,10 +32,12 @@ namespace Wysnan.EIMOnline.MVC
 
         protected void Application_Start()
         {
-            ViewEngines.Engines.Add(new MyViewEngine());
+            //ViewEngines.Engines.Add(new MyViewEngine());
             AreaRegistration.RegisterAllAreas();
+
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Wysnan.EIMOnline.Business.Framework
             get { return instance; }
         }
 
-        internal Cache_JqGrid()
+        private Cache_JqGrid()
         {
             LoadData();
         }

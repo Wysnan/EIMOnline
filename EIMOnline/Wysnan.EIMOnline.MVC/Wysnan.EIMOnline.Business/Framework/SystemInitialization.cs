@@ -14,7 +14,7 @@ namespace Wysnan.EIMOnline.Business.Framework
 
         protected virtual void Load()
         {
-
+            GlobalEntity.Instance.Cache_JqGrid.LoadData();
         }
 
         public void Reload()

@@ -16,11 +16,10 @@ namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
     {
         public ActionResult Index()
         {
-            var aa = GlobalEntity.Instance.Cache_JqGrid.JqGrids[GridEnum.SecurityUser];
-
-            List<SecurityUser> users = Model.List().ToList();
             //HtmlHelper a = null;
             //a.Grid<SecurityUser, SecurityUser>(GridEnum.SecurityUser);
+            List<SecurityUser> users = new List<SecurityUser>();
+            users.Add(new SecurityUser() { ID = 1, Name = "zhangsan" });
             return View(users);
         }
 
