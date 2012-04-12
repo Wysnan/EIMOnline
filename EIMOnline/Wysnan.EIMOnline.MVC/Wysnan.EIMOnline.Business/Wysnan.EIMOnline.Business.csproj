@@ -48,6 +48,7 @@
     <Compile Include="Framework\Cache_JqGrid.cs" />
     <Compile Include="Framework\Cache_Message.cs" />
     <Compile Include="Framework\ICache.cs" />
+    <Compile Include="Framework\MessageModel.cs" />
     <Compile Include="Framework\SystemInitialization.cs" />
     <Compile Include="GenericBusinessModel.cs" />
     <Compile Include="GridModel.cs" />
@@ -75,9 +76,6 @@
       <Project>{B7502FFB-F636-417B-98C6-1D95F776288C}</Project>
       <Name>Wysnan.EIMOnline.Tool</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Config\Message.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

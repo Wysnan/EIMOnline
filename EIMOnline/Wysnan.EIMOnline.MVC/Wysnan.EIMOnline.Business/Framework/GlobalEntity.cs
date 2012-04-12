@@ -18,6 +18,7 @@ namespace Wysnan.EIMOnline.Business.Framework
              * 初始化属性信息
              */
             this.Cache_JqGrid = Cache_JqGrid.Instance;
+            this.Cache_Message = Cache_Message.Instance;
         }
 
         static readonly GlobalEntity instance = new GlobalEntity();
