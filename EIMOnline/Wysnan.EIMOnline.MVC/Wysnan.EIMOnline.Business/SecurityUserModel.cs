@@ -33,6 +33,7 @@ namespace Wysnan.EIMOnline.Business
             return base.List();
         }
 
+        [OperateLogAttribute()]
         public IQueryable<CombinedSecurityUser> ListCombined()
         {
             throw new NotImplementedException();

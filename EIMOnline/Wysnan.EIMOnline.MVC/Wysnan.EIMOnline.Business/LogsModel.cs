@@ -9,15 +9,17 @@ using Wysnan.EIMOnline.Common.Framework;
 
 namespace Wysnan.EIMOnline.Business
 {
-    public class LogsModel : GenericBusinessModel<Logs>, ILogs
+    public class OperateLogModel : GenericBusinessModel<OperateLog>, IOperateLog
     {
-        public LogsModel()
+        public OperateLogModel()
         {
-        }
+        }       
 
-        [LogList]
-        public  new Result Add()
+        [OperateLog]
+        public new Result Add()
         {
+            OperateLog op=new OperateLog();
+            Model.Add<OperateLog>(op);
             return null;
         }
     }

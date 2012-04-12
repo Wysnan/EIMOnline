@@ -24,10 +24,10 @@ namespace Wysnan.EIMOnline.Common.Poco
 
 		public  SecurityUser()
         {
-            this.Logs1 = new List<Logs>();
+            this.OperateLogs = new List<OperateLog>();
         }
 
-        public virtual ICollection<Logs> Logs1 { get; set; }
+        public virtual ICollection<OperateLog> OperateLogs { get; set; }
 		
         public virtual ICollection<SecurityUserRole> SecurityUserRoles { get; set; }
     }

@@ -2,7 +2,6 @@ using System;
 using System.Linq;
 using AopAlliance.Intercept;
 using Wysnan.EIMOnline.Injection.Transaction;
-using Wysnan.EIMOnline.Common.Framework;
 
 namespace Wysnan.EIMOnline.Injection.Transaction
 {

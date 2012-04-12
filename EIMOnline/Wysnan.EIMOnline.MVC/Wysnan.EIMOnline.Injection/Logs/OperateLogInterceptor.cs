@@ -6,11 +6,12 @@ using AopAlliance.Intercept;
 
 namespace Wysnan.EIMOnline.Injection.Logs
 {
-    public class LogListInterceptor : IMethodInterceptor
+    public class OperateLogInterceptor : IMethodInterceptor
     {
         public object Invoke(IMethodInvocation invocation)
         {
-            var attributes = invocation.Method.GetCustomAttributes(typeof(LogListAttribute), false).OfType<LogListAttribute>();
+            //var model = BusinessModel
+            var attributes = invocation.Method.GetCustomAttributes(typeof(OperateLogAttribute), false).OfType<OperateLogAttribute>();
             //var attributes1 = invocation.Method.Name;
             //var attr = invocation.Method.DeclaringType.Name;
             if (attributes.Count() == 0)
@@ -34,12 +35,13 @@ namespace Wysnan.EIMOnline.Injection.Logs
           
             try
             {
-                using (System.Transactions.TransactionScope trans = new System.Transactions.TransactionScope())
-                {
-                    var result = invocation.Proceed();
-                    trans.Complete();
-                    return result;
-                }
+                //using (System.Transactions.TransactionScope trans = new System.Transactions.TransactionScope())
+                //{
+                    //OperateLog op = new OperateLog();
+                   //Model.Add<OperateLog>(op);
+                   
+                    return null;
+                //}
             }
             catch
             {

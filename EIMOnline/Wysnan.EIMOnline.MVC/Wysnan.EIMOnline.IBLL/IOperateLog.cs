@@ -6,7 +6,7 @@ using Wysnan.EIMOnline.Common.Poco;
 
 namespace Wysnan.EIMOnline.IBLL
 {
-    public interface ILogs : IBusinessLogicModel<Logs>
+    public interface IOperateLog : IBusinessLogicModel<OperateLog>
     {
     }
 }

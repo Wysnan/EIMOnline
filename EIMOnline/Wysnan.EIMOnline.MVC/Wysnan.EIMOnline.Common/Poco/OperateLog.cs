@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Wysnan.EIMOnline.Common.Poco
 {
-    public class Logs : IBaseEntity
+    public class OperateLog : IBaseEntity
     {
         public int ID { get; set; }
 
@@ -15,7 +15,7 @@ namespace Wysnan.EIMOnline.Common.Poco
         [Timestamp]
         public byte[] TimeStamp { get; set; }
 
-        public string OperateLog { get; set; }
+        public string OperateLogInfo { get; set; }
         public DateTime OperateDate { get; set; }
         public virtual SecurityUser SecurityUserId { get; set; }
     }
