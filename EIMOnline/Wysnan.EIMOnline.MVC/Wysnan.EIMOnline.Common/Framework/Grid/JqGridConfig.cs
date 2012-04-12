@@ -5,6 +5,7 @@ using System.Text;
 using Wysnan.EIMOnline.Common.Framework.Grid.POCO;
 using System.Linq.Expressions;
 using System.Reflection;
+using Wysnan.EIMOnline.Common.Framework.Grid.Enum;
 
 namespace Wysnan.EIMOnline.Common.Framework.Grid
 {
@@ -61,10 +62,82 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid
 
         public void DataBind()
         {
-            base.ColeModel = ConvertToColeModel(this.GridColumnCollection);
+            base._ColModel = ConvertToColeModel(this.GridColumnCollection);
         }
 
-        public new List<ColModel> ColeModel { get; private set; }
+        /// <summary>
+        /// 不能使用该属性。框架内部调用。
+        /// </summary>
+        [Obsolete("不能使用该属性", true)]
+        public new string _Url {  get; private set; }
+        /// <summary>
+        /// 不能使用该属性。框架内部调用。
+        /// </summary>
+        [Obsolete("不能使用该属性", true)]
+        public new GridColumnDateType _DataType {  get; private set; }
+        /// <summary>
+        /// 不能使用该属性。框架内部调用。
+        /// </summary>
+        [Obsolete("不能使用该属性", true)]
+        public new string _Mtype {  get; private set; }
+        /// <summary>
+        /// 不能使用该属性。框架内部调用。
+        /// </summary>
+        [Obsolete("不能使用该属性", true)]
+        public new string[] _ColNames {  get; private set; }
+        /// <summary>
+        /// 不能使用该属性。框架内部调用。
+        /// </summary>
+        [Obsolete("不能使用该属性", true)]
+        public new List<ColModel> _ColModel {  get; private set; }
+        /// <summary>
+        /// 不能使用该属性。框架内部调用。
+        /// </summary>
+        [Obsolete("不能使用该属性", true)]
+        public new string _Pager {  get; private set; }
+        /// <summary>
+        /// 不能使用该属性。框架内部调用。
+        /// </summary>
+        [Obsolete("不能使用该属性", true)]
+        public new bool _Sortable {  get; private set; }
+        /// <summary>
+        /// 不能使用该属性。框架内部调用。
+        /// </summary>
+        [Obsolete("不能使用该属性", true)]
+        public new bool _MultiSelect {  get; private set; }
+        /// <summary>
+        /// 不能使用该属性。框架内部调用。
+        /// </summary>
+        [Obsolete("不能使用该属性", true)]
+        public new string _PrmNames {  get; private set; }
+        /// <summary>
+        /// 不能使用该属性。框架内部调用。
+        /// </summary>
+        [Obsolete("不能使用该属性", true)]
+        public new string _JsonReader_Root {  get; private set; }
+        /// <summary>
+        /// 不能使用该属性。框架内部调用。
+        /// </summary>
+        [Obsolete("不能使用该属性", true)]
+        public new bool _JsonReader_Repeatitems {  get; private set; }
+        /// <summary>
+        /// 不能使用该属性。框架内部调用。
+        /// </summary>
+        [Obsolete("不能使用该属性", true)]
+        public new int[] _RowList {  get; private set; }
+        /// <summary>
+        /// 不能使用该属性。框架内部调用。
+        /// </summary>
+        [Obsolete("不能使用该属性", true)]
+        public new bool _ViewRecords {  get; private set; }
+        /// <summary>
+        /// 不能使用该属性。框架内部调用。
+        /// </summary>
+        [Obsolete("不能使用该属性", true)]
+        public new string _Caption {  get; private set; }
+
+
+        #region 私有方法
 
         private List<ColModel> ConvertToColeModel(GridColumnCollection gridColumnCollection)
         {
@@ -83,5 +156,7 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid
             }
             return models;
         }
+
+        #endregion
     }
 }

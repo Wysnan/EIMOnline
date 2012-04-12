@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\ArrayExtension.cs" />
+    <Compile Include="Extensions\BaseTypeExtension.cs" />
+    <Compile Include="Extensions\DynamicLibrary.cs" />
     <Compile Include="MvcExpand\ControllerExpand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

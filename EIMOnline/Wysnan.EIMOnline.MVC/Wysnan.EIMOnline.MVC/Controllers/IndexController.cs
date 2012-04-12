@@ -9,7 +9,7 @@ using Wysnan.EIMOnline.Tool.MvcExpand;
 
 namespace Wysnan.EIMOnline.MVC.Controllers
 {
-    public class IndexController : BaseController<ISecurityUser, SecurityUser>
+    public class IndexController : GeneralController
     {
         //
         // GET: /Index/
@@ -22,9 +22,11 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         [HttpPost]
         public ActionResult Index(SecurityUser user)
         {
-            if (user.LoginID == "admin" && user.Pwd == "admin")
+            if (user.UserLoginID == "admin" && user.UserLoginPwd == "admin")
             {
-                //return RedirectToRoute("Administration_default", new { controller = "SecurityUser", action = "Index" });
+                return RedirectToRoute("Administration_default", new { controller = "SecurityUser", action = "Index" });
+                //return RedirectToAction("Index", "SecurityUser", new { area = "Administration" });
+                //Response.Redirect("~/Administration/SecurityUser/Index",true);
             }
             return this.Alert("用户名或密码错误");
         }

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Wysnan.EIMOnline.Common.Poco
 {
-    public class SecurityUser : IBaseEntity
+    public class SecurityRole : IBaseEntity
     {
         public int ID { get; set; }
 
@@ -16,19 +16,8 @@ namespace Wysnan.EIMOnline.Common.Poco
         [Timestamp]
         public byte[] TimeStamp { get; set; }
 
-        public string UserName { get; set; }
+        public string RoleName { get; set; }
 
-        public string UserLoginID { get; set; }
-
-        public string UserLoginPwd { get; set; }
-
-		public  SecurityUser()
-        {
-            this.Logs1 = new List<Logs>();
-        }
-
-        public virtual ICollection<Logs> Logs1 { get; set; }
-		
         public virtual ICollection<SecurityUserRole> SecurityUserRoles { get; set; }
     }
 }

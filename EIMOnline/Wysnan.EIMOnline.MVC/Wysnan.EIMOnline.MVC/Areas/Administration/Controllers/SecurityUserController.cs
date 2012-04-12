@@ -16,17 +16,12 @@ namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
     {
         public ActionResult Index()
         {
-            var aa = GlobalEntity.Instance.Cache_JqGrid.JqGrids[GridEnum.SecurityUser];
-
             List<SecurityUser> users = Model.List().ToList();
-            //HtmlHelper a = null;
-            //a.Grid<SecurityUser, SecurityUser>(GridEnum.SecurityUser);
             return View(users);
         }
 
         public ActionResult Add()
         {
-            Model.Add2(); 
             return View();
         }
     }

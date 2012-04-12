@@ -6,13 +6,15 @@ using Wysnan.EIMOnline.IBLL;
 using Wysnan.EIMOnline.Common.Poco;
 using Wysnan.EIMOnline.Common.Framework;
 using Wysnan.EIMOnline.Common.Framework.Grid;
+using Wysnan.EIMOnline.Common.Framework.Enum;
+using Wysnan.EIMOnline.Common.ViewModel;
 
 namespace Wysnan.EIMOnline.Business
 {
     public class GenericBusinessModel<T> : BusinessModel, IBusinessLogicModel<T> where T : class,IBaseEntity
     {
         #region 属性
-        
+
         #endregion
 
         public GenericBusinessModel()
@@ -64,9 +66,9 @@ namespace Wysnan.EIMOnline.Business
 
         #region Get
 
-        public IQueryable<T> List()
+        public virtual IQueryable<T> List()
         {
-            return Model.List<T>();
+            return Model.List<T>().Where(a => a.SystemStatus.HasValue && a.SystemStatus == (int)SystemStatus.Active);
         }
 
         public IQueryable<T> List(PageInfo page)
@@ -104,6 +106,8 @@ namespace Wysnan.EIMOnline.Business
         #region 异常
 
         #endregion
+
+
 
 
 

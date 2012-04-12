@@ -13,44 +13,6 @@
 <script src="/Scripts/jquery-ui-1.8.17.custom.min.js" type="text/javascript"></script>
 <script src="/Scripts/JqGrid/i18n/grid.locale-cn.js" type="text/javascript"></script>
 <script src="/Scripts/JqGrid/jquery.jqGrid.src.js" type="text/javascript"></script>
-<script type="text/javascript">
-    //    $(document).ready(function () {
-    //        $("#list").jqGrid({
-    //            url: '/Handler1.ashx',
-    //            datatype: 'json',
-    //            mtype: 'GET',
-    //            colNames: ['编号', '姓名', '年龄', '生日', '班级'],
-    //            colModel: [
-    //                         { name: 'Id', index: 'Id', width: 180, editable: false },
-    //                         { name: 'Name', index: 'Name', width: 120, editable: true },
-    //                         { name: 'Age', index: 'Age', width: 90, editable: true },
-    //                         { name: 'Birthday', index: 'Birthday', align: 'center', width: 60, editable: true },
-    //                         { name: 'ClassId', index: 'ClassId', width: 200, sorttype: "ClassId", sortable: false }
-    //                         ],
-    //            pager: '#pager',
-    //            sortable: true,
-    //            rowNum: 10,
-    //            multiselect: true,
-    //            prmNames: { rows: "pageSize", page: "page" },
-    //            jsonReader: {
-    //                root: "stus",
-    //                repeatitems: false
-    //            },
-    //            rowList: [10, 20, 30],
-    //            sortname: 'Id',
-    //            sortorder: 'desc',
-    //            viewrecords: true,
-    //            caption: 'My first grid'
-    //        });
-    //        $("#list").jqGrid('navGrid', '#pager', { edit: true, add: false, del: false });
-
-    //    });
-</script>
 <h2>
     Index</h2>
-<table id="list">
-</table>
-<div id="pager">
-</div>
-@Html.Grid(GridEnum.SecurityUser);
-@*@{Html.RenderAction("Index", "Grid");}*@
+@Html.Grid(GridEnum.SecurityUser)

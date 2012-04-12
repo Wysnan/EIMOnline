@@ -16,61 +16,61 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid
     {
         public JqGrid()
         {
-            this.Url = "";
-            this.DataType = GridColumnDateType.json;
-            this.Mtype = "GET";
-            this.ColNames = null;
-            this.ColeModel = new List<ColModel>();
-            this.Pager = "#page";
-            this.Sortable = true;
+            this._Url = "";
+            this._DataType = GridColumnDateType.json;
+            this._Mtype = "GET";
+            this._ColNames = null;
+            this._ColModel = new List<ColModel>();
+            this._Pager = "#page";
+            this._Sortable = true;
             this.RowNum = 20;
-            this.MultiSelect = true;
-            this.PrmNames = "none";
-            this.JsonReader_Root = "";
-            this.JsonReader_Repeatitems = false;
-            this.RowList = new int[] { 10, 20, 50 };
+            this._MultiSelect = true;
+            this._PrmNames = "none";
+            this._JsonReader_Root = "";
+            this._JsonReader_Repeatitems = false;
+            this._RowList = new int[] { 10, 20, 50 };
             this.SortName = "ID";
             this.SortOrder = "desc";
-            this.ViewRecords = true;
-            this.Caption = "";
+            this._ViewRecords = true;
+            this._Caption = "";
         }
 
         /// <summary>
         /// 请求数据的url地址
         /// </summary>
-        protected string Url { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public string _Url { get; set; }
 
         /// <summary>
         /// 定义表格希望获得的数据的类型
         /// </summary>
-        protected GridColumnDateType DataType { get; set; }
+        public GridColumnDateType _DataType { get; set; }
 
         /// <summary>
         /// 定义提交类型POST或GET
         /// </summary>
-        protected string Mtype { get; set; }
+        public string _Mtype { get; set; }
 
         /// <summary>
         /// 列名称数组。该名称将在Header中显示。名称以逗号分隔，数量应与colModel 数组数量相等
         /// </summary>
-        protected string[] ColNames { get; set; }
+        public string[] _ColNames { get; set; }
 
         /// <summary>
         /// 描述列参数数组
         /// </summary>
-        //obfuscate,dotfuscator   
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public List<ColModel> ColeModel { get; set; }
+        public List<ColModel> _ColModel { get; set; }
 
         /// <summary>
         /// 定义分页浏览导航条。必须是一个HTML元素，如<div id="page"></div>
         /// </summary>
-        protected string Pager { get; set; }
+        public string _Pager { get; set; }
 
         /// <summary>
         /// 启用此项，允许使用鼠标重新排序列。
         /// </summary>
-        protected bool Sortable { get; set; }
+        public bool _Sortable { get; set; }
 
         /// <summary>
         /// 表格中可见的记录数
@@ -80,21 +80,21 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid
         /// <summary>
         /// 此属性设为true时启用多行选择，出现复选框
         /// </summary>
-        protected bool MultiSelect { get; set; }
+        public bool _MultiSelect { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        protected string PrmNames { get; set; }
+        public string _PrmNames { get; set; }
 
-        protected string JsonReader_Root { get; set; }
+        public string _JsonReader_Root { get; set; }
 
-        protected bool JsonReader_Repeatitems { get; set; }
+        public bool _JsonReader_Repeatitems { get; set; }
 
         /// <summary>
         /// 用于改变显示行数的下拉列表框的元素数组。
         /// </summary>
-        protected int[] RowList { get; set; }
+        public int[] _RowList { get; set; }
 
         /// <summary>
         /// 从服务器读取XML或JSON数据时初始的排序名，此名被加到URL中。
@@ -109,12 +109,12 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid
         /// <summary>
         /// 是否显示记录总数
         /// </summary>
-        protected bool ViewRecords { get; set; }
+        public bool _ViewRecords { get; set; }
 
         /// <summary>
         /// 表格的标题。显示在Header上。若为空时将不会显示。
         /// </summary>
-        protected string Caption { get; set; }
+        public string _Caption { get; set; }
 
         #region 内部类
 

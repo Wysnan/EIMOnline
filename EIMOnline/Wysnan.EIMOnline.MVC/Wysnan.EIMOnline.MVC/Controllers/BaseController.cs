@@ -11,11 +11,20 @@ namespace Wysnan.EIMOnline.MVC.Controllers
 
         public BaseController()
         {
-            IApplicationContext ctx = ContextRegistry.GetContext();
+            try
+            {
 
-            Type type = typeof(E);
-            string typeName = type.Name + "Model";
-            Model = ctx.GetObject(typeName) as T;
+                IApplicationContext ctx = ContextRegistry.GetContext();
+
+                Type type = typeof(E);
+                string typeName = type.Name + "Model";
+                Model = ctx.GetObject(typeName) as T;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
 
@@ -51,7 +60,7 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         //    actionResult.ExecuteResult(ControllerContext);
         //}
 
-        
+
         #endregion
 
 

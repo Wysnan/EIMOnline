@@ -5,6 +5,7 @@ using System.Text;
 using Wysnan.EIMOnline.Common.Poco;
 using Wysnan.EIMOnline.Common.Framework;
 using Wysnan.EIMOnline.Common.Framework.Grid;
+using Wysnan.EIMOnline.Common.ViewModel;
 
 namespace Wysnan.EIMOnline.IBLL
 {

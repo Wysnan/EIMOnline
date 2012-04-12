@@ -20,7 +20,7 @@ namespace Wysnan.EIMOnline.Business
             get { return instance; }
         }
 
-        public GridModel()
+        private GridModel()
         {
             JqGrids = new Dictionary<GridEnum, JqGrid>();
 
@@ -29,7 +29,7 @@ namespace Wysnan.EIMOnline.Business
 
         public Dictionary<GridEnum, JqGrid> JqGrids { get; set; }
 
-        protected JqGrid GetSecurityUserConfig()
+        private JqGrid GetSecurityUserConfig()
         {
             JqGridConfig<SecurityUser, SecurityUser> grid = new JqGridConfig<SecurityUser, SecurityUser>()
             {
@@ -44,8 +44,16 @@ namespace Wysnan.EIMOnline.Business
                     Name=grid.Path(a=>a.ID)
                 },
                 new JqGridColumnTextBox(){
-                    Label="名称",
-                    Name=grid.Path(a=>a.Name)
+                    Label="姓名",
+                    Name=grid.Path(a=>a.UserName)
+                },
+                new JqGridColumnTextBox(){
+                    Label="账号",
+                    Name=grid.Path(a=>a.UserLoginID)
+                },
+                new JqGridColumnTextBox(){
+                    Label="密码",
+                    Name=grid.Path(a=>a.UserLoginPwd)
                 }
             };
             grid.GridColumnCollection= columns;

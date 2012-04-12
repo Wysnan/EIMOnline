@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Wysnan.EIMOnline.IBLL.Framework
+namespace Wysnan.EIMOnline.Common.ViewModel
 {
-    public interface IMessageModel : IBaseConfigModel
+    public class CombinedSecurityUser : ICombined
     {
+        
     }
 }

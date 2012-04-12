@@ -16,7 +16,7 @@ namespace Wysnan.EIMOnline.Business
         }
 
         [LogList]
-        public new Result Add()
+        public  new Result Add()
         {
             return null;
         }

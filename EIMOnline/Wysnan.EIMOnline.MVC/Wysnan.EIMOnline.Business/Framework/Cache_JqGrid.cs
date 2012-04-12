@@ -5,6 +5,7 @@ using System.Text;
 using Wysnan.EIMOnline.Common.Framework.Enum;
 using Wysnan.EIMOnline.Common.Framework.Grid;
 using Wysnan.EIMOnline.Business.Framework.Cache;
+using Wysnan.EIMOnline.Common.Framework;
 
 namespace Wysnan.EIMOnline.Business.Framework
 {
@@ -17,12 +18,12 @@ namespace Wysnan.EIMOnline.Business.Framework
             get { return instance; }
         }
 
-        internal Cache_JqGrid()
+        private Cache_JqGrid()
         {
             LoadData();
         }
 
-        string CacheKey = "Cache_JqGrid";
+        string CacheKey =ConstEntity.Cache_JqGrid;
 
         #region 属性
 
