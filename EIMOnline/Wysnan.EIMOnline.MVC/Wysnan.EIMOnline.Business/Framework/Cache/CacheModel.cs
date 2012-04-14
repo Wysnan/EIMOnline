@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
+using System.Web.Caching;
+using System.IO;
 
 namespace Wysnan.EIMOnline.Business.Framework.Cache
 {
@@ -45,21 +47,37 @@ namespace Wysnan.EIMOnline.Business.Framework.Cache
             objCache.Insert(CacheKey, objObject, null, absoluteExpiration, slidingExpiration);
         }
 
-        //protected void Page_Load(object sender, EventArgs e)
-        //{
-        //    string CacheKey = "cachetest";
-        //    object objModel = GetCache(CacheKey);//从缓存中获取
-        //    if (objModel == null)//缓存里没有
-        //    {
-        //        objModel = DateTime.Now;//把当前时间进行缓存
-        //        if (objModel != null)
-        //        {
-        //            int CacheTime = 30;//缓存时间30秒
-        //            SetCache(CacheKey, objModel, DateTime.Now.AddSeconds(CacheTime), TimeSpan.Zero);//写入缓存
-        //        }
-        //    }
-        //    Label1.Text = objModel.ToString();
-        //}
+        /// <summary>
+        /// 添加文件依赖缓存
+        /// </summary>
+        /// <param name="cacheKey">缓存键</param>
+        /// <param name="obj">缓存对象</param>
+        /// <param name="filePath">依赖文件</param>
+        public static void SetFileDenpendencyCahce(string cacheKey, Object objName, string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                CacheDependency fileDependency = new CacheDependency(filePath);
+                HttpRuntime.Cache.Insert(cacheKey, objName, fileDependency);
+            }
+            else
+            {
+                throw new ArgumentException("没有找到需要要缓存的文件");
+            }
+        }
 
+        /// <summary>
+        /// SqlServer依赖缓存(v2005以上包括)
+        /// </summary>
+        /// <param name="cacheKey">web.config文件中配置的缓存键</param>
+        /// <param name="objName"></param>
+        public static void SetSqlDenpendencyCahce(string cacheKey,object obj,string cacheTableName)
+        {
+            if (obj != null)
+            {
+                CacheDependency fileDependency = new SqlCacheDependency(cacheKey, cacheTableName);
+                HttpRuntime.Cache.Insert(cacheKey, obj, fileDependency);
+            }
+        }
     }
 }
