@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Wysnan.EIMOnline.MVC.Framework;
 using Wysnan.EIMOnline.Business.Framework;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Wysnan.EIMOnline.MVC
 {

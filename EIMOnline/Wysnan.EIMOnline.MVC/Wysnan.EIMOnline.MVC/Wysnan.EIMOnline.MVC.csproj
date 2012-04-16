@@ -104,6 +104,8 @@
     <Content Include="Configuration\InjectionIoC.xml" />
     <Content Include="Configuration\MVCIoC.xml" />
     <None Include="Config\Message.config" />
+    <Content Include="Config\FileDependency2.xml" />
+    <Content Include="Config\FileDependency1.txt" />
     <Content Include="Content\JqGrid\ellipsis-xbl.xml" />
     <Content Include="Content\JqGrid\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Content\JqGrid\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
