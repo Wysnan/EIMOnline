@@ -16,6 +16,7 @@ namespace Wysnan.EIMOnline.EF.Migrations
                         UserName = c.String(),
                         UserLoginID = c.String(),
                         UserLoginPwd = c.String(),
+                        CreatedOn = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             

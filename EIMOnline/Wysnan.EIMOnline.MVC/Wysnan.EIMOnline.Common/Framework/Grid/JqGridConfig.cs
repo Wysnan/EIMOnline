@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using Wysnan.EIMOnline.Common.Framework.Grid.POCO;
 using System.Linq.Expressions;
 using System.Reflection;
 using Wysnan.EIMOnline.Common.Framework.Grid.Enum;
+using Wysnan.EIMOnline.Common.Framework.Grid.Poco;
 
 namespace Wysnan.EIMOnline.Common.Framework.Grid
 {
@@ -39,107 +38,96 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid
                     builder.Insert(0, ".");
                 }
                 builder.Insert(0, memberExpression.Member.Name);
-                //if (includeType)
-                //{
-                //    builder.Insert(0, ".");
 
-                //    var declaringType = memberExpression.Member.DeclaringType;
-                //    string name;
-
-                //    if (declaringType.IsInterface || declaringType.IsAbstract)
-                //        name = typeof(T).Name;
-                //    else
-                //        name = declaringType.Name;
-
-                //    builder.Insert(0, name);
-                //}
                 propertyExpression = memberExpression.Expression;
 
             } while (memberExpression != null);
-
-            return builder.ToString();
+            string lamda = builder.ToString();
+            string value = string.Format("[Name:{0}][Type:{1}]", lamda, typeof(U).Name.ToLower());
+            return value;
         }
 
         public void DataBind()
         {
-            base._ColModel = ConvertToColeModel(this.GridColumnCollection);
+            base._ColModel = ConvertToColModel(this.GridColumnCollection);
         }
 
+        #region 属性
         /// <summary>
         /// 不能使用该属性。框架内部调用。
         /// </summary>
         [Obsolete("不能使用该属性", true)]
-        public new string _Url {  get; private set; }
+        public new string _Url { get; private set; }
         /// <summary>
         /// 不能使用该属性。框架内部调用。
         /// </summary>
         [Obsolete("不能使用该属性", true)]
-        public new GridColumnDateType _DataType {  get; private set; }
+        public new GridColumnDateType _DataType { get; private set; }
         /// <summary>
         /// 不能使用该属性。框架内部调用。
         /// </summary>
         [Obsolete("不能使用该属性", true)]
-        public new string _Mtype {  get; private set; }
+        public new string _Mtype { get; private set; }
         /// <summary>
         /// 不能使用该属性。框架内部调用。
         /// </summary>
         [Obsolete("不能使用该属性", true)]
-        public new string[] _ColNames {  get; private set; }
+        public new string[] _ColNames { get; private set; }
         /// <summary>
         /// 不能使用该属性。框架内部调用。
         /// </summary>
         [Obsolete("不能使用该属性", true)]
-        public new List<ColModel> _ColModel {  get; private set; }
+        public new List<ColModel> _ColModel { get; private set; }
         /// <summary>
         /// 不能使用该属性。框架内部调用。
         /// </summary>
         [Obsolete("不能使用该属性", true)]
-        public new string _Pager {  get; private set; }
+        public new string _Pager { get; private set; }
         /// <summary>
         /// 不能使用该属性。框架内部调用。
         /// </summary>
         [Obsolete("不能使用该属性", true)]
-        public new bool _Sortable {  get; private set; }
+        public new bool _Sortable { get; private set; }
         /// <summary>
         /// 不能使用该属性。框架内部调用。
         /// </summary>
         [Obsolete("不能使用该属性", true)]
-        public new bool _MultiSelect {  get; private set; }
+        public new bool _MultiSelect { get; private set; }
         /// <summary>
         /// 不能使用该属性。框架内部调用。
         /// </summary>
         [Obsolete("不能使用该属性", true)]
-        public new string _PrmNames {  get; private set; }
+        public new string _PrmNames { get; private set; }
         /// <summary>
         /// 不能使用该属性。框架内部调用。
         /// </summary>
         [Obsolete("不能使用该属性", true)]
-        public new string _JsonReader_Root {  get; private set; }
+        public new string _JsonReader_Root { get; private set; }
         /// <summary>
         /// 不能使用该属性。框架内部调用。
         /// </summary>
         [Obsolete("不能使用该属性", true)]
-        public new bool _JsonReader_Repeatitems {  get; private set; }
+        public new bool _JsonReader_Repeatitems { get; private set; }
         /// <summary>
         /// 不能使用该属性。框架内部调用。
         /// </summary>
         [Obsolete("不能使用该属性", true)]
-        public new int[] _RowList {  get; private set; }
+        public new int[] _RowList { get; private set; }
         /// <summary>
         /// 不能使用该属性。框架内部调用。
         /// </summary>
         [Obsolete("不能使用该属性", true)]
-        public new bool _ViewRecords {  get; private set; }
+        public new bool _ViewRecords { get; private set; }
         /// <summary>
         /// 不能使用该属性。框架内部调用。
         /// </summary>
         [Obsolete("不能使用该属性", true)]
-        public new string _Caption {  get; private set; }
-
+        public new string _Caption { get; private set; }
+        #endregion
 
         #region 私有方法
 
-        private List<ColModel> ConvertToColeModel(GridColumnCollection gridColumnCollection)
+        private List<ColModel> ConvertToColModel(GridColumnCollection gridColumnCollection)
         {
             if (gridColumnCollection == null)
             {
@@ -152,11 +140,46 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid
                 colModel.Align = item.Align;
                 colModel.Label = item.Label;
                 colModel.Name = item.Name;
+                colModel.Type = item.Type;
+                SearchOptions searchOptions = new SearchOptions();
+                ConvertToColModel_Sopt(item.Type, searchOptions);
+                colModel.SearchOptions = searchOptions;
                 models.Add(colModel);
             }
             return models;
         }
 
+        private void ConvertToColModel_Sopt(string type, SearchOptions searchOptions)
+        {
+            string sopt = string.Empty;
+            switch (type)
+            {
+                case "string":
+                    sopt = "'eq','ne','bw','bn','ew','en','cn','nc','nu','nn'";
+                    searchOptions.Sopt = sopt;
+                    break;
+                case "datetime":
+                    sopt = "'eq','ne','gt','ge','le','lt'";
+                    searchOptions.DataInit = "datePick";
+                    searchOptions.Sopt = sopt;
+                    break;
+                case "int32":
+                case "int64":
+                case "int16":
+                    sopt = "'eq','ne','lt','le','gt','ge','in','ni'";
+                    searchOptions.Sopt = sopt;
+                    break;
+                default:
+                    throw new ApplicationException(string.Format("系统未对该类型[{0}]做配置。请联系武双琦。", type));
+            }
+        }
+
         #endregion
     }
 }
+
+
+
+
+
+

@@ -10,19 +10,23 @@ using Wysnan.EIMOnline.Business;
 using Wysnan.EIMOnline.Business.Framework;
 using Wysnan.EIMOnline.Common.Framework.Enum;
 using Wysnan.EIMOnline.MVC.Framework.Extensions;
+using Wysnan.EIMOnline.Injection.JqGrid;
+
 namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
 {
     public class SecurityUserController : BaseController<ISecurityUser, SecurityUser>
     {
         public ActionResult Index()
         {
-            List<SecurityUser> users = Model.List().ToList();
-            return View(users);
+            //List<SecurityUser> users = Model.List().ToList();
+
+            //return View(users);
+            return View();
         }
 
         public ActionResult Add()
         {
-            //Model.Add(null);;
+            Model.Add(null);
             return View();
         }
     }

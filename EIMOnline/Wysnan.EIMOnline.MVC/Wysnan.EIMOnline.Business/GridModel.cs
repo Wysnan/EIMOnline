@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using Wysnan.EIMOnline.Common.Framework.Grid;
 using Wysnan.EIMOnline.Common.Poco;
-using Wysnan.EIMOnline.Common.Framework.Grid.POCO;
+using Wysnan.EIMOnline.Common.Framework.Grid.JqGridColumn;
 using Wysnan.EIMOnline.Common.Framework.Enum;
-using Wysnan.EIMOnline.Common.Framework;
-using Wysnan.EIMOnline.Business.Framework;
+using Wysnan.EIMOnline.Common.Framework.Grid.Poco;
 
 namespace Wysnan.EIMOnline.Business
 {
@@ -41,22 +37,26 @@ namespace Wysnan.EIMOnline.Business
             {
                 new JqGridColumnTextBox(){
                     Label="编号",
-                    Name=grid.Path(a=>a.ID)
+                    NameAndType=grid.Path(a=>a.ID)
                 },
                 new JqGridColumnTextBox(){
                     Label="姓名",
-                    Name=grid.Path(a=>a.UserName)
+                    NameAndType=grid.Path(a=>a.UserName)
                 },
                 new JqGridColumnTextBox(){
                     Label="账号",
-                    Name=grid.Path(a=>a.UserLoginID)
+                    NameAndType=grid.Path(a=>a.UserLoginID)
                 },
                 new JqGridColumnTextBox(){
                     Label="密码",
-                    Name=grid.Path(a=>a.UserLoginPwd)
+                    NameAndType=grid.Path(a=>a.UserLoginPwd),
+                },
+                new JqGridColumnTextBox(){
+                    Label="创建时间",
+                    NameAndType=grid.Path(a=>a.CreatedOn),
                 }
             };
-            grid.GridColumnCollection= columns;
+            grid.GridColumnCollection = columns;
             grid.DataBind();
             return grid;
         }

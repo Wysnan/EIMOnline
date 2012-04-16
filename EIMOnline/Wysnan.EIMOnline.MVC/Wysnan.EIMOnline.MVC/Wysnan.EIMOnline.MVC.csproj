@@ -55,6 +55,7 @@
       <HintPath>..\Reference\spring\Spring.Web.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -191,8 +192,18 @@
     <Content Include="Scripts\JqGrid\i18n\grid.locale-th.js" />
     <Content Include="Scripts\JqGrid\i18n\grid.locale-tr.js" />
     <Content Include="Scripts\JqGrid\i18n\grid.locale-ua.js" />
+    <Content Include="Scripts\JqGrid\jquery.jqGrid.min.js" />
     <Content Include="Scripts\JqGrid\jquery.jqGrid.src.js" />
-    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\JqGrid\plugins\grid.addons.js" />
+    <Content Include="Scripts\JqGrid\plugins\grid.postext.js" />
+    <Content Include="Scripts\JqGrid\plugins\grid.setcolumns.js" />
+    <Content Include="Scripts\JqGrid\plugins\jquery.contextmenu.js" />
+    <Content Include="Scripts\JqGrid\plugins\jquery.searchFilter.js" />
+    <Content Include="Scripts\JqGrid\plugins\jquery.tablednd.js" />
+    <Content Include="Scripts\JqGrid\plugins\searchFilter.css" />
+    <Content Include="Scripts\JqGrid\plugins\ui.multiselect.css" />
+    <Content Include="Scripts\JqGrid\plugins\ui.multiselect.js" />
+    <Content Include="Scripts\jquery-1.7.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.17.custom.min.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />

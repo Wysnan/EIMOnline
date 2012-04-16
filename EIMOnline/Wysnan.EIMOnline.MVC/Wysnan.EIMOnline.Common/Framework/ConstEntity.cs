@@ -46,7 +46,10 @@ namespace Wysnan.EIMOnline.Common.Framework
         /// </summary>
         public const string Cache_JqGrid = "Cache_JqGrid";
 
-
+        /// <summary>
+        /// JqGrid Html缓存key
+        /// </summary>
+        public const string Cache_JqGridHtml = "Cache_JqGridHtml";
         #endregion
     }
 }

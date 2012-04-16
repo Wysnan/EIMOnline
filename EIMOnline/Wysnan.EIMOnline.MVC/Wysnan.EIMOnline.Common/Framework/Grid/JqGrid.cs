@@ -5,6 +5,7 @@ using System.Text;
 using Wysnan.EIMOnline.Common.Framework.Grid.Enum;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using Wysnan.EIMOnline.Common.Framework.Grid.Poco;
 
 namespace Wysnan.EIMOnline.Common.Framework.Grid
 {
@@ -143,6 +144,8 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid
                 this.Sorttype = GridColumnSorttype._text;
                 this.Title = true;
                 this.Width = "150";
+                this.Formatter = string.Empty;
+                this.Type = typeof(String).Name.ToLower();
             }
 
             /// <summary>
@@ -250,6 +253,25 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid
             /// </summary>
             public string Width { get; set; }
 
+            private string type = string.Empty;
+
+            public string Type
+            {
+                get { return type; }
+                set
+                {
+                    type = value;
+                    if (value == "datetime")
+                    {
+                        this.Formatter = string.Format(",formatter:'date',formatoptions:{{srcformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s'}}");
+                        //this.Formatter = string.Format(",formatter:'date',formatoptions:{{srcformat: '{0}', newformat: '{0}'}}", Detefmt);
+                    }
+                }
+            }
+
+            public string Formatter { get; set; }
+
+            public SearchOptions SearchOptions { get; set; }
         }
 
         #endregion

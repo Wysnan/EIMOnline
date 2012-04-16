@@ -9,7 +9,7 @@ using Wysnan.EIMOnline.Common.ViewModel;
 
 namespace Wysnan.EIMOnline.IBLL
 {
-    public interface IBusinessLogicModel<T> where T : IBaseEntity
+    public interface IBusinessLogicModel<T> where T : ISystemBaseEntity
     {
         Result Add(T t);
 
@@ -22,6 +22,8 @@ namespace Wysnan.EIMOnline.IBLL
         Result Undelete(int id);
 
         IQueryable<T> List();
+
+        IQueryable ListJqGrid();
 
         IQueryable<T> List(PageInfo page);
 

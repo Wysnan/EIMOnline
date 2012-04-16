@@ -12,7 +12,8 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid.Interfaces
 
         GridColumnAlign Align { get; set; }
 
-        string Name { get; set; }
+        string Name { get; }
 
+        string Type { get; }
     }
 }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Wysnan.EIMOnline.Business.Framework;
+using Wysnan.EIMOnline.Business.Framework.Cache;
 
 namespace Wysnan.EIMOnline.MVC.TestFile
 {

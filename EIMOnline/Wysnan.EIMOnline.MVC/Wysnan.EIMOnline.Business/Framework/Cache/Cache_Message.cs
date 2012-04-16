@@ -5,7 +5,7 @@ using System.Text;
 using Wysnan.EIMOnline.Common.Framework;
 using Wysnan.EIMOnline.Business.Framework.Cache;
 
-namespace Wysnan.EIMOnline.Business.Framework
+namespace Wysnan.EIMOnline.Business.Framework.Cache
 {
     public sealed class Cache_Message : ICache
     {

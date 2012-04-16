@@ -44,10 +44,11 @@
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="BusinessModel.cs" />
     <Compile Include="Framework\Cache\CacheModel.cs" />
+    <Compile Include="Framework\Cache\Cache_JqGridHtml.cs" />
     <Compile Include="Framework\GlobalEntity.cs" />
-    <Compile Include="Framework\Cache_JqGrid.cs" />
-    <Compile Include="Framework\Cache_Message.cs" />
-    <Compile Include="Framework\ICache.cs" />
+    <Compile Include="Framework\Cache\Cache_JqGrid.cs" />
+    <Compile Include="Framework\Cache\Cache_Message.cs" />
+    <Compile Include="Framework\Cache\ICache.cs" />
     <Compile Include="Framework\MessageModel.cs" />
     <Compile Include="Framework\SystemInitialization.cs" />
     <Compile Include="GenericBusinessModel.cs" />

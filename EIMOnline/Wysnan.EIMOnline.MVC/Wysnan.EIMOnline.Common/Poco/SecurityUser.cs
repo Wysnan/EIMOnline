@@ -22,6 +22,8 @@ namespace Wysnan.EIMOnline.Common.Poco
 
         public string UserLoginPwd { get; set; }
 
+        public DateTime CreatedOn { get; set; }
+
         public virtual ICollection<SecurityUserRole> SecurityUserRoles { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using Wysnan.EIMOnline.Common.Framework.Grid;
 using Wysnan.EIMOnline.Business.Framework.Cache;
 using Wysnan.EIMOnline.Common.Framework;
 
-namespace Wysnan.EIMOnline.Business.Framework
+namespace Wysnan.EIMOnline.Business.Framework.Cache
 {
     public sealed class Cache_JqGrid : ICache
     {

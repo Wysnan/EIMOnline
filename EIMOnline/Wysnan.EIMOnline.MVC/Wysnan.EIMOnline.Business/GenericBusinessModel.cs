@@ -11,6 +11,14 @@ using Wysnan.EIMOnline.Common.ViewModel;
 
 namespace Wysnan.EIMOnline.Business
 {
+    /// <summary>
+    /// 业务基类
+    /// 方法的定义（名称，参数，返回值）都是预先定义的。最终，框架会根据这些预定义内容调用方法。
+    /// 注意以下问题：
+    ///     1.对于复杂业务的调用，一定要重写（override）基类方法并做业务扩展。
+    ///     2.如果1不能满足业务需求（参数或返回值），才可以定义自己的方法。
+    /// </summary>
+    /// <typeparam name="T">实体类型</typeparam>
     public class GenericBusinessModel<T> : BusinessModel, IBusinessLogicModel<T> where T : class,IBaseEntity
     {
         #region 属性
@@ -29,7 +37,6 @@ namespace Wysnan.EIMOnline.Business
         {
             return Model.Add<T>(t);
         }
-
         public Result Update(T t)
         {
             return Model.Update(t);
@@ -71,6 +78,11 @@ namespace Wysnan.EIMOnline.Business
             return Model.List<T>().Where(a => a.SystemStatus.HasValue && a.SystemStatus == (int)SystemStatus.Active);
         }
 
+        public virtual IQueryable ListJqGrid()
+        {
+            return Model.List<T>().Where(a => a.SystemStatus.HasValue && a.SystemStatus == (int)SystemStatus.Active);
+        }
+
         public IQueryable<T> List(PageInfo page)
         {
             throw new NotImplementedException();
@@ -106,6 +118,8 @@ namespace Wysnan.EIMOnline.Business
         #region 异常
 
         #endregion
+
+
 
 
 

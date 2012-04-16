@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Wysnan.EIMOnline.Common.Framework.Grid;
 using Wysnan.EIMOnline.Common.Framework.Enum;
+using Wysnan.EIMOnline.Business.Framework.Cache;
 
 namespace Wysnan.EIMOnline.Business.Framework
 {
