@@ -21,6 +21,12 @@ namespace Wysnan.EIMOnline.Business
         {
         }
 
+        [TransactionAttribute]
+        public override IQueryable<SecurityUser> List()
+        {
+            return base.List();
+        }
+
         public override IQueryable ListJqGrid()
         {
             var query = Model.List<SecurityUser>();
@@ -39,7 +45,7 @@ namespace Wysnan.EIMOnline.Business
 
             //    var val = id.GetValue(current, null);
             //}
-            
+
             return temp;
         }
 

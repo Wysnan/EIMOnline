@@ -9,7 +9,7 @@ using Wysnan.EIMOnline.Common.ViewModel;
 
 namespace Wysnan.EIMOnline.IBLL
 {
-    public interface IBusinessLogicModelEx<T> where T : ICombined
+    public interface IBusinessLogicModelEx<T> /*where T : ICombined, IBaseEntity*/
     {
         IQueryable<T> ListCombined();
     }

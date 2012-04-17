@@ -46,6 +46,7 @@
     <Compile Include="IBusinessLogicModel.cs" />
     <Compile Include="IEmailServiceModel.cs" />
     <Compile Include="IOperateLog.cs" />
+    <Compile Include="IPersonnelAttendanceModel.cs" />
     <Compile Include="ISecurityUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -21,6 +21,7 @@ namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
             //List<SecurityUser> users = Model.List().ToList();
 
             //return View(users);
+            Model.List();
             return View();
         }
 

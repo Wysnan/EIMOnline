@@ -53,6 +53,14 @@
     <Compile Include="Migrations\201204140603464_UserRole.Designer.cs">
       <DependentUpon>201204140603464_UserRole.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201204170126534_test.cs" />
+    <Compile Include="Migrations\201204170126534_test.Designer.cs">
+      <DependentUpon>201204170126534_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201204170140384_PersonnelAttendance.cs" />
+    <Compile Include="Migrations\201204170140384_PersonnelAttendance.Designer.cs">
+      <DependentUpon>201204170140384_PersonnelAttendance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\DBScript\SqlMigration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -351,6 +351,7 @@
     <Content Include="Scripts\ui\minified\jquery.ui.widget.min.js" />
     <Content Include="TestFile\Test.aspx" />
     <Content Include="TestFile\ViewPage1.aspx" />
+    <Content Include="系统问题.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

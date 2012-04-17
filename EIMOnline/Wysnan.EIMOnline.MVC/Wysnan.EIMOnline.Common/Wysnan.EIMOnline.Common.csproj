@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="Poco\IModificationTrackableEntity.cs" />
     <Compile Include="Poco\OperateLog.cs" />
+    <Compile Include="Poco\PersonnelAttendance.cs" />
     <Compile Include="Poco\SecurityRole.cs" />
     <Compile Include="Poco\SecurityUser.cs" />
     <Compile Include="Poco\SecurityUserRole.cs" />
