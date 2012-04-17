@@ -24,9 +24,7 @@ namespace Wysnan.EIMOnline.EF
         }
 
         DbSet<SecurityUser> SecurityUser { get; set; }
-        //DbSet<Task> Task { get; set; }
-        //DbSet<TestingProcess> TestingProcess { get; set; }
-        //DbSet<UseCase> UseCase { get; set; }
+        DbSet<OperateLog> OperateLog { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -34,8 +32,6 @@ namespace Wysnan.EIMOnline.EF
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
             modelBuilder.Configurations.Add(new SecurityUserMap());
-            //modelBuilder.Configurations.Add(new TestingProcessMap());
-            //modelBuilder.Configurations.Add(new UseCaseMap());
         }
     }
 }

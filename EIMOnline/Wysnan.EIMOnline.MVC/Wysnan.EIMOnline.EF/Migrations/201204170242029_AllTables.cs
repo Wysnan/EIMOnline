@@ -2,7 +2,7 @@ namespace Wysnan.EIMOnline.EF.Migrations
 {
     using System.Data.Entity.Migrations;
     
-    public partial class UserRole : DbMigration
+    public partial class AllTables : DbMigration
     {
         public override void Up()
         {
@@ -16,9 +16,23 @@ namespace Wysnan.EIMOnline.EF.Migrations
                         UserName = c.String(),
                         UserLoginID = c.String(),
                         UserLoginPwd = c.String(),
-                        CreatedOn = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
+            
+            CreateTable(
+                "OperateLog",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        SystemStatus = c.Byte(),
+                        TimeStamp = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
+                        OperateLogInfo = c.String(),
+                        OperateDate = c.DateTime(nullable: false),
+                        SecurityUserId_ID = c.Int(),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("SecurityUser", t => t.SecurityUserId_ID)
+                .Index(t => t.SecurityUserId_ID);
             
             CreateTable(
                 "SecurityUserRole",
@@ -53,10 +67,13 @@ namespace Wysnan.EIMOnline.EF.Migrations
         {
             DropIndex("SecurityUserRole", new[] { "SecurityRoleID" });
             DropIndex("SecurityUserRole", new[] { "SecurityUserID" });
+            DropIndex("OperateLog", new[] { "SecurityUserId_ID" });
             DropForeignKey("SecurityUserRole", "SecurityRoleID", "SecurityRole");
             DropForeignKey("SecurityUserRole", "SecurityUserID", "SecurityUser");
+            DropForeignKey("OperateLog", "SecurityUserId_ID", "SecurityUser");
             DropTable("SecurityRole");
             DropTable("SecurityUserRole");
+            DropTable("OperateLog");
             DropTable("SecurityUser");
         }
     }
