@@ -11,12 +11,13 @@
   </object>
 
 
-  <object id="LogListInterceptor" type="Wysnan.EIMOnline.Injection.Logs.LogListInterceptor" singleton="false">
+ <object id="OperateLogInterceptor" type="Wysnan.EIMOnline.Injection.Logs.OperateLogInterceptor" singleton="false">
   </object>
 
-  <object id="AutoProxy.LogListAdvisor" type="Spring.Aop.Support.AttributeMatchMethodPointcutAdvisor, Spring.Aop" singleton="false">
-    <property name="attribute" value="Wysnan.EIMOnline.Injection.Logs.LogListAttribute"/>
-    <property name="advice" ref="LogListInterceptor"/>
+  <object id="OperateLogModel" type="Wysnan.EIMOnline.Business.OperateLogModel"></object>
+  <object id="AutoProxy.OperateLogAdvisor" type="Spring.Aop.Support.AttributeMatchMethodPointcutAdvisor, Spring.Aop" singleton="false">
+    <property name="attribute" value="Wysnan.EIMOnline.Injection.Logs.OperateLogAttribute"/>
+    <property name="advice" ref="OperateLogInterceptor"/>
     <property name="order" value="100"/>
   </object>
 

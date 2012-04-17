@@ -21,6 +21,8 @@ namespace Wysnan.EIMOnline.Business
         {
         }
 
+         [TransactionAttribute]
+         [OperateLogAttribute]
         public override IQueryable<SecurityUser> List()
         {
             var query = base.List();
@@ -33,7 +35,7 @@ namespace Wysnan.EIMOnline.Business
             return base.List();
         }
 
-        [OperateLogAttribute()]
+      
         public IQueryable<CombinedSecurityUser> ListCombined()
         {
             throw new NotImplementedException();

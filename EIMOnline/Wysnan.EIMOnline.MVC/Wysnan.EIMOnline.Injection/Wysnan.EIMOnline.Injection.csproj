@@ -51,6 +51,10 @@
     <Compile Include="Transaction\TransactionInterceptor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Wysnan.EIMOnline.Common\Wysnan.EIMOnline.Common.csproj">
+      <Project>{5592AE09-77D2-483E-8068-EE36DA6872B0}</Project>
+      <Name>Wysnan.EIMOnline.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Wysnan.EIMOnline.IBLL\Wysnan.EIMOnline.IBLL.csproj">
       <Project>{FCBA070C-E4E3-45F5-96F2-7095342A4B58}</Project>
       <Name>Wysnan.EIMOnline.IBLL</Name>

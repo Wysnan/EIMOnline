@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\LogController.cs" />
     <Compile Include="Areas\Administration\Controllers\SecurityUserController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GeneralController.cs" />
@@ -98,10 +99,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Configuration\BusinessIoC.xml" />
+    <Content Include="Configuration\BusinessIoC.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Configuration\EFIoC.xml" />
     <Content Include="Configuration\InjectionIoC.xml" />
     <Content Include="Configuration\MVCIoC.xml" />
+    <Content Include="Areas\Administration\Views\Log\Index.cshtml" />
     <None Include="Config\Message.config" />
     <Content Include="Content\JqGrid\ellipsis-xbl.xml" />
     <Content Include="Content\JqGrid\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
@@ -331,6 +335,7 @@
     <Content Include="Scripts\ui\minified\jquery.ui.tabs.min.js" />
     <Content Include="Scripts\ui\minified\jquery.ui.widget.min.js" />
     <Content Include="TestFile\Test.aspx" />
+    <Content Include="TestFile\ViewPage1.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

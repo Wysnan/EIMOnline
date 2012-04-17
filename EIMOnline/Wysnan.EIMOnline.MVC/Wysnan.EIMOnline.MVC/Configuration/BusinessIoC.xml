@@ -7,4 +7,9 @@
   <object id="SecurityUserModel" type="Wysnan.EIMOnline.Business.SecurityUserModel" singleton="false" parent="BusinessModel">
     <!--<property name="Model" ref="Model"/>-->
   </object>
+
+  <object id="OperateLogModel" type="Wysnan.EIMOnline.Business.OperateLogModel" singleton="false" parent="BusinessModel">
+    <!--<property name="Model" ref="Model"/>-->
+  </object>
+  
 </objects>

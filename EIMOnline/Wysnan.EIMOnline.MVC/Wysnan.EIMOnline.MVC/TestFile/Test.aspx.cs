@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Wysnan.EIMOnline.Business.Framework;
+using Wysnan.EIMOnline.Injection.Logs;
 
 namespace Wysnan.EIMOnline.MVC.TestFile
 {
@@ -14,6 +15,16 @@ namespace Wysnan.EIMOnline.MVC.TestFile
         {
             Response.Write(GlobalEntity.Instance.Cache_Message.GetMessge("1"));
             Cache_Message.Instance.ReLoadData();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            getstring();
+        }
+
+        [OperateLog]
+        public void getstring()
+        {
         }
     }
 }

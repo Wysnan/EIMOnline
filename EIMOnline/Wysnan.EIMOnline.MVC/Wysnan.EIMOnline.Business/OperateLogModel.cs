@@ -6,6 +6,7 @@ using Wysnan.EIMOnline.Common.Poco;
 using Wysnan.EIMOnline.IBLL;
 using Wysnan.EIMOnline.Injection.Logs;
 using Wysnan.EIMOnline.Common.Framework;
+using Wysnan.EIMOnline.Injection.Transaction;
 
 namespace Wysnan.EIMOnline.Business
 {
@@ -13,13 +14,20 @@ namespace Wysnan.EIMOnline.Business
     {
         public OperateLogModel()
         {
-        }       
-
-        [OperateLog]
+        }  
+    
         public new Result Add()
         {
             OperateLog op=new OperateLog();
             Model.Add<OperateLog>(op);
+            return null;
+        }
+
+        [OperateLogAttribute]
+        [TransactionAttribute]
+        public Result test()
+        {
+            OperateLog op = new OperateLog();
             return null;
         }
     }
