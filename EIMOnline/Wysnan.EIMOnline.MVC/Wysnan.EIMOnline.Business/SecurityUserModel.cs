@@ -22,6 +22,7 @@ namespace Wysnan.EIMOnline.Business
         }
 
         [TransactionAttribute]
+        [OperateLog]
         public override IQueryable<SecurityUser> List()
         {
             return base.List();

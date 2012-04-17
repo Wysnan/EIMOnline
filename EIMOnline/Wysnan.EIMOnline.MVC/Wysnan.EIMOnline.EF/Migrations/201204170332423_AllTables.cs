@@ -16,6 +16,7 @@ namespace Wysnan.EIMOnline.EF.Migrations
                         UserName = c.String(),
                         UserLoginID = c.String(),
                         UserLoginPwd = c.String(),
+                        CreatedOn = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             
@@ -61,16 +62,34 @@ namespace Wysnan.EIMOnline.EF.Migrations
                     })
                 .PrimaryKey(t => t.ID);
             
+            CreateTable(
+                "PersonnelAttendance",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        SystemStatus = c.Byte(),
+                        TimeStamp = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
+                        SecurityUserID = c.Int(nullable: false),
+                        BeginWorkTime = c.DateTime(nullable: false),
+                        EndWorkTime = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("SecurityUser", t => t.SecurityUserID)
+                .Index(t => t.SecurityUserID);
+            
         }
         
         public override void Down()
         {
+            DropIndex("PersonnelAttendance", new[] { "SecurityUserID" });
             DropIndex("SecurityUserRole", new[] { "SecurityRoleID" });
             DropIndex("SecurityUserRole", new[] { "SecurityUserID" });
             DropIndex("OperateLog", new[] { "SecurityUserId_ID" });
+            DropForeignKey("PersonnelAttendance", "SecurityUserID", "SecurityUser");
             DropForeignKey("SecurityUserRole", "SecurityRoleID", "SecurityRole");
             DropForeignKey("SecurityUserRole", "SecurityUserID", "SecurityUser");
             DropForeignKey("OperateLog", "SecurityUserId_ID", "SecurityUser");
+            DropTable("PersonnelAttendance");
             DropTable("SecurityRole");
             DropTable("SecurityUserRole");
             DropTable("OperateLog");
