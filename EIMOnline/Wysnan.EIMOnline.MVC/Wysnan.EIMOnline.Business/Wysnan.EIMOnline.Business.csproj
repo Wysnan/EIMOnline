@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="BusinessModel.cs" />
+    <Compile Include="EmailServiceModel.cs" />
     <Compile Include="Framework\Cache\CacheModel.cs" />
     <Compile Include="Framework\Cache\Cache_JqGridHtml.cs" />
     <Compile Include="Framework\GlobalEntity.cs" />

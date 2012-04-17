@@ -9,6 +9,9 @@ using Wysnan.EIMOnline.Common.Framework.Grid;
 using Wysnan.EIMOnline.Business.Framework;
 using Wysnan.EIMOnline.Tool.Extensions;
 using Wysnan.EIMOnline.Tool.ToolMethod;
+using Wysnan.EIMOnline.Common.Framework;
+using Wysnan.EIMOnline.Common.Poco;
+using System.Collections.Specialized;
 
 namespace Wysnan.EIMOnline.MVC.Framework.Extensions
 {
@@ -16,6 +19,25 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
     {
         public static MvcHtmlString Grid(this HtmlHelper helper, GridEnum gridEnum)
         {
+            string key = SystemEntity.Instance.CurrentSecurityUser.ID + "_" + gridEnum.ToString();
+            HttpCookie cookie = HttpContext.Current.Request.Cookies[ConstEntity.Cookie_JqGridHtml];
+            if (cookie != null)
+            {
+                //cookie不为空
+                if (cookie.HasKeys)
+                {
+                    var value = cookie.Values.AllKeys.Where(a => a == key).FirstOrDefault();
+                    if (!string.IsNullOrEmpty(value))
+                    {
+                        //直接读取cooke里内容
+                        string cookieValue = HttpUtility.UrlDecode(cookie.Values[key]);
+                        return MvcHtmlString.Create(cookieValue);
+                    }
+                }
+            }
+
+            #region jqGrid构造
+
             JqGrid jqGrid = GlobalEntity.Instance.Cache_JqGrid.JqGrids[gridEnum];
             if (jqGrid == null)
             {
@@ -49,6 +71,7 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
             grid.Append("$(\"#list\").jqGrid({");
             grid.AppendFormat("url: '{0}',", url);// jqGrid._Url);
             grid.Append("autowidth:true,");
+            //grid.Append("setGridWidth:100%,");
             grid.AppendFormat("datatype: '{0}',", jqGrid._DataType);
             grid.AppendFormat("mtype: '{0}',", jqGrid._Mtype);
             grid.AppendFormat("colNames: [{0}],", StrColNames.ToString());
@@ -72,14 +95,44 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
             grid.AppendFormat("caption: '&nbsp;{0}'", jqGrid._Caption);
             grid.Append("});");
             grid.Append("var grid=$(\"#list\");");
-            grid.Append("grid.jqGrid('navGrid', '#pager', { edit: false, add: true, del: true,view:false },{},{},{},{multipleSearch:true,overlay:false});");
+            grid.Append("grid.jqGrid('navGrid', '#pager', { edit: false, add: true, del: true,view:false },{},{},{},{multipleSearch:true,overlay:false,closeAfterSearch:true,closeOnEscape:true});");
             grid.Append("grid.jqGrid('filterToolbar',{stringResult: true,searchOnEnter : true});");
-            grid.Append("grid.jqGrid('navButtonAdd','#pager',{caption: \"\",buttonicon: \"ui-icon-calculator\", title:\"Reorder Columns\",onClickButton:function(){grid.jqGrid('columnChooser');}});");
+            //grid.Append("grid.jqGrid('navButtonAdd','#pager',{caption: \"\",buttonicon: \"ui-icon-calculator\", title:\"Reorder Columns\",onClickButton:function(){grid.jqGrid('columnChooser');}});");
+            grid.Append("grid.jqGrid('navButtonAdd','#pager',{caption: \"\",buttonicon: \"ui-icon-calculator\", title:\"Reorder Columns\",onClickButton:function(){grid.jqGrid('columnChooser',{ 'done': function(perm) { if (perm) { this.jqGrid('remapColumns', perm, true); persist(this);}}});}});");
+            
             grid.Append("});");
             grid.Append("</script>");
-
             string gridHtml = grid.ToString();
-            //CookieHelp.WriteCookie("")
+
+            #endregion
+
+            #region write cookie
+
+            if (cookie != null && cookie.HasKeys)
+            {
+                //cookie不为空
+                var value = cookie.Values.AllKeys.Where(a => a == key).FirstOrDefault();
+                if (string.IsNullOrEmpty(value))
+                {
+                    //添加新cookie key
+                    Dictionary<string, string> dic = new Dictionary<string, string>();//原cookie中dic
+                    foreach (var item in cookie.Values.AllKeys)
+                    {
+                        dic[item] = cookie.Values[item];
+                    }
+                    dic[key] = gridHtml;
+                    CookieHelp.WriteCookie(ConstEntity.Cookie_JqGridHtml, dic, -1, url);
+                }
+            }
+            else
+            {
+                //cookie为空，添加cookie
+                Dictionary<string, string> dic = new Dictionary<string, string>();
+                dic[key] = HttpUtility.UrlEncode(gridHtml);
+                CookieHelp.WriteCookie(ConstEntity.Cookie_JqGridHtml, dic, -1, url);
+            }
+            #endregion
+
             return MvcHtmlString.Create(gridHtml);
         }
     }

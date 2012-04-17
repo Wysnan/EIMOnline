@@ -10,13 +10,7 @@
 <script src="/Scripts/jquery-ui-1.8.17.custom.min.js" type="text/javascript"></script>
 <script src="/Scripts/JqGrid/i18n/grid.locale-cn.js" type="text/javascript"></script>
 <script src="/Scripts/JqGrid/jquery.jqGrid.src.js" type="text/javascript"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        datePick = function (elem) {
-            jQuery(elem).datepicker({ dateFormat: 'yy-mm-dd' });
-        }
-    });
-</script>
+<script src="/Scripts/JqGrid/jqGridExtensions.js" type="text/javascript"></script>
 <div>
     @Html.Grid(GridEnum.SecurityUser)
 </div>

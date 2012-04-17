@@ -41,5 +41,12 @@ namespace Wysnan.EIMOnline.MVC
             RegisterRoutes(RouteTable.Routes);
 
         }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception unhandledException = Server.GetLastError();
+            //Server.ClearError();
+            //HttpException httpEx = Server.GetLastError() as HttpException;
+        }
     }
 }

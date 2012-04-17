@@ -19,7 +19,7 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         where T : class, IBusinessLogicModel<E>
         where E : ISystemBaseEntity
     {
-        protected T Model { get; set; }
+        public T Model { get; set; }
 
         private Type type { get; set; }
 
@@ -44,35 +44,39 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         /// JqGrid列表方法
         /// </summary>
         [HttpGet]
+        [ValidateInput(false)]
         public ActionResult List(int page, int rows, string sidx, string sord, bool search, string nd, string npage, string filters)
         {
-            /*
-          'searchField',
-          'searchString',
-          'searchOper',
-          */
             string where = null;
             if (!string.IsNullOrEmpty(filters))
             {
                 MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(filters));
                 DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Filters));
                 Filters filter = (Filters)ser.ReadObject(ms);
-
-                object obj = Enum.Parse(typeof(GridEnum), type.Name);
-                if (obj != null)
+                try
                 {
-                    GridEnum gridEnum = (GridEnum)obj;
-                    if (gridEnum != null)
+                    object obj = Enum.Parse(typeof(GridEnum), type.Name);
+
+                    if (obj != null)
                     {
+                        GridEnum gridEnum = (GridEnum)obj;
                         JqGrid grid = GlobalEntity.Instance.Cache_JqGrid.JqGrids[gridEnum];
                         var colModel = grid._ColModel;
                         foreach (var item in filter.rules)
                         {
-                            var fieldtype = colModel.Find(a => a.Name == item.field).Type;
-                            item.type = fieldtype;
+                            if (!string.IsNullOrEmpty(item.data))
+                            {
+                                var fieldtype = colModel.Find(a => a.Name == item.field).Type;
+                                item.type = fieldtype;
+                            }
                         }
                         where = filter.ConvertToString();
                     }
+                }
+                catch (ArgumentException ex)
+                {
+                    //todo: wushuangqi
+                    throw ex;
                 }
             }
 

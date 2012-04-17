@@ -24,6 +24,7 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         {
             if (user.UserLoginID == "admin" && user.UserLoginPwd == "admin")
             {
+                SystemEntity.Instance.CurrentSecurityUser = user;
                 return RedirectToRoute("Administration_default", new { controller = "SecurityUser", action = "Index" });
                 //return RedirectToAction("Index", "SecurityUser", new { area = "Administration" });
                 //Response.Redirect("~/Administration/SecurityUser/Index",true);

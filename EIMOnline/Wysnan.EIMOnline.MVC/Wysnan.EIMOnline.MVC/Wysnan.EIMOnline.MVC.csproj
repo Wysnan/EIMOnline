@@ -150,6 +150,7 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\external\jquery.bgiframe-2.1.2.js" />
     <Content Include="Scripts\external\jquery.cookie.js" />
@@ -194,6 +195,7 @@
     <Content Include="Scripts\JqGrid\i18n\grid.locale-th.js" />
     <Content Include="Scripts\JqGrid\i18n\grid.locale-tr.js" />
     <Content Include="Scripts\JqGrid\i18n\grid.locale-ua.js" />
+    <Content Include="Scripts\JqGrid\jqGridExtensions.js" />
     <Content Include="Scripts\JqGrid\jquery.jqGrid.min.js" />
     <Content Include="Scripts\JqGrid\jquery.jqGrid.src.js" />
     <Content Include="Scripts\JqGrid\plugins\grid.addons.js" />

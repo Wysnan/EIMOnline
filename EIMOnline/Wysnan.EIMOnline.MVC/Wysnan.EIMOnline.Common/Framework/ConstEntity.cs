@@ -50,6 +50,13 @@ namespace Wysnan.EIMOnline.Common.Framework
         /// JqGrid Html缓存key
         /// </summary>
         public const string Cache_JqGridHtml = "Cache_JqGridHtml";
+
+        #endregion
+
+        #region cookie
+
+        public const string Cookie_JqGridHtml = "Cookie_JqGridHtml";
+
         #endregion
     }
 }
