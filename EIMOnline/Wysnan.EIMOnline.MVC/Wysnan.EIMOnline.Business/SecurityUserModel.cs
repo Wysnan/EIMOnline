@@ -11,6 +11,7 @@ using Wysnan.EIMOnline.Common.Framework.Grid;
 using Wysnan.EIMOnline.Common.ViewModel;
 using System.Linq.Expressions;
 using Wysnan.EIMOnline.Tool.Extensions;
+using Wysnan.EIMOnline.Injection.Logs;
 
 namespace Wysnan.EIMOnline.Business
 {

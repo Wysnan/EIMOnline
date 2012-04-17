@@ -45,6 +45,7 @@
     <Compile Include="Framework\IBaseConfigModel.cs" />
     <Compile Include="IBusinessLogicModel.cs" />
     <Compile Include="IEmailServiceModel.cs" />
+    <Compile Include="IOperateLog.cs" />
     <Compile Include="ISecurityUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -54,6 +54,7 @@
     <Compile Include="Framework\SystemInitialization.cs" />
     <Compile Include="GenericBusinessModel.cs" />
     <Compile Include="GridModel.cs" />
+    <Compile Include="OperateLogModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecurityUserModel.cs" />
   </ItemGroup>

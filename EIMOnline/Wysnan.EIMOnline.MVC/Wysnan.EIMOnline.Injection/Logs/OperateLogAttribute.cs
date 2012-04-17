@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Wysnan.EIMOnline.Injection.Transaction
+namespace Wysnan.EIMOnline.Injection.Logs
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
-    public class TransactionAttribute : Attribute
+    public class OperateLogAttribute : Attribute
     {
-        
+        public OperateLogAttribute() { 
+        }
+
     }
 }
