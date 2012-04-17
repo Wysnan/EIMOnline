@@ -25,7 +25,7 @@ namespace Wysnan.EIMOnline.Business
 
         #region 业务方法
 
-        public Result Add(T t)
+        public virtual Result Add(T t)
         {
             return Model.Add<T>(t);
         }

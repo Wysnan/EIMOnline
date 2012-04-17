@@ -49,9 +49,9 @@
     <Compile Include="Context.cs" />
     <Compile Include="EntityFrameworkModel.cs" />
     <Compile Include="Mapping\SecurityUserMap.cs" />
-    <Compile Include="Migrations\201204120239220_UserRole.cs" />
-    <Compile Include="Migrations\201204120239220_UserRole.Designer.cs">
-      <DependentUpon>201204120239220_UserRole.cs</DependentUpon>
+    <Compile Include="Migrations\201204170242029_AllTables.cs" />
+    <Compile Include="Migrations\201204170242029_AllTables.Designer.cs">
+      <DependentUpon>201204170242029_AllTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\DBScript\SqlMigration.cs" />

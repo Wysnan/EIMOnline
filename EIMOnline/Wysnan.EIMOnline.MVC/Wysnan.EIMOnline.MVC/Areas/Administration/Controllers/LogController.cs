@@ -17,8 +17,7 @@ namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
         public ActionResult Index()
         {
             //List<OperateLog> users = Model.te
-            OperateLogModel dd = new OperateLogModel();
-            var tt = dd.test();
+            var tt = Model.test();
 
             return View();
         }

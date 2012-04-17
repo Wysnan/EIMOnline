@@ -14,20 +14,22 @@ namespace Wysnan.EIMOnline.Business
     {
         public OperateLogModel()
         {
-        }  
-    
-        public new Result Add()
+        }
+
+        public override Result Add(OperateLog t)
         {
-            OperateLog op=new OperateLog();
-            Model.Add<OperateLog>(op);
-            return null;
+            var oplog = Model.Add<OperateLog>(t);
+
+            return oplog;
         }
 
         [OperateLogAttribute]
-        [TransactionAttribute]
         public Result test()
         {
             OperateLog op = new OperateLog();
+            op.OperateDate = DateTime.Now;
+            op.OperateLogInfo = "ss";
+
             return null;
         }
     }
