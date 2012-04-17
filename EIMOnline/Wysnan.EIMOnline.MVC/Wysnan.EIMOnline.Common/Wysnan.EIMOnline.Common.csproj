@@ -73,6 +73,7 @@
     <Compile Include="Framework\PageInfo.cs" />
     <Compile Include="Framework\Result.cs" />
     <Compile Include="ViewModel\CombinedSecurityUser.cs" />
+    <Compile Include="ViewModel\CombinedPersonnelAttendance.cs" />
     <Compile Include="ViewModel\ICombined.cs" />
   </ItemGroup>
   <ItemGroup>

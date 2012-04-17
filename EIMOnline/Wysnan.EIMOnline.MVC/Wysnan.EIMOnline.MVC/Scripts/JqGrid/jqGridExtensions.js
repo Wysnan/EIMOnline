@@ -10,12 +10,13 @@ function aa() {
     $("#list").setGridWidth(1360);
 }
 function persist(grid) {
-    ///	<summary>
-    ///		Persists column model to local storage.
-    ///	</summary>
-    ///	<param name="grid" optional="false" type="Object">The jqGrid whose column model is being persisted.</param>
-    alert(grid);
     var colModel = grid.getGridParam('colModel');
-    alert(colModel);
-    //modules.storage.set(core.options.area + core.options.controller + grid.attr('data-token'), colModel, modules.storage.mode.local);
+    var value = "";
+    $(colModel).each(function (i, n) {
+        if (n.hidden && n.hidden != false) {
+            value += n.name + "_";
+        }
+    });
+    value = value.substring(0, value.length - 1);
+    $.get(SetJqGridColumn, { colModel: value });
 }

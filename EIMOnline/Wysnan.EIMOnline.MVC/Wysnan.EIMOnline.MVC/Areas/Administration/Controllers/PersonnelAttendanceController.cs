@@ -14,11 +14,10 @@ using Wysnan.EIMOnline.Injection.JqGrid;
 
 namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
 {
-    public class SecurityUserController : BaseController<ISecurityUser, SecurityUser>
+    public class PersonnelAttendanceController : BaseController<IPersonnelAttendanceModel, PersonnelAttendance>
     {
         public ActionResult Index()
         {
-            Model.List();
             return View();
         }
 

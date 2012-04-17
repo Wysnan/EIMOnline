@@ -12,6 +12,9 @@ using Wysnan.EIMOnline.Business.Framework;
 using Wysnan.EIMOnline.Common.Framework.Enum;
 using Wysnan.EIMOnline.Common.Framework.Grid.Poco;
 using Wysnan.EIMOnline.Common.Framework.Grid;
+using System.Collections.Generic;
+using System.Linq;
+using Wysnan.EIMOnline.Tool.JqGridExtansions;
 
 namespace Wysnan.EIMOnline.MVC.Controllers
 {
@@ -103,6 +106,38 @@ namespace Wysnan.EIMOnline.MVC.Controllers
                 rows = questions
             };
             return Json(jsonData, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        [ValidateInput(false)]
+        public void SetJqGridColumn(string colModel)
+        {
+            if (!string.IsNullOrEmpty(colModel))
+            {
+                string[] colModels = colModel.Split('_');
+                if (colModel != null)
+                {
+                    object obj = Enum.Parse(typeof(GridEnum), type.Name);
+                    if (obj != null)
+                    {
+                        GridEnum gridEnum = (GridEnum)obj;
+                        JqGrid grid = GlobalEntity.Instance.Cache_JqGrid.JqGrids[gridEnum];
+                        if (grid != null)
+                        {
+                            var query = grid._ColModel.Where(a => colModels.Contains(a.Name));
+                            if (query != null)
+                            {
+                                var models = query.ToList();
+                                foreach (var item in models)
+                                {
+                                    item.Hidden = true;
+                                }
+                                grid.WriteCookie(gridEnum);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         #endregion
