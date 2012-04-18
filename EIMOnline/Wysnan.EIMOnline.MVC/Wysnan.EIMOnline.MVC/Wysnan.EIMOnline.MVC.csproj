@@ -81,6 +81,7 @@
   <ItemGroup>
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\LogController.cs" />
+    <Compile Include="Areas\Administration\Controllers\SecurityRoleController.cs" />
     <Compile Include="Areas\Administration\Controllers\SecurityUserController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GeneralController.cs" />
@@ -107,6 +108,9 @@
     <Content Include="Configuration\InjectionIoC.xml" />
     <Content Include="Configuration\MVCIoC.xml" />
     <Content Include="Areas\Administration\Views\Log\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityRole\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityRole\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityRole\Edit.cshtml" />
     <None Include="Config\Message.config" />
     <Content Include="Config\FileDependency2.xml" />
     <Content Include="Config\FileDependency1.txt" />

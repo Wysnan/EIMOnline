@@ -25,6 +25,7 @@ namespace Wysnan.EIMOnline.EF
 
         DbSet<SecurityUser> SecurityUser { get; set; }
         DbSet<OperateLog> OperateLog { get; set; }
+        DbSet<SecurityRole> SecurityRole { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

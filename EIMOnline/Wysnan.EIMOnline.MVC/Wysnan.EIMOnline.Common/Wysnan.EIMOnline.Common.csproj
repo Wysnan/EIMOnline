@@ -72,6 +72,7 @@
     <Compile Include="Framework\ISystemBaseEntity.cs" />
     <Compile Include="Framework\PageInfo.cs" />
     <Compile Include="Framework\Result.cs" />
+    <Compile Include="ViewModel\CombinedSecurityRole.cs" />
     <Compile Include="ViewModel\CombinedSecurityUser.cs" />
     <Compile Include="ViewModel\ICombined.cs" />
   </ItemGroup>

@@ -9,5 +9,8 @@
 
   <object id="OperateLogModel" type="Wysnan.EIMOnline.Business.OperateLogModel" singleton="false" parent="BusinessModel">
   </object>
+
+  <object id="SecurityRoleModel" type="Wysnan.EIMOnline.Business.SecurityRoleModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
+  </object>
   
 </objects>
