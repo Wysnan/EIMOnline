@@ -2,11 +2,11 @@
 	xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/xsd/spring-objects.xsd">
 
 
-  <object id="Model" type="Wysnan.EIMOnline.EF.EntityFrameworkModel,Wysnan.EIMOnline.EF" scope="request" >
+  <object id="Model" type="Wysnan.EIMOnline.EF.EntityFrameworkModel,Wysnan.EIMOnline.EF" scope="request" singleton="false">
     <constructor-arg name="context" ref="DbContext" />
   </object>
 
-  <object id="DbContext" type="Wysnan.EIMOnline.EF.Context,Wysnan.EIMOnline.EF" scope="request">
+  <object id="DbContext" type="Wysnan.EIMOnline.EF.Context,Wysnan.EIMOnline.EF" scope="request" singleton="false">
     <constructor-arg name="connectionString" value="Context" />
   </object>
 

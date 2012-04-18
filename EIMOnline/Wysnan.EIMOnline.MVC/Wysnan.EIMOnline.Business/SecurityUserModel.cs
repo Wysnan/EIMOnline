@@ -22,12 +22,12 @@ namespace Wysnan.EIMOnline.Business
         }
 
         [TransactionAttribute]
-        [OperateLog]
         public override IQueryable<SecurityUser> List()
         {
             return base.List();
         }
 
+        [OperateLog]
         public override IQueryable ListJqGrid()
         {
             var query = Model.List<SecurityUser>();

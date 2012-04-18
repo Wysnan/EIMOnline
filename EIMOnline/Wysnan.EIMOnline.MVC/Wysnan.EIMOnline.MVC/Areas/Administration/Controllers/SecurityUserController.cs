@@ -18,10 +18,6 @@ namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
     {
         public ActionResult Index()
         {
-            //List<SecurityUser> users = Model.List().ToList();
-
-            //return View(users);
-            Model.List();
             return View();
         }
 

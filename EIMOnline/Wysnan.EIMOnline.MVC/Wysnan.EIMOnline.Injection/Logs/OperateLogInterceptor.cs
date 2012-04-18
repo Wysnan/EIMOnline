@@ -39,15 +39,26 @@ namespace Wysnan.EIMOnline.Injection.Logs
 
             try
             {
+                var result = invocation.Proceed();
+                bool ex = result is Result;
+                string exinfo = string.Format("用户在：{0}时调用的类是：{1}，调用的方法是：{2}", DateTime.Now, attr, attributes1);
                 OperateLog op = new OperateLog();
                 op.OperateDate = DateTime.Now;
-                op.OperateLogInfo = string.Format("用户在：{0}时调用的类是：{1}，调用的方法是：{2}", DateTime.Now, attr, attributes1);
-                Result resultOperateLog = OperateLog.Add(op);
+                op.OperateLogInfo = exinfo;
+                Result resultOperateLog;
+                if (ex)
+                {
+                    exinfo = string.Format("用户在：{0}时调用的类是：{1}，调用的方法是：{2}!且操作失败。", DateTime.Now, attr, attributes1);
+                    resultOperateLog = OperateLog.Add(op);
+                    throw new ApplicationException("操作失败。");
+                }
+
+                resultOperateLog = OperateLog.Add(op);
                 if (!resultOperateLog.ResultStatus)
                 {
                     throw new ApplicationException("添加日志失败。");
                 }
-                var result = invocation.Proceed();
+
                 return result;
             }
             catch
