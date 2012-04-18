@@ -111,6 +111,8 @@
     <Content Include="Areas\Administration\Views\SecurityRole\Index.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityRole\Create.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityRole\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityRole\Delete.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityRole\Details.cshtml" />
     <None Include="Config\Message.config" />
     <Content Include="Config\FileDependency2.xml" />
     <Content Include="Config\FileDependency1.txt" />

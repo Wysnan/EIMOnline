@@ -20,7 +20,8 @@ namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            SecurityRole editcontex = Model.Get(id);
+            return View(editcontex);
         }
 
         //
@@ -80,7 +81,7 @@ namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
         // GET: /Administration/SecurityRole/Delete/5
 
         public ActionResult Delete(int id)
-        {
+        {           
             return View();
         }
 
@@ -88,12 +89,12 @@ namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
         // POST: /Administration/SecurityRole/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, SecurityRole securityrole)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                Model.Delete(id);
                 return RedirectToAction("Index");
             }
             catch
