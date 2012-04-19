@@ -20,20 +20,13 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
         public static MvcHtmlString Grid(this HtmlHelper helper, GridEnum gridEnum)
         {
             string key = SystemEntity.Instance.CurrentSecurityUser.ID + "_" + gridEnum.ToString();
-            HttpCookie cookie = HttpContext.Current.Request.Cookies[ConstEntity.Cookie_JqGridHtml];
+            string cookieName = ConstEntity.Cookie_JqGridHtml + key;
+            HttpCookie cookie = HttpContext.Current.Request.Cookies[cookieName];
             if (cookie != null)
             {
-                //cookie不为空
-                if (cookie.HasKeys)
-                {
-                    var value = cookie.Values.AllKeys.Where(a => a == key).FirstOrDefault();
-                    if (!string.IsNullOrEmpty(value))
-                    {
-                        //直接读取cooke里内容
-                        string cookieValue = HttpUtility.UrlDecode(cookie.Values[key]);
-                        return MvcHtmlString.Create(cookieValue);
-                    }
-                }
+                //直接读取cooke里内容
+                string cookieValue = HttpUtility.UrlDecode(cookie.Value);
+                return MvcHtmlString.Create(cookieValue);
             }
 
             #region jqGrid构造
@@ -48,14 +41,12 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
             {
                 return MvcHtmlString.Empty;
             }
-            //string url = HttpContext.Current.Request.Url.AbsolutePath + "/List";
             string gridHtml = jqGrid.ConvertToHtml();
-            
+
             #endregion
 
             #region write cookie
-
-            jqGrid.WriteCookie(gridEnum, gridHtml);
+            jqGrid.WriteCookie(gridEnum, HttpUtility.UrlEncode(gridHtml));
             #endregion
 
             return MvcHtmlString.Create(gridHtml);

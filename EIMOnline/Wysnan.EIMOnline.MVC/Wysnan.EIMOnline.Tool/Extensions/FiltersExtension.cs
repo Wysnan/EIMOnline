@@ -2,38 +2,81 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Wysnan.EIMOnline.Common.Framework.Grid.Poco;
 
-namespace Wysnan.EIMOnline.Common.Framework.Grid.Poco
+namespace Wysnan.EIMOnline.Tool.Extensions
 {
-    public class Filters
+    public static class FiltersExtension
     {
-        public string groupOp { get; set; }
-
-        public List<rules> rules { get; set; }
-
-        public string ConvertToString()
+        public static IQueryable ConvertToIQueryable(this Filters filters, IQueryable query)
         {
-            if ((!string.IsNullOrEmpty(groupOp)) && rules != null)
+            //query = query.Where("CreatedOn=@0", dt);
+            if (filters != null && filters.rules != null && filters.rules.Count > 0)
             {
-                StringBuilder filter = new StringBuilder();
-                foreach (var item in rules)
+                StringBuilder value = null;
+                var rules = filters.rules.Where(a => a.type == "datetime");
+                object[] datas = null;
+                if (rules != null&&rules.Count()>0)
                 {
-                    if (item.type != "datetime")
+                    var list = rules.ToList();
+                    value = new StringBuilder();
+                    string op = null;
+                    int length = list.Count;
+                    datas = new object[length];
+                    for (int i = 0; i < length; i++)
                     {
-                        filter.AppendFormat(" {0} {1}", ConvertToOp(item.op, item.type, item.data, item.field), groupOp);
+                        DateTime dt = DateTime.Parse(list[i].data);
+                        op = ConvertToOpWithDateTime(list[i].op);
+                        value.AppendFormat(" {0}{1}@{2} {3}", list[i].field, op, i, filters.groupOp);
+                        datas[i] = dt;
                     }
                 }
-                if (filter.Length > 0)
+
+                rules = filters.rules.Where(a => a.type != "datetime");
+                if (rules != null&&rules.Count() > 0)
                 {
-                    int length = groupOp.Length;
-                    filter.Remove(filter.Length - length, length);
+                    var list = rules.ToList();
+                    if (value == null)
+                    {
+                        value = new StringBuilder();
+                    }
+                    foreach (var item in rules)
+                    {
+                        value.AppendFormat(" {0} {1}", ConvertToOp(item.op, item.type, item.data, item.field), filters.groupOp);
+                    }
                 }
-                return filter.ToString().Trim();
+                if (value != null && value.Length > 0)
+                {
+                    int length = filters.groupOp.Length;
+                    value.Remove(value.Length - length, length);
+                }
+                if (value.Length > 0)
+                {
+                    string where = value.ToString().Trim();
+                    if (where.Length > 0)
+                    {
+                        query = query.Where(value.ToString(), datas);
+                    }
+                }
             }
-            return string.Empty;
+            return query;
+        }
+        private static string ConvertToOpWithDateTime(string op)
+        {
+            string value = string.Empty;
+            switch (op)
+            {
+                case "eq": value = "="; break;
+                case "ne": value = "<>"; break;
+                case "lt": value = "<"; break;
+                case "le": value = "<="; break;
+                case "gt": value = ">"; break;
+                case "ge": value = ">="; break;
+            }
+            return value;
         }
 
-        private string ConvertToOp(string op, string type, string data, string field)
+        private static string ConvertToOp(string op, string type, string data, string field)
         {
             string value = string.Empty;
             switch (type)
@@ -116,31 +159,4 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid.Poco
             return value;
         }
     }
-
-    public class rules
-    {
-        public string field { get; set; }
-        public string op { get; set; }
-        public string data { get; set; }
-        public string type { get; set; }
-    }
-    /*
-     {"name": "eq", "description": "equal", "operator":"="},
-			{"name": "ne", "description": "not equal", "operator":"<>"},
-			{"name": "lt", "description": "less", "operator":"<"},
-			{"name": "le", "description": "less or equal","operator":"<="},
-			{"name": "gt", "description": "greater", "operator":">"},
-			{"name": "ge", "description": "greater or equal", "operator":">="},
-			{"name": "bw", "description": "begins with", "operator":"LIKE"},
-			{"name": "bn", "description": "does not begin with", "operator":"NOT LIKE"},
-			{"name": "in", "description": "in", "operator":"IN"},
-			{"name": "ni", "description": "not in", "operator":"NOT IN"},
-			{"name": "ew", "description": "ends with", "operator":"LIKE"},
-			{"name": "en", "description": "does not end with", "operator":"NOT LIKE"},
-			{"name": "cn", "description": "contains", "operator":"LIKE"},
-			{"name": "nc", "description": "does not contain", "operator":"NOT LIKE"},
-			{"name": "nu", "description": "is null", "operator":"IS NULL"},
-			{"name": "nn", "description": "is not null", "operator":"IS NOT NULL"}
-     */
-
 }

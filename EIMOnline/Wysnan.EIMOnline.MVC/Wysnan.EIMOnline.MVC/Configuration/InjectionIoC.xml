@@ -11,7 +11,7 @@
   </object>
 
 
-  <object id="OperateLogInterceptor" type="Wysnan.EIMOnline.Injection.Logs.OperateLogInterceptor" singleton="false">
+  <object id="OperateLogInterceptor" type="Wysnan.EIMOnline.Injection.Logs.OperateLogInterceptor,Wysnan.EIMOnline.Injection" singleton="false">
     <property name="OperateLog" ref="OperateLogModel"/>
   </object>
 

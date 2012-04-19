@@ -4,10 +4,10 @@
   <object id="BusinessModel" type="Wysnan.EIMOnline.Business.BusinessModel" singleton="false" >
     <property name="Model" ref="Model"/>
   </object>
-  <object id="SecurityUserModel" type="Wysnan.EIMOnline.Business.SecurityUserModel" singleton="false" parent="BusinessModel">
+  <object id="SecurityUserModel" type="Wysnan.EIMOnline.Business.SecurityUserModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
   </object>
 
-  <object id="OperateLogModel" type="Wysnan.EIMOnline.Business.OperateLogModel" singleton="false" parent="BusinessModel">
+  <object id="OperateLogModel" type="Wysnan.EIMOnline.Business.OperateLogModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
   </object>
 
   <object id="PersonnelAttendanceModel" type="Wysnan.EIMOnline.Business.PersonnelAttendanceModel" singleton="false" parent="BusinessModel">

@@ -43,19 +43,23 @@ namespace Wysnan.EIMOnline.MVC.Controllers
             }
         }
         #region Action
+
         /// <summary>
         /// JqGrid列表方法
-        /// </summary>
+        /// </summary>        
         [HttpGet]
         [ValidateInput(false)]
         public ActionResult List(int page, int rows, string sidx, string sord, bool search, string nd, string npage, string filters)
         {
-            string where = null;
+            //cb_ID_UserName_UserLoginID_UserLoginPwd_CreatedOn
+            #region 转换查询条件为Filters类
+
+            Filters filter = null;
             if (!string.IsNullOrEmpty(filters))
             {
                 MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(filters));
                 DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Filters));
-                Filters filter = (Filters)ser.ReadObject(ms);
+                filter = (Filters)ser.ReadObject(ms);
                 try
                 {
                     object obj = Enum.Parse(typeof(GridEnum), type.Name);
@@ -67,13 +71,12 @@ namespace Wysnan.EIMOnline.MVC.Controllers
                         var colModel = grid._ColModel;
                         foreach (var item in filter.rules)
                         {
-                            if (!string.IsNullOrEmpty(item.data))
+                            if (item.data != null)
                             {
                                 var fieldtype = colModel.Find(a => a.Name == item.field).Type;
                                 item.type = fieldtype;
                             }
-                        }
-                        where = filter.ConvertToString();
+                        }                        
                     }
                 }
                 catch (ArgumentException ex)
@@ -82,16 +85,24 @@ namespace Wysnan.EIMOnline.MVC.Controllers
                     throw ex;
                 }
             }
+            #endregion
 
-            var query = Model.ListJqGrid();
-            if (!string.IsNullOrEmpty(where))
-            {
-                query = query.Where(where, null);
-            }
+            #region 获取查询列
+
+            string showFiled = Request["showFiled"];
+
+            #endregion
+
+            var query = Model.List().Select(showFiled);
+            var query_totalRecords = Model.List().Select(showFiled);
+
+            //添加条件
+            query = filter.ConvertToIQueryable(query);
+            query_totalRecords = filter.ConvertToIQueryable(query_totalRecords);
 
             int pageIndex = Convert.ToInt32(page) - 1;
             int pageSize = rows;
-            int totalRecords = 21;
+            int totalRecords = query_totalRecords.Count();
             int totalPages = (int)Math.Ceiling((float)totalRecords / (float)pageSize);
 
             var questions = query.OrderBy(sidx + " " + sord)

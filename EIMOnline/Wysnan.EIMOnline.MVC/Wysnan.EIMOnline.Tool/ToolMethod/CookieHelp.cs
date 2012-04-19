@@ -10,9 +10,23 @@ namespace Wysnan.EIMOnline.Tool.ToolMethod
     {
         private CookieHelp() { }
 
-        public static void WriteCookie(string cookieName, string value)
+        public static void WriteCookie(string cookieName, string value, long minute, string path)
         {
-
+            HttpCookie cookie = new HttpCookie(cookieName);
+            cookie.Value = value;            
+            if (minute > 0)
+            {
+                cookie.Expires = DateTime.Now.AddMinutes(minute);
+            }
+            if (minute <= -1)
+            {
+                cookie.Expires = DateTime.Now.AddMinutes(525600);//1 year
+            }
+            if (!string.IsNullOrEmpty(path))
+            {
+                cookie.Path = path;
+            }
+            HttpContext.Current.Response.AppendCookie(cookie);
         }
 
         /// <summary>
@@ -58,7 +72,7 @@ namespace Wysnan.EIMOnline.Tool.ToolMethod
             }
             if (!string.IsNullOrEmpty(path))
             {
-                //cookie.Path = path;
+                cookie.Path = path;
             }
             HttpContext.Current.Response.AppendCookie(cookie);
         }
