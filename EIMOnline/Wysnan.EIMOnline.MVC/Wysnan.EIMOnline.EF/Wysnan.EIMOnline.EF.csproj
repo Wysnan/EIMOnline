@@ -49,9 +49,14 @@
     <Compile Include="Context.cs" />
     <Compile Include="EntityFrameworkModel.cs" />
     <Compile Include="Mapping\SecurityUserMap.cs" />
-    <Compile Include="Migrations\201204170332423_AllTables.cs" />
-    <Compile Include="Migrations\201204170332423_AllTables.Designer.cs">
-      <DependentUpon>201204170332423_AllTables.cs</DependentUpon>
+    <Compile Include="Mapping\SystemActionMap.cs" />
+    <Compile Include="Mapping\SystemModuleDetailPageMap.cs" />
+    <Compile Include="Mapping\SystemModuleMap.cs" />
+    <Compile Include="Mapping\SystemModuleTypeMap.cs" />
+    <Compile Include="Mapping\SystemPermissionMap.cs" />
+    <Compile Include="Migrations\201204180903237_AllTable.cs" />
+    <Compile Include="Migrations\201204180903237_AllTable.Designer.cs">
+      <DependentUpon>201204180903237_AllTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\DBScript\SqlMigration.cs" />

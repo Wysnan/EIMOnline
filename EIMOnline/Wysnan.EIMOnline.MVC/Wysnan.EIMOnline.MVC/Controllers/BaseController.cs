@@ -47,6 +47,7 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         [ValidateInput(false)]
         public ActionResult List(int page, int rows, string sidx, string sord, bool search, string nd, string npage, string filters)
         {
+         
             string where = null;
             if (!string.IsNullOrEmpty(filters))
             {
@@ -128,6 +129,11 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         #endregion
 
         #region Methods
+
+        public bool Permission()
+        {
+            return false;
+        }
 
         //protected override void HandleUnknownAction(string actionName)
         //{

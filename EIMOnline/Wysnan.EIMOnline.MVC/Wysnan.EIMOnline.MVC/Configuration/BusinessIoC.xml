@@ -12,5 +12,22 @@
 
   <object id="SecurityRoleModel" type="Wysnan.EIMOnline.Business.SecurityRoleModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
   </object>
-  
+
+  <object id="SecurityUserRole" type="Wysnan.EIMOnline.Business.SecurityUserRoleModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
+  </object>
+
+  <object id="SystemActionModel" type="Wysnan.EIMOnline.Business.SystemActionModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
+  </object>
+
+  <object id="SystemModuleDetailPageModel" type="Wysnan.EIMOnline.Business.SystemModuleDetailPageModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
+  </object>
+
+  <object id="SystemModuleModel" type="Wysnan.EIMOnline.Business.SystemModuleModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
+  </object>
+
+  <object id="SystemModuleTypeModel" type="Wysnan.EIMOnline.Business.SystemModuleTypeModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
+  </object>
+
+  <object id="SystemPermissionModel" type="Wysnan.EIMOnline.Business.SystemPermissionModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
+  </object>
 </objects>
