@@ -25,9 +25,10 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
             {
                 return null;
             }
-            string url = HttpContext.Current.Request.Url.AbsolutePath;
-            string listUrl = url + "/List";
-            string setJqGridColumn = url + "/SetJqGridColumn";
+            string urlController = HttpContext.Current.Request.Url.AbsolutePath;
+            string urlList = urlController + "/List";
+            string urlAdd = urlController +"/Add";
+            string setJqGridColumn = urlController + "/SetJqGridColumn";
             StringBuilder grid = new StringBuilder();
             StringBuilder StrColNames = new StringBuilder();
             StringBuilder StrColModel = new StringBuilder();
@@ -35,11 +36,14 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
             StrShowField.Append("New(");
             foreach (var item in colModel)
             {
+                string queryName = item.Name;
+                string showName = GetForeignKeyField(queryName);
+
                 StrColNames.AppendFormat("'{0}',", item.Label);
                 StrColModel.AppendFormat("{0} name: '{1}', index: '{2}', width: {3}, editable: {4},align: '{5}',datefmt:'{6}'{7},searchoptions:{8},hidden:{9}{10},",
-                    "{", item.Name, item.Name, item.Width, item.Editable.ConvertToString(true), item.Align, item.Detefmt, item.Formatter,
+                    "{", showName, item.Name, item.Width, item.Editable.ConvertToString(true), item.Align, item.Detefmt, item.Formatter,
                     item.SearchOptions.ToString(), item.Hidden.ConvertToString(true), "}");
-                StrShowField.AppendFormat("{0},", item.Name);
+                StrShowField.AppendFormat("{0} as {1},", queryName, showName);
             }
             StrColNames.Remove(StrColNames.Length - 1, 1);
             StrColModel.Remove(StrColModel.Length - 1, 1);
@@ -48,14 +52,14 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
                 StrShowField.Remove(StrShowField.Length - 1, 1);
             }
             StrShowField.Append(")");
-            grid.Append("<table id=\"list\" style=\"width:100%;\" ");
+            grid.Append("<table id=\"list\" style=\"width:100%;\">");
             grid.Append("</table>");
             grid.Append("<div id=\"pager\"");
             grid.Append("</div>");
             grid.Append("<script type=\"text/javascript\">");
             grid.Append("$(document).ready(function () {");
             grid.Append("$(\"#list\").jqGrid({");
-            grid.AppendFormat("url: '{0}',", listUrl);// jqGrid._Url);
+            grid.AppendFormat("url: '{0}',", urlList);// jqGrid._Url);
             grid.Append("autowidth:true,");
             //grid.Append("setGridWidth:100%,");
             grid.AppendFormat("datatype: '{0}',", jqGrid._DataType);
@@ -83,12 +87,16 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
             grid.AppendFormat("postData:{{showFiled:'{0}'}}", StrShowField.ToString());
             grid.Append("});");
             grid.Append("var grid=$(\"#list\");");
-            grid.Append("grid.jqGrid('navGrid', '#pager', { edit: false, add: true, del: true,view:false },{},{},{},{multipleSearch:true,overlay:false,closeAfterSearch:true,closeOnEscape:true});");
-            grid.Append("grid.jqGrid('navButtonAdd','#pager',{caption: \"\",buttonicon: \"ui-icon-calculator\", title:\"Reorder Columns\",onClickButton:function(){grid.jqGrid('columnChooser',{ 'done': function(perm) { if (perm) { this.jqGrid('remapColumns', perm, true); persist(this);}}});}});");
+            grid.Append("grid.jqGrid('navGrid', '#pager', { edit: true, add: false, del: true,view:false },{},{},{},{multipleSearch:true,overlay:false,closeAfterSearch:true,closeOnEscape:true})");
+            //ui-icon-pencil
+            grid.Append(".navButtonAdd('#pager',{buttonicon:'ui-icon-plus',caption:'',id:'GridAddButton',title:'Add Record',onClickButton:function(e){}}).navSeparatorAdd('#pager',{})");
+            grid.Append(".navButtonAdd('#pager',{buttonicon:'ui-icon-calculator',caption:'',id:'GridColumnChooser',title:'Reorder Columns',onClickButton:function(e){grid.jqGrid('columnChooser',{ 'done': function(perm) { if (perm) { this.jqGrid('remapColumns', perm, true); persist(this);}}});}}).navSeparatorAdd('#pager',{});");
             grid.Append("grid.jqGrid('filterToolbar',{stringResult: true,searchOnEnter : true});");
             grid.Append("});");
             grid.AppendFormat("var SetJqGridColumn='{0}';", setJqGridColumn);
             grid.Append("</script>");
+            grid.AppendFormat("<div id=\"dialog-form\" title=\"Create new user\" style=\"width:99%;height:99%\"><iframe src=\"{0}\" width=\"99%\" height=\"99%\"></iframe></div>", urlAdd);
+
             string gridHtml = grid.ToString();
             return gridHtml;
         }
@@ -105,6 +113,21 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
             HttpCookie cookie = HttpContext.Current.Request.Cookies[cookieName];
             string path = "/";
             CookieHelp.WriteCookie(cookieName, gridHtml, -1, path);
+        }
+
+        /// <summary>
+        /// 获取外键字段名称。例如：SecurityUser.Name 返回
+        /// </summary>
+        /// <param name="fullname">SecurityUser.Name</param>
+        /// <returns></returns>
+        private static string GetForeignKeyField(string fullname)
+        {
+            int i = fullname.IndexOf('.');
+            if (i > 0)
+            {
+                return fullname.Replace(".", "_");
+            }
+            return fullname;
         }
     }
 }

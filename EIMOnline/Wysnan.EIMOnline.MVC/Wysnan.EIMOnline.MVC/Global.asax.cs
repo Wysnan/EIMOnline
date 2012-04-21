@@ -34,8 +34,7 @@ namespace Wysnan.EIMOnline.MVC
 
         protected void Application_Start()
         {
-         
-            //ViewEngines.Engines.Add(new MyViewEngine());
+            ViewEngines.Engines.Add(new MyViewEngine());
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);

@@ -58,5 +58,11 @@ namespace Wysnan.EIMOnline.Common.Framework
         public const string Cookie_JqGridHtml = "Cookie_JqGridHtml";
 
         #endregion
+
+        #region RenderAction Name
+
+        public const string Control_JqGrid = "JqGrid";
+
+        #endregion
     }
 }

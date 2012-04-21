@@ -23,7 +23,6 @@ namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
 
         public ActionResult Add()
         {
-            Model.Add(null);
             return View();
         }
     }

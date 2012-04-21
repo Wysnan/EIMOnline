@@ -18,13 +18,11 @@ namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
     {
         public ActionResult Index()
         {
-            Model.List();
             return View();
         }
 
         public ActionResult Add()
         {
-            Model.Add(null);
             return View();
         }
     }

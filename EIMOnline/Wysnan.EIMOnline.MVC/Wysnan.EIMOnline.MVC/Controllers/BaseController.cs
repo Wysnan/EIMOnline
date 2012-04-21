@@ -76,7 +76,7 @@ namespace Wysnan.EIMOnline.MVC.Controllers
                                 var fieldtype = colModel.Find(a => a.Name == item.field).Type;
                                 item.type = fieldtype;
                             }
-                        }                        
+                        }
                     }
                 }
                 catch (ArgumentException ex)
@@ -108,6 +108,12 @@ namespace Wysnan.EIMOnline.MVC.Controllers
             var questions = query.OrderBy(sidx + " " + sord)
               .Skip(pageIndex * pageSize)
               .Take(pageSize);
+
+            //var d = questions.GetEnumerator();
+            //while (d.MoveNext())
+            //{
+            //    object obj = d.Current;
+            //}
 
             var jsonData = new
             {
@@ -143,6 +149,7 @@ namespace Wysnan.EIMOnline.MVC.Controllers
                                 {
                                     item.Hidden = true;
                                 }
+
                                 grid.WriteCookie(gridEnum);
                             }
                         }
@@ -150,7 +157,6 @@ namespace Wysnan.EIMOnline.MVC.Controllers
                 }
             }
         }
-
         #endregion
 
         #region Properties

@@ -17,6 +17,7 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
 {
     public static class HtmlHelperExtension
     {
+        //[Obsolete("由于cookie大小有限制，对于多字段的cookie缓存不适用，弃用这个方法", false)]
         public static MvcHtmlString Grid(this HtmlHelper helper, GridEnum gridEnum)
         {
             string key = SystemEntity.Instance.CurrentSecurityUser.ID + "_" + gridEnum.ToString();
@@ -50,6 +51,17 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
             #endregion
 
             return MvcHtmlString.Create(gridHtml);
+        }
+
+        public delegate string MvcCacheCallback(HttpContextBase context);
+
+        public static object Substitute(this HtmlHelper html, MvcCacheCallback cb)
+        {
+            html.ViewContext.HttpContext.Response.WriteSubstitution(
+                c => HttpUtility.HtmlEncode(
+                    cb(new HttpContextWrapper(c))
+                ));
+            return null;
         }
     }
 }
