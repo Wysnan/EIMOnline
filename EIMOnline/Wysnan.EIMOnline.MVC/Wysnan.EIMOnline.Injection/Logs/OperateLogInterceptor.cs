@@ -36,7 +36,6 @@ namespace Wysnan.EIMOnline.Injection.Logs
                 throw new InvalidOperationException(
                     string.Format("GlobalEntity.Instance.Message[\"4\"]: {0}", invocation.Method.Name));
             }
-
             try
             {
                 var result = invocation.Proceed();

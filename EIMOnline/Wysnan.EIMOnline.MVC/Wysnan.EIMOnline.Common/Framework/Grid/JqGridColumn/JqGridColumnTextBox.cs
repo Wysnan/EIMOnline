@@ -30,6 +30,9 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid.JqGridColumn
             set { align = value; }
         }
 
+        /// <summary>
+        /// 只读，不可配置
+        /// </summary>
         public string Name { get; private set; }
 
         public string NameAndType
@@ -38,7 +41,7 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid.JqGridColumn
             set
             {
                 nameAndType = value;
-                string pattern = @"\[((Name:)|(Type:))(\w+)\]";
+                string pattern = @"\[((Name:)|(Type:))(\w+\.?\w+)\]";
                 var matchCollection = Regex.Matches(value, pattern);
 
                 if (matchCollection != null && matchCollection.Count == 2)
@@ -70,8 +73,11 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid.JqGridColumn
             }
         }
 
+        /// <summary>
+        /// 只读，不可配置
+        /// </summary>
+        public string Type { get; private set; }
         #endregion
 
-        public string Type { get; set; }
     }
 }

@@ -3,7 +3,7 @@
 
   <object id="TransactionInterceptor" type="Wysnan.EIMOnline.Injection.Transaction.TransactionInterceptor,Wysnan.EIMOnline.Injection" singleton="false">
   </object>
-  
+
   <object id="AutoProxy.TransactionAdvisor" type="Spring.Aop.Support.AttributeMatchMethodPointcutAdvisor, Spring.Aop" singleton="false">
     <property name="attribute" value="Wysnan.EIMOnline.Injection.Transaction.TransactionAttribute"/>
     <property name="advice" ref="TransactionInterceptor"/>
@@ -11,11 +11,10 @@
   </object>
 
 
- <object id="OperateLogInterceptor" type="Wysnan.EIMOnline.Injection.Logs.OperateLogInterceptor" singleton="false">
-   <property name="OperateLog" ref="OperateLogModel"/>
+  <object id="OperateLogInterceptor" type="Wysnan.EIMOnline.Injection.Logs.OperateLogInterceptor,Wysnan.EIMOnline.Injection" singleton="false">
+    <property name="OperateLog" ref="OperateLogModel"/>
   </object>
 
-  <!--<object id="OperateLogModel" type="Wysnan.EIMOnline.Business.OperateLogModel"></object>-->
   <object id="AutoProxy.OperateLogAdvisor" type="Spring.Aop.Support.AttributeMatchMethodPointcutAdvisor, Spring.Aop" singleton="false">
     <property name="attribute" value="Wysnan.EIMOnline.Injection.Logs.OperateLogAttribute"/>
     <property name="advice" ref="OperateLogInterceptor"/>

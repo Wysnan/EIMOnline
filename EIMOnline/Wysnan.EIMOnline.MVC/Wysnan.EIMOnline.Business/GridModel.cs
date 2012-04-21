@@ -21,6 +21,7 @@ namespace Wysnan.EIMOnline.Business
             JqGrids = new Dictionary<GridEnum, JqGrid>();
 
             this.JqGrids[GridEnum.SecurityUser] = GetSecurityUserConfig();
+            this.JqGrids[GridEnum.PersonnelAttendance] = GetPersonnelAttendance();
         }
 
         public Dictionary<GridEnum, JqGrid> JqGrids { get; set; }
@@ -55,6 +56,38 @@ namespace Wysnan.EIMOnline.Business
                     Label="创建时间",
                     NameAndType=grid.Path(a=>a.CreatedOn),
                 }
+            };
+            grid.GridColumnCollection = columns;
+            grid.DataBind();
+            return grid;
+        }
+
+        private JqGrid GetPersonnelAttendance()
+        {
+            JqGridConfig<PersonnelAttendance, PersonnelAttendance> grid = new JqGridConfig<PersonnelAttendance, PersonnelAttendance>()
+            {
+                RowNum = 10,
+                SortName = "ID",
+                SortOrder = "desc",
+            };
+            var columns = new GridColumnCollection()
+            {
+                new JqGridColumnTextBox(){
+                    Label="编号",
+                    NameAndType=grid.Path(a=>a.ID)
+                },
+                new JqGridColumnTextBox(){
+                    Label="姓名",
+                    NameAndType=grid.Path(a=>a.SecurityUser.UserName)
+                },
+                new JqGridColumnTextBox(){
+                    Label="上班时间",
+                    NameAndType=grid.Path(a=>a.BeginWorkTime)
+                },
+                new JqGridColumnTextBox(){
+                    Label="下班时间",
+                    NameAndType=grid.Path(a=>a.EndWorkTime)
+                },
             };
             grid.GridColumnCollection = columns;
             grid.DataBind();

@@ -4,10 +4,10 @@
   <object id="BusinessModel" type="Wysnan.EIMOnline.Business.BusinessModel" singleton="false" >
     <property name="Model" ref="Model"/>
   </object>
-  <object id="SecurityUserModel" type="Wysnan.EIMOnline.Business.SecurityUserModel" singleton="false" parent="BusinessModel">
+  <object id="SecurityUserModel" type="Wysnan.EIMOnline.Business.SecurityUserModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
   </object>
 
-  <object id="OperateLogModel" type="Wysnan.EIMOnline.Business.OperateLogModel" singleton="false" parent="BusinessModel">
+  <object id="OperateLogModel" type="Wysnan.EIMOnline.Business.OperateLogModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
   </object>
 
   <object id="SecurityRoleModel" type="Wysnan.EIMOnline.Business.SecurityRoleModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
@@ -16,7 +16,7 @@
   <object id="SecurityUserRole" type="Wysnan.EIMOnline.Business.SecurityUserRoleModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
   </object>
 
-  <object id="SystemActionModel" type="Wysnan.EIMOnline.Business.SystemActionModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
+ <object id="SystemActionModel" type="Wysnan.EIMOnline.Business.SystemActionModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
   </object>
 
   <object id="SystemModuleDetailPageModel" type="Wysnan.EIMOnline.Business.SystemModuleDetailPageModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
@@ -29,5 +29,8 @@
   </object>
 
   <object id="SystemPermissionModel" type="Wysnan.EIMOnline.Business.SystemPermissionModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
+  </object>
+  
+  <object id="PersonnelAttendanceModel" type="Wysnan.EIMOnline.Business.PersonnelAttendanceModel" singleton="false" parent="BusinessModel">
   </object>
 </objects>

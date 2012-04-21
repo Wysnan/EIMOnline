@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Wysnan.EIMOnline.Common.Framework.Enum;
+@using Wysnan.EIMOnline.MVC.Framework.Extensions;
+
+<link href="/Content/JqGrid/ui.jqgrid.css" rel="stylesheet" type="text/css" />
+<script src="/Scripts/JqGrid/i18n/grid.locale-cn.js" type="text/javascript"></script>
+<script src="/Scripts/JqGrid/jquery.jqGrid.src.js" type="text/javascript"></script>
+<script src="/Scripts/JqGrid/jquery.jqgrid.js" type="text/javascript"></script>
+<script src="/Scripts/JqGrid/jqGridExtensions.js" type="text/javascript"></script>
+<div>
+    @Html.Grid(GridEnum.PersonnelAttendance)
+</div>

@@ -18,19 +18,22 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid.Poco
                 StringBuilder filter = new StringBuilder();
                 foreach (var item in rules)
                 {
-                    filter.AppendFormat(" {0} {1} {2}", item.field, ConvertToOp(item.op, item.type, item.data), groupOp);
+                    if (item.type != "datetime")
+                    {
+                        filter.AppendFormat(" {0} {1}", ConvertToOp(item.op, item.type, item.data, item.field), groupOp);
+                    }
                 }
                 if (filter.Length > 0)
                 {
                     int length = groupOp.Length;
                     filter.Remove(filter.Length - length, length);
                 }
-                return filter.ToString();
+                return filter.ToString().Trim();
             }
             return string.Empty;
         }
 
-        private string ConvertToOp(string op, string type, string data)
+        private string ConvertToOp(string op, string type, string data, string field)
         {
             string value = string.Empty;
             switch (type)
@@ -38,37 +41,73 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid.Poco
                 case "string":
                     switch (op)
                     {
-                        case "eq": value = string.Format("= '{0}'", data); break;
-                        case "ne": value = string.Format("<> '{0}'", data); break;
+                        case "eq": value = string.Format("{0}=\"{1}\"", field, data); break;
+                        case "ne": value = string.Format("{0}<>\"{1}\"", data); break;
                         //case "lt": value = string.Format("< '{0}'", data); break;
                         //case "le": value = string.Format("<= '{0}'", data); break;
                         //case "gt": value = string.Format("> '{0}'", data); break;
                         //case "ge": value = string.Format(">= '{0}'", data); break;
-                        case "bw": value = string.Format("LIKE '%{0}'", data); break;
-                        case "bn": value = string.Format("NOT LIKE '%{0}'", data); break;
-                        case "ew": value = string.Format("LIKE '{0}%'", data); break;
-                        case "en": value = string.Format("NOT LIKE '{0}%'", data); break;
-                        case "cn": value = string.Format("LIKE '%{0}%'", data); break;
-                        case "nc": value = string.Format("NOT LIKE '%{0}%'", data); break;
-                        case "nu": value = "IS NULL"; break;
-                        case "nn": value = "IS NOT NULL"; break;
+                        case "bw": value = string.Format("{0}.StartsWith(\"{1}\")", data); break;
+                        case "bn": value = string.Format("{0}.StartsWith(\"{1}\")==false", data); break;
+                        case "ew": value = string.Format("{0}.EndsWith(\"{1}\")", data); break;
+                        case "en": value = string.Format("{0}.EndsWith(\"{1}\")==false", data); break;
+                        case "cn": value = string.Format("{0}.Contains(\"{1}\")", data); break;
+                        case "nc": value = string.Format("{0}.Contains(\"{1}\")==false", data); break;
+                        case "nu": value = " {0}== NULL"; break;
+                        case "nn": value = " {0}<> NULL"; break;
                     }
                     break;
-                case "datatime":
+                case "datetime":
+                    ////datetime datetime = datetime.now;
+                    //////bool isok = datetime.parse(data, out datetime);
+                    ////if (isok)
+                    ////{
+                    //switch (op)
+                    //{
+                    //    //it.d==cast('1977-11-11' as system.datetime)
+                    //    case "eq": value = field + "= convert(\"datetime2\",'2012-04-19 00:00:00.0000000\' ,121)"; break;
+                    //    //string.format("({0}.date=(cast(\'{1}\' as system.datetime)))", field.trim(), data); break;
+                    //    //case "eq": value = string.format("({0}.date=(cast(\'{1}\' as system.datetime)))", field.trim(), data); break;
+                    //    case "ne": value = string.Format("<>\"{0}\"", data); break;
+                    //    case "lt": value = string.Format("<\"{0}\"", data); break;
+                    //    case "le": value = string.Format("<=\"{0}\"", data); break;
+                    //    case "gt": value = string.Format(">\"{0}\"", data); break;
+                    //    case "ge": value = string.Format(">=\"{0}\"", data); break;
+                    //}
+                    ////}
                     break;
                 case "int32":
                 case "int64":
                 case "int16":
                     switch (op)
                     {
-                        case "eq": value = string.Format("= {0}", data); break;
-                        case "ne": value = string.Format("<> {0}", data); break;
-                        case "lt": value = string.Format("< {0}", data); break;
-                        case "le": value = string.Format("<= {0}", data); break;
-                        case "gt": value = string.Format("> {0}", data); break;
-                        case "ge": value = string.Format(">= {0}", data); break;
-                        case "in": value = string.Format("IN {1}{0}{2}", "{", data, "}"); break;
-                        case "ni": value = string.Format("NOT IN {1}{0}{2}", "{", data, "}"); break;
+                        case "eq": value = string.Format("{0}= {1}", field, data); break;
+                        case "ne": value = string.Format("{0}<> {1}", field, data); break;
+                        case "lt": value = string.Format("{0}< {1}", field, data); break;
+                        case "le": value = string.Format("{0}<= {1}", field, data); break;
+                        case "gt": value = string.Format("{0}> {1}", field, data); break;
+                        case "ge": value = string.Format("{0}>= {1", field, data); break;
+                        case "in":
+                        case "ni":
+                            string tempOp = "==";
+                            string tempGroupOp = "or";
+                            if (op == "ni")
+                            {
+                                tempOp = "<>";
+                                tempGroupOp = "and";
+                            }
+                            string[] array = data.Split(',');
+                            if (array != null && array.Length > 0)
+                            {
+                                value = "(";
+                                foreach (var item in array)
+                                {
+                                    value += string.Format(" {0}{1}{2} {3}", field, tempOp, item, tempGroupOp);
+                                }
+                                value = value.Substring(0, value.Length - tempGroupOp.Length);
+                                value += ")";
+                            }
+                            break;
                     }
                     break;
                 default:

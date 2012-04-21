@@ -85,6 +85,7 @@
     <Compile Include="ViewModel\CombinedSystemModuleDetailPage.cs" />
     <Compile Include="ViewModel\CombinedSystemModuleType.cs" />
     <Compile Include="ViewModel\CombinedSystemPermission.cs" />
+    <Compile Include="ViewModel\CombinedPersonnelAttendance.cs" />
     <Compile Include="ViewModel\ICombined.cs" />
   </ItemGroup>
   <ItemGroup>

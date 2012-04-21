@@ -52,12 +52,12 @@ namespace Wysnan.EIMOnline.EF
 
         public TType Get<TType>(int id) where TType : class, IBaseEntity
         {
-            return List<TType>().FirstOrDefault(o => o.ID == id);
+            return List<TType>().FirstOrDefault(o => o.ID == id && o.SystemStatus == (int)SystemStatus.Active);
         }
 
         public IQueryable<TType> List<TType>() where TType : class, IBaseEntity
         {
-            return GetDbSet<TType>();
+            return GetDbSet<TType>().Where(a => a.SystemStatus.HasValue && a.SystemStatus == (int)SystemStatus.Active); 
         }
 
         #endregion
@@ -76,10 +76,17 @@ namespace Wysnan.EIMOnline.EF
             {
                 entity.SystemStatus = (byte)SystemStatus.Active;
             }
+            if (entity is IModificationTrackableEntity)
+            {
+                IModificationTrackableEntity modificationTrackable = entity as IModificationTrackableEntity;
+                modificationTrackable.CreatedOn = DateTime.Now;
+                modificationTrackable.ModifiedOn = DateTime.Now;
+                //Type type = entity.GetType();
+                //type.GetProperties("")
+            }
+
             GetDbSet<TType>().Add(entity);
             return SaveChanges();
-            
-        
         }
 
         #endregion
@@ -99,6 +106,12 @@ namespace Wysnan.EIMOnline.EF
             if (oldEntity == null)
             {
                 result.MessageCode = "2";
+                result.Params = new string[] { typeof(TType).Name, entity.ID.ToString() };
+                return result;
+            }
+            if (oldEntity.SystemStatus == (int)SystemStatus.Active)
+            {
+                result.MessageCode = "5";
                 result.Params = new string[] { typeof(TType).Name, entity.ID.ToString() };
                 return result;
             }

@@ -31,22 +31,8 @@ namespace Wysnan.EIMOnline.Business
         public override IQueryable ListJqGrid()
         {
             var query = Model.List<SecurityUser>();
-
-            //var temp = query.Select(selector);
+             //query = query.Where(a => a.CreatedOn ==(DateTime.Now) );
             var temp = query.Select("New(ID, UserName,UserLoginID,UserLoginPwd,CreatedOn)");
-            //var aa = temp.GetEnumerator();
-
-            //Type type = temp.ElementType;//获取类型
-            //var id = type.GetProperty("id");//获取属性
-
-            //////循环访问
-            //while (aa.MoveNext())
-            //{
-            //    var current = aa.Current;
-
-            //    var val = id.GetValue(current, null);
-            //}
-
             return temp;
         }
 

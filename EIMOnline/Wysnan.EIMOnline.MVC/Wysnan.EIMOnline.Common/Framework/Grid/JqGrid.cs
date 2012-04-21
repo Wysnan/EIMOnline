@@ -117,163 +117,162 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid
         /// </summary>
         public string _Caption { get; set; }
 
-        #region 内部类
 
-        public class ColModel
+    }
+
+    public class ColModel
+    {
+        public ColModel()
         {
-            public ColModel()
-            {
-                this.Align = GridColumnAlign.left;
-                this.Classes = "empty";
-                this.Detefmt = "Y-m-d";
-                this.Defval = "empty";
-                this.Editable = false;
-                this.EditOptions = null;//"empty";
-                this.Editrules = null;//"empty";
-                this.Edittype = GridColumnEdittype.text;
-                this.Fixed = true;
-                this.Formoptions = null;//"empty";
-                this.Hidedlg = false;
-                this.Hidden = false;
-                this.Index = "empty";
-                this.Key = false;
-                this.Label = "none";
-                this.Name = "name";
-                this.Resizable = true;
-                this.Sortable = true;
-                this.Sorttype = GridColumnSorttype._text;
-                this.Title = true;
-                this.Width = "150";
-                this.Formatter = string.Empty;
-                this.Type = typeof(String).Name.ToLower();
-            }
-
-            /// <summary>
-            /// 对齐方式
-            /// </summary>
-            public GridColumnAlign Align { get; set; }
-
-            /// <summary>
-            /// 列的类名
-            /// </summary>
-            public string Classes { get; set; }
-
-            /// <summary>
-            /// 日期格式
-            /// </summary>
-            public string Detefmt { get; set; }
-
-            /// <summary>
-            /// 搜索字段的缺省值，此参数只用于自定义搜索是的初始值。
-            /// </summary>
-            public string Defval { get; set; }
-
-            /// <summary>
-            /// 定义字段是否可编辑，用于单元格编辑、行编辑和表单模式
-            /// </summary>
-            public bool Editable { get; set; }
-
-            /// <summary>
-            /// 根据edittype 参数定义可用的值数组
-            /// </summary>
-            public string[] EditOptions { get; set; }
-
-            /// <summary>
-            /// 设置可编辑字段的补充规则
-            /// </summary>
-            public string[] Editrules { get; set; }
-
-            /// <summary>
-            /// 定义行编辑和表单模式的编辑类型
-            /// </summary>
-            public GridColumnEdittype Edittype { get; set; }
-
-            /// <summary>
-            /// 若设为true，即使shrinkToFit设置为true，列宽也不允许重新计算。GridWidth方法改变表格宽度时，列宽也不会改变。
-            /// </summary>
-            public bool Fixed { get; set; }
-
-            /// <summary>
-            /// 定义表单编辑的各种选项
-            /// </summary>
-            public string[] Formoptions { get; set; }
-
-            /// <summary>
-            /// 若设置为true，该列将不出现在模式对话框中，用户可以此控制列的显示或隐藏
-            /// </summary>
-            public bool Hidedlg { get; set; }
-
-            /// <summary>
-            /// 定义初始化时，列是否隐藏。
-            /// </summary>
-            public bool Hidden { get; set; }
-
-            /// <summary>
-            /// 设置排序时的索引名。
-            /// </summary>
-            public string Index { get; set; }
-
-            /// <summary>
-            /// 在未从服务器获得ID的情况下，该列可设置为行ID。只有一列可设置该属性，若出现多列，表格只采用将第一个设置了该属性的列，其他列忽略。
-            /// </summary>
-            public bool Key { get; set; }
-
-            /// <summary>
-            /// 当colNames数组为空时，定义此列的标题。若colNames数组和此属性都为空，标题为该列的name属性值。
-            /// </summary>
-            public string Label { get; set; }
-
-            /// <summary>
-            /// 设置列在表格中的唯一名称，此属性是必须的。
-            /// </summary>
-            public string Name { get; set; }
-
-            /// <summary>
-            /// 定义是否可变列宽
-            /// </summary>
-            public bool Resizable { get; set; }
-
-            /// <summary>
-            /// 定义是否可以排序
-            /// </summary>
-            public bool Sortable { get; set; }
-
-            /// <summary>
-            /// 当datatype为local时，用于定义排序列类型。
-            /// </summary>
-            public GridColumnSorttype Sorttype { get; set; }
-
-            /// <summary>
-            /// 当设置为false时，鼠标滑向单元格时不显示title属性
-            /// </summary>
-            public bool Title { get; set; }
-
-            /// <summary>
-            /// 设置列的初始宽度，可用pixels和百分比
-            /// </summary>
-            public string Width { get; set; }
-
-            private string type = string.Empty;
-
-            public string Type
-            {
-                get { return type; }
-                set
-                {
-                    type = value;
-                    if (value == "datetime")
-                    {
-                        this.Formatter = string.Format(",formatter:'date',formatoptions:{{srcformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s'}}");
-                        //this.Formatter = string.Format(",formatter:'date',formatoptions:{{srcformat: '{0}', newformat: '{0}'}}", Detefmt);
-                    }
-                }
-            }
-
-            public string Formatter { get; set; }
-
-            public SearchOptions SearchOptions { get; set; }
+            this.Align = GridColumnAlign.left;
+            this.Classes = "empty";
+            this.Detefmt = "Y-m-d";
+            this.Defval = "empty";
+            this.Editable = false;
+            this.EditOptions = null;//"empty";
+            this.Editrules = null;//"empty";
+            this.Edittype = GridColumnEdittype.text;
+            this.Fixed = true;
+            this.Formoptions = null;//"empty";
+            this.Hidedlg = false;
+            this.Hidden = false;
+            this.Index = "empty";
+            this.Key = false;
+            this.Label = "none";
+            this.Name = "name";
+            this.Resizable = true;
+            this.Sortable = true;
+            this.Sorttype = GridColumnSorttype._text;
+            this.Title = true;
+            this.Width = "150";
+            this.Formatter = string.Empty;
+            this.Type = typeof(String).Name.ToLower();
         }
 
-        #endregion
+        /// <summary>
+        /// 对齐方式
+        /// </summary>
+        public GridColumnAlign Align { get; set; }
+
+        /// <summary>
+        /// 列的类名
+        /// </summary>
+        public string Classes { get; set; }
+
+        /// <summary>
+        /// 日期格式
+        /// </summary>
+        public string Detefmt { get; set; }
+
+        /// <summary>
+        /// 搜索字段的缺省值，此参数只用于自定义搜索是的初始值。
+        /// </summary>
+        public string Defval { get; set; }
+
+        /// <summary>
+        /// 定义字段是否可编辑，用于单元格编辑、行编辑和表单模式
+        /// </summary>
+        public bool Editable { get; set; }
+
+        /// <summary>
+        /// 根据edittype 参数定义可用的值数组
+        /// </summary>
+        public string[] EditOptions { get; set; }
+
+        /// <summary>
+        /// 设置可编辑字段的补充规则
+        /// </summary>
+        public string[] Editrules { get; set; }
+
+        /// <summary>
+        /// 定义行编辑和表单模式的编辑类型
+        /// </summary>
+        public GridColumnEdittype Edittype { get; set; }
+
+        /// <summary>
+        /// 若设为true，即使shrinkToFit设置为true，列宽也不允许重新计算。GridWidth方法改变表格宽度时，列宽也不会改变。
+        /// </summary>
+        public bool Fixed { get; set; }
+
+        /// <summary>
+        /// 定义表单编辑的各种选项
+        /// </summary>
+        public string[] Formoptions { get; set; }
+
+        /// <summary>
+        /// 若设置为true，该列将不出现在模式对话框中，用户可以此控制列的显示或隐藏
+        /// </summary>
+        public bool Hidedlg { get; set; }
+
+        /// <summary>
+        /// 定义初始化时，列是否隐藏。
+        /// </summary>
+        public bool Hidden { get; set; }
+
+        /// <summary>
+        /// 设置排序时的索引名。
+        /// </summary>
+        public string Index { get; set; }
+
+        /// <summary>
+        /// 在未从服务器获得ID的情况下，该列可设置为行ID。只有一列可设置该属性，若出现多列，表格只采用将第一个设置了该属性的列，其他列忽略。
+        /// </summary>
+        public bool Key { get; set; }
+
+        /// <summary>
+        /// 当colNames数组为空时，定义此列的标题。若colNames数组和此属性都为空，标题为该列的name属性值。
+        /// </summary>
+        public string Label { get; set; }
+
+        /// <summary>
+        /// 设置列在表格中的唯一名称，此属性是必须的。
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 定义是否可变列宽
+        /// </summary>
+        public bool Resizable { get; set; }
+
+        /// <summary>
+        /// 定义是否可以排序
+        /// </summary>
+        public bool Sortable { get; set; }
+
+        /// <summary>
+        /// 当datatype为local时，用于定义排序列类型。
+        /// </summary>
+        public GridColumnSorttype Sorttype { get; set; }
+
+        /// <summary>
+        /// 当设置为false时，鼠标滑向单元格时不显示title属性
+        /// </summary>
+        public bool Title { get; set; }
+
+        /// <summary>
+        /// 设置列的初始宽度，可用pixels和百分比
+        /// </summary>
+        public string Width { get; set; }
+
+        private string type = string.Empty;
+
+        public string Type
+        {
+            get { return type; }
+            set
+            {
+                type = value;
+                if (value == "datetime")
+                {
+                    this.Formatter = string.Format(",formatter:'date',formatoptions:{{srcformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s'}}");
+                    //this.Formatter = string.Format(",formatter:'date',formatoptions:{{srcformat: '{0}', newformat: '{0}'}}", Detefmt);
+                }
+            }
+        }
+
+        public string Formatter { get; set; }
+
+        public SearchOptions SearchOptions { get; set; }
     }
+
 }
