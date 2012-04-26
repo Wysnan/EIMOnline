@@ -80,7 +80,7 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
             grid.AppendFormat("rowList: [{0}],", jqGrid._RowList.ConvertToString(","));
             grid.AppendFormat("sortname: '{0}',", jqGrid.SortName);
             grid.AppendFormat("sortorder: '{0}',", jqGrid.SortOrder);
-            grid.AppendFormat("height:{0},", 250);
+            grid.AppendFormat("height:{0},", 490);
             grid.AppendFormat("viewrecords: {0},", jqGrid._ViewRecords.ConvertToString(true));
             grid.AppendFormat("caption: '&nbsp;{0}',", jqGrid._Caption);
             //grid.Append("beforeRequest:function(){setSelectColModel(\"list\")}");
@@ -89,13 +89,15 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
             grid.Append("var grid=$(\"#list\");");
             grid.Append("grid.jqGrid('navGrid', '#pager', { edit: true, add: false, del: true,view:false },{},{},{},{multipleSearch:true,overlay:false,closeAfterSearch:true,closeOnEscape:true})");
             //ui-icon-pencil
-            grid.Append(".navButtonAdd('#pager',{buttonicon:'ui-icon-plus',caption:'',id:'GridAddButton',title:'Add Record',onClickButton:function(e){}}).navSeparatorAdd('#pager',{})");
+            grid.AppendFormat(".navButtonAdd('#pager',{{buttonicon:'ui-icon-plus',caption:'',id:'GridAddButton',title:'Add Record',onClickButton:function(e){{Navigation('{0}','{1}','{2}')}}}}).navSeparatorAdd('#pager',{{}})", "add", urlAdd, "image");
             grid.Append(".navButtonAdd('#pager',{buttonicon:'ui-icon-calculator',caption:'',id:'GridColumnChooser',title:'Reorder Columns',onClickButton:function(e){grid.jqGrid('columnChooser',{ 'done': function(perm) { if (perm) { this.jqGrid('remapColumns', perm, true); persist(this);}}});}}).navSeparatorAdd('#pager',{});");
             grid.Append("grid.jqGrid('filterToolbar',{stringResult: true,searchOnEnter : true});");
             grid.Append("});");
             grid.AppendFormat("var SetJqGridColumn='{0}';", setJqGridColumn);
+            grid.AppendFormat("GlobalObj.AddPage(new Page(\"list\"));");
+            //grid.AppendFormat("Navigation('list','123','123');");
             grid.Append("</script>");
-            grid.AppendFormat("<div id=\"dialog-form\" title=\"Create new user\" style=\"width:99%;height:99%\"><iframe src=\"{0}\" width=\"99%\" height=\"99%\"></iframe></div>", urlAdd);
+            //grid.AppendFormat("<div id=\"dialog-form\" title=\"Create new user\" style=\"width:99%;height:99%\"><iframe src=\"{0}\" width=\"99%\" height=\"99%\"></iframe></div>", urlAdd);
 
             string gridHtml = grid.ToString();
             return gridHtml;

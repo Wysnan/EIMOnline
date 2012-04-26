@@ -20,7 +20,7 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(SecurityUser user)
+        public ActionResult Login(SecurityUser user)
         {
             if (user.UserLoginID == "admin" && user.UserLoginPwd == "admin")
             {

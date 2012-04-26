@@ -3,43 +3,42 @@
 @using Wysnan.EIMOnline.Common.Poco;
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+        //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div>
     @*@{Html.RenderAction("index", "JqGrid", new { area = "", gridEnum = GridEnum.SecurityUser });}*@
     @Html.Grid(GridEnum.SecurityUser)
 </div>
-
 <script type="text/javascript">
-    $(document).ready(function () {
-        $("#dialog-form").dialog({
-            autoOpen: false,
-            height: 500,
-            width: 1200,
-            modal: true,
-            buttons: {
-                "Create an account": function () {
-                    var bValid = true;
-                    //allFields.removeClass("ui-state-error");
+    //    $(document).ready(function () {
+    //        $("#dialog-form").dialog({
+    //            autoOpen: false,
+    //            height: 500,
+    //            width: 1200,
+    //            modal: true,
+    //            buttons: {
+    //                "Create an account": function () {
+    //                    var bValid = true;
+    //                    //allFields.removeClass("ui-state-error");
 
-                    var isOk = true;
+    //                    var isOk = true;
 
-                    if (isOk) {
-                        alert("添加成功。");
-                        $(this).dialog("close");
-                    }
-                },
-                Cancel: function () {
-                    $(this).dialog("close");
-                }
-            },
-            close: function () {
-                //allFields.val("").removeClass("ui-state-error");
-            }
-        });
+    //                    if (isOk) {
+    //                        alert("添加成功。");
+    //                        $(this).dialog("close");
+    //                    }
+    //                },
+    //                Cancel: function () {
+    //                    $(this).dialog("close");
+    //                }
+    //            },
+    //            close: function () {
+    //                //allFields.val("").removeClass("ui-state-error");
+    //            }
+    //        });
 
-        $("#GridAddButton").click(function () {
-            $("#dialog-form").dialog("open");
-        });
-    });
+    //        $("#GridAddButton").click(function () {
+    //            $("#dialog-form").dialog("open");
+    //        });
+    //    });
 </script>

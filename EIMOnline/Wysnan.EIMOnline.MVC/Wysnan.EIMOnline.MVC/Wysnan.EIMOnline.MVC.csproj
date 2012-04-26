@@ -115,6 +115,7 @@
     <None Include="Config\Message.config" />
     <Content Include="Config\FileDependency2.xml" />
     <Content Include="Config\FileDependency1.txt" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\themes\ellipsis-xbl.xml" />
     <Content Include="Content\themes\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Content\themes\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -164,6 +165,7 @@
     <Content Include="Scripts\external\jquery.metadata.js" />
     <Content Include="Scripts\external\qunit.css" />
     <Content Include="Scripts\external\qunit.js" />
+    <Content Include="Scripts\page.js" />
     <Content Include="Scripts\JqGrid\i18n\grid.locale-ar.js" />
     <Content Include="Scripts\JqGrid\i18n\grid.locale-bg.js" />
     <Content Include="Scripts\JqGrid\i18n\grid.locale-bg1251.js" />
@@ -409,6 +411,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\MyScript\Index.cshtml" />
     <Content Include="Controls\Views\JqGrid\Index.cshtml" />
+    <Content Include="Views\Index\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -421,7 +424,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Index\Index.cshtml" />
+    <Content Include="Views\Index\login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wysnan.EIMOnline.Business\Wysnan.EIMOnline.Business.csproj">

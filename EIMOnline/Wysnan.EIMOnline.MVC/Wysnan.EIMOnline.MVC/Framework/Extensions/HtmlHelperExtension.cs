@@ -43,7 +43,6 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
                 return MvcHtmlString.Empty;
             }
             string gridHtml = jqGrid.ConvertToHtml();
-
             #endregion
 
             #region write cookie
@@ -53,6 +52,20 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
             return MvcHtmlString.Create(gridHtml);
         }
 
+        public static MvcHtmlString Menu(this HtmlHelper helper)
+        {
+            StringBuilder menuStr = new StringBuilder();
+            menuStr.Append("");
+
+            return MvcHtmlString.Empty;
+        }
+
+
+
+
+
+
+        #region 测试，不缓存
         public delegate string MvcCacheCallback(HttpContextBase context);
 
         public static object Substitute(this HtmlHelper html, MvcCacheCallback cb)
@@ -63,5 +76,8 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
                 ));
             return null;
         }
+        #endregion
+
+
     }
 }

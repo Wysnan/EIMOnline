@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "";
+}
+@using Wysnan.EIMOnline.Common.Poco
+@model Wysnan.EIMOnline.Common.Poco.SecurityUser
+@using (Html.BeginForm("index"))
+{
+ 
+    <fieldset>
+        <legend>登录信息</legend>
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td>@Html.LabelFor(a => a.UserLoginID)
+                </td>
+                <td>
+                    @Html.EditorFor(a => a.UserLoginID) @Html.ValidationMessageFor(a => a.UserLoginID)
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(a => a.UserLoginPwd)
+                </td>
+                <td>
+                    @Html.EditorFor(a => a.UserLoginPwd) @Html.ValidationMessageFor(a => a.UserLoginPwd)
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="登录" />
+    </fieldset>  
+}
