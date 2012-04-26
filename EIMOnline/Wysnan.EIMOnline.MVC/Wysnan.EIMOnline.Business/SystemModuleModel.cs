@@ -3,6 +3,7 @@ using Wysnan.EIMOnline.IBLL;
 using Wysnan.EIMOnline.Common.ViewModel;
 using System.Linq;
 using System;
+using Wysnan.EIMOnline.Injection.Transaction;
 
 namespace Wysnan.EIMOnline.Business
 {
@@ -10,13 +11,19 @@ namespace Wysnan.EIMOnline.Business
     {
         public SystemModuleModel()
         {
-            var tt = Model.List<SystemModuleDetailPage>();
+            // var tt = Model.List<SystemPermission>();
 
         }
 
         public IQueryable<CombinedSystemModule> ListCombined()
         {
             throw new NotImplementedException();
+        }
+
+        [TransactionAttribute]
+        public override IQueryable<SystemModule> List()
+        {
+            return base.List();
         }
     }
 }

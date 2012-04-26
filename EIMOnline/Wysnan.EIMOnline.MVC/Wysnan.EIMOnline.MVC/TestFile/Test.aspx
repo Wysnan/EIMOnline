@@ -8,12 +8,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-     <%--   <asp:GridView ID="GridView1" runat="server" Width="693px">
-        </asp:GridView>--%>
-        <PermissionEntry:PermissionControl ID="TestWebUserControl1" runat="server" />
+    <PermissionEntry:PermissionControl ID="TestWebUserControl1" runat="server" />
+    <%--<div>
+      <asp:GridView ID="GridView1" runat="server" Width="693px">
+        </asp:GridView>
+      
     </div>
-    <%--<asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Button" />--%>
+   <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Button" />--%>
     </form>
 </body>
 </html>
