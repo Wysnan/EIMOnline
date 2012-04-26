@@ -84,7 +84,9 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\PersonnelAttendanceController.cs" />
     <Compile Include="Areas\Administration\Controllers\LogController.cs" />
+    <Compile Include="Areas\Administration\Controllers\SecurityRoleController.cs" />
     <Compile Include="Areas\Administration\Controllers\SecurityUserController.cs" />
+    <Compile Include="Areas\Administration\Controllers\SecurityUserRoleController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GeneralController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
@@ -95,6 +97,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestFile\Permission.ascx.cs">
+      <DependentUpon>Permission.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestFile\Permission.ascx.designer.cs">
+      <DependentUpon>Permission.ascx</DependentUpon>
+    </Compile>
     <Compile Include="TestFile\Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -111,6 +120,13 @@
     <Content Include="Configuration\InjectionIoC.xml" />
     <Content Include="Configuration\MVCIoC.xml" />
     <Content Include="Areas\Administration\Views\Log\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityRole\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityRole\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityRole\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityRole\Delete.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityRole\Details.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUserRole\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUserRole\Create.cshtml" />
     <Content Include="Areas\Administration\Views\PersonnelAttendance\Index.cshtml" />
     <None Include="Config\Message.config" />
     <Content Include="Config\FileDependency2.xml" />
@@ -383,6 +399,7 @@
     <Content Include="Scripts\ui\minified\jquery.ui.sortable.min.js" />
     <Content Include="Scripts\ui\minified\jquery.ui.tabs.min.js" />
     <Content Include="Scripts\ui\minified\jquery.ui.widget.min.js" />
+    <Content Include="TestFile\Permission.ascx" />
     <Content Include="TestFile\Test.aspx" />
     <Content Include="TestFile\ViewPage1.aspx" />
     <Content Include="SystemBug.txt" />

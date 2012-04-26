@@ -273,6 +273,10 @@ namespace Wysnan.EIMOnline.EF
                 result.Message = e.Message;
                 return result;
             }
+            //finally
+            //{
+            //    Dispose();
+            //}
         }
 
         private DbSet<TType> GetDbSet<TType>() where TType : class, IBaseEntity

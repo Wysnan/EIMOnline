@@ -57,7 +57,14 @@
     <Compile Include="OperateLogModel.cs" />
     <Compile Include="PersonnelAttendanceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityRoleModel.cs" />
     <Compile Include="SecurityUserModel.cs" />
+    <Compile Include="SecurityUserRoleModel.cs" />
+    <Compile Include="SystemActionModel.cs" />
+    <Compile Include="SystemModuleDetailPageModel.cs" />
+    <Compile Include="SystemModuleModel.cs" />
+    <Compile Include="SystemModuleTypeModel.cs" />
+    <Compile Include="SystemPermissionModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wysnan.EIMOnline.Common\Wysnan.EIMOnline.Common.csproj">

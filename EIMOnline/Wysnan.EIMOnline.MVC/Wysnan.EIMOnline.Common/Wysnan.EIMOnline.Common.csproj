@@ -66,13 +66,25 @@
     <Compile Include="Poco\SecurityRole.cs" />
     <Compile Include="Poco\SecurityUser.cs" />
     <Compile Include="Poco\SecurityUserRole.cs" />
+    <Compile Include="Poco\SystemAction.cs" />
     <Compile Include="Poco\SystemEntity.cs" />
+    <Compile Include="Poco\SystemModule.cs" />
+    <Compile Include="Poco\SystemModuleDetailPage.cs" />
+    <Compile Include="Poco\SystemModuleType.cs" />
+    <Compile Include="Poco\SystemPermission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Framework\Enum\SystemStatus.cs" />
     <Compile Include="Framework\ISystemBaseEntity.cs" />
     <Compile Include="Framework\PageInfo.cs" />
     <Compile Include="Framework\Result.cs" />
+    <Compile Include="ViewModel\CombinedSecurityRole.cs" />
     <Compile Include="ViewModel\CombinedSecurityUser.cs" />
+    <Compile Include="ViewModel\CombinedSecurityUserRole.cs" />
+    <Compile Include="ViewModel\CombinedSystemAction.cs" />
+    <Compile Include="ViewModel\CombinedSystemModule.cs" />
+    <Compile Include="ViewModel\CombinedSystemModuleDetailPage.cs" />
+    <Compile Include="ViewModel\CombinedSystemModuleType.cs" />
+    <Compile Include="ViewModel\CombinedSystemPermission.cs" />
     <Compile Include="ViewModel\CombinedPersonnelAttendance.cs" />
     <Compile Include="ViewModel\ICombined.cs" />
   </ItemGroup>

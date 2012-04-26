@@ -11,7 +11,7 @@ namespace Wysnan.EIMOnline.EF.Mapping
     {
         public SecurityUserMap()
         {
-            
+          
         }
     }
 }

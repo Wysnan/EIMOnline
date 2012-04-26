@@ -25,7 +25,13 @@ namespace Wysnan.EIMOnline.EF
 
         DbSet<SecurityUser> SecurityUser { get; set; }
         DbSet<OperateLog> OperateLog { get; set; }
-
+        DbSet<SecurityRole> SecurityRole { get; set; }
+        DbSet<SecurityUserRole> SecurityUserRole { get; set; }
+        DbSet<SystemAction> SystemAction { get; set; }
+        DbSet<SystemModuleType> SystemModuleType { get; set; }
+        DbSet<SystemModule> SystemModule { get; set; }
+        DbSet<SystemModuleDetailPage> SystemModuleDetailPage { get; set; }
+        DbSet<SystemPermission> SystemPermission { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

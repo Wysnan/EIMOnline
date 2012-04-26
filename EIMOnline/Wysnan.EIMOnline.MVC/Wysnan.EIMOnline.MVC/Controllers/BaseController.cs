@@ -53,7 +53,6 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         {
             //cb_ID_UserName_UserLoginID_UserLoginPwd_CreatedOn
             #region 转换查询条件为Filters类
-
             Filters filter = null;
             if (!string.IsNullOrEmpty(filters))
             {
@@ -180,6 +179,11 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         #endregion
 
         #region Methods
+
+        public bool Permission()
+        {
+            return false;
+        }
 
         //protected override void HandleUnknownAction(string actionName)
         //{

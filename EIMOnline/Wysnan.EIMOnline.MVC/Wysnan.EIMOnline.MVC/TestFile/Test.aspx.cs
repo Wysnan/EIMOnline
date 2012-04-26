@@ -25,20 +25,20 @@ namespace Wysnan.EIMOnline.MVC.TestFile
             //Cache_Message.Instance.ReLoadData();
 
             /// 文件缓存依赖
-            object obj = new object();
-            FileInfo file = new FileInfo(HttpContext.Current.Server.MapPath("~/Config/FileDependency1.txt"));
-            if (CacheModel.GetCache("filecahce1") != null)
-            {
-                FileInfo testFile = CacheModel.GetCache("filecahce1") as FileInfo;
-                StreamReader read = new StreamReader(testFile.FullName);
-                Response.Write(read.ReadToEnd());
-                read.Close();
-                read.Dispose();
-            }
-            else
-            {
-                CacheModel.SetFileDenpendencyCahce("filecahce1", file, HttpContext.Current.Server.MapPath("~/Config/FileDependency1.txt"));
-            }
+            //object obj = new object();
+            //FileInfo file = new FileInfo(HttpContext.Current.Server.MapPath("~/Config/FileDependency1.txt"));
+            //if (CacheModel.GetCache("filecahce1") != null)
+            //{
+            //    FileInfo testFile = CacheModel.GetCache("filecahce1") as FileInfo;
+            //    StreamReader read = new StreamReader(testFile.FullName);
+            //    Response.Write(read.ReadToEnd());
+            //    read.Close();
+            //    read.Dispose();
+            //}
+            //else
+            //{
+            //    CacheModel.SetFileDenpendencyCahce("filecahce1", file, HttpContext.Current.Server.MapPath("~/Config/FileDependency1.txt"));
+            //}
         }
 
         protected void Button1_Click1(object sender, EventArgs e)
