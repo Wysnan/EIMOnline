@@ -15,6 +15,8 @@ using Wysnan.EIMOnline.Common.Framework.Grid;
 using System.Collections.Generic;
 using System.Linq;
 using Wysnan.EIMOnline.Tool.JqGridExtansions;
+using Wysnan.EIMOnline.Common.Poco;
+using System.Web.Routing;
 
 namespace Wysnan.EIMOnline.MVC.Controllers
 {
@@ -22,8 +24,11 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         where T : class, IBusinessLogicModel<E>
         where E : ISystemBaseEntity
     {
+
+        #region Properties
         public T Model { get; set; }
 
+        #endregion
         private Type type { get; set; }
 
         public BaseController()
@@ -31,7 +36,6 @@ namespace Wysnan.EIMOnline.MVC.Controllers
             try
             {
                 IApplicationContext ctx = ContextRegistry.GetContext();
-
                 type = typeof(E);
                 string typeName = type.Name + "Model";
                 Model = ctx.GetObject(typeName) as T;
@@ -42,6 +46,21 @@ namespace Wysnan.EIMOnline.MVC.Controllers
                 throw ex;
             }
         }
+
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            if (SystemEntity.Instance.CurrentSecurityUser == null)
+            {
+                filterContext.Result = new RedirectToRouteResult("Default",
+                    new RouteValueDictionary{
+                        { "controller", "Index" },
+                        { "action", "Login" }
+                });
+                return;
+            }
+            base.OnActionExecuting(filterContext);
+        }
+
         #region Action
 
         /// <summary>
@@ -158,42 +177,7 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         }
         #endregion
 
-        #region Properties
-
-        //protected IApplicationContext ApplicationContext
-        //{
-        //    get
-        //    {
-        //        return ApplicationContext.Current;
-        //    }
-        //}
-
-        //protected bool IsAuthenticated
-        //{
-        //    get
-        //    {
-        //        return ApplicationContext.IsAuthenticated;
-        //    }
-        //}
-
-        #endregion
-
-        #region Methods
-
-        public bool Permission()
-        {
-            return false;
-        }
-
-        //protected override void HandleUnknownAction(string actionName)
-        //{
-        //    var notFoundController = WebHelper.Mvc.GetNotFoundController(RouteData, Request);
-        //    var errorController = notFoundController as ErrorController;
-        //    if (errorController == null) return;
-        //    var actionResult = errorController.NotFound(Request.Url.OriginalString);
-        //    actionResult.ExecuteResult(ControllerContext);
-        //}
-
+        #region Privte Methods
 
         #endregion
 

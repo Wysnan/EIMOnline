@@ -25,5 +25,10 @@ namespace Wysnan.EIMOnline.Business
         {
             return base.List();
         }
+
+        public IQueryable<SystemModule> GetSecuritySystemModule()
+        {
+            return base.List();
+        }
     }
 }

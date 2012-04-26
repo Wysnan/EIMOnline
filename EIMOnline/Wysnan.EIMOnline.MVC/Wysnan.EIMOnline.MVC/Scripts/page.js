@@ -42,17 +42,17 @@ var GlobalObj =
         'pages': new Array(),
         'AddPage': function (obj) {
             var isExist = false;
-            alert(this.pages.length);
             $(this.pages).each(function (i, n) {
                 if (n.url == obj.url) {
                     isExist = true;
                 }
             });
             if (isExist === false) {
-                alert("123");
                 var div = "<div class=\"pageItemDiv\" id=\"item_" + obj.name + "\"><div class=\"pageItem\">" + obj.name + "</div><div class=\"pageItemClose\" onclick=\"ItemClose('item_" + obj.name + "')\">×</div></div>";
                 $(".div_foot").append(div);
                 this.pages.push(obj);
+//                $("#WidgetColumn").append("<li id=\"li_t\"></li>");
+//                $("#li_t").load(obj.url);
             }
         },
         'RemovePage': function (name) {
@@ -71,9 +71,12 @@ function Navigation(name, url, image) {
     page.url = url;
     page.image = image;
     GlobalObj.AddPage(page);
-    div_main
+    //    alert("123");
+    //    var innerHtml = "WidgetColumn";
+    // div_main
 }
 
 function ItemClose(obj) {
     GlobalObj.RemovePage(obj);
 }
+

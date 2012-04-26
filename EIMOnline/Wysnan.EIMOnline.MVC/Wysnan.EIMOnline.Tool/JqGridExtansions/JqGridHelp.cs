@@ -27,7 +27,7 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
             }
             string urlController = HttpContext.Current.Request.Url.AbsolutePath;
             string urlList = urlController + "/List";
-            string urlAdd = urlController +"/Add";
+            string urlAdd = urlController + "/Add";
             string setJqGridColumn = urlController + "/SetJqGridColumn";
             StringBuilder grid = new StringBuilder();
             StringBuilder StrColNames = new StringBuilder();
@@ -52,6 +52,7 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
                 StrShowField.Remove(StrShowField.Length - 1, 1);
             }
             StrShowField.Append(")");
+            grid.Append("<li id=\"li_0\">");
             grid.Append("<table id=\"list\" style=\"width:100%;\">");
             grid.Append("</table>");
             grid.Append("<div id=\"pager\"");
@@ -97,6 +98,7 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
             grid.AppendFormat("GlobalObj.AddPage(new Page(\"list\"));");
             //grid.AppendFormat("Navigation('list','123','123');");
             grid.Append("</script>");
+            grid.Append("</li>");
             //grid.AppendFormat("<div id=\"dialog-form\" title=\"Create new user\" style=\"width:99%;height:99%\"><iframe src=\"{0}\" width=\"99%\" height=\"99%\"></iframe></div>", urlAdd);
 
             string gridHtml = grid.ToString();

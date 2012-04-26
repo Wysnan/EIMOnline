@@ -8,6 +8,8 @@ using Wysnan.EIMOnline.MVC.Framework;
 using Wysnan.EIMOnline.Business.Framework;
 using System.Configuration;
 using System.Data.SqlClient;
+using Spring.Context;
+using Spring.Context.Support;
 
 namespace Wysnan.EIMOnline.MVC
 {

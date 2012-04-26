@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationContext.cs" />
     <Compile Include="BusinessModel.cs" />
     <Compile Include="EmailServiceModel.cs" />
     <Compile Include="Framework\Cache\CacheModel.cs" />

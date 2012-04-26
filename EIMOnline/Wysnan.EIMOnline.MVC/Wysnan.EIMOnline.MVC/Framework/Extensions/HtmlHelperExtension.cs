@@ -13,10 +13,16 @@ using Wysnan.EIMOnline.Tool.JqGridExtansions;
 using Wysnan.EIMOnline.Common.Framework;
 using Wysnan.EIMOnline.Common.Poco;
 using System.Collections.Specialized;
+using Wysnan.EIMOnline.IBLL;
+using Wysnan.EIMOnline.Business;
+using Spring.Context;
+using Spring.Context.Support;
+
 namespace Wysnan.EIMOnline.MVC.Framework.Extensions
 {
     public static class HtmlHelperExtension
     {
+
         //[Obsolete("由于cookie大小有限制，对于多字段的cookie缓存不适用，弃用这个方法", false)]
         public static MvcHtmlString Grid(this HtmlHelper helper, GridEnum gridEnum)
         {
@@ -54,15 +60,28 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
 
         public static MvcHtmlString Menu(this HtmlHelper helper)
         {
-            StringBuilder menuStr = new StringBuilder();
-            menuStr.Append("");
-
             return MvcHtmlString.Empty;
+            //IApplicationContext ctx = ContextRegistry.GetContext();
+
+            //ISystemModule systemModuleModel = null;
+            //systemModuleModel = ctx.GetObject("SystemModuleModel") as ISystemModule;
+
+
+            //var systemModules = systemModuleModel.GetSecuritySystemModule();
+            //if (systemModules == null)
+            //{
+            //    return MvcHtmlString.Empty;
+            //}
+            //StringBuilder menuStr = new StringBuilder();
+            //menuStr.Append("<ul class=\"ui_menu\">");
+            //var list = systemModules.ToList();
+            //foreach (var item in list)
+            //{
+            //    menuStr.AppendFormat("<li/><a href=\"{1}\" onclick=\"Navigation('{0}', '{1}', '{2}')\">{0}</a><li>", item.ModuleName, item.ModuleMainUrl, "img.jpg");
+            //}
+            //menuStr.Append("</ul>");
+            //return MvcHtmlString.Create(menuStr.ToString());
         }
-
-
-
-
 
 
         #region 测试，不缓存

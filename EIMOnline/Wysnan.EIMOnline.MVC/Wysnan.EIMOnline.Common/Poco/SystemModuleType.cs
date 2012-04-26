@@ -6,8 +6,8 @@ namespace Wysnan.EIMOnline.Common.Poco
     {
         public SystemModuleType()
         {
-            this.SystemModules =new List<SystemModule>();
-            this.SystemPermissions = new List<SystemPermission>();
+            //this.SystemModules =new List<SystemModule>();
+            //this.SystemPermissions = new List<SystemPermission>();
         }
         public int ID { get; set; }
 

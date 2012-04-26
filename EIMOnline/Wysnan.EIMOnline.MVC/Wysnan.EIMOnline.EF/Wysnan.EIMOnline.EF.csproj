@@ -54,10 +54,10 @@
     <Compile Include="Mapping\SystemModuleMap.cs" />
     <Compile Include="Mapping\SystemModuleTypeMap.cs" />
     <Compile Include="Mapping\SystemPermissionMap.cs" />
-   <Compile Include="Migrations\201204180903237_AllTable.cs" />
-    <Compile Include="Migrations\201204180903237_AllTable.Designer.cs">
-      <DependentUpon>201204180903237_AllTable.cs</DependentUpon>
-   </Compile>
+    <Compile Include="Migrations\201204260126178_AllTable.cs" />
+    <Compile Include="Migrations\201204260126178_AllTable.Designer.cs">
+      <DependentUpon>201204260126178_AllTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\DBScript\SqlMigration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

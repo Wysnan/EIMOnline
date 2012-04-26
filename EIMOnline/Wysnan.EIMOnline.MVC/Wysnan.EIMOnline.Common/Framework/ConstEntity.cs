@@ -64,5 +64,11 @@ namespace Wysnan.EIMOnline.Common.Framework
         public const string Control_JqGrid = "JqGrid";
 
         #endregion
+
+        #region Session
+
+        public const string Session_CurrentSecurityUser = "CurrentSecurityUser";
+
+        #endregion
     }
 }

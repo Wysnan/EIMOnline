@@ -6,7 +6,7 @@ namespace Wysnan.EIMOnline.Common.Poco
     {
         public SystemAction()
         {
-            this.SystemPermissions = new List<SystemPermission>();
+            //this.SystemPermissions = new List<SystemPermission>();
         }
         public int ID { get; set; }
 

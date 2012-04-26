@@ -21,9 +21,6 @@ namespace Wysnan.EIMOnline.Business.Framework.Cache
             LoadData();
         }
 
-        string CacheKey =ConstEntity.Cache_JqGridHtml;
-
-
         public void LoadData()
         {
             throw new NotImplementedException();

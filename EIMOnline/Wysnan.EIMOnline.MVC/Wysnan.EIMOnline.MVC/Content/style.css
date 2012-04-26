@@ -64,29 +64,46 @@ body
     height: 50px;
     margin-bottom: 10px;
     padding: 5px;
-    text-align:center;
+    text-align: center;
 }
 .pageItemDiv
 {
     width: 62px;
     height: 45px;
-    float:left;
-    margin-left:5px;
+    float: left;
+    margin-left: 5px;
 }
 .pageItem
 {
     width: 45px;
     height: 45px;
-    border:1px solid Yellow;
-    border-radius:4px 0px 4px 4px;
-    float:left;
+    border: 1px solid Yellow;
+    border-radius: 4px 0px 4px 4px;
+    float: left;
 }
 .pageItemClose
 {
     width: 15px;
     height: 15px;
-    background-color:Yellow;
-    float:left;
-    }
-.pageItem:hover {border:1px solid Red;}	/* 鼠标移动到链接上 */
-.pageItemClose:hover {background-color:Red}	/* 鼠标移动到链接上 */
+    background-color: Yellow;
+    float: left;
+}
+.pageItem:hover
+{
+    border: 1px solid Red;
+}
+/* 鼠标移动到链接上 */
+.pageItemClose:hover
+{
+    background-color: Red;
+}
+/* 鼠标移动到链接上 */
+
+.ui_menu li
+{
+    list-style-type: none;
+}
+.WidgetColumn li
+{
+    list-style-type: none;
+}

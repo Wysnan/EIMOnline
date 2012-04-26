@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Wysnan.EIMOnline.MVC.Framework.Extensions
+<!DOCTYPE html>
 <html>
 <head>
     <title>@ViewBag.Title</title>@*    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />*@
@@ -59,14 +60,16 @@
                     <img alt="设置" width="20" height="20" id="img_leftSet" />
                 </div>
                 <div>
-                
+                    @Html.Menu()
                 </div>
             </div>
             <div class="div_right">
                 <div class="div_title">
                 </div>
                 <div class="div_main">
-                    @RenderBody()
+                    <ul class="WidgetColumn" id="WidgetColumn">
+                        @RenderBody()
+                    </ul>
                 </div>
             </div>
             <div class="div_foot">
