@@ -129,6 +129,7 @@
     <Content Include="Areas\Administration\Views\SecurityUserRole\Create.cshtml" />
     <Content Include="Areas\Administration\Views\PersonnelAttendance\Index.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityUser\PartialAdd.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser\PartialEdit.cshtml" />
     <None Include="Config\Message.config" />
     <Content Include="Config\FileDependency2.xml" />
     <Content Include="Config\FileDependency1.txt" />

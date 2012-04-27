@@ -3,7 +3,6 @@
 @using Wysnan.EIMOnline.Common.Poco;
 @{
     ViewBag.Title = "Index";
-   Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @*@{Html.RenderAction("index", "JqGrid", new { area = "", gridEnum = GridEnum.SecurityUser });}*@
 @Html.Grid(GridEnum.SecurityUser)

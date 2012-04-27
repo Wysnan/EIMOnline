@@ -7,6 +7,7 @@ using Wysnan.EIMOnline.Common.Poco;
 using Wysnan.EIMOnline.IBLL;
 using Wysnan.EIMOnline.Tool.MvcExpand;
 using Wysnan.EIMOnline.Common.Framework;
+using Wysnan.EIMOnline.Business.Framework;
 
 namespace Wysnan.EIMOnline.MVC.Controllers
 {
@@ -25,9 +26,12 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         {
             if (user.UserLoginID == "admin" && user.UserLoginPwd == "admin")
             {
-                SystemEntity.Instance.CurrentSecurityUser = user;
-                return RedirectToRoute("Administration_default", new { controller = "SecurityUser", action = "Index" });
-                //return RedirectToAction("Index");
+                if (SystemEntity != null)
+                {
+                    SystemEntity.CurrentSecurityUser = user;
+                    //return RedirectToRoute("Administration_default", new { controller = "SecurityUser", action = "Index" });
+                    return RedirectToAction("Index");
+                }
             }
             return this.Alert("用户名或密码错误");
         }
@@ -35,6 +39,10 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         [HttpGet]
         public ActionResult Login()
         {
+            if (SystemEntity.CurrentSecurityUser != null)
+            {
+                return RedirectToAction("Index");
+            }
             return View();
         }
     }

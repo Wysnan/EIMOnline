@@ -26,6 +26,9 @@ namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
             return PartialView("PartialAdd");
         }
 
+        public ActionResult Edit() {
+            return PartialView("PartialEdit");
+        }
         //public PartialView
     }
 }

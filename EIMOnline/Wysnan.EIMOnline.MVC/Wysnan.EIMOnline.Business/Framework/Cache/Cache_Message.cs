@@ -16,6 +16,8 @@ namespace Wysnan.EIMOnline.Business.Framework.Cache
         }
         string CacheKey = ConstEntity.Cache_Message;
 
+        private Cache_Message() { };
+
         /// <summary>
         /// 从新加载
         /// </summary>

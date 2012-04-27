@@ -20,7 +20,7 @@ using System.Web.Routing;
 
 namespace Wysnan.EIMOnline.MVC.Controllers
 {
-    public class BaseController<T, E> : Controller
+    public class BaseController<T, E> : GeneralController
         where T : class, IBusinessLogicModel<E>
         where E : ISystemBaseEntity
     {
@@ -49,7 +49,7 @@ namespace Wysnan.EIMOnline.MVC.Controllers
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (SystemEntity.Instance.CurrentSecurityUser == null)
+            if (SystemEntity.CurrentSecurityUser == null)
             {
                 filterContext.Result = new RedirectToRouteResult("Default",
                     new RouteValueDictionary{

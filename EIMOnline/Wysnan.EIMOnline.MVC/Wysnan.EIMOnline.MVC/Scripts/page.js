@@ -23,10 +23,6 @@ $(document).ready(function () {
             $(".div_right").animate({ width: "1313" }, "slow");
         }
     });
-    //    InitPage();
-    //    GlobalObj.setPages();
-
-
 });
 function InitPage() {
     if (GlobalObj.page == null) {
@@ -41,42 +37,64 @@ var GlobalObj =
     {
         'pages': new Array(),
         'AddPage': function (obj) {
+            $("#li_index").remove();
             var isExist = false;
             $(this.pages).each(function (i, n) {
-                if (n.url == obj.url) {
+                if (n.id == obj.id) {
                     isExist = true;
                 }
             });
             if (isExist === false) {
-                var div = "<div class=\"pageItemDiv\" id=\"item_" + obj.name + "\"><div class=\"pageItem\">" + obj.name + "</div><div class=\"pageItemClose\" onclick=\"ItemClose('item_" + obj.name + "')\">×</div></div>";
+                $("li[id*='li_wc_']").hide();
+                $("#WidgetColumn").append("<li id=\"li_wc_" + obj.id + "\"></li>");
+                $("#li_wc_" + obj.id).load(obj.url);
+
+                var div = "<div class=\"pageItemDiv\" id=\"item_" + obj.id + "\"><div class=\"pageItem\" onclick=\"ShowThis('" + obj.id + "')\">" + obj.name + "</div><div class=\"pageItemClose\" onclick=\"ItemClose('" + obj.id + "')\">×</div></div>";
                 $(".div_foot").append(div);
                 this.pages.push(obj);
-//                $("#WidgetColumn").append("<li id=\"li_t\"></li>");
-//                $("#li_t").load(obj.url);
             }
         },
-        'RemovePage': function (name) {
-            $("#" + name).remove();
+        'RemovePage': function (id) {
+            var obj = $("#li_wc_" + id); //获取li
+            var display = obj.css("display");
+            obj.remove(); //移除li
+            $("#item_" + id).remove(); //移除div
+            if (display != "none") {
+                obj = $("li[id*='li_wc_']").first();
+                obj.show(); //显示第一个
+            }
+            //移除数组
+            var index = 0;
+            $(this.pages).each(function (i, n) {
+                if (n.id == id) {
+                    index = i;
+                }
+            });
+            this.pages.splice(index, 1);
         }
     };
 function Page(name) {
+    this.id = 0;
     this.name = name;
     this.url = null;
     this.image = null
 };
 
-function Navigation(name, url, image) {
+function Navigation(id, name, url, image) {
     var page = new Page();
+    page.id = id;
     page.name = name;
     page.url = url;
     page.image = image;
     GlobalObj.AddPage(page);
-    //    alert("123");
-    //    var innerHtml = "WidgetColumn";
-    // div_main
 }
 
-function ItemClose(obj) {
-    GlobalObj.RemovePage(obj);
+function ItemClose(name, url) {
+    GlobalObj.RemovePage(name, url);
 }
 
+function ShowThis(id) {
+    var liId = "li_wc_" + id;
+    $("li[id*='li_wc_']").hide();
+    $("#" + liId).show();
+}

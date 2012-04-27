@@ -30,7 +30,7 @@ namespace Wysnan.EIMOnline.MVC
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Index", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Index", action = "Login", id = UrlParameter.Optional } // Parameter defaults
             );
         }
 
@@ -42,6 +42,12 @@ namespace Wysnan.EIMOnline.MVC
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
 
+            SystemInitialization.Application_Start();
+        }
+
+        protected void Session_Start()
+        {
+            SystemInitialization.Session_Start();
         }
 
         protected void Application_Error(object sender, EventArgs e)

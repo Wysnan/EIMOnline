@@ -14,14 +14,14 @@
                 <td>@Html.LabelFor(a => a.UserLoginID)
                 </td>
                 <td>
-                    @Html.EditorFor(a => a.UserLoginID) @Html.ValidationMessageFor(a => a.UserLoginID)
+                    @Html.TextBox("UserLoginID", "admin") @Html.ValidationMessageFor(a => a.UserLoginID)
                 </td>
             </tr>
             <tr>
                 <td>@Html.LabelFor(a => a.UserLoginPwd)
                 </td>
                 <td>
-                    @Html.EditorFor(a => a.UserLoginPwd) @Html.ValidationMessageFor(a => a.UserLoginPwd)
+                    @Html.TextBox("UserLoginPwd","admin" ) @Html.ValidationMessageFor(a => a.UserLoginPwd)
                 </td>
             </tr>
         </table>

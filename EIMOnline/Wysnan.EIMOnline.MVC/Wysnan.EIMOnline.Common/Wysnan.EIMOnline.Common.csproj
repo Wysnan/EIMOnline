@@ -55,6 +55,7 @@
     <Compile Include="Framework\Grid\JqGridColumn\JqGridColumnTextBox.cs" />
     <Compile Include="Framework\Grid\Poco\SearchOptions.cs" />
     <Compile Include="Framework\MessageEntity.cs" />
+    <Compile Include="Framework\SystemEntity.cs" />
     <Compile Include="Poco\EmailService.cs" />
     <Compile Include="Poco\ErrorInfo.cs" />
     <Compile Include="Poco\IBaseEntity.cs">
@@ -67,7 +68,6 @@
     <Compile Include="Poco\SecurityUser.cs" />
     <Compile Include="Poco\SecurityUserRole.cs" />
     <Compile Include="Poco\SystemAction.cs" />
-    <Compile Include="Poco\SystemEntity.cs" />
     <Compile Include="Poco\SystemModule.cs" />
     <Compile Include="Poco\SystemModuleDetailPage.cs" />
     <Compile Include="Poco\SystemModuleType.cs" />

@@ -68,6 +68,7 @@ namespace Wysnan.EIMOnline.Common.Framework
         #region Session
 
         public const string Session_CurrentSecurityUser = "CurrentSecurityUser";
+        public const string Session_SystemEntity = "Session_SystemEntity";
 
         #endregion
     }
