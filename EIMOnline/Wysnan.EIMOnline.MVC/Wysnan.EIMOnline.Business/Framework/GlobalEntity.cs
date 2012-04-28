@@ -5,6 +5,8 @@ using System.Text;
 using Wysnan.EIMOnline.Common.Framework.Grid;
 using Wysnan.EIMOnline.Common.Framework.Enum;
 using Wysnan.EIMOnline.Business.Framework.Cache;
+using Spring.Context;
+using Spring.Context.Support;
 
 namespace Wysnan.EIMOnline.Business.Framework
 {
@@ -18,8 +20,7 @@ namespace Wysnan.EIMOnline.Business.Framework
             /*
              * 初始化属性信息
              */
-            this.Cache_JqGrid = Cache_JqGrid.Instance;
-            this.Cache_Message = Cache_Message.Instance;
+            this.ApplicationContext = ContextRegistry.GetContext();
         }
 
         static readonly GlobalEntity instance = new GlobalEntity();
@@ -29,8 +30,27 @@ namespace Wysnan.EIMOnline.Business.Framework
             get { return instance; }
         }
 
+        #region 缓存
+
         public Cache_JqGrid Cache_JqGrid { get; private set; }
 
         public Cache_Message Cache_Message { get; private set; }
+
+        public Cache_SystemModule Cache_SystemModule { get; private set; }
+
+        #endregion
+
+        #region Srping.Net
+
+        public IApplicationContext ApplicationContext { get; private set; }
+
+        #endregion
+
+        public void InitAll()
+        {
+            this.Cache_JqGrid = Cache_JqGrid.Instance;
+            this.Cache_Message = Cache_Message.Instance;
+            this.Cache_SystemModule = Cache_SystemModule.Instance;
+        }
     }
 }

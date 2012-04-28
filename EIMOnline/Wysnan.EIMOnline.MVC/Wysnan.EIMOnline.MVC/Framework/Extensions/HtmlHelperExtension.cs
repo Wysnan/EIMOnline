@@ -62,10 +62,8 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
         public static MvcHtmlString Menu(this HtmlHelper helper)
         {
             //return MvcHtmlString.Empty;
-            IApplicationContext ctx = ContextRegistry.GetContext();
-
             ISystemModule systemModuleModel = null;
-            systemModuleModel = ctx.GetObject("SystemModuleModel") as ISystemModule;
+            systemModuleModel = GlobalEntity.Instance.ApplicationContext.GetObject("SystemModuleModel") as ISystemModule;
 
 
             var systemModules = systemModuleModel.GetSecuritySystemModule();

@@ -7,5 +7,7 @@ namespace Wysnan.EIMOnline.IBLL
     public interface ISystemModule : IBusinessLogicModel<SystemModule>, IBusinessLogicModelEx<CombinedSystemModule>
     {
         IQueryable<SystemModule> GetSecuritySystemModule();
+
+        IQueryable<SystemModule> GetAllSystemModule_Greedy();
     }
 }

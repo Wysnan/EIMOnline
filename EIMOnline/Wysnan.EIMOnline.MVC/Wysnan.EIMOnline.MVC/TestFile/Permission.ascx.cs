@@ -8,6 +8,7 @@ using Wysnan.EIMOnline.IBLL;
 using Wysnan.EIMOnline.Common.Poco;
 using Spring.Context;
 using Spring.Context.Support;
+using Wysnan.EIMOnline.Business.Framework;
 
 namespace Wysnan.EIMOnline.MVC.TestFile
 {
@@ -18,12 +19,11 @@ namespace Wysnan.EIMOnline.MVC.TestFile
 
         public Permission()
         {
-            IApplicationContext ctx = ContextRegistry.GetContext();
             string typeName = "SystemPermissionModel";
-            SystemPermissions = ctx.GetObject(typeName) as ISystemPermission;
+            SystemPermissions = GlobalEntity.Instance.ApplicationContext.GetObject(typeName) as ISystemPermission;
 
             string typeName1 = "SystemModuleModel";
-            SystemModel = ctx.GetObject(typeName1) as ISystemModule;
+            SystemModel = GlobalEntity.Instance.ApplicationContext.GetObject(typeName1) as ISystemModule;
         }
 
         protected void Page_Load(object sender, EventArgs e)

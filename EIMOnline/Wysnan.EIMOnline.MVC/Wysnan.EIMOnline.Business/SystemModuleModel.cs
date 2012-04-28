@@ -9,10 +9,10 @@ namespace Wysnan.EIMOnline.Business
 {
     public class SystemModuleModel : GenericBusinessModel<SystemModule>, ISystemModule
     {
+        ISystemModuleDetailPage SystemModuleDetailPageModel { get; set; }
+
         public SystemModuleModel()
         {
-            // var tt = Model.List<SystemPermission>();
-
         }
 
         public IQueryable<CombinedSystemModule> ListCombined()
@@ -26,9 +26,17 @@ namespace Wysnan.EIMOnline.Business
             return base.List();
         }
 
+        public IQueryable<SystemModule> GetAllSystemModule_Greedy()
+        {
+            return List(a => a.SystemModuleDetailPages);
+        }
+
         public IQueryable<SystemModule> GetSecuritySystemModule()
         {
             return base.List();
         }
+
+
+
     }
 }

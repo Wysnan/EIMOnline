@@ -14,8 +14,7 @@ namespace Wysnan.EIMOnline.Business.Framework
         //Application_Start 
         public static void Application_Start()
         {
-            //初始化grid
-            GlobalEntity.Instance.Cache_JqGrid.LoadData();
+            GlobalEntity.Instance.InitAll();
         }
 
         //Session_Start

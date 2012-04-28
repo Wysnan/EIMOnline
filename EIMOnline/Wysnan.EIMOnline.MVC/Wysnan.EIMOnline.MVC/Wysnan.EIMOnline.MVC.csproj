@@ -178,6 +178,7 @@
     <Content Include="Content\themes\ui.jqgrid.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="InstallationDeploy.txt" />
     <Content Include="Scripts\external\jquery.bgiframe-2.1.2.js" />
     <Content Include="Scripts\external\jquery.cookie.js" />
     <Content Include="Scripts\external\jquery.metadata.js" />
@@ -465,6 +466,10 @@
     <ProjectReference Include="..\Wysnan.EIMOnline.Injection\Wysnan.EIMOnline.Injection.csproj">
       <Project>{78E214C4-A31A-46E3-960A-525A7FEBB37A}</Project>
       <Name>Wysnan.EIMOnline.Injection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wysnan.EIMOnline.MVC.Tool\Wysnan.EIMOnline.MVC.Tool.csproj">
+      <Project>{644BF023-4A99-439A-A7BC-62A5D9503715}</Project>
+      <Name>Wysnan.EIMOnline.MVC.Tool</Name>
     </ProjectReference>
     <ProjectReference Include="..\Wysnan.EIMOnline.Tool\Wysnan.EIMOnline.Tool.csproj">
       <Project>{B7502FFB-F636-417B-98C6-1D95F776288C}</Project>

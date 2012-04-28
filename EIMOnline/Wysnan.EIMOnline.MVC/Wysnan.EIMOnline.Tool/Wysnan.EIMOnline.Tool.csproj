@@ -47,8 +47,6 @@
     <Compile Include="Extensions\DynamicLibrary.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Extensions\FiltersExtension.cs" />
-    <Compile Include="JqGridExtansions\JqGridHelp.cs" />
     <Compile Include="MvcExpand\ControllerExpand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToolMethod\CookieHelp.cs" />

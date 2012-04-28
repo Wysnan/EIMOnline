@@ -27,14 +27,14 @@ namespace Wysnan.EIMOnline.Business
             return base.List();
         }
 
-        [OperateLog]
-        public override IQueryable ListJqGrid()
-        {
-            var query = Model.List<SecurityUser>();
-             //query = query.Where(a => a.CreatedOn ==(DateTime.Now) );
-            var temp = query.Select("New(ID, UserName,UserLoginID,UserLoginPwd,CreatedOn)");
-            return temp;
-        }
+        //[OperateLog]
+        //public override IQueryable ListJqGrid()
+        //{
+        //    var query = Model.List<SecurityUser>();
+        //     //query = query.Where(a => a.CreatedOn ==(DateTime.Now) );
+        //    var temp = query.Select("New(ID, UserName,UserLoginID,UserLoginPwd,CreatedOn)");
+        //    return temp;
+        //}
 
         public IQueryable<CombinedSecurityUser> ListCombined()
         {

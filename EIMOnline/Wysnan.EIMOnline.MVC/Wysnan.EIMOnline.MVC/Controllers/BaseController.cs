@@ -35,10 +35,9 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         {
             try
             {
-                IApplicationContext ctx = ContextRegistry.GetContext();
                 type = typeof(E);
                 string typeName = type.Name + "Model";
-                Model = ctx.GetObject(typeName) as T;
+                Model = GlobalEntity.Instance.ApplicationContext.GetObject(typeName) as T;
             }
             catch (Exception ex)
             {

@@ -9,6 +9,7 @@ using Wysnan.EIMOnline.Tool.Extensions;
 using Wysnan.EIMOnline.Common.Framework;
 using Wysnan.EIMOnline.Common.Poco;
 using Wysnan.EIMOnline.Tool.ToolMethod;
+using Wysnan.EIMOnline.Business.Framework;
 
 namespace Wysnan.EIMOnline.Tool.JqGridExtansions
 {
@@ -26,6 +27,20 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
                 return null;
             }
             string urlController = HttpContext.Current.Request.Url.AbsolutePath;
+
+            #region 获取模块
+            IList<SystemModule> systemModules = GlobalEntity.Instance.Cache_SystemModule.SystemModules;
+            SystemModule currentModule = null;
+            if (systemModules != null)
+            {
+                currentModule = systemModules.Where(a => a.ModuleMainUrl.Equals(urlController, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                if (currentModule == null)
+                {
+                    throw new ApplicationException("模块信息为空。");
+                }
+            }
+            #endregion
+
             string urlList = urlController + "/List";
             string urlAdd = urlController + "/Add";
             string setJqGridColumn = urlController + "/SetJqGridColumn";
@@ -52,7 +67,6 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
                 StrShowField.Remove(StrShowField.Length - 1, 1);
             }
             StrShowField.Append(")");
-            //grid.Append("<li id=\"li_wc_2\">");
             grid.Append("<table id=\"list\" style=\"width:100%;\">");
             grid.Append("</table>");
             grid.Append("<div id=\"pager\">");
@@ -97,8 +111,6 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
             grid.AppendFormat("var SetJqGridColumn='{0}';", setJqGridColumn);
             //grid.AppendFormat("GlobalObj.AddPage(new Page(\"list\"));");
             grid.Append("</script>");
-            //grid.Append("</li>");
-            //grid.AppendFormat("<div id=\"dialog-form\" title=\"Create new user\" style=\"width:99%;height:99%\"><iframe src=\"{0}\" width=\"99%\" height=\"99%\"></iframe></div>", urlAdd);
 
             string gridHtml = grid.ToString();
             return gridHtml;
@@ -111,7 +123,7 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
         }
         public static void WriteCookie(this JqGrid jqGrid, GridEnum gridEnum, string gridHtml)
         {
-            SystemEntity systemEntity =HttpContext.Current.Session[ConstEntity.Session_SystemEntity] as SystemEntity;
+            SystemEntity systemEntity = HttpContext.Current.Session[ConstEntity.Session_SystemEntity] as SystemEntity;
             string key = systemEntity.CurrentSecurityUser.ID + "_" + gridEnum.ToString();
             string cookieName = ConstEntity.Cookie_JqGridHtml + key;
             HttpCookie cookie = HttpContext.Current.Request.Cookies[cookieName];

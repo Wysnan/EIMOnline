@@ -1,0 +1,7 @@
+﻿环境部署步骤
+
+1数据库依赖缓存
+在windows/microsoft.net/framework/版本/aspnet_regsql.exe执行
+
+表“SystemModule”
+aspnet_regsql -C "data source=localhost;initial catalog=ERM_DB;Integrated Security=SSPI;" -ed -et -t "SystemModule"
