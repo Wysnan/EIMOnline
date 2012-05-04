@@ -5,5 +5,15 @@ namespace Wysnan.EIMOnline.EF.Mapping
 {
     public class SystemModuleTypeMap : EntityTypeConfiguration<SystemModuleType>
     {
+        public SystemModuleTypeMap()
+        {
+            this.Property(t => t.Area)
+                .IsOptional()
+                .HasMaxLength(10);
+            this.Property(t => t.ModuleTypeName)
+                .IsOptional()
+                .HasMaxLength(30);
+
+        }
     }
 }

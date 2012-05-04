@@ -50,7 +50,6 @@
     <Compile Include="ISecurityRole.cs" />
     <Compile Include="ISecurityUser.cs" />
     <Compile Include="ISecurityUserRole.cs" />
-    <Compile Include="ISystemAction.cs" />
     <Compile Include="ISystemModule.cs" />
     <Compile Include="ISystemModuleDetailPage.cs" />
     <Compile Include="ISystemModuleType.cs" />

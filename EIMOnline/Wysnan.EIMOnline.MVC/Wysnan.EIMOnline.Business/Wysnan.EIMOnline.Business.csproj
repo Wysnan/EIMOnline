@@ -60,7 +60,6 @@
     <Compile Include="SecurityRoleModel.cs" />
     <Compile Include="SecurityUserModel.cs" />
     <Compile Include="SecurityUserRoleModel.cs" />
-    <Compile Include="SystemActionModel.cs" />
     <Compile Include="SystemModuleDetailPageModel.cs" />
     <Compile Include="SystemModuleModel.cs" />
     <Compile Include="SystemModuleTypeModel.cs" />

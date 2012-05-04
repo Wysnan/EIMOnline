@@ -19,6 +19,7 @@ namespace Wysnan.EIMOnline.MVC.TestFile
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             /// 测试一般的缓存（更新缓存）
             /// 
             //Response.Write(GlobalEntity.Instance.Cache_Message.GetMessge("1"));

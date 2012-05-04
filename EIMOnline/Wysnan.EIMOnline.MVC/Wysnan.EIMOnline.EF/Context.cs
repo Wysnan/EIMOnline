@@ -27,7 +27,6 @@ namespace Wysnan.EIMOnline.EF
         DbSet<OperateLog> OperateLog { get; set; }
         DbSet<SecurityRole> SecurityRole { get; set; }
         DbSet<SecurityUserRole> SecurityUserRole { get; set; }
-        DbSet<SystemAction> SystemAction { get; set; }
         DbSet<SystemModuleType> SystemModuleType { get; set; }
         DbSet<SystemModule> SystemModule { get; set; }
         DbSet<SystemModuleDetailPage> SystemModuleDetailPage { get; set; }
@@ -38,6 +37,10 @@ namespace Wysnan.EIMOnline.EF
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
             modelBuilder.Configurations.Add(new SecurityUserMap());
+            modelBuilder.Configurations.Add(new SystemModuleMap());
+            modelBuilder.Configurations.Add(new SystemModuleTypeMap());
+            modelBuilder.Configurations.Add(new SystemModuleDetailPageMap());
+            modelBuilder.Configurations.Add(new SystemPermissionMap());
         }
     }
 }

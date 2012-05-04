@@ -48,16 +48,16 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="EntityFrameworkModel.cs" />
+    <Compile Include="Mapping\OperateLogMap.cs" />
     <Compile Include="Mapping\SecurityUserMap.cs" />
-    <Compile Include="Mapping\SystemActionMap.cs" />
     <Compile Include="Mapping\SystemModuleDetailPageMap.cs" />
     <Compile Include="Mapping\SystemModuleMap.cs" />
     <Compile Include="Mapping\SystemModuleTypeMap.cs" />
     <Compile Include="Mapping\SystemPermissionMap.cs" />
-   <Compile Include="Migrations\201204180903237_AllTable.cs" />
-    <Compile Include="Migrations\201204180903237_AllTable.Designer.cs">
-      <DependentUpon>201204180903237_AllTable.cs</DependentUpon>
-   </Compile>
+    <Compile Include="Migrations\201205040656589_AllTable.cs" />
+    <Compile Include="Migrations\201205040656589_AllTable.Designer.cs">
+      <DependentUpon>201205040656589_AllTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\DBScript\SqlMigration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

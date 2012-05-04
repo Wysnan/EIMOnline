@@ -11,7 +11,17 @@ namespace Wysnan.EIMOnline.EF.Mapping
     {
         public SecurityUserMap()
         {
-          
+            this.Property(t => t.UserName)
+                .IsOptional()
+                .HasMaxLength(50);
+
+            this.Property(t => t.UserLoginID)
+                .IsOptional()
+                .HasMaxLength(50);
+
+            this.Property(t => t.UserLoginPwd)
+                .IsOptional()
+                .HasMaxLength(50);
         }
     }
 }

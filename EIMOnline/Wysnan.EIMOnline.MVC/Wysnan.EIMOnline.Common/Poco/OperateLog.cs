@@ -17,6 +17,7 @@ namespace Wysnan.EIMOnline.Common.Poco
 
         public string OperateLogInfo { get; set; }
         public DateTime OperateDate { get; set; }
-        public virtual SecurityUser SecurityUserId { get; set; }
+        public int SecurityUserId { get; set; }
+        public virtual SecurityUser SecurityUser { get; set; }
     }
 }
