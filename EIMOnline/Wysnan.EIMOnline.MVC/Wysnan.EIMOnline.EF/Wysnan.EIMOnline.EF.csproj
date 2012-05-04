@@ -58,6 +58,7 @@
     <Compile Include="Migrations\201205040656589_AllTable.Designer.cs">
       <DependentUpon>201205040656589_AllTable.cs</DependentUpon>
     </Compile>
+    <Content Include="Migrations\201205040656589_AllTable\InitialPromysSPandFN.sql" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\DBScript\SqlMigration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

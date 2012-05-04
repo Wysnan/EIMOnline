@@ -1,6 +1,7 @@
 namespace Wysnan.EIMOnline.EF.Migrations
 {
     using System.Data.Entity.Migrations;
+    using System;
     
     public partial class AllTable : DbMigration
     {
@@ -146,6 +147,23 @@ namespace Wysnan.EIMOnline.EF.Migrations
                 .PrimaryKey(t => t.ID)
                 .ForeignKey("SecurityUser", t => t.SecurityUserID)
                 .Index(t => t.SecurityUserID);
+
+            string scriptText;
+            var splitter = new string[] { "\r\nGO\r\n" };
+
+            var migrationDir = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Wysnan.EIMOnline.EF\Migrations\201205040656589_AllTable");
+            var ddlSqlFiles = new string[] { "InitialPromysSPandFN.sql" };
+
+            foreach (var file in ddlSqlFiles)
+            {
+                scriptText = System.IO.File.ReadAllText(System.IO.Path.Combine(migrationDir, file));
+                var commandTexts = scriptText.Split(splitter, StringSplitOptions.RemoveEmptyEntries);
+                foreach (var commandText in commandTexts)
+                {
+                    if (!String.IsNullOrWhiteSpace(commandText))
+                        Sql(commandText);
+                }
+            }         
             
         }
         
