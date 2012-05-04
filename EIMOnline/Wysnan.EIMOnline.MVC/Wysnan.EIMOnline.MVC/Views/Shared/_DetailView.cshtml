@@ -5,31 +5,31 @@
     var config = ViewBag.ViewLayout as List<zMetaFormLayout>;
     var propertys = entity.GetType().GetProperties();
 }
-<div>
-    <div>
-        @foreach (var item in propertys)
+@*<div style="filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#FFCGCC', gradientType='1')">*@
+<div style="border-radius: 6px; -moz-border-radius: 6px; background: E6EEF8; border-color: #6181a2; border: 1px solid red; width: auto;">
+    @foreach (var item in propertys)
+    {
+        if (config.Where(t => t.EntityField == item.Name && t.IsVisible == true).FirstOrDefault() != null)
         {
-            // 根据PropertyName查询配置表中国的lable
-            if (config.Where(t => t.EntityField == item.Name && t.IsVisible == true).FirstOrDefault() != null)
-            {
-            <div style="width: 5px;">
+        <div style="float: left; width: 200px; height: 45px;">
+            <div style="font-weight: bold; width: 100px">
+                <span>@Html.Label(config.Where(t => t.EntityField == item.Name).First().ShortLabel)</span>
             </div>
-            <div style="float: left; position: relative;">
-                <div style="font-weight: bold; width: 20px">
-                    @Html.Label(config.Where(t => t.EntityField == item.Name).First().ShortLabel)
-                </div>
-                <div style="width: width:20px">
-                    @{
-                        var value = item.GetValue(entity, null).ToString();  
-                        @: @value
+            <div style="height: 8px;">
+            </div>
+            <div style="width: 100%; font-weight: normal; color: Gray;">
+                @{
+            var value = item.GetValue(entity, null).ToString();  
+                    @: @value
                         }
-                </div>
             </div>
-            }
-            else
-            {
-                continue;
-            }
+        </div>
         }
+        else
+        {
+            continue;
+        }
+    }
+    <div style="clear: left;">
     </div>
 </div>

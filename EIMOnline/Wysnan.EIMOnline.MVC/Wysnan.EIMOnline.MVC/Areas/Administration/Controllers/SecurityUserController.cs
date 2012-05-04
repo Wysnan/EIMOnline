@@ -32,10 +32,10 @@ namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
             return PartialView("PartialEdit");
         }
 
-        public ActionResult View(int id)
-        {
-            return PartialView("PartialView", id);
-        }
+        //public ActionResult View(int id)
+        //{
+        //    return PartialView("PartialView", id);
+        //}
 
         public ActionResult List2()
         {

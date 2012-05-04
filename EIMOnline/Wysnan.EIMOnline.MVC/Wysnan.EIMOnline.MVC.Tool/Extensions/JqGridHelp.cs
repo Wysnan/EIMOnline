@@ -31,14 +31,14 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
             #region 获取模块
             IList<SystemModule> systemModules = GlobalEntity.Instance.Cache_SystemModule.SystemModules;
             SystemModule currentModule = null;
-            if (systemModules != null)
-            {
-                currentModule = systemModules.Where(a => a.ModuleMainUrl.Equals(urlController, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
-                if (currentModule == null)
-                {
-                    throw new ApplicationException("模块信息为空。");
-                }
-            }
+            //if (systemModules != null)
+            //{
+            //    currentModule = systemModules.Where(a => a.ModuleMainUrl.Equals(urlController, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            //    if (currentModule == null)
+            //    {
+            //        throw new ApplicationException("模块信息为空。");
+            //    }
+            //}
             //根据获取的模块和详细action信息，构造jqGrid路径和action
 
             #endregion

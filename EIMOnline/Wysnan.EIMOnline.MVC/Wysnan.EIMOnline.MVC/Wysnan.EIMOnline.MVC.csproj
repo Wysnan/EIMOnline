@@ -25,6 +25,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -131,7 +133,7 @@
     <Content Include="Areas\Administration\Views\PersonnelAttendance\Index.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityUser\PartialAdd.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityUser\PartialEdit.cshtml" />
-	    <Content Include="Areas\Administration\Views\SecurityUser\View.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser\View.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityUser\Test.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityUser\PartialView.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityUser\List2.cshtml" />
@@ -440,6 +442,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Index\Index.cshtml" />
+    <Content Include="Views\Shared\_DetailView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -485,7 +488,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Administration\Views\Web.config" />
+    <Content Include="Areas\Administration\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administration\Views\SecurityUser\Index.cshtml" />

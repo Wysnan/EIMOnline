@@ -200,7 +200,7 @@ namespace Wysnan.EIMOnline.MVC.Controllers
                 throw new ArgumentException("未检索到对象");
             }
 
-            zMetaFormLayoutModel zMetaFormLayoutModel = new Business.zMetaFormLayoutModel();
+            IzMetaFormLayout zMetaFormLayoutModel = GlobalEntity.Instance.ApplicationContext.GetObject("zMetaFormLayoutModel") as IzMetaFormLayout;
             IList<zMetaFormLayout> ViewLayout = zMetaFormLayoutModel.List().Where(t => t.EntityName == type.Name).ToList();
             if (ViewLayout != null && ViewLayout.Count > 0)
             {
