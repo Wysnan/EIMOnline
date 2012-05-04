@@ -55,7 +55,6 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
             #region write cookie
             jqGrid.WriteCookie(gridEnum, HttpUtility.UrlEncode(gridHtml));
             #endregion
-
             return MvcHtmlString.Create(gridHtml);
         }
 
@@ -64,7 +63,6 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
             //return MvcHtmlString.Empty;
             ISystemModule systemModuleModel = null;
             systemModuleModel = GlobalEntity.Instance.ApplicationContext.GetObject("SystemModuleModel") as ISystemModule;
-
 
             var systemModules = systemModuleModel.GetSecuritySystemModule();
             if (systemModules == null)
@@ -82,9 +80,16 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
             return MvcHtmlString.Create(menuStr.ToString());
         }
 
+        public static MvcHtmlString SerachableBox(this HtmlHelper helper)
+        {
+
+
+            return MvcHtmlString.Empty;
+        }
+
 
         #region 测试，不缓存
-        public delegate string MvcCacheCallback(HttpContextBase context);
+        public delegate MvcHtmlString MvcCacheCallback(HttpContextBase context);
 
         public static object Substitute(this HtmlHelper html, MvcCacheCallback cb)
         {

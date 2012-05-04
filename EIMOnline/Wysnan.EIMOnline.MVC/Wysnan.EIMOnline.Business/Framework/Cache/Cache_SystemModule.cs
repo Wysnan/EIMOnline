@@ -63,8 +63,7 @@ namespace Wysnan.EIMOnline.Business.Framework.Cache
                 if (objModel != null)
                 {
                     Type t = typeof(Wysnan.EIMOnline.Common.Poco.SystemModule);
-                    System.Web.Caching.SqlCacheDependency dep = new System.Web.Caching.SqlCacheDependency(CacheKey, t.Name);
-                    CacheModel.SetCache(CacheKey, objModel);
+                    CacheModel.SetSqlDenpendencyCahce(CacheKey, objModel, t.Name);
                 }
             }
         }

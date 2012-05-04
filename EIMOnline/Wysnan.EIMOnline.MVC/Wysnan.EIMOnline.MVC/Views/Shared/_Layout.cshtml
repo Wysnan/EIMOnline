@@ -26,6 +26,11 @@
     <script src="/Scripts/JqGrid/jquery.jqgrid.js" type="text/javascript"></script>
     <script src="/Scripts/JqGrid/jqGridExtensions.js" type="text/javascript"></script>
     @*-----------jqGrid---------------*@
+    <script>
+        $.ajaxSetup({
+            cache: false//关闭AJAX相应的缓存
+        });
+    </script>
 </head>
 @*<body>
     <div class="page">

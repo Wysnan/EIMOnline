@@ -1,7 +1,4 @@
-﻿@{
-    ViewBag.Title = "Add";
-}
-添加页面123123123123123123
+﻿添加页面
 <div style="width: 200px">
     <div style="text-align: right">
         <span class="spanQ">+</span>
@@ -33,7 +30,7 @@
             modal: true
         });
     });
-
+   // $("#divSerach").load("http://localhost:8080/Administration/SecurityUser");
     $(".spanQ").click(function () {
         $("#divSerach").load("http://localhost:8080/Administration/SecurityUser", function () { $("#dialog-modal").dialog("open"); });
         //$("#dialog-modal").dialog("open");

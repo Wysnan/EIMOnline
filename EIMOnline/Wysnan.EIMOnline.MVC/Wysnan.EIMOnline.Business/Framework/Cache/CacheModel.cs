@@ -57,8 +57,10 @@ namespace Wysnan.EIMOnline.Business.Framework.Cache
         {
             if (File.Exists(filePath))
             {
-                CacheDependency fileDependency = new CacheDependency(filePath);
-                HttpRuntime.Cache.Insert(cacheKey, objName, fileDependency);
+                using (CacheDependency fileDependency = new CacheDependency(filePath))
+                {
+                    HttpRuntime.Cache.Insert(cacheKey, objName, fileDependency);
+                }
             }
             else
             {
@@ -71,12 +73,14 @@ namespace Wysnan.EIMOnline.Business.Framework.Cache
         /// </summary>
         /// <param name="cacheKey">web.config文件中配置的缓存键</param>
         /// <param name="objName"></param>
-        public static void SetSqlDenpendencyCahce(string cacheKey,object obj,string cacheTableName)
+        public static void SetSqlDenpendencyCahce(string cacheKey, object obj, string cacheTableName)
         {
             if (obj != null)
             {
-                CacheDependency fileDependency = new SqlCacheDependency(cacheKey, cacheTableName);
-                HttpRuntime.Cache.Insert(cacheKey, obj, fileDependency);
+                using (CacheDependency fileDependency = new SqlCacheDependency(cacheKey, cacheTableName))
+                {
+                    HttpRuntime.Cache.Insert(cacheKey, obj, fileDependency);
+                }
             }
         }
     }

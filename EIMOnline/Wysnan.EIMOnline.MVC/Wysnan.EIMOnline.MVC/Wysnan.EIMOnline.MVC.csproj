@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -82,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\SecurityUser2Controller.cs" />
     <Compile Include="Areas\Administration\Controllers\PersonnelAttendanceController.cs" />
     <Compile Include="Areas\Administration\Controllers\LogController.cs" />
     <Compile Include="Areas\Administration\Controllers\SecurityRoleController.cs" />
@@ -90,7 +92,6 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GeneralController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
-    <Compile Include="Controls\Controllers\JqGridController.cs" />
     <Compile Include="Framework\Extensions\HtmlHelperExtension.cs" />
     <Compile Include="Framework\MyViewEngine.cs" />
     <Compile Include="Global.asax.cs">
@@ -130,6 +131,14 @@
     <Content Include="Areas\Administration\Views\PersonnelAttendance\Index.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityUser\PartialAdd.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityUser\PartialEdit.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser\PartialView.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser\List2.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser2\Add.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser2\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser2\List2.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser2\PartialAdd.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser2\PartialEdit.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser2\PartialView.cshtml" />
     <None Include="Config\Message.config" />
     <Content Include="Config\FileDependency2.xml" />
     <Content Include="Config\FileDependency1.txt" />
@@ -424,20 +433,17 @@
     <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\MyScript\Index.cshtml" />
-    <Content Include="Controls\Views\JqGrid\Index.cshtml" />
     <Content Include="Views\Index\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
-    <Folder Include="Controls\Models\" />
+    <Folder Include="Content\images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -481,12 +487,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administration\Views\SecurityUser\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Controls\Views\Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Controls\Views\Shared\_DialogMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administration\Views\SecurityUser\Add.cshtml" />
