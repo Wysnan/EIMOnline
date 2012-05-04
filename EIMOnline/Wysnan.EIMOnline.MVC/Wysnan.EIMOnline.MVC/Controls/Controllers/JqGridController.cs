@@ -26,7 +26,7 @@ namespace Wysnan.EIMOnline.MVC.Controls.Controllers
             }
             string gridHtml = jqGrid.ConvertToHtml();
 
-            return Content(gridHtml);
+            return Content("");
         }
 
     }

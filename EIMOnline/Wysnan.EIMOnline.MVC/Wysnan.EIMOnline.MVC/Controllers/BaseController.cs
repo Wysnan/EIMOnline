@@ -51,6 +51,7 @@ namespace Wysnan.EIMOnline.MVC.Controllers
             }
         }
 
+        
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (SystemEntity.CurrentSecurityUser == null)
@@ -180,6 +181,8 @@ namespace Wysnan.EIMOnline.MVC.Controllers
             }
         }
         #endregion
+
+      
 
         #region Privte Methods
 

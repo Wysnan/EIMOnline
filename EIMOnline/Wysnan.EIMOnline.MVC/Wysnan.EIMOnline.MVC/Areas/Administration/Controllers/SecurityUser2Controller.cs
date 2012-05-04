@@ -14,7 +14,7 @@ using Wysnan.EIMOnline.Injection.JqGrid;
 
 namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
 {
-    public class SecurityUserController : BaseController<ISecurityUser, SecurityUser>
+    public class SecurityUser2Controller : BaseController<ISecurityUser, SecurityUser>
     {
         public ActionResult Index()
         {
@@ -23,8 +23,8 @@ namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
 
         public ActionResult Add()
         {
-            //return View();
-             return PartialView("PartialAdd");
+            return View();
+            // return PartialView("PartialAdd");
         }
 
         public ActionResult Edit()
