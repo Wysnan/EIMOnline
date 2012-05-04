@@ -1,0 +1,54 @@
+﻿
+@{
+    Html.RenderPartial("~/Views/Shared/_DetailView.cshtml");
+}
+
+@*@using Wysnan.EIMOnline.Common.Poco;
+@using System;
+@using System.Collections;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Web;
+@using System.Web.Mvc;
+@{
+    ViewBag.Title = "View";
+}
+<h2>
+    自动生成View测试页面</h2>
+@{
+    SecurityUser entity = ViewBag.entity as SecurityUser;
+    var propertys = entity.GetType().GetProperties();
+    List<zMetaFormLayout> config = ViewBag.ViewLayout as List<zMetaFormLayout>;
+    if (config == null)
+    {
+        Response.Write("<>");
+    }
+}
+<div>
+    <div>
+        @Html.BeginForm("df")
+        @foreach (zMetaFormLayout item in config)
+        {
+            if (item.IsVisible != true)
+            {
+                continue;
+            }
+            <div style="float: left;">
+                <span>@Html.Label(item.ShortLabel):</span>
+                <br />
+                <span>
+                    @{
+            var property = propertys.FirstOrDefault(t => t.Name == item.EntityField);
+            if (property != null)
+            {
+                var value = property.GetValue(entity, null);
+                         
+                        @: @value
+                        }
+                    }
+                </span>
+            </div>
+        }
+    </div>
+</div>
+*@

@@ -72,6 +72,7 @@
     <Compile Include="Poco\SystemModuleDetailPage.cs" />
     <Compile Include="Poco\SystemModuleType.cs" />
     <Compile Include="Poco\SystemPermission.cs" />
+    <Compile Include="Poco\zMetaFormLayout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Framework\Enum\SystemStatus.cs" />
     <Compile Include="Framework\ISystemBaseEntity.cs" />

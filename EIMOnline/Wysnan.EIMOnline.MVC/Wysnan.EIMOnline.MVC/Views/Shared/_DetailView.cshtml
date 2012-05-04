@@ -1,0 +1,35 @@
+﻿@using Wysnan.EIMOnline.Common.Poco;
+@{
+    ViewBag.Title = "_DetailView";
+    var entity = ViewBag.entity as object;
+    var config = ViewBag.ViewLayout as List<zMetaFormLayout>;
+    var propertys = entity.GetType().GetProperties();
+}
+<div>
+    <div>
+        @foreach (var item in propertys)
+        {
+            // 根据PropertyName查询配置表中国的lable
+            if (config.Where(t => t.EntityField == item.Name && t.IsVisible == true).FirstOrDefault() != null)
+            {
+            <div style="width: 5px;">
+            </div>
+            <div style="float: left; position: relative;">
+                <div style="font-weight: bold; width: 20px">
+                    @Html.Label(config.Where(t => t.EntityField == item.Name).First().ShortLabel)
+                </div>
+                <div style="width: width:20px">
+                    @{
+                        var value = item.GetValue(entity, null).ToString();  
+                        @: @value
+                        }
+                </div>
+            </div>
+            }
+            else
+            {
+                continue;
+            }
+        }
+    </div>
+</div>

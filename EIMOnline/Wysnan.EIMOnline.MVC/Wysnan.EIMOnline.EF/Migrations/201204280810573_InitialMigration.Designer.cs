@@ -4,11 +4,11 @@ namespace Wysnan.EIMOnline.EF.Migrations
     using System.Data.Entity.Migrations;
     using System.Data.Entity.Migrations.Infrastructure;
     
-    public sealed partial class AllTable : IMigrationMetadata
+    public sealed partial class InitialMigration : IMigrationMetadata
     {
         string IMigrationMetadata.Id
         {
-            get { return "201204260126178_AllTable"; }
+            get { return "201204280810573_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source

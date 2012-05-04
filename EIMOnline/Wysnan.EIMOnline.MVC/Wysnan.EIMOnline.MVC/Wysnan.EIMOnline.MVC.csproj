@@ -24,6 +24,13 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="NewConnection1-Deployment" Order="1" Enabled="False">
+          <Destination Path="" />
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -130,6 +137,8 @@
     <Content Include="Areas\Administration\Views\PersonnelAttendance\Index.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityUser\PartialAdd.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityUser\PartialEdit.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser\View.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser\Test.cshtml" />
     <None Include="Config\Message.config" />
     <Content Include="Config\FileDependency2.xml" />
     <Content Include="Config\FileDependency1.txt" />
@@ -432,6 +441,7 @@
     <Content Include="Views\MyScript\Index.cshtml" />
     <Content Include="Controls\Views\JqGrid\Index.cshtml" />
     <Content Include="Views\Index\Index.cshtml" />
+    <Content Include="Views\Shared\_DetailView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -478,9 +488,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administration\Views\Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\Administration\Views\SecurityUser\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Controls\Views\Web.config" />

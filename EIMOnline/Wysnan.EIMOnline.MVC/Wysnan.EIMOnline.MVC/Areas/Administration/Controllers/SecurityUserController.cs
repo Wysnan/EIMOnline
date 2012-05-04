@@ -16,18 +16,39 @@ namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
 {
     public class SecurityUserController : BaseController<ISecurityUser, SecurityUser>
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
+        public IzMetaFormLayout zMetaFormLayoutModel{get;set;}
+
+      
 
         public ActionResult Add()
         {
             return PartialView("PartialAdd");
         }
 
-        public ActionResult Edit() {
+        public ActionResult Edit()
+        {
             return PartialView("PartialEdit");
+        }
+
+        public ActionResult Test()
+        {
+            zMetaFormLayoutModel dd = new Business.zMetaFormLayoutModel();
+            // IList<zMetaFormLayout> ViewLayout = zMetaFormLayoutModel.List().Where(t => t.EntityName == "SecurityUser").ToList();
+            IList<zMetaFormLayout> ViewLayout = dd.List().Where(t => t.EntityName == "SecurityUser").ToList();
+            if (ViewLayout != null && ViewLayout.Count > 0)
+            {
+                ViewBag.ViewLayout = ViewLayout;
+            }
+            else
+            {
+                throw new ArgumentException("not config data");
+            }
+            ISecurityUser cc = new SecurityUserModel();
+            var userEntity=cc.List().FirstOrDefault();
+            // var userEntity = Model.List().FirstOrDefault();
+            ViewBag.entity = userEntity;
+
+            return View();
         }
         //public PartialView
     }

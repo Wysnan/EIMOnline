@@ -67,6 +67,7 @@
     <Compile Include="SystemModuleModel.cs" />
     <Compile Include="SystemModuleTypeModel.cs" />
     <Compile Include="SystemPermissionModel.cs" />
+    <Compile Include="zMetaFormLayoutModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wysnan.EIMOnline.Common\Wysnan.EIMOnline.Common.csproj">
