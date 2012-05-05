@@ -17,6 +17,7 @@ using Wysnan.EIMOnline.IBLL;
 using Wysnan.EIMOnline.Business;
 using Spring.Context;
 using Spring.Context.Support;
+using System.Linq.Expressions;
 
 namespace Wysnan.EIMOnline.MVC.Framework.Extensions
 {
@@ -97,12 +98,10 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
             return MvcHtmlString.Create(menuStr.ToString());
         }
 
-        public static MvcHtmlString SerachableBox(this HtmlHelper helper)
+        public static MvcHtmlString SerachableBox<T,U>(this HtmlHelper<T> helper, Expression<Func<T, U>> expression)
         {
-
-
             return MvcHtmlString.Empty;
-        }
+        } 
 
 
         #region 测试，不缓存

@@ -5,11 +5,6 @@ namespace Wysnan.EIMOnline.Common.Poco
 {
     public class SystemModuleDetailPage : IBaseEntity
     {
-        public SystemModuleDetailPage()
-        {
-            //this.SystemActions = new List<SystemAction>();
-            //this.SystemPermissions = new List<SystemPermission>();
-        }
         public int ID { get; set; }
 
         public byte? SystemStatus { get; set; }
@@ -26,7 +21,6 @@ namespace Wysnan.EIMOnline.Common.Poco
 
         public virtual SystemModule SystemModule { get; set; }
 
-        public virtual ICollection<SystemAction> SystemActions { get; set; }
         public virtual ICollection<SystemPermission> SystemPermissions { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using Wysnan.EIMOnline.Common.Poco;
 using Wysnan.EIMOnline.IBLL;
 using Wysnan.EIMOnline.MVC.Controllers;
 
-namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
+namespace Wysnan.EIMOnline.MVC.Areas.Personnel.Controllers
 {
     public class SecurityRoleController : BaseController<ISecurityRole, SecurityRole>
     {

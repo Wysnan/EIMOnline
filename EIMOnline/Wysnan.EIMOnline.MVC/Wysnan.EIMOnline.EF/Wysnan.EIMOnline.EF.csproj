@@ -47,23 +47,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MigrationsHelp.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="EntityFrameworkModel.cs" />
     <Compile Include="Mapping\SecurityUserMap.cs" />
-    <Compile Include="Mapping\SystemActionMap.cs" />
     <Compile Include="Mapping\SystemModuleDetailPageMap.cs" />
     <Compile Include="Mapping\SystemModuleMap.cs" />
     <Compile Include="Mapping\SystemModuleTypeMap.cs" />
     <Compile Include="Mapping\SystemPermissionMap.cs" />
-    <Compile Include="Migrations\201205050104092_AllTable.cs" />
-    <Compile Include="Migrations\201205050104092_AllTable.Designer.cs">
-      <DependentUpon>201205050104092_AllTable.cs</DependentUpon>
+    <Compile Include="Migrations\201205050412472_AllTable.cs" />
+    <Compile Include="Migrations\201205050412472_AllTable.Designer.cs">
+      <DependentUpon>201205050412472_AllTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\DBScript\SqlMigration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Migrations\InitialScript\InitialData.sql" />
+    <Content Include="Migrations\InitialScript\Data\InitialDataBase.sql" />
+    <Content Include="Migrations\InitialScript\StoredProcedures\Proc_EntityActionURLCreate.sql" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -78,6 +81,7 @@
       <Name>Wysnan.EIMOnline.IDAL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

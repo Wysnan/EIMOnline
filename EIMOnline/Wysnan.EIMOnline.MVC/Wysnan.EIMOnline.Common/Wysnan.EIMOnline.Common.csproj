@@ -68,7 +68,6 @@
     <Compile Include="Poco\SecurityRole.cs" />
     <Compile Include="Poco\SecurityUser.cs" />
     <Compile Include="Poco\SecurityUserRole.cs" />
-    <Compile Include="Poco\SystemAction.cs" />
     <Compile Include="Poco\SystemModule.cs" />
     <Compile Include="Poco\SystemModuleDetailPage.cs" />
     <Compile Include="Poco\SystemModuleType.cs" />
@@ -81,7 +80,6 @@
     <Compile Include="ViewModel\CombinedSecurityRole.cs" />
     <Compile Include="ViewModel\CombinedSecurityUser.cs" />
     <Compile Include="ViewModel\CombinedSecurityUserRole.cs" />
-    <Compile Include="ViewModel\CombinedSystemAction.cs" />
     <Compile Include="ViewModel\CombinedSystemModule.cs" />
     <Compile Include="ViewModel\CombinedSystemModuleDetailPage.cs" />
     <Compile Include="ViewModel\CombinedSystemModuleType.cs" />

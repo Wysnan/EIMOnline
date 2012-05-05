@@ -3,7 +3,7 @@ using Wysnan.EIMOnline.IBLL;
 using Wysnan.EIMOnline.Common.Poco;
 using System.Web.Mvc;
 
-namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
+namespace Wysnan.EIMOnline.MVC.Areas.Personnel.Controllers
 {
     public class SecurityUserRoleController : BaseController<ISecurityUser, SecurityUser>
     {

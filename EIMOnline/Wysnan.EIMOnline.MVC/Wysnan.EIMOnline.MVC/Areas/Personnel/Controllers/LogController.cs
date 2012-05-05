@@ -8,7 +8,7 @@ using Wysnan.EIMOnline.Common.Poco;
 using Wysnan.EIMOnline.IBLL;
 using Wysnan.EIMOnline.Business;
 
-namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
+namespace Wysnan.EIMOnline.MVC.Areas.Personnel.Controllers
 {
     public class LogController : BaseController<IOperateLog, OperateLog>
     //

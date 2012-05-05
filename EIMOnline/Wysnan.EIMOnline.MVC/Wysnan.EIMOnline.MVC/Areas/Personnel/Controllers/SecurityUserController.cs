@@ -12,9 +12,9 @@ using Wysnan.EIMOnline.Common.Framework.Enum;
 using Wysnan.EIMOnline.MVC.Framework.Extensions;
 using Wysnan.EIMOnline.Injection.JqGrid;
 
-namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
+namespace Wysnan.EIMOnline.MVC.Areas.Personnel.Controllers
 {
-    public class PersonnelAttendanceController : BaseController<IPersonnelAttendanceModel, PersonnelAttendance>
+    public class SecurityUserController : BaseController<ISecurityUser, SecurityUser>
     {
         public ActionResult Index()
         {
@@ -23,7 +23,13 @@ namespace Wysnan.EIMOnline.MVC.Areas.Administration.Controllers
 
         public ActionResult Add()
         {
-            return View();
+            //return View();
+             return PartialView("PartialAdd");
+        }
+
+        public ActionResult Edit()
+        {
+            return PartialView("PartialEdit");
         }
     }
 }

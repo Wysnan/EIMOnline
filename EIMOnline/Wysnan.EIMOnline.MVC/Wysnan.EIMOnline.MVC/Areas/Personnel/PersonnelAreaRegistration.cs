@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace Wysnan.EIMOnline.MVC.Areas.Administration
+namespace Wysnan.EIMOnline.MVC.Areas.Personnel
 {
-    public class AdministrationAreaRegistration : AreaRegistration
+    public class PersonnelAreaRegistration : AreaRegistration
     {
         public override string AreaName
         {
             get
             {
-                return "Administration";
+                return "Personnel";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
-                "Administration_default",
-                "Administration/{controller}/{action}/{id}",
+                "Personnel_default",
+                "Personnel/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }
