@@ -8,6 +8,7 @@ using Wysnan.EIMOnline.Common.Framework;
 using Wysnan.EIMOnline.Common.Framework.Grid;
 using Wysnan.EIMOnline.Common.Framework.Enum;
 using Wysnan.EIMOnline.Common.ViewModel;
+using System.Linq.Expressions;
 
 namespace Wysnan.EIMOnline.Business
 {
@@ -77,10 +78,14 @@ namespace Wysnan.EIMOnline.Business
         {
             return Model.List<T>().Where(a => a.SystemStatus.HasValue && a.SystemStatus == (int)SystemStatus.Active);
         }
-
-        public virtual IQueryable ListJqGrid()
+        public virtual IQueryable<T> List<U>(params Expression<Func<T, U>>[] includeProperty)
         {
-            return Model.List<T>().Where(a => a.SystemStatus.HasValue && a.SystemStatus == (int)SystemStatus.Active);
+            IQueryable<T> query = null;
+            foreach (var item in includeProperty)
+            {
+                query = Model.List<T, U>(item);
+            }
+            return query;
         }
 
         public IQueryable<T> List(PageInfo page)
@@ -88,9 +93,9 @@ namespace Wysnan.EIMOnline.Business
             throw new NotImplementedException();
         }
 
-        public List<T> All()
+        public virtual List<T> All()
         {
-            return Model.List<T>().ToList();
+            return Model.List<T>().Where(a => a.SystemStatus.HasValue && a.SystemStatus == (int)SystemStatus.Active).ToList();
         }
 
         public T Get(int id)

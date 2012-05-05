@@ -47,9 +47,11 @@ namespace Wysnan.EIMOnline.Common.Framework
         public const string Cache_JqGrid = "Cache_JqGrid";
 
         /// <summary>
-        /// JqGrid Html缓存key
+        /// SystemModule表，数据库依赖缓存字符串
         /// </summary>
-        public const string Cache_JqGridHtml = "Cache_JqGridHtml";
+        public const string Cache_DB_SystemModule = "Cache_DB_SystemModule";
+
+        public const string Cache_DB_SystemModuleType = "Cache_DB_SystemModuleType";
 
         #endregion
 
@@ -62,6 +64,13 @@ namespace Wysnan.EIMOnline.Common.Framework
         #region RenderAction Name
 
         public const string Control_JqGrid = "JqGrid";
+
+        #endregion
+
+        #region Session
+
+        public const string Session_CurrentSecurityUser = "CurrentSecurityUser";
+        public const string Session_SystemEntity = "Session_SystemEntity";
 
         #endregion
     }

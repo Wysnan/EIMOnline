@@ -10,13 +10,17 @@ namespace Wysnan.EIMOnline.Business
     {
         public SystemModuleDetailPageModel()
         {
-            var tt = Model.List<SystemModuleDetailPage>();
 
         }
 
         public IQueryable<CombinedSystemModuleDetailPage> ListCombined()
         {
             throw new NotImplementedException();
+        }
+
+        public override IQueryable<SystemModuleDetailPage> List()
+        {
+            return base.List();
         }
     }
 }

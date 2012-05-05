@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -54,10 +55,7 @@
     <Compile Include="Mapping\SystemModuleMap.cs" />
     <Compile Include="Mapping\SystemModuleTypeMap.cs" />
     <Compile Include="Mapping\SystemPermissionMap.cs" />
-    <Compile Include="Migrations\201205040656589_AllTable.cs" />
-    <Compile Include="Migrations\201205040656589_AllTable.Designer.cs">
-      <DependentUpon>201205040656589_AllTable.cs</DependentUpon>
-    </Compile>
+  
     <Content Include="Migrations\201205040656589_AllTable\InitialPromysSPandFN.sql" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\DBScript\SqlMigration.cs" />

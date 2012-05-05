@@ -4,6 +4,10 @@
   <object id="BusinessModel" type="Wysnan.EIMOnline.Business.BusinessModel" singleton="false" >
     <property name="Model" ref="Model"/>
   </object>
+  <!--<object id="Cache_SystemModule" type="Wysnan.EIMOnline.Business.Framework.Cache.Cache_SystemModule,Wysnan.EIMOnline.Business" singleton="false" >
+    <property name="SystemModuleModel" ref="SystemModuleModel"/>
+  </object>-->
+  
   <object id="SecurityUserModel" type="Wysnan.EIMOnline.Business.SecurityUserModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
   </object>
 

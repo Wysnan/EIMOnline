@@ -14,7 +14,7 @@
     <AssemblyName>Wysnan.EIMOnline.MVC</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -82,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\SecurityUser2Controller.cs" />
     <Compile Include="Areas\Administration\Controllers\PersonnelAttendanceController.cs" />
     <Compile Include="Areas\Administration\Controllers\LogController.cs" />
     <Compile Include="Areas\Administration\Controllers\SecurityRoleController.cs" />
@@ -90,7 +92,6 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GeneralController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
-    <Compile Include="Controls\Controllers\JqGridController.cs" />
     <Compile Include="Framework\Extensions\HtmlHelperExtension.cs" />
     <Compile Include="Framework\MyViewEngine.cs" />
     <Compile Include="Global.asax.cs">
@@ -128,58 +129,100 @@
     <Content Include="Areas\Administration\Views\SecurityUserRole\Index.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityUserRole\Create.cshtml" />
     <Content Include="Areas\Administration\Views\PersonnelAttendance\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser\PartialAdd.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser\PartialEdit.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser\PartialView.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser\List2.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser2\Add.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser2\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser2\List2.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser2\PartialAdd.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser2\PartialEdit.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityUser2\PartialView.cshtml" />
     <None Include="Config\Message.config" />
     <Content Include="Config\FileDependency2.xml" />
     <Content Include="Config\FileDependency1.txt" />
-    <Content Include="Content\themes\ellipsis-xbl.xml" />
-    <Content Include="Content\themes\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
-    <Content Include="Content\themes\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
-    <Content Include="Content\themes\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\images\ui-bg_flat_10_000000_40x100.png" />
-    <Content Include="Content\themes\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\images\ui-bg_glass_100_f6f6f6_1x400.png" />
-    <Content Include="Content\themes\images\ui-bg_glass_100_fdf5ce_1x400.png" />
-    <Content Include="Content\themes\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
-    <Content Include="Content\themes\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
-    <Content Include="Content\themes\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
-    <Content Include="Content\themes\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\images\ui-icons_228ef1_256x240.png" />
-    <Content Include="Content\themes\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\images\ui-icons_ef8c08_256x240.png" />
-    <Content Include="Content\themes\images\ui-icons_ffd27a_256x240.png" />
-    <Content Include="Content\themes\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="Content\themes\jquery-ui-1.8.17.custom.css" />
-    <Content Include="Content\themes\jquery.ui.accordion.css" />
-    <Content Include="Content\themes\jquery.ui.all.css" />
-    <Content Include="Content\themes\jquery.ui.autocomplete.css" />
-    <Content Include="Content\themes\jquery.ui.base.css" />
-    <Content Include="Content\themes\jquery.ui.button.css" />
-    <Content Include="Content\themes\jquery.ui.core.css" />
-    <Content Include="Content\themes\jquery.ui.datepicker.css" />
-    <Content Include="Content\themes\jquery.ui.dialog.css" />
-    <Content Include="Content\themes\jquery.ui.progressbar.css" />
-    <Content Include="Content\themes\jquery.ui.resizable.css" />
-    <Content Include="Content\themes\jquery.ui.selectable.css" />
-    <Content Include="Content\themes\jquery.ui.slider.css" />
-    <Content Include="Content\themes\jquery.ui.tabs.css" />
-    <Content Include="Content\themes\jquery.ui.theme.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="Content\themes\cupertino\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="Content\themes\cupertino\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\cupertino\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="Content\themes\cupertino\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="Content\themes\cupertino\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\cupertino\jquery-ui-1.8.20.custom.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.all.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.base.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.button.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.core.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.slider.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.theme.css" />
+    <Content Include="Content\themes\orange\ellipsis-xbl.xml" />
+    <Content Include="Content\themes\orange\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\orange\jquery-ui-1.8.17.custom.css" />
+    <Content Include="Content\themes\orange\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\orange\jquery.ui.all.css" />
+    <Content Include="Content\themes\orange\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\orange\jquery.ui.base.css" />
+    <Content Include="Content\themes\orange\jquery.ui.button.css" />
+    <Content Include="Content\themes\orange\jquery.ui.core.css" />
+    <Content Include="Content\themes\orange\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\orange\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\orange\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\orange\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\orange\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\orange\jquery.ui.slider.css" />
+    <Content Include="Content\themes\orange\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\orange\jquery.ui.theme.css" />
     <Content Include="Content\themes\ui.jqgrid.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="InstallationDeploy.txt" />
     <Content Include="Scripts\external\jquery.bgiframe-2.1.2.js" />
     <Content Include="Scripts\external\jquery.cookie.js" />
     <Content Include="Scripts\external\jquery.metadata.js" />
     <Content Include="Scripts\external\qunit.css" />
     <Content Include="Scripts\external\qunit.js" />
+    <Content Include="Scripts\page.js" />
     <Content Include="Scripts\JqGrid\i18n\grid.locale-ar.js" />
     <Content Include="Scripts\JqGrid\i18n\grid.locale-bg.js" />
     <Content Include="Scripts\JqGrid\i18n\grid.locale-bg1251.js" />
@@ -366,6 +409,7 @@
     <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-zh-HK.js" />
     <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-zh-TW.js" />
     <Content Include="Scripts\ui\jquery-ui-1.8.18.custom.js" />
+    <Content Include="Scripts\ui\jquery.ui.dialog.js" />
     <Content Include="Scripts\ui\minified\jquery.effects.blind.min.js" />
     <Content Include="Scripts\ui\minified\jquery.effects.bounce.min.js" />
     <Content Include="Scripts\ui\minified\jquery.effects.clip.min.js" />
@@ -408,7 +452,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -419,26 +462,24 @@
     <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\MyScript\Index.cshtml" />
-    <Content Include="Controls\Views\JqGrid\Index.cshtml" />
+    <Content Include="Views\Index\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
-    <Folder Include="Controls\Models\" />
+    <Folder Include="Content\images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Index\Index.cshtml" />
+    <Content Include="Views\Index\login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wysnan.EIMOnline.Business\Wysnan.EIMOnline.Business.csproj">
@@ -461,6 +502,10 @@
       <Project>{78E214C4-A31A-46E3-960A-525A7FEBB37A}</Project>
       <Name>Wysnan.EIMOnline.Injection</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Wysnan.EIMOnline.MVC.Tool\Wysnan.EIMOnline.MVC.Tool.csproj">
+      <Project>{644BF023-4A99-439A-A7BC-62A5D9503715}</Project>
+      <Name>Wysnan.EIMOnline.MVC.Tool</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Wysnan.EIMOnline.Tool\Wysnan.EIMOnline.Tool.csproj">
       <Project>{B7502FFB-F636-417B-98C6-1D95F776288C}</Project>
       <Name>Wysnan.EIMOnline.Tool</Name>
@@ -471,12 +516,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administration\Views\SecurityUser\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Controls\Views\Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Controls\Views\Shared\_DialogMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administration\Views\SecurityUser\Add.cshtml" />
@@ -500,12 +539,10 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>65437</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://localhost:8080/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:8080/</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

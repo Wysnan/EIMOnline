@@ -6,6 +6,7 @@ using Wysnan.EIMOnline.Common.Poco;
 using Wysnan.EIMOnline.Common.Framework;
 using Wysnan.EIMOnline.Common.Framework.Grid;
 using Wysnan.EIMOnline.Common.ViewModel;
+using System.Linq.Expressions;
 
 namespace Wysnan.EIMOnline.IBLL
 {
@@ -22,8 +23,6 @@ namespace Wysnan.EIMOnline.IBLL
         Result Undelete(int id);
 
         IQueryable<T> List();
-
-        IQueryable ListJqGrid();
 
         IQueryable<T> List(PageInfo page);
 

@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -47,7 +48,7 @@
     <Compile Include="JqGrid\ListAttribute.cs" />
     <Compile Include="JqGrid\ListInterceptor.cs" />
     <Compile Include="Logs\OperateLogAttribute.cs" />
-    <Compile Include="Logs\OperateLogInterceptor.cs" />    
+    <Compile Include="Logs\OperateLogInterceptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction\TransactionAttribute.cs" />
     <Compile Include="Transaction\TransactionInterceptor.cs" />

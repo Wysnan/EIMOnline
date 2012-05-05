@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Wysnan.EIMOnline.Test")]
+[assembly: AssemblyTitle("Wysnan.EIMOnline.MVC.Tool")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Wysnan.EIMOnline.Test")]
+[assembly: AssemblyProduct("Wysnan.EIMOnline.MVC.Tool")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c177ddc8-58ac-4745-9c31-f094c01192e0")]
+[assembly: Guid("dbde7dea-b08b-43ed-92c8-2570889bbe16")]
 
 // Version information for an assembly consists of the following four values:
 //

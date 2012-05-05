@@ -8,6 +8,8 @@ using Wysnan.EIMOnline.MVC.Framework;
 using Wysnan.EIMOnline.Business.Framework;
 using System.Configuration;
 using System.Data.SqlClient;
+using Spring.Context;
+using Spring.Context.Support;
 
 namespace Wysnan.EIMOnline.MVC
 {
@@ -28,18 +30,24 @@ namespace Wysnan.EIMOnline.MVC
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Index", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Index", action = "Login", id = UrlParameter.Optional } // Parameter defaults
             );
         }
 
         protected void Application_Start()
         {
-            ViewEngines.Engines.Add(new MyViewEngine());
+            //ViewEngines.Engines.Add(new MyViewEngine());
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
 
+            SystemInitialization.Application_Start();
+        }
+
+        protected void Session_Start()
+        {
+            SystemInitialization.Session_Start();
         }
 
         protected void Application_Error(object sender, EventArgs e)

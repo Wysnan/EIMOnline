@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Wysnan.EIMOnline.Common.Poco;
 using Wysnan.EIMOnline.Common.Framework;
+using System.Linq.Expressions;
 
 namespace Wysnan.EIMOnline.IDAL
 {
@@ -38,8 +39,10 @@ namespace Wysnan.EIMOnline.IDAL
 
         IQueryable<T> List<T>() where T : class,IBaseEntity;
 
+        IQueryable<T> List<T, U>(Expression<Func<T, U>> expression) where T : class,IBaseEntity;
+
         T Get<T>(int id) where T : class,IBaseEntity;
 
         #endregion
-    }
+    }    
 }

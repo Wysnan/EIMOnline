@@ -2,26 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web;
+using Wysnan.EIMOnline.Common.Framework;
 
 namespace Wysnan.EIMOnline.Business.Framework
 {
-    public class SystemInitialization
+    public sealed class SystemInitialization
     {
-        public SystemInitialization()
+        private SystemInitialization() { }
+
+        //Application_Start 
+        public static void Application_Start()
         {
-            Load();
+            GlobalEntity.Instance.InitAll();
         }
 
-        protected virtual void Load()
+        //Session_Start
+        public static void Session_Start()
         {
-            GlobalEntity.Instance.Cache_JqGrid.LoadData();
+            SystemEntity systemEntity = new SystemEntity();
+            HttpContext.Current.Session[ConstEntity.Session_SystemEntity] = systemEntity;
         }
-
-        public void Reload()
-        {
-
-        }
-
-        internal List<Wysnan.EIMOnline.Common.Poco.SecurityUser> a { get; set; }
     }
 }

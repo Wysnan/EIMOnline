@@ -9,6 +9,7 @@ using Wysnan.EIMOnline.Tool.Extensions;
 using Wysnan.EIMOnline.Common.Framework;
 using Wysnan.EIMOnline.Common.Poco;
 using Wysnan.EIMOnline.Tool.ToolMethod;
+using Wysnan.EIMOnline.Business.Framework;
 
 namespace Wysnan.EIMOnline.Tool.JqGridExtansions
 {
@@ -26,8 +27,26 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
                 return null;
             }
             string urlController = HttpContext.Current.Request.Url.AbsolutePath;
+
+            #region 获取模块
+            IList<SystemModule> systemModules = GlobalEntity.Instance.Cache_SystemModule.SystemModules;
+            SystemModule currentModule = null;
+            if (systemModules != null)
+            {
+                currentModule = systemModules.Where(a => a.ModuleMainUrl.Equals(urlController, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                if (currentModule == null)
+                {
+                    throw new ApplicationException("模块信息为空。");
+                }
+            }
+            //根据获取的模块和详细action信息，构造jqGrid路径和action
+
+            #endregion
             string urlList = urlController + "/List";
-            string urlAdd = urlController +"/Add";
+            string urlAdd = urlController + "/Add";
+            string urlView = urlController + "/View";
+            string urlEdit = urlController + "/Edit";
+
             string setJqGridColumn = urlController + "/SetJqGridColumn";
             StringBuilder grid = new StringBuilder();
             StringBuilder StrColNames = new StringBuilder();
@@ -52,13 +71,20 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
                 StrShowField.Remove(StrShowField.Length - 1, 1);
             }
             StrShowField.Append(")");
-            grid.Append("<table id=\"list\" style=\"width:100%;\">");
+
+            Random r = new Random();
+            int id = r.Next(1000, 9999);
+            string list = "list" + id;
+            string pager = "pager" + id;
+
+            grid.AppendFormat("<div id=\"div{0}\">", id);
+            grid.AppendFormat("<table id=\"{0}\" style=\"width:100%;\">", list);
             grid.Append("</table>");
-            grid.Append("<div id=\"pager\"");
+            grid.AppendFormat("<div id=\"{0}\">", pager);
             grid.Append("</div>");
-            grid.Append("<script type=\"text/javascript\">");
+            grid.Append("<script type=\"text/javascript\" language=\"javascript\">");
             grid.Append("$(document).ready(function () {");
-            grid.Append("$(\"#list\").jqGrid({");
+            grid.AppendFormat("$(\"#{0}\").jqGrid({{",list);
             grid.AppendFormat("url: '{0}',", urlList);// jqGrid._Url);
             grid.Append("autowidth:true,");
             //grid.Append("setGridWidth:100%,");
@@ -68,7 +94,7 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
             grid.Append("colModel: [");
             grid.Append(StrColModel.ToString());
             grid.Append("],");
-            grid.Append("pager: '#pager',");
+            grid.AppendFormat("pager: '#{0}',",pager);
             grid.AppendFormat("sortable: {0},", jqGrid._Sortable.ConvertToString(true));
             grid.AppendFormat("rowNum: {0},", jqGrid.RowNum);
             grid.Append("multiselect: true,");
@@ -80,23 +106,24 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
             grid.AppendFormat("rowList: [{0}],", jqGrid._RowList.ConvertToString(","));
             grid.AppendFormat("sortname: '{0}',", jqGrid.SortName);
             grid.AppendFormat("sortorder: '{0}',", jqGrid.SortOrder);
-            grid.AppendFormat("height:{0},", 250);
+            grid.AppendFormat("height:{0},", 350);
             grid.AppendFormat("viewrecords: {0},", jqGrid._ViewRecords.ConvertToString(true));
             grid.AppendFormat("caption: '&nbsp;{0}',", jqGrid._Caption);
-            //grid.Append("beforeRequest:function(){setSelectColModel(\"list\")}");
-            grid.AppendFormat("postData:{{showFiled:'{0}'}}", StrShowField.ToString());
+            grid.AppendFormat("postData:{{showFiled:'{0}'}},", StrShowField.ToString());
+            //grid.AppendFormat("beforeSelectRow:function(rowid, e){{this.getCell(  Navigation('{0}','{1}','{2}//'+rowid,'{3}');}}", "edit", "edit", urlView, "image");
             grid.Append("});");
-            grid.Append("var grid=$(\"#list\");");
-            grid.Append("grid.jqGrid('navGrid', '#pager', { edit: true, add: false, del: true,view:false },{},{},{},{multipleSearch:true,overlay:false,closeAfterSearch:true,closeOnEscape:true})");
+            grid.AppendFormat("var grid=$(\"#{0}\");",list);
+            grid.AppendFormat("grid.jqGrid('navGrid', '#{0}', {{ edit: false, add: false, del: false,view:false }},{{}},{{}},{{}},{{multipleSearch:true,overlay:false,closeAfterSearch:true,closeOnEscape:true}})", pager);
             //ui-icon-pencil
-            grid.Append(".navButtonAdd('#pager',{buttonicon:'ui-icon-plus',caption:'',id:'GridAddButton',title:'Add Record',onClickButton:function(e){}}).navSeparatorAdd('#pager',{})");
-            grid.Append(".navButtonAdd('#pager',{buttonicon:'ui-icon-calculator',caption:'',id:'GridColumnChooser',title:'Reorder Columns',onClickButton:function(e){grid.jqGrid('columnChooser',{ 'done': function(perm) { if (perm) { this.jqGrid('remapColumns', perm, true); persist(this);}}});}}).navSeparatorAdd('#pager',{});");
+            grid.AppendFormat(".navButtonAdd('#{4}',{{buttonicon:'ui-icon-pencil',caption:'',id:'GridEditButton',title:'Edit Record',onClickButton:function(e){{ alert(grid.jqGrid('getGridParam','selarrrow'));return; Navigation('{0}','{1}','{2}','{3}')}}}}).navSeparatorAdd('#{4}',{{}})", "edit", "edit", urlEdit, "image",pager);
+            grid.AppendFormat(".navButtonAdd('#{4}',{{buttonicon:'ui-icon-plus',caption:'',id:'GridAddButton',title:'Add Record',onClickButton:function(e){{Navigation('{0}','{1}','{2}','{3}')}}}}).navSeparatorAdd('#{4}',{{}})", "add", "add", urlAdd, "image", pager);
+            grid.AppendFormat(".navButtonAdd('#{0}',{{buttonicon:'ui-icon-calculator',caption:'',id:'GridColumnChooser',title:'Reorder Columns',onClickButton:function(e){{grid.jqGrid('columnChooser',{{ 'done': function(perm) {{ if (perm) {{ this.jqGrid('remapColumns', perm, true); persist(this);}}}}}});}}}}).navSeparatorAdd('#{0}',{{}});", pager);
             grid.Append("grid.jqGrid('filterToolbar',{stringResult: true,searchOnEnter : true});");
             grid.Append("});");
             grid.AppendFormat("var SetJqGridColumn='{0}';", setJqGridColumn);
+            //grid.AppendFormat("GlobalObj.AddPage(new Page(\"list\"));");
             grid.Append("</script>");
-            grid.AppendFormat("<div id=\"dialog-form\" title=\"Create new user\" style=\"width:99%;height:99%\"><iframe src=\"{0}\" width=\"99%\" height=\"99%\"></iframe></div>", urlAdd);
-
+            grid.Append("</div>");
             string gridHtml = grid.ToString();
             return gridHtml;
         }
@@ -108,7 +135,8 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
         }
         public static void WriteCookie(this JqGrid jqGrid, GridEnum gridEnum, string gridHtml)
         {
-            string key = SystemEntity.Instance.CurrentSecurityUser.ID + "_" + gridEnum.ToString();
+            SystemEntity systemEntity = HttpContext.Current.Session[ConstEntity.Session_SystemEntity] as SystemEntity;
+            string key = systemEntity.CurrentSecurityUser.ID + "_" + gridEnum.ToString();
             string cookieName = ConstEntity.Cookie_JqGridHtml + key;
             HttpCookie cookie = HttpContext.Current.Request.Cookies[cookieName];
             string path = "/";

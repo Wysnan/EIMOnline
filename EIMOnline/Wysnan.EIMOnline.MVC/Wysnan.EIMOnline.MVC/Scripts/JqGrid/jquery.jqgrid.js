@@ -1,6 +1,6 @@
 // This file should be used if you want to debug
 function jqGridInclude() {
-    var pathtojsfiles = "http://localhost:65437"; // need to be ajusted
+    var pathtojsfiles = "http://localhost:8080"; // need to be ajusted
     // set include to false if you do not want some modules to be included
     //grid.base.js; jquery.fmatter.js; grid.custom.js; grid.common.js; grid.formedit.js; grid.filter.js; grid.inlinedit.js; grid.celledit.js; jqModal.js; 
     //jqDnR.js; grid.subgrid.js; grid.grouping.js; grid.treegrid.js; grid.import.js; JsonXml.js; grid.tbltogrid.js; grid.jqueryui.js; 

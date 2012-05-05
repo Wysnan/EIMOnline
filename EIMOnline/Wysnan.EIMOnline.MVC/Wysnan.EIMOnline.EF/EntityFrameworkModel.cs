@@ -10,6 +10,7 @@ using Wysnan.EIMOnline.IDAL;
 using Wysnan.EIMOnline.Common.Poco;
 using Wysnan.EIMOnline.Common.Framework.Enum;
 using Wysnan.EIMOnline.Common.Framework;
+using System.Linq.Expressions;
 
 namespace Wysnan.EIMOnline.EF
 {
@@ -57,7 +58,12 @@ namespace Wysnan.EIMOnline.EF
 
         public IQueryable<TType> List<TType>() where TType : class, IBaseEntity
         {
-            return GetDbSet<TType>().Where(a => a.SystemStatus.HasValue && a.SystemStatus == (int)SystemStatus.Active); 
+            return GetDbSet<TType>().Where(a => a.SystemStatus.HasValue && a.SystemStatus == (int)SystemStatus.Active);
+        }
+
+        public IQueryable<TType> List<TType, U>(Expression<Func<TType, U>> expression) where TType : class, IBaseEntity
+        {
+            return GetDbSet<TType>().Include(expression).Where(a => a.SystemStatus.HasValue && a.SystemStatus == (int)SystemStatus.Active);
         }
 
         #endregion
