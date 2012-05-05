@@ -10,34 +10,34 @@ using Spring.Context.Support;
 
 namespace Wysnan.EIMOnline.Business.Framework.Cache
 {
-    public sealed class Cache_SystemModule : ICache
+    public sealed class Cache_SystemModuleType : ICache
     {
         #region 单态
-        static readonly Cache_SystemModule instance = new Cache_SystemModule();
+        static readonly Cache_SystemModuleType instance = new Cache_SystemModuleType();
 
-        public static Cache_SystemModule Instance
+        public static Cache_SystemModuleType Instance
         {
             get { return instance; }
         }
 
-        private Cache_SystemModule()
+        private Cache_SystemModuleType()
         {
-            SystemModuleModel = GlobalEntity.Instance.ApplicationContext.GetObject("SystemModuleModel") as ISystemModule;
+            SystemModuleTypeModel = GlobalEntity.Instance.ApplicationContext.GetObject("SystemModuleTypeModel") as ISystemModuleType;
         }
         #endregion
 
         #region
-        private string CacheKey = ConstEntity.Cache_DB_SystemModule;
+        private string CacheKey = ConstEntity.Cache_DB_SystemModuleType;
 
         #endregion
 
         #region 属性
 
-        public ISystemModule SystemModuleModel { get; set; }
+        public ISystemModuleType SystemModuleTypeModel { get; set; }
 
         private object objModel { get; set; }
 
-        public IList<SystemModule> SystemModules
+        public IList<SystemModuleType> SystemModuleTypes
         {
             get
             {
@@ -46,7 +46,7 @@ namespace Wysnan.EIMOnline.Business.Framework.Cache
                 {
                     LoadData();
                 }
-                return objModel as IList<SystemModule>;
+                return objModel as IList<SystemModuleType>;
             }
             private set { }
         }
@@ -59,7 +59,7 @@ namespace Wysnan.EIMOnline.Business.Framework.Cache
             objModel = CacheModel.GetCache(CacheKey);
             if (objModel == null)
             {
-                objModel = SystemModuleModel.GetAllSystemModule_Greedy().ToList();
+                objModel = SystemModuleTypeModel.All().ToList();
                 if (objModel != null)
                 {
                     Type t = typeof(Wysnan.EIMOnline.Common.Poco.SystemModule);

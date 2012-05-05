@@ -51,6 +51,8 @@ namespace Wysnan.EIMOnline.Common.Framework
         /// </summary>
         public const string Cache_DB_SystemModule = "Cache_DB_SystemModule";
 
+        public const string Cache_DB_SystemModuleType = "Cache_DB_SystemModuleType";
+
         #endregion
 
         #region cookie

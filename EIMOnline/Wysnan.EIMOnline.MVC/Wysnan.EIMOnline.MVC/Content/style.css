@@ -2,6 +2,7 @@
 body
 {
     margin: 0 0 0 0;
+    font-size: 14px;
 }
 .div_all
 {
@@ -18,17 +19,47 @@ body
     height: 30px;
     background-color: #444444;
 }
+.div_menu
+{
+    height: 30px;
+    background-color: #808080;
+    /* filter: "alpha(opacity=50)";  *//* IE 8 */
+    /* opacity: 0.5; */ /* Firefox, Safari(WebKit), Opera)*/
+   /*  filter: alpha(opacity=60);  *//* IE 4-7 */
+    position: relative;
+}
+.div_menu ul
+{
+    position: absolute;
+    margin-top: 0px;
+}
+.div_menu li
+{
+    list-style-type: none;
+    background-color: Orange;
+    width: 80px;
+    height: 30px;
+    float: left;
+    text-align: center;
+    margin-left: 5px;
+    line-height: 30px;
+    cursor:pointer;
+}
+.div_menu li:hover
+{
+    background-color: Red;
+}
 .div_left
 {
     width: 250px;
-    height: 750px;
+    height: 720px;
     background-color: #666666;
     float: left;
 }
 .div_right
 {
     width: 1313px;
-    height: 730px;
+    height: 700px;
     background-color: #C0C0C0;
     float: left;
     padding: 10px 10px 10px 10px;
@@ -36,7 +67,7 @@ body
 .div_title
 {
     width: auto;
-    height: 60px;
+    height: 50px;
     background-color: #FFFF00;
 }
 .div_tool
@@ -54,7 +85,7 @@ body
 .div_main
 {
     width: 100%;
-    height: 600px;
+    height: 570px;
     margin-top: 10px;
 }
 .div_foot

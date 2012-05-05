@@ -7,12 +7,7 @@
         <input type="text" style="width: 100%" readonly="readonly" /></div>
 </div>
 <div id="dialog-modal" title="Basic modal dialog">
-    @*<p id="divSerach2">
-        Adding the modal overlay screen makes the dialog look more prominent because it
-        dims out the page content.
-    </p>*@
     <div id="divSerach">
-        123
     </div>
 </div>
 <style>
@@ -20,19 +15,29 @@
     {
         border: 1px solid Red;
     }
+    .ui-dialog-titlebar
+    {
+        height: 18px;
+    }
+    #dialog-modal
+    {
+        font-size: 13px;
+        font-style: normal;
+        font-weight: normal;
+        padding: 0px;
+    }
 </style>
-<script language="javascript" >
+<script language="javascript">
     $(function () {
-
         $("#dialog-modal").dialog({
             autoOpen: false,
-            height: 140,
-            modal: true
+            height: 500,
+            width: 800,
+            modal: true,
+            resizable: false
         });
     });
     $(".spanQ").click(function () {
-//        var url = "http://localhost:8080/Administration/SecurityUser/index?random=" + Math.random();
         $("#divSerach").load("http://localhost:8080/Administration/SecurityUser", function () { $("#dialog-modal").dialog("open"); });
-        //$("#dialog-modal").dialog("open");
     });
 </script>

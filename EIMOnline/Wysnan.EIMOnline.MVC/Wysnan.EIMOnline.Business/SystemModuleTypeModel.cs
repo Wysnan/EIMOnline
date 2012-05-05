@@ -8,11 +8,6 @@ namespace Wysnan.EIMOnline.Business
 {
     public class SystemModuleTypeModel : GenericBusinessModel<SystemModuleType>, ISystemModuleType
     {
-        public SystemModuleTypeModel()
-        {
-            var tt = Model.List<SystemModuleType>();
-
-        }
 
         public IQueryable<CombinedSystemModuleType> ListCombined()
         {

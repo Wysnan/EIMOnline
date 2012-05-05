@@ -95,7 +95,7 @@ namespace Wysnan.EIMOnline.Business
 
         public virtual List<T> All()
         {
-            return Model.List<T>().ToList();
+            return Model.List<T>().Where(a => a.SystemStatus.HasValue && a.SystemStatus == (int)SystemStatus.Active).ToList();
         }
 
         public T Get(int id)

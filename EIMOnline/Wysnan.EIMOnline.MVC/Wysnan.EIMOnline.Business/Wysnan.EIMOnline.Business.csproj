@@ -49,6 +49,7 @@
     <Compile Include="EmailServiceModel.cs" />
     <Compile Include="Framework\Cache\CacheModel.cs" />
     <Compile Include="Framework\Cache\Cache_SystemModule.cs" />
+    <Compile Include="Framework\Cache\Cache_SystemModuleType.cs" />
     <Compile Include="Framework\GlobalEntity.cs" />
     <Compile Include="Framework\Cache\Cache_JqGrid.cs" />
     <Compile Include="Framework\Cache\Cache_Message.cs" />

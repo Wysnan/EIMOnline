@@ -38,6 +38,8 @@ namespace Wysnan.EIMOnline.Business.Framework
 
         public Cache_SystemModule Cache_SystemModule { get; private set; }
 
+        public Cache_SystemModuleType Cache_SystemModuleType { get; private set; }
+
         #endregion
 
         #region Srping.Net
@@ -51,6 +53,7 @@ namespace Wysnan.EIMOnline.Business.Framework
             this.Cache_JqGrid = Cache_JqGrid.Instance;
             this.Cache_Message = Cache_Message.Instance;
             this.Cache_SystemModule = Cache_SystemModule.Instance;
+            this.Cache_SystemModuleType = Cache_SystemModuleType.Instance;
         }
     }
 }

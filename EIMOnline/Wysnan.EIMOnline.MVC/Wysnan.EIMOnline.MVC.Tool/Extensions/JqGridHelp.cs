@@ -106,7 +106,7 @@ namespace Wysnan.EIMOnline.Tool.JqGridExtansions
             grid.AppendFormat("rowList: [{0}],", jqGrid._RowList.ConvertToString(","));
             grid.AppendFormat("sortname: '{0}',", jqGrid.SortName);
             grid.AppendFormat("sortorder: '{0}',", jqGrid.SortOrder);
-            grid.AppendFormat("height:{0},", 490);
+            grid.AppendFormat("height:{0},", 350);
             grid.AppendFormat("viewrecords: {0},", jqGrid._ViewRecords.ConvertToString(true));
             grid.AppendFormat("caption: '&nbsp;{0}',", jqGrid._Caption);
             grid.AppendFormat("postData:{{showFiled:'{0}'}},", StrShowField.ToString());

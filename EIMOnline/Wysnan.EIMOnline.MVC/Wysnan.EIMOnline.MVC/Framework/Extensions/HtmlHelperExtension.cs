@@ -58,6 +58,23 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
             return MvcHtmlString.Create(gridHtml);
         }
 
+        public static MvcHtmlString AreasMenu(this HtmlHelper helper)
+        {
+            IList<SystemModuleType> systemModuleTypes = GlobalEntity.Instance.Cache_SystemModuleType.SystemModuleTypes;
+            if (systemModuleTypes != null)
+            {
+                StringBuilder areasMenuString = new StringBuilder();
+                areasMenuString.Append("<ul>");
+                foreach (var item in systemModuleTypes)
+                {
+                    areasMenuString.AppendFormat("<li>{0}</li>", item.ModuleTypeName);
+                }
+                areasMenuString.Append("</ul>");
+                return MvcHtmlString.Create(areasMenuString.ToString());
+            }
+            return MvcHtmlString.Empty;
+        }
+
         public static MvcHtmlString Menu(this HtmlHelper helper)
         {
             //return MvcHtmlString.Empty;
