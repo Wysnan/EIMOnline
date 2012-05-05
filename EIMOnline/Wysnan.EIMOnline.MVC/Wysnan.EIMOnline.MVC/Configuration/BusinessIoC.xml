@@ -37,4 +37,7 @@
   
   <object id="PersonnelAttendanceModel" type="Wysnan.EIMOnline.Business.PersonnelAttendanceModel" singleton="false" parent="BusinessModel">
   </object>
+  <object id="zMetaFormLayoutModel" type="Wysnan.EIMOnline.Business.zMetaFormLayoutModel" singleton="false" parent="BusinessModel">
+  </object>
+  
 </objects>

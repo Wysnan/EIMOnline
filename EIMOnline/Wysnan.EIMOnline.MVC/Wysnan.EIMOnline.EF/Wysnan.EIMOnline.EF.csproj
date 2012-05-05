@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mapping\zMetaFormLayoutMap.cs" />
     <Compile Include="MigrationsHelp.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="EntityFrameworkModel.cs" />
@@ -55,9 +56,9 @@
     <Compile Include="Mapping\SystemModuleMap.cs" />
     <Compile Include="Mapping\SystemModuleTypeMap.cs" />
     <Compile Include="Mapping\SystemPermissionMap.cs" />
-    <Compile Include="Migrations\201205050412472_AllTable.cs" />
-    <Compile Include="Migrations\201205050412472_AllTable.Designer.cs">
-      <DependentUpon>201205050412472_AllTable.cs</DependentUpon>
+    <Compile Include="Migrations\201205050748422_AllTable.cs" />
+    <Compile Include="Migrations\201205050748422_AllTable.Designer.cs">
+      <DependentUpon>201205050748422_AllTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +67,7 @@
     <Content Include="Migrations\InitialScript\InitialData.sql" />
     <Content Include="Migrations\InitialScript\Data\InitialDataBase.sql" />
     <Content Include="Migrations\InitialScript\StoredProcedures\Proc_EntityActionURLCreate.sql" />
+    <Content Include="Migrations\InitialScript\StoredProcedures\Proc_InitionViewTab.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

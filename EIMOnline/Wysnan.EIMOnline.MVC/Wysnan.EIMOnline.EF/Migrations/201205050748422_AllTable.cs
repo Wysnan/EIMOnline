@@ -1,7 +1,7 @@
 namespace Wysnan.EIMOnline.EF.Migrations
 {
     using System.Data.Entity.Migrations;
-    
+
     public partial class AllTable : DbMigration
     {
         public override void Up()
@@ -19,7 +19,7 @@ namespace Wysnan.EIMOnline.EF.Migrations
                         CreatedOn = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
-            
+
             CreateTable(
                 "OperateLog",
                 c => new
@@ -34,7 +34,7 @@ namespace Wysnan.EIMOnline.EF.Migrations
                 .PrimaryKey(t => t.ID)
                 .ForeignKey("SecurityUser", t => t.SecurityUserId_ID)
                 .Index(t => t.SecurityUserId_ID);
-            
+
             CreateTable(
                 "SecurityUserRole",
                 c => new
@@ -50,7 +50,7 @@ namespace Wysnan.EIMOnline.EF.Migrations
                 .ForeignKey("SecurityRole", t => t.SecurityRoleID)
                 .Index(t => t.SecurityUserID)
                 .Index(t => t.SecurityRoleID);
-            
+
             CreateTable(
                 "SecurityRole",
                 c => new
@@ -61,7 +61,7 @@ namespace Wysnan.EIMOnline.EF.Migrations
                         RoleName = c.String(),
                     })
                 .PrimaryKey(t => t.ID);
-            
+
             CreateTable(
                 "PersonnelAttendance",
                 c => new
@@ -76,7 +76,7 @@ namespace Wysnan.EIMOnline.EF.Migrations
                 .PrimaryKey(t => t.ID)
                 .ForeignKey("SecurityUser", t => t.SecurityUserID)
                 .Index(t => t.SecurityUserID);
-            
+
             CreateTable(
                 "SystemModuleType",
                 c => new
@@ -89,7 +89,7 @@ namespace Wysnan.EIMOnline.EF.Migrations
                         SortOrder = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
-            
+
             CreateTable(
                 "SystemModule",
                 c => new
@@ -106,7 +106,7 @@ namespace Wysnan.EIMOnline.EF.Migrations
                 .PrimaryKey(t => t.ID)
                 .ForeignKey("SystemModuleType", t => t.ModuleTypeId)
                 .Index(t => t.ModuleTypeId);
-            
+
             CreateTable(
                 "SystemModuleDetailPage",
                 c => new
@@ -123,7 +123,7 @@ namespace Wysnan.EIMOnline.EF.Migrations
                 .PrimaryKey(t => t.ID)
                 .ForeignKey("SystemModule", t => t.SystemModuleID)
                 .Index(t => t.SystemModuleID);
-            
+
             CreateTable(
                 "SystemPermission",
                 c => new
@@ -145,9 +145,30 @@ namespace Wysnan.EIMOnline.EF.Migrations
                 .Index(t => t.SystemModuleTypeID)
                 .Index(t => t.SystemModuleDetailPage_ID);
 
+            CreateTable(
+                "zMetaFormLayout",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        EntityName = c.String(nullable: false, maxLength: 50),
+                        EntityField = c.String(nullable: false, maxLength: 50),
+                        ShortLabel = c.String(nullable: false, maxLength: 50),
+                        LongLabel = c.String(nullable: false),
+                        IsVisible = c.Boolean(nullable: false),
+                        ReferenceEntity = c.String(maxLength: 100),
+                        SortNum = c.Int(nullable: false),
+                        ReferenceEntityUrl = c.String(maxLength: 200),
+                        Brief = c.String(maxLength: 100),
+                        SystemStatus = c.Byte(),
+                        TimeStamp = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
+                    })
+                .PrimaryKey(t => t.ID);
+
             MigrationsHelp.InitDB(Sql);
+
+            Sql("Exec Proc_InitionViewTab 'SecurityUser'");
         }
-        
+
         public override void Down()
         {
             DropIndex("SystemPermission", new[] { "SystemModuleDetailPage_ID" });
@@ -168,6 +189,7 @@ namespace Wysnan.EIMOnline.EF.Migrations
             DropForeignKey("SecurityUserRole", "SecurityRoleID", "SecurityRole");
             DropForeignKey("SecurityUserRole", "SecurityUserID", "SecurityUser");
             DropForeignKey("OperateLog", "SecurityUserId_ID", "SecurityUser");
+            DropTable("zMetaFormLayout");
             DropTable("SystemPermission");
             DropTable("SystemModuleDetailPage");
             DropTable("SystemModule");

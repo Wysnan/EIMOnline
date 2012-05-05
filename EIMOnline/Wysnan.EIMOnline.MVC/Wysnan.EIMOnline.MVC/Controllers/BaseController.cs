@@ -17,6 +17,7 @@ using System.Linq;
 using Wysnan.EIMOnline.Tool.JqGridExtansions;
 using Wysnan.EIMOnline.Common.Poco;
 using System.Web.Routing;
+using Wysnan.EIMOnline.Business;
 
 namespace Wysnan.EIMOnline.MVC.Controllers
 {
@@ -38,6 +39,10 @@ namespace Wysnan.EIMOnline.MVC.Controllers
                 type = typeof(E);
                 string typeName = type.Name + "Model";
                 Model = GlobalEntity.Instance.ApplicationContext.GetObject(typeName) as T;
+
+                //type = typeof(E);
+                //string typeName = type.Name + "Controller";
+                //Model = GlobalEntity.Instance.ApplicationContext.GetObject(typeName) as T;
             }
             catch (Exception ex)
             {
@@ -183,6 +188,33 @@ namespace Wysnan.EIMOnline.MVC.Controllers
 
         #endregion
 
+        public ActionResult View(int id)
+        {
+            var entity = Model.Get(id);
+            if (entity != null)
+            {
+                ViewBag.entity = entity;
+            }
+            else
+            {
+                throw new ArgumentException("未检索到对象");
+            }
 
+            IzMetaFormLayout zMetaFormLayoutModel = GlobalEntity.Instance.ApplicationContext.GetObject("zMetaFormLayoutModel") as IzMetaFormLayout;
+            IList<zMetaFormLayout> ViewLayout = zMetaFormLayoutModel.List().Where(t => t.EntityName == type.Name).ToList();
+            if (ViewLayout != null && ViewLayout.Count > 0)
+            {
+                ViewBag.ViewLayout = ViewLayout;
+            }
+            else
+            {
+                throw new ArgumentException("没有找到配置表");
+            }
+
+            return PartialView("~/Views/Shared/_DetailView.cshtml");
+
+            // 直接跳转到区域中的View页面
+            // return View();
+        }
     }
 }

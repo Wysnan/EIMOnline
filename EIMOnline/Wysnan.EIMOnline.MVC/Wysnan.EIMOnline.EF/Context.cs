@@ -31,6 +31,7 @@ namespace Wysnan.EIMOnline.EF
         DbSet<SystemModule> SystemModule { get; set; }
         DbSet<SystemModuleDetailPage> SystemModuleDetailPage { get; set; }
         DbSet<SystemPermission> SystemPermission { get; set; }
+        DbSet<zMetaFormLayout> zMetaFormLayout { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -38,6 +39,8 @@ namespace Wysnan.EIMOnline.EF
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
             modelBuilder.Configurations.Add(new SecurityUserMap());
+            modelBuilder.Configurations.Add(new zMetaFormLayoutMap());
+
         }
     }
 }

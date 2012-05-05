@@ -1,0 +1,36 @@
+﻿@using Wysnan.EIMOnline.Common.Poco;
+@{
+    ViewBag.Title = "_DetailView";
+    var entity = ViewBag.entity as object;
+    var config = ViewBag.ViewLayout as List<zMetaFormLayout>;
+    var propertys = entity.GetType().GetProperties();
+}
+@*<div style="filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#FFCGCC', gradientType='1')">  background: #E6EEF8 *@
+<div style="border-radius: 20px; -moz-border-radius: 6px; background:#F2F2F2; border-color: #6181a2; border: 1px solid gray; width:auto; ">
+
+    @foreach (var item in propertys)
+    {
+        if (config.Where(t => t.EntityField == item.Name && t.IsVisible == true).FirstOrDefault() != null)
+        {
+        <div style="float: left; width: 200px; height: auto; margin-left:10px;margin-top:5px;padding:5px 0px 10px 0px">
+            <div style="font-weight: bold; width: 100px;">
+                @Html.Label(config.Where(t => t.EntityField == item.Name).First().ShortLabel)
+            </div>
+            @*<div style="height: 10px;">
+            </div>*@
+            <div style="width: 100%; font-weight: normal; color: Gray;word-wrap:break-word; height:90px; overflow-x:hidden;overflow-y:auto;margin-top:5px ">
+                @{
+                    var value = item.GetValue(entity, null).ToString();  
+                    @: @value
+                        }
+            </div>
+        </div>
+        }
+        else
+        {
+            continue;
+        }
+    }
+    <div style="clear: left;">
+    </div>
+</div>
