@@ -18,7 +18,7 @@ namespace Wysnan.EIMOnline.Common.Poco
         [Timestamp]
         public byte[] TimeStamp { get; set; }
 
-        public string DatailPageTitle { get; set; }
+        public string DetailPageTitle { get; set; }
         public string DetailPageAction { get; set; }
         public string DetailPageUrl { get; set; }
         public int ParentID { get; set; }
