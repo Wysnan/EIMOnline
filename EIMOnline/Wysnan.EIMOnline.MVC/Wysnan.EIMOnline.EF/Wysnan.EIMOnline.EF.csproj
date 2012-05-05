@@ -55,8 +55,11 @@
     <Compile Include="Mapping\SystemModuleMap.cs" />
     <Compile Include="Mapping\SystemModuleTypeMap.cs" />
     <Compile Include="Mapping\SystemPermissionMap.cs" />
-  
     <Content Include="Migrations\201205040656589_AllTable\InitialPromysSPandFN.sql" />
+    <Compile Include="Migrations\201205050043326_AllTable.cs" />
+    <Compile Include="Migrations\201205050043326_AllTable.Designer.cs">
+      <DependentUpon>201205050043326_AllTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\DBScript\SqlMigration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

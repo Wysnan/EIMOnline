@@ -6,8 +6,7 @@ namespace Wysnan.EIMOnline.Common.Poco
     public class SystemModuleDetailPage : IBaseEntity
     {
         public SystemModuleDetailPage()
-        {            
- 			this.SystemActions = new List<SystemAction>();
+        {	
             this.SystemPermissions = new List<SystemPermission>();
 
         }

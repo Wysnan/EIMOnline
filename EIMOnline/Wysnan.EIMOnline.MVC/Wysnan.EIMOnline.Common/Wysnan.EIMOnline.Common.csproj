@@ -68,8 +68,6 @@
     <Compile Include="Poco\SecurityRole.cs" />
     <Compile Include="Poco\SecurityUser.cs" />
     <Compile Include="Poco\SecurityUserRole.cs" />
-    <Compile Include="Poco\SystemEntity.cs" />
-    <Compile Include="Poco\SystemAction.cs" />
     <Compile Include="Poco\SystemModule.cs" />
     <Compile Include="Poco\SystemModuleDetailPage.cs" />
     <Compile Include="Poco\SystemModuleType.cs" />

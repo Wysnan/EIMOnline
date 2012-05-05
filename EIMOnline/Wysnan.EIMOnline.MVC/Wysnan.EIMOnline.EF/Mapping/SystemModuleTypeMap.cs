@@ -9,7 +9,7 @@ namespace Wysnan.EIMOnline.EF.Mapping
         {
             this.Property(t => t.Area)
                 .IsOptional()
-                .HasMaxLength(10);
+                .HasMaxLength(30);
             this.Property(t => t.ModuleTypeName)
                 .IsOptional()
                 .HasMaxLength(30);
