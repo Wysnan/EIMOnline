@@ -67,7 +67,7 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
                 areasMenuString.Append("<ul>");
                 foreach (var item in systemModuleTypes)
                 {
-                    areasMenuString.AppendFormat("<li>{0}</li>", item.ModuleTypeName);
+                    areasMenuString.AppendFormat("<li id=\"menu_li_{0}\">{1}</li>",item.ID, item.ModuleTypeName);
                 }
                 areasMenuString.Append("</ul>");
                 return MvcHtmlString.Create(areasMenuString.ToString());
