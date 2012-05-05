@@ -25,8 +25,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>
-    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -84,13 +82,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
-    <Compile Include="Areas\Administration\Controllers\SecurityUser2Controller.cs" />
-    <Compile Include="Areas\Administration\Controllers\PersonnelAttendanceController.cs" />
-    <Compile Include="Areas\Administration\Controllers\LogController.cs" />
-    <Compile Include="Areas\Administration\Controllers\SecurityRoleController.cs" />
-    <Compile Include="Areas\Administration\Controllers\SecurityUserController.cs" />
-    <Compile Include="Areas\Administration\Controllers\SecurityUserRoleController.cs" />
+    <Compile Include="Areas\Personnel\PersonnelAreaRegistration.cs" />
+    <Compile Include="Areas\Personnel\Controllers\PersonnelAttendanceController.cs" />
+    <Compile Include="Areas\Personnel\Controllers\LogController.cs" />
+    <Compile Include="Areas\Personnel\Controllers\SecurityRoleController.cs" />
+    <Compile Include="Areas\Personnel\Controllers\SecurityUserController.cs" />
+    <Compile Include="Areas\Personnel\Controllers\SecurityUserRoleController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GeneralController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
@@ -122,72 +119,93 @@
     <Content Include="Configuration\EFIoC.xml" />
     <Content Include="Configuration\InjectionIoC.xml" />
     <Content Include="Configuration\MVCIoC.xml" />
-    <Content Include="Areas\Administration\Views\Log\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityRole\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityRole\Create.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityRole\Edit.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityRole\Delete.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityRole\Details.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityUserRole\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityUserRole\Create.cshtml" />
-    <Content Include="Areas\Administration\Views\PersonnelAttendance\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityUser\PartialAdd.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityUser\PartialEdit.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityUser\View.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityUser\Test.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityUser\PartialView.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityUser\List2.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityUser2\Add.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityUser2\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityUser2\List2.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityUser2\PartialAdd.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityUser2\PartialEdit.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityUser2\PartialView.cshtml" />
+    <Content Include="Areas\Personnel\Views\Log\Index.cshtml" />
+    <Content Include="Areas\Personnel\Views\SecurityRole\Index.cshtml" />
+    <Content Include="Areas\Personnel\Views\SecurityRole\Create.cshtml" />
+    <Content Include="Areas\Personnel\Views\SecurityRole\Edit.cshtml" />
+    <Content Include="Areas\Personnel\Views\SecurityRole\Delete.cshtml" />
+    <Content Include="Areas\Personnel\Views\SecurityRole\Details.cshtml" />
+    <Content Include="Areas\Personnel\Views\SecurityUserRole\Index.cshtml" />
+    <Content Include="Areas\Personnel\Views\SecurityUserRole\Create.cshtml" />
+    <Content Include="Areas\Personnel\Views\PersonnelAttendance\Index.cshtml" />
+    <Content Include="Areas\Personnel\Views\SecurityUser\PartialAdd.cshtml" />
+    <Content Include="Areas\Personnel\Views\SecurityUser\PartialEdit.cshtml" />
+    <Content Include="Areas\Personnel\Views\SecurityUser\PartialView.cshtml" />
+    <Content Include="Areas\Personnel\Views\PersonnelAttendance\PartialAdd.cshtml" />
     <None Include="Config\Message.config" />
     <Content Include="Config\FileDependency2.xml" />
     <Content Include="Config\FileDependency1.txt" />
     <Content Include="Content\style.css" />
-    <Content Include="Content\themes\ellipsis-xbl.xml" />
-    <Content Include="Content\themes\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
-    <Content Include="Content\themes\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
-    <Content Include="Content\themes\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\images\ui-bg_flat_10_000000_40x100.png" />
-    <Content Include="Content\themes\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\images\ui-bg_glass_100_f6f6f6_1x400.png" />
-    <Content Include="Content\themes\images\ui-bg_glass_100_fdf5ce_1x400.png" />
-    <Content Include="Content\themes\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
-    <Content Include="Content\themes\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
-    <Content Include="Content\themes\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
-    <Content Include="Content\themes\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\images\ui-icons_228ef1_256x240.png" />
-    <Content Include="Content\themes\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\images\ui-icons_ef8c08_256x240.png" />
-    <Content Include="Content\themes\images\ui-icons_ffd27a_256x240.png" />
-    <Content Include="Content\themes\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="Content\themes\jquery-ui-1.8.17.custom.css" />
-    <Content Include="Content\themes\jquery.ui.accordion.css" />
-    <Content Include="Content\themes\jquery.ui.all.css" />
-    <Content Include="Content\themes\jquery.ui.autocomplete.css" />
-    <Content Include="Content\themes\jquery.ui.base.css" />
-    <Content Include="Content\themes\jquery.ui.button.css" />
-    <Content Include="Content\themes\jquery.ui.core.css" />
-    <Content Include="Content\themes\jquery.ui.datepicker.css" />
-    <Content Include="Content\themes\jquery.ui.dialog.css" />
-    <Content Include="Content\themes\jquery.ui.progressbar.css" />
-    <Content Include="Content\themes\jquery.ui.resizable.css" />
-    <Content Include="Content\themes\jquery.ui.selectable.css" />
-    <Content Include="Content\themes\jquery.ui.slider.css" />
-    <Content Include="Content\themes\jquery.ui.tabs.css" />
-    <Content Include="Content\themes\jquery.ui.theme.css" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="Content\themes\cupertino\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="Content\themes\cupertino\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\cupertino\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="Content\themes\cupertino\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="Content\themes\cupertino\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\cupertino\jquery-ui-1.8.20.custom.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.all.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.base.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.button.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.core.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.slider.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\cupertino\jquery.ui.theme.css" />
+    <Content Include="Content\themes\orange\ellipsis-xbl.xml" />
+    <Content Include="Content\themes\orange\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\orange\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\themes\orange\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\orange\jquery-ui-1.8.17.custom.css" />
+    <Content Include="Content\themes\orange\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\orange\jquery.ui.all.css" />
+    <Content Include="Content\themes\orange\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\orange\jquery.ui.base.css" />
+    <Content Include="Content\themes\orange\jquery.ui.button.css" />
+    <Content Include="Content\themes\orange\jquery.ui.core.css" />
+    <Content Include="Content\themes\orange\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\orange\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\orange\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\orange\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\orange\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\orange\jquery.ui.slider.css" />
+    <Content Include="Content\themes\orange\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\orange\jquery.ui.theme.css" />
     <Content Include="Content\themes\ui.jqgrid.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -384,6 +402,7 @@
     <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-zh-HK.js" />
     <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-zh-TW.js" />
     <Content Include="Scripts\ui\jquery-ui-1.8.18.custom.js" />
+    <Content Include="Scripts\ui\jquery.ui.dialog.js" />
     <Content Include="Scripts\ui\minified\jquery.effects.blind.min.js" />
     <Content Include="Scripts\ui\minified\jquery.effects.bounce.min.js" />
     <Content Include="Scripts\ui\minified\jquery.effects.clip.min.js" />
@@ -426,7 +445,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -442,12 +460,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Index\Index.cshtml" />
-    <Content Include="Views\Shared\_DetailView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Models\" />
-    <Folder Include="Areas\Administration\Views\Shared\" />
+    <Folder Include="Areas\Personnel\Models\" />
+    <Folder Include="Areas\Personnel\Views\Shared\" />
     <Folder Include="Content\images\" />
     <Folder Include="Models\" />
   </ItemGroup>
@@ -488,15 +505,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Administration\Views\Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Areas\Personnel\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Administration\Views\SecurityUser\Index.cshtml" />
+    <Content Include="Areas\Personnel\Views\SecurityUser\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Administration\Views\SecurityUser\Add.cshtml" />
+    <Content Include="Areas\Personnel\Views\SecurityUser\Add.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
