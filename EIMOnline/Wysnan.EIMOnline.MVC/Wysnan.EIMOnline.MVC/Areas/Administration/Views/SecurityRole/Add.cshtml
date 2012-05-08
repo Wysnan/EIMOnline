@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Add";
+}
+添加页面123123123123123123
+<div style="width: 200px">
+    <div style="text-align: right">
+        <span class="spanQ">+</span>
+    </div>
+    <div>
+        <input type="text" style="width: 100%" readonly="readonly" /></div>
+</div>
+<div id="dialog-modal" title="Basic modal dialog">
+    @*<p id="divSerach2">
+        Adding the modal overlay screen makes the dialog look more prominent because it
+        dims out the page content.
+    </p>*@
+    <div id="divSerach">
+        123
+    </div>
+</div>
+<style>
+    .spanQ:hover
+    {
+        border: 1px solid Red;
+    }
+</style>
+<script language="javascript">
+    $(function () {
+
+        $("#dialog-modal").dialog({
+            autoOpen: false,
+            height: 140,
+            modal: true
+        });
+    });
+
+    $(".spanQ").click(function () {
+        $("#divSerach").load("http://localhost:8080/Administration/SecurityUser", function () { $("#dialog-modal").dialog("open"); });
+        //$("#dialog-modal").dialog("open");
+    });
+
+</script>

@@ -49,7 +49,7 @@ var GlobalObj =
                 $("#WidgetColumn").append("<li id=\"li_wc_" + obj.id + "\"></li>");
                 $("#li_wc_" + obj.id).load(obj.url);
 
-                var div = "<div class=\"pageItemDiv\" id=\"item_" + obj.id + "\"><div class=\"pageItem\" onclick=\"ShowThis('" + obj.id + "','"+obj.url+"')\">" + obj.name + "</div><div class=\"pageItemClose\" onclick=\"ItemClose('" + obj.id + "')\">×</div></div>";
+                var div = "<div class=\"pageItemDiv\" id=\"item_" + obj.id + "\"><div class=\"pageItem\" onclick=\"ShowThis('" + obj.id + "','" + obj.url + "')\">" + obj.name + "</div><div class=\"pageItemClose\" onclick=\"ItemClose('" + obj.id + "')\">×</div></div>";
                 $(".div_foot").append(div);
                 this.pages.push(obj);
             }
@@ -94,7 +94,7 @@ function ItemClose(name, url) {
     GlobalObj.RemovePage(name, url);
 }
 
-function ShowThis(id,url) {
+function ShowThis(id, url) {
     var liId = "li_wc_" + id;
     $("li[id*='li_wc_']").hide();
     $("#" + liId).show();

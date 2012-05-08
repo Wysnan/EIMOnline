@@ -1,48 +1,8 @@
-﻿@model IEnumerable<Wysnan.EIMOnline.Common.Poco.SecurityRole>
-
+﻿@using Wysnan.EIMOnline.MVC.Framework.Extensions;
+@using Wysnan.EIMOnline.Common.Framework.Enum;
+@using Wysnan.EIMOnline.Common.Poco;
 @{
-   ViewBag.Title = "角色列表";
-   Layout = "~/Views/Shared/_Layout.cshtml";
- }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>Index</title>
-</head>
-<body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table>
-        <tr>
-            <th>
-                SystemStatus
-            </th>
-            <th>
-                RoleName
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SystemStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoleName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-        </tr>
-    }
-    
-    </table>
-</body>
-</html>
+    ViewBag.Title = "Index";
+}
+@*@{Html.RenderAction("index", "JqGrid", new { area = "", gridEnum = GridEnum.SecurityUser });}*@
+@Html.Grid(GridEnum.SecurityUserRole)

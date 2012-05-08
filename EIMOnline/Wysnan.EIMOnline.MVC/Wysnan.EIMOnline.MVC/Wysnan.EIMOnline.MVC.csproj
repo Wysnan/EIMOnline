@@ -98,6 +98,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Framework\Ajax\ModuleMenu.ashx.cs">
+      <DependentUpon>ModuleMenu.ashx</DependentUpon>
+    </Compile>
     <Compile Include="TestFile\Permission.ascx.cs">
       <DependentUpon>Permission.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -121,11 +124,6 @@
     <Content Include="Configuration\InjectionIoC.xml" />
     <Content Include="Configuration\MVCIoC.xml" />
     <Content Include="Areas\Administration\Views\Log\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityRole\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityRole\Create.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityRole\Edit.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityRole\Delete.cshtml" />
-    <Content Include="Areas\Administration\Views\SecurityRole\Details.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityUserRole\Index.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityUserRole\Create.cshtml" />
     <Content Include="Areas\Administration\Views\PersonnelAttendance\Index.cshtml" />
@@ -139,6 +137,12 @@
     <Content Include="Areas\Administration\Views\SecurityUser2\PartialAdd.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityUser2\PartialEdit.cshtml" />
     <Content Include="Areas\Administration\Views\SecurityUser2\PartialView.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityRole\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityRole\PartialView.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityRole\List2.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityRole\PartialAdd.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityRole\PartialEdit.cshtml" />
+    <Content Include="Areas\Administration\Views\SecurityRole\Add.cshtml" />
     <None Include="Config\Message.config" />
     <Content Include="Config\FileDependency2.xml" />
     <Content Include="Config\FileDependency1.txt" />
@@ -468,6 +472,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Index\Index.cshtml" />
+    <Content Include="Framework\Ajax\ModuleMenu.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

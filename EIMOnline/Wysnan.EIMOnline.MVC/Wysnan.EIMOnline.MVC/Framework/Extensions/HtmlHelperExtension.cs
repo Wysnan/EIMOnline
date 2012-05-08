@@ -24,6 +24,7 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
     {
 
         //[Obsolete("由于cookie大小有限制，对于多字段的cookie缓存不适用，弃用这个方法", false)]
+        public static int ModuleTypeId;
         public static MvcHtmlString Grid(this HtmlHelper helper, GridEnum gridEnum)
         {
             SystemEntity systemEntity = HttpContext.Current.Session[ConstEntity.Session_SystemEntity] as SystemEntity;
@@ -61,13 +62,23 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
         public static MvcHtmlString AreasMenu(this HtmlHelper helper)
         {
             IList<SystemModuleType> systemModuleTypes = GlobalEntity.Instance.Cache_SystemModuleType.SystemModuleTypes;
+            IList<SystemModule> systemModules = GlobalEntity.Instance.Cache_SystemModule.SystemModules;
+
             if (systemModuleTypes != null)
             {
                 StringBuilder areasMenuString = new StringBuilder();
                 areasMenuString.Append("<ul>");
                 foreach (var item in systemModuleTypes)
                 {
-                    areasMenuString.AppendFormat("<li id=\"menu_li_{0}\">{1}</li>",item.ID, item.ModuleTypeName);
+                    var firstModule = systemModules.Where(a => a.ModuleTypeId == item.ID);
+                    if (firstModule != null && firstModule.Count() > 0)
+                    {
+                        areasMenuString.AppendFormat("<li id=\"menu_li_{0}\" onclick=\"MenuTypeNavigation({0}, '{1}', '{2}', '{3}')\">{1}</li>", item.ID, item.ModuleTypeName, firstModule.First().ModuleMainUrl, "image");
+                    }
+                    else
+                    {
+                        areasMenuString.AppendFormat("<li id=\"menu_li_{0}\">{1}</li>", item.ID, item.ModuleTypeName);
+                    }
                 }
                 areasMenuString.Append("</ul>");
                 return MvcHtmlString.Create(areasMenuString.ToString());

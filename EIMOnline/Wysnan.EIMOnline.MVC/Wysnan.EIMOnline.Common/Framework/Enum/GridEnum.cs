@@ -8,6 +8,7 @@ namespace Wysnan.EIMOnline.Common.Framework.Enum
     public enum GridEnum
     {
         SecurityUser,
-        PersonnelAttendance
+        PersonnelAttendance,
+        SecurityUserRole
     }
 }
