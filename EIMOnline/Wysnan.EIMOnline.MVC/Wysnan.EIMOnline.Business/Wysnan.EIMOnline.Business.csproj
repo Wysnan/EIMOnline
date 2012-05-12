@@ -36,6 +36,7 @@
       <HintPath>..\Reference\spring\Spring.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -46,7 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessModel.cs" />
+    <Compile Include="Configration.cs" />
+    <Compile Include="ConfigrationManager.cs" />
     <Compile Include="EmailServiceModel.cs" />
+    <Compile Include="ExceptionLogModel.cs" />
     <Compile Include="Framework\Cache\CacheModel.cs" />
     <Compile Include="Framework\Cache\Cache_SystemModule.cs" />
     <Compile Include="Framework\Cache\Cache_SystemModuleType.cs" />

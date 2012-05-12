@@ -12,6 +12,7 @@ using System.IO;
 using System.Configuration;
 using System.Data;
 using System.Web.Caching;
+using Wysnan.EIMOnline.Business;
 
 namespace Wysnan.EIMOnline.MVC.TestFile
 {
@@ -19,6 +20,8 @@ namespace Wysnan.EIMOnline.MVC.TestFile
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ExceptionLogModel.WriteErrorMessage("错误发生原因正在调查中");
+            ExceptionLogModel.WriteErrorMessage("我来了");
             /// 测试一般的缓存（更新缓存）
             /// 
             //Response.Write(GlobalEntity.Instance.Cache_Message.GetMessge("1"));

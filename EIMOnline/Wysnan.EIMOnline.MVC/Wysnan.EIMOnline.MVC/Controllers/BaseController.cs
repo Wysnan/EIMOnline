@@ -191,17 +191,13 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         public ActionResult View(int id)
         {
             var entity = Model.Get(id);
-            if (entity != null)
-            {
-                ViewBag.entity = entity;
-            }
-            else
+            if (entity == null)
             {
                 throw new ArgumentException("未检索到对象");
             }
 
             IzMetaFormLayout zMetaFormLayoutModel = GlobalEntity.Instance.ApplicationContext.GetObject("zMetaFormLayoutModel") as IzMetaFormLayout;
-            IList<zMetaFormLayout> ViewLayout = zMetaFormLayoutModel.List().Where(t => t.EntityName == type.Name).ToList();
+            IList<zMetaFormLayout> ViewLayout = zMetaFormLayoutModel.List().Where(t => t.EntityName == type.Name).OrderBy(t => t.SortNum).ToList();
             if (ViewLayout != null && ViewLayout.Count > 0)
             {
                 ViewBag.ViewLayout = ViewLayout;
@@ -211,7 +207,7 @@ namespace Wysnan.EIMOnline.MVC.Controllers
                 throw new ArgumentException("没有找到配置表");
             }
 
-            return PartialView("~/Views/Shared/_DetailView.cshtml");
+            return PartialView("~/Views/Shared/_DetailView.cshtml",entity);
 
             // 直接跳转到区域中的View页面
             // return View();

@@ -466,6 +466,7 @@
     <Folder Include="Areas\Personnel\Models\" />
     <Folder Include="Areas\Personnel\Views\Shared\" />
     <Folder Include="Content\images\" />
+    <Folder Include="ExceptionLog\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
