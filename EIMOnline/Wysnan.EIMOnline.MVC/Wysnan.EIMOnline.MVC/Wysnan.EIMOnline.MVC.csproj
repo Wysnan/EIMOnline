@@ -89,6 +89,7 @@
     <Compile Include="Areas\Inventory\InventoryAreaRegistration.cs" />
     <Compile Include="Areas\Permissions\Controllers\PersonnelAttendanceController.cs" />
     <Compile Include="Areas\Permissions\PermissionsAreaRegistration.cs" />
+    <Compile Include="Areas\Personnel\Controllers\AttendanceBaseController.cs" />
     <Compile Include="Areas\Personnel\PersonnelAreaRegistration.cs" />
     <Compile Include="Areas\Personnel\Controllers\LogController.cs" />
     <Compile Include="Areas\Personnel\Controllers\SecurityRoleController.cs" />
@@ -172,6 +173,7 @@
     <Content Include="Areas\Inventory\Views\Web.config" />
     <Content Include="Areas\Assets\Views\Web.config" />
     <Content Include="Areas\Task\Views\Web.config" />
+    <Content Include="Areas\Personnel\Views\AttendanceBase\Index.cshtml" />
     <None Include="Config\Message.config" />
     <Content Include="Config\FileDependency2.xml" />
     <Content Include="Config\FileDependency1.txt" />

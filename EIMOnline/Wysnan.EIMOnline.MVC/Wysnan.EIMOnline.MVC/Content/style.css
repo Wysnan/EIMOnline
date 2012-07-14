@@ -68,6 +68,11 @@ body
     height: 50px;
     background-color: #FFFF00;
 }
+.div_titleAttence
+{
+    width: auto;
+    height: 50px;   
+}
 .div_tool
 {
     float: right;

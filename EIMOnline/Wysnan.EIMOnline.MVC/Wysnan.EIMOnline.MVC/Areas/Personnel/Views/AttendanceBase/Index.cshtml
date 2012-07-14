@@ -1,0 +1,63 @@
+﻿@using Wysnan.EIMOnline.MVC.Framework.Extensions;
+@using Wysnan.EIMOnline.Tool.Extensions;
+@model List<Wysnan.EIMOnline.Common.Poco.Lookup>
+<script src="/Scripts/ViewPage.js" type="text/javascript"></script>
+<link href="/Content/ViewPage.css" rel="stylesheet" type="text/css" />
+@using (Ajax.BeginForm(new AjaxOptions() { UpdateTargetId = "alert" }))
+{
+    @Html.ValidationSummary("", new { id = "div_error", style = "display:none" })
+  
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">详细</a></li>
+        </ul>
+        <div id="tabs-1">
+            <table class="TableData">
+                <tr>
+                    <td>
+                        <div>
+                            @{  
+    var message = "现在时间为:";
+    var time = DateTime.Now;
+    var outMessage = message + time;  
+                            }
+                            @outMessage
+                        </div>
+                    </td>
+                    <td>
+                        公司规定上班时间：
+                        @foreach (var item in Model)
+                        {
+                            if (item.EnumCode == Wysnan.EIMOnline.Common.Enum.EnumAttendanceBase.WorkStartTime.ConvertToString())
+                            {
+                            @Html.Label(item.Name) 
+                            }
+                        }
+                    </td>
+                    <td>
+                        公司规定下班时间：
+                        @foreach (var item in Model)
+                        {
+                            if (item.EnumCode == Wysnan.EIMOnline.Common.Enum.EnumAttendanceBase.WorkEndTime.ConvertToString())
+                            {
+                            @Html.Label(item.Name) 
+                            }
+                        }
+                    </td>
+                </tr>
+                <tr style="padding-top: 200px; margin-top: 200px; line-height: 400px">
+                    <td colspan="2" style="text-align: center">
+                        <div class="div_titleAttence">
+                            @Ajax.ActionLink("签到登记", "Attence",null, new AjaxOptions { UpdateTargetId = "alert" },new { @class = "button" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="div_titleAttence">
+                            @Ajax.ActionLink("签退登记", "AttenceOut", null, new AjaxOptions { UpdateTargetId = "alert" }, new { @class = "button" })                            
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+}

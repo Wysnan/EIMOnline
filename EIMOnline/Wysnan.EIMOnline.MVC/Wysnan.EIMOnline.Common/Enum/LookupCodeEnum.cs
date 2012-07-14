@@ -30,6 +30,12 @@ namespace Wysnan.EIMOnline.Common.Enum
         /// <summary>
         /// 账号状态
         /// </summary>
-        EnumAccountStatus
+        EnumAccountStatus,
+
+        /// <summary>
+        /// 考勤基础
+        /// </summary
+        EnumAttendanceBase
+
     }
 }
