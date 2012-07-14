@@ -95,6 +95,7 @@
     <Compile Include="Areas\Personnel\Controllers\SecurityUserController.cs" />
     <Compile Include="Areas\Personnel\Controllers\SecurityUserRoleController.cs" />
     <Compile Include="Areas\Purchase\PurchaseAreaRegistration.cs" />
+    <Compile Include="Areas\Reimbursement\Controllers\ReimbursementTypeController.cs" />
     <Compile Include="Areas\Reimbursement\ReimbursementAreaRegistration.cs" />
     <Compile Include="Areas\Task\TaskAreaRegistration.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -552,7 +553,6 @@
     <Folder Include="Areas\Purchase\Controllers\" />
     <Folder Include="Areas\Purchase\Models\" />
     <Folder Include="Areas\Purchase\Views\Shared\" />
-    <Folder Include="Areas\Reimbursement\Controllers\" />
     <Folder Include="Areas\Reimbursement\Models\" />
     <Folder Include="Areas\Reimbursement\Views\Shared\" />
     <Folder Include="Areas\Task\Controllers\" />

@@ -33,7 +33,8 @@ namespace Wysnan.EIMOnline.EF
         DbSet<SystemPermission> SystemPermission { get; set; }
         DbSet<zMetaFormLayout> zMetaFormLayout { get; set; }
         DbSet<Lookup> Lookup { get; set; }
-
+        DbSet<ReimbursementType> ReimbursementType { get; set; }
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
