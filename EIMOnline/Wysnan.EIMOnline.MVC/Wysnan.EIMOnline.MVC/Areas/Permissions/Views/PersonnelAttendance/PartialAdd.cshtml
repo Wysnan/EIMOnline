@@ -1,0 +1,181 @@
+﻿@using Wysnan.EIMOnline.MVC.Framework.Extensions;
+@model Wysnan.EIMOnline.Common.Poco.PersonnelAttendance
+<style>
+	.ui-combobox {
+		position: relative;
+		display: inline-block;
+	}
+	.ui-button {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		margin-left: -1px;
+		padding: 0;
+		/* adjust styles for IE 6/7 */
+		*height: 1.7em;
+		*top: 0.1em;
+	}
+	.ui-autocomplete-input {
+		margin: 0;
+		padding: 0.3em;
+	}
+	</style>
+@using (Html.BeginForm())
+{
+    @Html.SearchBoxFor(a => a.SecurityUser, a => a.SecurityUserID)
+    @Html.CheckBoxForIP(a => a.IsPunchCard)
+@*    @Html.EditorFor(a => a.IsPunchCard);*@
+@*      <input type="text" id="txtdatepick" />
+  <script type="text/javascript">
+        $("#txtdatepick").datetimepicker({
+            dateFormat: 'yy-mm-dd',
+            timeFormat: 'hh:mm:ss', //格式化时间
+            stepHour: 1, //设置步长
+            stepMinute: 1,
+            width: '50px',
+            height: '60px'
+        });
+    </script>*@
+
+
+@*     <link href="/Content/controls/UploadFile/Style.css" rel="stylesheet" type="text/css" />
+   <section id="main-content">
+				<p>
+					<input id="files-upload" type="file" multiple="">
+				</p>
+				<p id="drop-area">
+					<span class="drop-instructions">or drag and drop files here</span>
+					<span class="drop-over">Drop files here!</span>
+				</p>
+				
+				<ul id="file-list">
+					<li class="no-items">(no files uploaded yet)</li>
+				</ul>
+				<script>
+				    (function () {
+				        var filesUpload = document.getElementById("files-upload"),
+							dropArea = document.getElementById("drop-area"),
+							fileList = document.getElementById("file-list");
+
+				        function uploadFile(file) {
+				            var li = document.createElement("li"),
+								div = document.createElement("div"),
+								img,
+								progressBarContainer = document.createElement("div"),
+								progressBar = document.createElement("div"),
+								reader,
+				                xhr,
+								fileInfo;
+
+				            li.appendChild(div);
+
+				            progressBarContainer.className = "progress-bar-container";
+				            progressBar.className = "progress-bar";
+				            progressBarContainer.appendChild(progressBar);
+				            li.appendChild(progressBarContainer);
+
+				            /*
+				            If the file is an image and the web browser supports FileReader,
+				            present a preview in the file list
+				            */
+				            if (typeof FileReader !== "undefined" && (/image/i).test(file.type)) {
+				                img = document.createElement("img");
+				                li.appendChild(img);
+				                reader = new FileReader();
+				                reader.onload = (function (theImg) {
+				                    return function (evt) {
+				                        theImg.src = evt.target.result;
+				                    };
+				                } (img));
+				                reader.readAsDataURL(file);
+				            }
+
+				            // Uploading - for Firefox, Google Chrome and Safari
+				            xhr = new XMLHttpRequest();
+
+				            // Update progress bar
+				            xhr.upload.addEventListener("progress", function (evt) {
+				                if (evt.lengthComputable) {
+				                    progressBar.style.width = (evt.loaded / evt.total) * 100 + "%";
+				                }
+				                else {
+				                    // No data to calculate on
+				                }
+				            }, false);
+
+				            // File uploaded
+				            xhr.addEventListener("load", function () {
+				                progressBarContainer.className += " uploaded";
+				                progressBar.innerHTML = "Uploaded!";
+				            }, false);
+
+				            xhr.open("post", "/Framework/Ajax/UploadFile.ashx", true);
+
+				            // Set appropriate headers
+				            xhr.setRequestHeader("Content-Type", "multipart/form-data");
+				            xhr.setRequestHeader("X-File-Name", file.name);
+				            xhr.setRequestHeader("X-File-Size", file.size);
+				            xhr.setRequestHeader("X-File-Type", file.type);
+				            // Send the file (doh)
+				            xhr.send(file);
+
+				            //				            $.post("/Framework/Ajax/UploadFile.ashx", { value: file }, function () {
+				            //				                alert("123");
+				            //				            })
+
+				            // Present file info and append it to the list of files
+				            fileInfo = "<div><strong>Name:</strong> " + file.name + "</div>";
+				            fileInfo += "<div><strong>Size:</strong> " + parseInt(file.size / 1024, 10) + " kb</div>";
+				            fileInfo += "<div><strong>Type:</strong> " + file.type + "</div>";
+				            div.innerHTML = fileInfo;
+
+				            fileList.appendChild(li);
+				        }
+
+				        function traverseFiles(files) {
+				            if (typeof files !== "undefined") {
+				                for (var i = 0, l = files.length; i < l; i++) {
+				                    uploadFile(files[i]);
+				                }
+				            }
+				            else {
+				                fileList.innerHTML = "No support for the File API in this web browser";
+				            }
+				        }
+
+				        filesUpload.addEventListener("change", function () {
+				            traverseFiles(this.files);
+				        }, false);
+
+				        dropArea.addEventListener("dragleave", function (evt) {
+				            var target = evt.target;
+
+				            if (target && target === dropArea) {
+				                this.className = "";
+				            }
+				            evt.preventDefault();
+				            evt.stopPropagation();
+				        }, false);
+
+				        dropArea.addEventListener("dragenter", function (evt) {
+				            this.className = "over";
+				            evt.preventDefault();
+				            evt.stopPropagation();
+				        }, false);
+
+				        dropArea.addEventListener("dragover", function (evt) {
+				            evt.preventDefault();
+				            evt.stopPropagation();
+				        }, false);
+
+				        dropArea.addEventListener("drop", function (evt) {
+				            traverseFiles(evt.dataTransfer.files);
+				            this.className = "";
+				            evt.preventDefault();
+				            evt.stopPropagation();
+				        }, false);
+				    })();
+				</script>
+			</section>*@
+    <input type="submit" value="提交" />
+}

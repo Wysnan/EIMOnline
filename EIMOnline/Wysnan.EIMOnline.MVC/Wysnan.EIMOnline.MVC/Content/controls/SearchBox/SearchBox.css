@@ -1,0 +1,33 @@
+﻿.SearchableBox
+{
+    width: 200px;
+}
+.SearchableBox .search_q
+{
+    text-align: right;
+}
+.SearchableBox .search_q .spanQ
+{
+    border: 1px solid Red;
+    cursor: pointer;
+}
+.spanQ:hover
+{
+    background-color: Red;
+}
+.SearchableBox .search_t input
+{
+    width: 100%;
+}
+.ui-dialog-titlebar
+{
+    height: 18px;
+}
+.dialog_modal
+{
+    font-size: 11px;
+    font-style: normal;
+    font-weight: normal;
+    padding: 0px !important;
+    overflow: hidden !important;
+}

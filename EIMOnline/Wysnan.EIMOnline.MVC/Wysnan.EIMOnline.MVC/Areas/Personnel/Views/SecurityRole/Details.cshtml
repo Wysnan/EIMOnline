@@ -1,0 +1,33 @@
+@model Wysnan.EIMOnline.Common.Poco.SecurityRole
+
+@{
+   ViewBag.Title = "角色详细";
+   Layout = "~/Views/Shared/_Layout.cshtml";
+ }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Details</title>
+</head>
+<body>
+    <fieldset>
+        <legend>SecurityRole</legend>
+    
+        <div class="display-label">SystemStatus</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.SystemStatus)
+        </div>
+    
+        <div class="display-label">RoleName</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.RoleName)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

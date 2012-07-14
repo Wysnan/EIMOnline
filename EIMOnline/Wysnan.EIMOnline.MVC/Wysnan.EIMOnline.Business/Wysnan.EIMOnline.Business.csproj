@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5D38C1E7-99C7-4074-B9FB-1413E4F89C8C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wysnan.EIMOnline.Business</RootNamespace>
+    <AssemblyName>Wysnan.EIMOnline.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Spring.Core">
+      <HintPath>..\Reference\spring\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessModel.cs" />
+    <Compile Include="Configration.cs" />
+    <Compile Include="ConfigrationManager.cs" />
+    <Compile Include="EmailServiceModel.cs" />
+    <Compile Include="ExceptionLogModel.cs" />
+    <Compile Include="Framework\Cache\CacheModel.cs" />
+    <Compile Include="Framework\Cache\Cache_SystemModule.cs" />
+    <Compile Include="Framework\Cache\Cache_SystemModuleType.cs" />
+    <Compile Include="Framework\Cache\Cache_Lookup.cs" />
+    <Compile Include="Framework\GlobalEntity.cs" />
+    <Compile Include="Framework\Cache\Cache_JqGrid.cs" />
+    <Compile Include="Framework\Cache\Cache_Message.cs" />
+    <Compile Include="Framework\Cache\ICache.cs" />
+    <Compile Include="Framework\MessageModel.cs" />
+    <Compile Include="Framework\SystemInitialization.cs" />
+    <Compile Include="GenericBusinessModel.cs" />
+    <Compile Include="GridModel.cs" />
+    <Compile Include="LookupModel.cs" />
+    <Compile Include="OperateLogModel.cs" />
+    <Compile Include="PersonnelAttendanceModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityRoleModel.cs" />
+    <Compile Include="SecurityUserModel.cs" />
+    <Compile Include="SecurityUserRoleModel.cs" />
+    <Compile Include="SystemModuleDetailPageModel.cs" />
+    <Compile Include="SystemModuleModel.cs" />
+    <Compile Include="SystemModuleTypeModel.cs" />
+    <Compile Include="SystemPermissionModel.cs" />
+    <Compile Include="zMetaFormLayoutModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wysnan.EIMOnline.Common\Wysnan.EIMOnline.Common.csproj">
+      <Project>{5592AE09-77D2-483E-8068-EE36DA6872B0}</Project>
+      <Name>Wysnan.EIMOnline.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wysnan.EIMOnline.IBLL\Wysnan.EIMOnline.IBLL.csproj">
+      <Project>{FCBA070C-E4E3-45F5-96F2-7095342A4B58}</Project>
+      <Name>Wysnan.EIMOnline.IBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wysnan.EIMOnline.IDAL\Wysnan.EIMOnline.IDAL.csproj">
+      <Project>{3575FA9C-D45B-481D-AD01-4509136B97C9}</Project>
+      <Name>Wysnan.EIMOnline.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wysnan.EIMOnline.Injection\Wysnan.EIMOnline.Injection.csproj">
+      <Project>{78E214C4-A31A-46E3-960A-525A7FEBB37A}</Project>
+      <Name>Wysnan.EIMOnline.Injection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wysnan.EIMOnline.Tool\Wysnan.EIMOnline.Tool.csproj">
+      <Project>{B7502FFB-F636-417B-98C6-1D95F776288C}</Project>
+      <Name>Wysnan.EIMOnline.Tool</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

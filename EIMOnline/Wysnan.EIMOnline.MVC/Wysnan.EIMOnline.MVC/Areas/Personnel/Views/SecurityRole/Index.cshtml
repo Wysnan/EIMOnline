@@ -1,0 +1,8 @@
+﻿@using Wysnan.EIMOnline.MVC.Framework.Extensions;
+@using Wysnan.EIMOnline.Common.Framework.Enum;
+@using Wysnan.EIMOnline.Common.Poco;
+@{
+    ViewBag.Title = "Index";
+}
+@*@{Html.RenderAction("index", "JqGrid", new { area = "", gridEnum = GridEnum.SecurityUser });}*@
+@Html.Grid(GridEnum.SecurityUserRole)

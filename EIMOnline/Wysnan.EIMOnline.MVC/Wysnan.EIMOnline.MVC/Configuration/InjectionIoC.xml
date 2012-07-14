@@ -1,0 +1,28 @@
+﻿<objects xmlns="http://www.springframework.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/xsd/spring-objects.xsd">
+
+  <object id="TransactionInterceptor" type="Wysnan.EIMOnline.Injection.Transaction.TransactionInterceptor,Wysnan.EIMOnline.Injection" singleton="false">
+  </object>
+
+  <object id="AutoProxy.TransactionAdvisor" type="Spring.Aop.Support.AttributeMatchMethodPointcutAdvisor, Spring.Aop" singleton="false">
+    <property name="attribute" value="Wysnan.EIMOnline.Injection.Transaction.TransactionAttribute"/>
+    <property name="advice" ref="TransactionInterceptor"/>
+    <property name="order" value="100"/>
+  </object>
+
+
+  <object id="OperateLogInterceptor" type="Wysnan.EIMOnline.Injection.Logs.OperateLogInterceptor,Wysnan.EIMOnline.Injection" singleton="false">
+    <property name="OperateLog" ref="OperateLogModel"/>
+  </object>
+
+  <object id="AutoProxy.OperateLogAdvisor" type="Spring.Aop.Support.AttributeMatchMethodPointcutAdvisor, Spring.Aop" singleton="false">
+    <property name="attribute" value="Wysnan.EIMOnline.Injection.Logs.OperateLogAttribute"/>
+    <property name="advice" ref="OperateLogInterceptor"/>
+    <property name="order" value="100"/>
+  </object>
+
+  <object id="ProxyCreator" type="Spring.Aop.Framework.AutoProxy.DefaultAdvisorAutoProxyCreator, Spring.Aop">
+    <property name="AdvisorObjectNamePrefix" value="AutoProxy"></property>
+    <property name="UsePrefix" value="true"></property>
+  </object>
+</objects>

@@ -1,0 +1,174 @@
+﻿
+body
+{
+    margin: 0 0 0 0;
+    font-size: 14px;
+    height: 100%;
+}
+.div_all
+{
+    background-color: #CCCCCC;
+    width: 100%;
+    height: 780px;
+}
+.div_body
+{
+    width: 1590px;
+}
+.div_head
+{
+    height: 30px;
+    background-color: #444444;
+}
+.div_menu
+{
+    height: 30px;
+    background-color: #808080; /* filter: "alpha(opacity=50)";  */ /* IE 8 */ /* opacity: 0.5; */ /* Firefox, Safari(WebKit), Opera)*/ /*  filter: alpha(opacity=60);  */ /* IE 4-7 */
+    position: relative;
+}
+.div_menu ul
+{
+    position: absolute;
+    margin-top: 0px;
+}
+.div_menu li
+{
+    list-style-type: none;
+    background-color: Orange;
+    width: 90px;
+    height: 30px;
+    float: left;
+    text-align: center;
+    margin-left: 5px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.div_menu li:hover
+{
+    background-color: Red;
+}
+.div_left
+{
+    width: 170px;
+    height: 720px;
+    background-color: #666666;
+    float: left;
+}
+.div_right
+{
+    width: 1393px;
+    height: 700px;
+    background-color: #C0C0C0;
+    float: left;
+    padding: 0px 10px 10px 10px;
+}
+.div_title
+{
+    width: auto;
+    height: 50px;
+    background-color: #FFFF00;
+}
+.div_tool
+{
+    float: right;
+    background-color: Red;
+    width: 20px; /*200px;*/
+    height: 20px; /*650px;*/
+    margin-top: -720px;
+    margin-right: 0px;
+    padding: 10px 10px 10px 10px;
+    z-index: 10;
+    position: relative;
+}
+.div_main
+{
+    width: 100%;
+    height: 570px;
+}
+.div_foot
+{
+    background-color: #808080;
+    margin-top: 0px;
+    height: 50px;
+    margin-bottom: 10px;
+    padding: 5px;
+    text-align: center;
+}
+.pageItemDiv
+{
+    width: 62px;
+    height: 45px;
+    float: left;
+    margin-left: 5px;
+}
+.pageItem
+{
+    width: 45px;
+    height: 45px;
+    border: 1px solid Yellow;
+    border-radius: 4px 0px 4px 4px;
+    float: left;
+    cursor: pointer;
+}
+.pageItemClose
+{
+    width: 15px;
+    height: 15px;
+    background-color: Yellow;
+    float: left;
+    cursor: pointer;
+}
+.pageItem:hover
+{
+    border: 1px solid Red;
+}
+/* 鼠标移动到链接上 */
+.pageItemClose:hover
+{
+    background-color: Red;
+}
+/* 鼠标移动到链接上 */
+
+.ui_menu li
+{
+    list-style-type: none;
+}
+.WidgetColumn li
+{
+    margin-left: -40px;
+    list-style-type: none;
+    height: 100%;
+}
+.WidgetColumn
+{
+    height: 100%;
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000 !important; 
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}

@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "";
+}
+<link href="/Content/themes/orange/jquery-ui-1.8.17.custom.css" rel="stylesheet"
+    type="text/css" />
+<script src="@Url.Content("~/Scripts/jquery-1.7.2.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ui/jquery-ui-1.8.18.custom.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/external/jquery.bgiframe-2.1.2.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.core.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.widget.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.mouse.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.draggable.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.position.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.resizable.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.dialog.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/mvc/MicrosoftAjax.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/mvc/MicrosoftMvcAjax.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/mvc/MicrosoftMvcValidation.js")" type="text/javascript"></script>
+
+@using Wysnan.EIMOnline.Common.Poco
+@model Wysnan.EIMOnline.Common.Poco.SecurityUser
+@using (Ajax.BeginForm(new AjaxOptions() { UpdateTargetId = "alert" }))
+{
+    <fieldset>
+        <legend>登录信息</legend>
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td>@Html.LabelFor(a => a.UserLoginID)
+                </td>
+                <td>
+                    @Html.TextBox("UserLoginID", "admin") @Html.ValidationMessageFor(a => a.UserLoginID)
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(a => a.UserLoginPwd)
+                </td>
+                <td>
+                    @Html.TextBox("UserLoginPwd", "admin") @Html.ValidationMessageFor(a => a.UserLoginPwd)
+                    @Html.ValidationMessageFor(a => a.ID)
+                    @Html.ValidationMessageFor(a => a.SystemStatus)
+                    @Html.ValidationMessageFor(a => a.TimeStamp)
+                    @Html.ValidationMessageFor(a => a.UserName)
+                    @Html.ValidationMessageFor(a => a.UserLoginID)
+                    @Html.ValidationMessageFor(a => a.UserLoginPwd)
+                    @Html.ValidationMessageFor(a => a.CreatedOn)
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="登录" />
+    </fieldset>  
+}
+<div id="alert">
+</div>
