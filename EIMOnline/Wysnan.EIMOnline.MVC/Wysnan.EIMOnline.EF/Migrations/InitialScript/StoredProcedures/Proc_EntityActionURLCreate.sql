@@ -1,7 +1,7 @@
 CREATE PROCEDURE [dbo].[Proc_EntityActionURLCreate]
 (
-	@Area varchar(256),	
-	@ControllerName varchar(256)
+	@Area nvarchar(256),	
+	@ControllerName nvarchar(256)
 )
 AS
 BEGIN
