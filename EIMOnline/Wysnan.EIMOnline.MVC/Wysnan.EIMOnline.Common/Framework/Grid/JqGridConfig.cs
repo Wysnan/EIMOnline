@@ -43,7 +43,7 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid
 
             } while (memberExpression != null);
             string lamda = builder.ToString();
-            string value = string.Format("[Name:{0}][Type:{1}]", lamda, typeof(U).Name.ToLower());
+            string value = string.Format("[Name:{0}][Type:{1}]", lamda, typeof(U).ToString());
             return value;
         }
 
@@ -156,10 +156,12 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid
             switch (type)
             {
                 case "string":
+                case "System.String":
                     sopt = "'eq','ne','bw','bn','ew','en','cn','nc','nu','nn'";
                     searchOptions.Sopt = sopt;
                     break;
                 case "datetime":
+                case "System.DateTime":
                     sopt = "'eq','ne','gt','ge','le','lt'";
                     searchOptions.DataInit = "datePick";
                     searchOptions.Sopt = sopt;
@@ -167,6 +169,9 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid
                 case "int32":
                 case "int64":
                 case "int16":
+                case "System.Int32":
+                case "System.Int64":
+                case "System.Int16":
                     sopt = "'eq','ne','lt','le','gt','ge','in','ni'";
                     searchOptions.Sopt = sopt;
                     break;

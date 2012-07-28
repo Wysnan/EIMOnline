@@ -63,5 +63,16 @@ namespace Wysnan.EIMOnline.Business
             }
             return base.Add(t);
         }
+
+        public override Result Update(SecurityUser t)
+        {
+            SystemEntity systemEntity = HttpContext.Current.Session[ConstEntity.Session_SystemEntity] as SystemEntity;
+            if (systemEntity != null)
+            {
+                t.ModifiedByUserID = systemEntity.CurrentSecurityUser.ID;
+                t.ModifiedOn = DateTime.Now;
+            }
+            return base.Update(t);
+        }
     }
 }

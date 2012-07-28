@@ -62,9 +62,12 @@ namespace Wysnan.EIMOnline.MVC.Tool.MvcExpand
                             messageStr.AppendFormat("window.location.href=\"/{0}/{1}/{2}\";", area, controller, action);
                         }
                     }
-                    messageStr.Append("$(this).dialog( \"close\" );}}");
-                    //messageStr.Append("refresh();");
-                    //messageStr.Append("}}");
+                    messageStr.Append("$(this).dialog( \"close\" );");
+                    if (alertAction == AlertAction.CloseCurrentWindowAndRefresh)
+                    {
+                        messageStr.Append("refresh();");
+                    }
+                    messageStr.Append("}}");
 
                     break;
                 case MessageType.YesOrNo:
@@ -81,6 +84,7 @@ namespace Wysnan.EIMOnline.MVC.Tool.MvcExpand
             switch (alertAction)
             {
                 case AlertAction.CloseCurrentWindow:
+                case AlertAction.CloseCurrentWindowAndRefresh:
                     messageStr.Append("GlobalObj.RemovePage(GlobalObj.currentPage)");
                     break;
             }
@@ -147,6 +151,7 @@ namespace Wysnan.EIMOnline.MVC.Tool.MvcExpand
     public enum AlertAction
     {
         None,
-        CloseCurrentWindow
+        CloseCurrentWindow,
+        CloseCurrentWindowAndRefresh
     }
 }
