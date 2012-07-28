@@ -23,9 +23,15 @@ namespace Wysnan.EIMOnline.MVC.Areas.Personnel.Controllers
             var entitys = GlobalEntity.Instance.Cache_Lookup.LookupDictionary[Common.Enum.LookupCodeEnum.EnumAttendanceBase];
             return View(entitys);
         }
-      
+
         public ActionResult Attence()
         {
+            var perAttendanceModel = GlobalEntity.Instance.ApplicationContext.GetObject("PersonnelAttendanceModel") as IPersonnelAttendanceModel;
+            var user = SystemEntity.CurrentSecurityUser;
+            PersonnelAttendance perAttendance = new PersonnelAttendance();
+            perAttendance.SecurityUserID = user.ID;
+            perAttendance.BeginWorkTime = DateTime.Now.ToLocalTime();
+            perAttendanceModel.Add(perAttendance);
 
             return this.Alert("成功。");
         }
@@ -34,6 +40,6 @@ namespace Wysnan.EIMOnline.MVC.Areas.Personnel.Controllers
         {
             return this.Alert("成功。");
         }
-        
+
     }
 }
