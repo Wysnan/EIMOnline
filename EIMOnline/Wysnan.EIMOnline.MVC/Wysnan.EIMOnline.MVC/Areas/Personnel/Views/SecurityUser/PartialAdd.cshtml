@@ -1,0 +1,172 @@
+﻿@using Wysnan.EIMOnline.MVC.Framework.Extensions;
+@model Wysnan.EIMOnline.Common.Poco.SecurityUser
+<link href="/Content/ViewPage.css" rel="stylesheet" type="text/css" />
+<script src="/Scripts/ViewPage.js" type="text/javascript"></script>
+@using (Ajax.BeginForm(new AjaxOptions() { UpdateTargetId = "alert" }))
+{
+    @Html.ValidationSummary("", new { id = "div_error", style = "display:none" })
+    <div class="div_title">
+        <input type="submit" value="保存" class="button" />
+        <input type="button" value="返回" class="button back" />
+    </div>
+    <div class="tabs">
+        <ul>
+            <li><a href="#tabs-1">详细</a></li>
+            <li><a href="#tabs-2">角色</a></li>
+        </ul>
+        <div id="tabs-1">
+            <table class="TableData">
+                <tr>
+                    <td>
+                        @Html.LabelFor(a => a.UserName)
+                        <div>
+                            @Html.TextBoxFor(a => a.UserName)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.UserNameEn)
+                        <div>
+                            @Html.TextBoxFor(a => a.UserNameEn)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.UserLoginID)
+                        <div>
+                            @Html.TextBoxFor(a => a.UserLoginID)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.UserLoginPwd)
+                        <div>
+                            @Html.TextBoxFor(a => a.UserLoginPwd)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.Sex)
+                        <div>
+                            @Html.DropDownLookUp(a => a.Sex)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.Country)
+                        <div>
+                            @Html.TextBoxFor(a => a.Country)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(a => a.Birthplace)
+                        <div>
+                            @Html.TextBoxFor(a => a.Birthplace)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.Birthday)
+                        <div>
+                            @Html.TextBoxFor(a => a.Birthday, new { onfocus = @"new WdatePicker({dateFmt:'yyyy-MM-dd'})", @readonly = "readonly", @class = "Wdate" })
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.CertificateNo)
+                        <div>
+                            @Html.TextBoxFor(a => a.CertificateNo)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.Phone)
+                        <div>
+                            @Html.TextBoxFor(a => a.Phone)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.Email)
+                        <div>
+                            @Html.TextBoxFor(a => a.Email)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.Mobile)
+                        <div>
+                            @Html.TextBoxFor(a => a.Mobile)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(a => a.UrgentName)
+                        <div>
+                            @Html.TextBoxFor(a => a.UrgentName)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.UrgentPhone)
+                        <div>
+                            @Html.TextBoxFor(a => a.UrgentPhone)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.MarriageStatusID)
+                        <div>
+                            @Html.DropDownLookUp(a => a.MarriageStatusID)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.HomeAddress)
+                        <div>
+                            @Html.TextBoxFor(a => a.HomeAddress)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.StaffCategoryID)
+                        <div>
+                            @Html.DropDownLookUp(a => a.StaffCategoryID)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.EducationalInstitute)
+                        <div>
+                            @Html.TextBoxFor(a => a.EducationalInstitute)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(a => a.Professional)
+                        <div>
+                            @Html.TextBoxFor(a => a.Professional)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.GraduationTime)
+                        <div>
+                            @Html.TextBoxFor(a => a.GraduationTime, new { onfocus = @"new WdatePicker({dateFmt:'yyyy-MM-dd'})", @readonly = "readonly", @class = "Wdate" })
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.CultureStatusID)
+                        <div>
+                            @Html.DropDownLookUp(a => a.CultureStatusID)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.Resume)
+                        <div>
+                            @Html.TextBoxFor(a => a.Resume)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.LabelFor(a => a.StatusID)
+                        <div>
+                            @Html.DropDownLookUp(a => a.StatusID)
+                        </div>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="tabs-2">
+        </div>
+    </div>
+}

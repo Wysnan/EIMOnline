@@ -1,36 +1,111 @@
-﻿<!DOCTYPE html>
+﻿@using Wysnan.EIMOnline.MVC.Framework.Extensions
+<!DOCTYPE html>
 <html>
 <head>
-    <title>@ViewBag.Title</title>
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
-    <link href="/Content/JqGrid/ui-lightness/jquery-ui-1.8.17.custom.css" rel="stylesheet"
+    <title>@ViewBag.Title</title>@*    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />*@
+    <link href="/Content/themes/orange/jquery-ui-1.8.17.custom.css" rel="stylesheet"
         type="text/css" />
-    <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
-    <script type="text/javascript" src="@Url.Content("/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+    <link href="/Content/controls/SearchBox/SearchBox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/controls/CheckBox/CheckBox.css" rel="stylesheet" type="text/css" />
+    @*----------菜单---------------*@ @* <link href="/Content/themes/cupertino/jquery-ui-1.8.20.custom.css" rel="stylesheet" type="text/css" />*@
+    @* <link href="@Url.Content("~/Content/themes/orange/jquery.ui.all.css")" rel="stylesheet" type="text/css" />*@
+    <script src="@Url.Content("~/Scripts/jquery-1.7.2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/jquery-ui-1.8.18.custom.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/external/jquery.bgiframe-2.1.2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.core.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.widget.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.mouse.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.button.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.draggable.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.position.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.resizable.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.dialog.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.autocomplete.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/minified/jquery.ui.tabs.min.js")" type="text/javascript" ></script>
+    <script src="@Url.Content("~/Scripts/ui/jquery.ui.dialog.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jqueryExtensions.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/jquery-ui-timepicker-addon.js")" type="text/javascript" ></script>
+    <script src="@Url.Content("~/Scripts/ui/i18n/jquery.ui.datepicker-zh-CN.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/Scripts/DropdownList/DropDownList.js")" type="text/javascript"></script>
+    @*<script src="@Url.Content("~/Scripts/ui/minified/jquery.effects.core.min.js")" type="text/javascript"></script>*@
+    <link href="/Content/style.css" rel="stylesheet" type="text/css" />
+     @*----------load js---------------*@
+    <script src="@Url.Content("/Scripts/require.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/My97DatePicker/WdatePicker.js")" type="text/javascript"></script>
+    @*<script type="text/javascript" src="@Url.Content("/Scripts/jquery.unobtrusive-ajax.min.js")"></script>*@
+    @*-----------Ajax Validate---------------*@    
+    <script src="@Url.Content("~/Scripts/mvc/MicrosoftAjax.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/mvc/MicrosoftMvcAjax.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/mvc/MicrosoftMvcValidation.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    @*----------jqGrid---------------*@
+    <link href="/Content/themes/ui.jqgrid.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/JqGrid/i18n/grid.locale-cn.js" type="text/javascript"></script>
+    <script src="/Scripts/JqGrid/jquery.jqGrid.src.js" type="text/javascript"></script>
+    <script src="/Scripts/JqGrid/jquery.jqgrid.js" type="text/javascript"></script>
+    <script src="/Scripts/JqGrid/jqGridExtensions.js" type="text/javascript"></script>
+   
+    @*-----------IPhoneCheckBox---------------*@
+    <script src="/Scripts/ui/iphone-style-checkboxes.js" type="text/javascript"></script>
+    @*-----------menu---------------*@
+    <link rel="stylesheet" type="text/css" href="/Widget/Menu_vertical/css/superfish.css"
+        media="screen" />
+    <link href="/Widget/Menu_vertical/css/superfish-navbar.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/Widget/Menu_vertical/css/superfish-vertical.css"
+        media="screen" />
+    <script type="text/javascript" src="/Widget/Menu_vertical/js/hoverIntent.js"></script>
+    <script type="text/javascript" src="/Widget/Menu_vertical/js/superfish.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("ul.sf-menu").superfish({
+                animation: { height: 'show' },   // slide-down effect without fade-in 
+                delay: 200               // 1.2 second delay on mouseout 
+            });
+        });        
+    </script>
 </head>
 <body>
-    <div class="page">
-        <div id="header">
-            <div id="title">
-                <h1>
-                    My MVC Application</h1>
+    <div class="div_all" id="div_all">
+        <div class="div_head">
+        </div>
+        <div class="div_menu">
+            @Html.AreasMenu()
+        </div>
+        <div class="div_body">
+            <div class="div_left">
+                <div>
+                    <img alt="设置" width="20" height="20" id="img_leftSet" />
+                </div>
+                <div class="div_left_menu">
+                    @{Html.RenderAction("ModuleMenu", "Menu");}
+                </div>
             </div>
-            <div id="logindisplay">
-                @Html.Partial("_LogOnPartial")
-            </div>
-            <div id="menucontainer">
-                <ul id="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                </ul>
+            <div class="div_right">
+                <div class="div_main">
+                    <ul class="WidgetColumn" id="WidgetColumn">
+                        @RenderBody()
+                    </ul>
+                </div>
+                <div class="div_foot">
+                </div>
             </div>
         </div>
-        <div id="main">
-            @RenderBody()
+        <div style="float: right">
         </div>
-        <div id="footer">
+        <div class="div_tool">
+            <img alt="设置" width="20" height="20" id="imgSet" />
         </div>
     </div>
-    @Html.Partial("_DialogMessage")
+    <div id="dialog_error">
+    </div>
+    <div id="alert">
+    </div>
+    <div id="div_alert_content">
+        
+    </div>
+    <script src="/Scripts/page.js" type="text/javascript"></script>
+    <script src="/Scripts/menuajax.js" type="text/javascript"></script>
 </body>
 </html>

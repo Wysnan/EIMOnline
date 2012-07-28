@@ -38,6 +38,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,16 +48,27 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="EntityFrameworkModel.cs" />
+    <Compile Include="Mapping\OperateLogMap.cs" />
     <Compile Include="Mapping\SecurityUserMap.cs" />
-    <Compile Include="Migrations\201203211128252_SecurityUser.cs" />
-    <Compile Include="Migrations\201203211128252_SecurityUser.Designer.cs">
-      <DependentUpon>201203211128252_SecurityUser.cs</DependentUpon>
+    <Compile Include="Mapping\SystemModuleDetailPageMap.cs" />
+    <Compile Include="Mapping\SystemModuleMap.cs" />
+    <Compile Include="Mapping\SystemModuleTypeMap.cs" />
+    <Compile Include="Mapping\SystemPermissionMap.cs" />
+    <Compile Include="Mapping\zMetaFormLayoutMap.cs" />
+    <Compile Include="MigrationsHelp.cs" />
+    <Compile Include="Migrations\201207090733129_InitialData.cs" />
+    <Compile Include="Migrations\201207090733129_InitialData.Designer.cs">
+      <DependentUpon>201207090733129_InitialData.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\DBScript\SqlMigration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Migrations\InitialScript\Data\InitialDataBase.sql" />
+    <Content Include="Migrations\InitialScript\InitialData.sql" />
+    <Content Include="Migrations\InitialScript\StoredProcedures\Proc_EntityActionURLCreate.sql" />
+    <Content Include="Migrations\InitialScript\StoredProcedures\Proc_InitialView.sql" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -70,6 +82,9 @@
       <Project>{3575FA9C-D45B-481D-AD01-4509136B97C9}</Project>
       <Name>Wysnan.EIMOnline.IDAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Migrations\DBScript\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

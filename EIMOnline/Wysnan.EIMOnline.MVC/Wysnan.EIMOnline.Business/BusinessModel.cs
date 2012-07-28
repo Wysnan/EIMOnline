@@ -10,9 +10,7 @@ namespace Wysnan.EIMOnline.Business
     {
         public BusinessModel()
         {
-            var aa = Model;
-            //IApplicationContext ctx = ContextRegistry.GetContext();
-            //Model = ctx.GetObject("EntityFrameworkModel") as IModel;
+            
         }
         protected IModel Model { get; set; }
     }

@@ -1,0 +1,32 @@
+﻿@using Wysnan.EIMOnline.Common.Poco;
+@{
+    ViewBag.Title = "_DetailView";
+    //var temp= this.ViewData.Model.model.MetaData;
+    var config = ViewBag.ViewLayout as List<zMetaFormLayout>;
+    var propertys = this.ViewContext.ViewData.ModelMetadata.Properties;
+    
+}
+<div style="border-radius: 5px; -moz-border-radius: 6px; background: #F2F2F2;border: 1px solid #dddddd; width: auto;height:550px">
+    @foreach (var item in config)
+    {
+        if (item.IsVisible == false)
+        {
+            continue;
+        }
+        <div style="float: left; width: 250px; height: auto; margin-left: 10px; margin-top: 5px;
+            padding: 5px 0px 10px 0px">
+            <div style="font-weight: bold; width: 100px;">
+                @item.ShortLabel
+            </div>
+            <div style="width: 100%; font-weight: normal; color: Gray; word-wrap: break-word;
+                height: 90px; overflow-x: hidden; overflow-y: auto; margin-top: 5px">
+                @{
+                  
+                    @propertys.FirstOrDefault(t=>t.PropertyName==item.EntityField).Model
+              }
+            </div>
+        </div>
+    }
+    <div style="clear: left;">
+    </div>
+</div>

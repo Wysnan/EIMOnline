@@ -40,8 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBusinessLogicModelEx.cs" />
+    <Compile Include="Framework\IMessageModel.cs" />
+    <Compile Include="Framework\IBaseConfigModel.cs" />
     <Compile Include="IBusinessLogicModel.cs" />
+    <Compile Include="IEmailServiceModel.cs" />
+    <Compile Include="ILookupModel.cs" />
+    <Compile Include="IOperateLog.cs" />
+    <Compile Include="IPersonnelAttendanceModel.cs" />
+    <Compile Include="ISecurityRole.cs" />
     <Compile Include="ISecurityUser.cs" />
+    <Compile Include="ISecurityUserRole.cs" />
+    <Compile Include="ISystemModule.cs" />
+    <Compile Include="ISystemModuleDetailPage.cs" />
+    <Compile Include="ISystemModuleType.cs" />
+    <Compile Include="ISystemPermission..cs" />
+    <Compile Include="IzMetaFormLayout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

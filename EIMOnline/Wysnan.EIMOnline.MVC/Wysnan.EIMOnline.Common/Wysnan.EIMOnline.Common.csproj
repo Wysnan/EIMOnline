@@ -31,9 +31,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Reference\entityFramework\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Reference\Json\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,16 +48,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\EnumCultureStatus.cs" />
+    <Compile Include="Enum\EnumMarriageStatus.cs" />
+    <Compile Include="Enum\EnumSex.cs" />
+    <Compile Include="Enum\EnumStaffCategory.cs" />
+    <Compile Include="Enum\EnumStatus.cs" />
+    <Compile Include="Framework\Attributes\CodeAttribute.cs" />
+    <Compile Include="Framework\Attributes\LookupAttribute.cs" />
+    <Compile Include="Framework\ConstEntity.cs" />
+    <Compile Include="Framework\Enum\GridEnum.cs" />
+    <Compile Include="Enum\LookupCodeEnum.cs" />
+    <Compile Include="Framework\Grid\Enum\GridColumnEdittype.cs" />
+    <Compile Include="Framework\Grid\Enum\GridColumnSorttype.cs" />
+    <Compile Include="Framework\Grid\Enum\GridColumnAlign.cs" />
+    <Compile Include="Framework\Grid\Enum\GridColumnDateType.cs" />
+    <Compile Include="Framework\Grid\Poco\Filters.cs" />
+    <Compile Include="Framework\Grid\JqGridColumn\IJqGridColumn.cs" />
+    <Compile Include="Framework\Grid\JqGrid.cs" />
+    <Compile Include="Framework\Grid\JqGridConfig.cs" />
+    <Compile Include="Framework\Grid\Poco\GridColumnCollection.cs" />
+    <Compile Include="Framework\Grid\JqGridColumn\JqGridColumnTextBox.cs" />
+    <Compile Include="Framework\Grid\Poco\SearchOptions.cs" />
+    <Compile Include="Framework\MessageEntity.cs" />
+    <Compile Include="Framework\SystemEntity.cs" />
+    <Compile Include="Poco\EmailService.cs" />
+    <Compile Include="Poco\ErrorInfo.cs" />
     <Compile Include="Poco\IBaseEntity.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Poco\IModificationTrackableEntity.cs" />
-    <Compile Include="Poco\ITransactionalEntity.cs" />
+    <Compile Include="Poco\Country.cs" />
+    <Compile Include="Poco\OperateLog.cs" />
+    <Compile Include="Poco\PersonnelAttendance.cs" />
+    <Compile Include="Poco\SecurityRole.cs" />
     <Compile Include="Poco\SecurityUser.cs" />
+    <Compile Include="Poco\SecurityUserRole.cs" />
+    <Compile Include="Poco\SystemModule.cs" />
+    <Compile Include="Poco\SystemModuleDetailPage.cs" />
+    <Compile Include="Poco\SystemModuleType.cs" />
+    <Compile Include="Poco\SystemPermission.cs" />
+    <Compile Include="Poco\zLookup.cs" />
+    <Compile Include="Poco\zMetaFormLayout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Framework\Enum\SystemStatus.cs" />
+    <Compile Include="Framework\ISystemBaseEntity.cs" />
+    <Compile Include="Framework\PageInfo.cs" />
+    <Compile Include="Framework\Result.cs" />
+    <Compile Include="ViewModel\ICombined.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModel\" />
+    <Folder Include="Framework\Poco\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

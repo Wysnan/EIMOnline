@@ -37,7 +37,7 @@
 
   <object id="HttpContextBaseProvider" type="Genuit.Promys.MVC.Models.Providers.HttpContextBaseProvider" singleton="true">
   </object>-->
-  <!--<object id="SecurityUserController" type="Wysnan.EIMOnline.MVC.Controllers.SecurityUserController" parent="BaseController" singleton="false">
-    <property name="Model" ref="SecurityUserModel" />
+  <!--<object id="SecurityUserController" type="Wysnan.EIMOnline.MVC.Areas.Administration.Controllers.SecurityUserController" parent="BaseController&lt;ISecurityUser, SecurityUser&gt;"  singleton="false">
+    <property name="zMetaFormLayoutModel" ref="zMetaFormLayoutModel" />
   </object>-->
 </objects>

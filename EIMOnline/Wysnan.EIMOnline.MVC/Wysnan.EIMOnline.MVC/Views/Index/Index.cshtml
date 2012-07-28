@@ -2,31 +2,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-@using Wysnan.EIMOnline.Common.Poco
-@model Wysnan.EIMOnline.Common.Poco.SecurityUser
-@using (Ajax.BeginForm("index", new AjaxOptions { }))
-{
- 
-    <fieldset>
-        <legend>登录信息</legend>
-        <table cellpadding="0" cellspacing="0" border="0" >
-            <tr>
-                <td>@Html.LabelFor(a => a.LoginID)
-                </td>
-                <td>
-                    @Html.EditorFor(a => a.LoginID) @Html.ValidationMessageFor(a => a.LoginID)
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.LabelFor(a => a.Pwd)
-                </td>
-                <td>
-                    @Html.EditorFor(a => a.Pwd) @Html.ValidationMessageFor(a => a.Pwd)
-                </td>
-            </tr>
-        </table>
-        <input type="submit" value="登录" />
-    </fieldset>  
-}
+<li id="li_index">
+    <div>
+        <video width="100%" height="90%" controls="controls" autoplay="true">
+  <source src="http://localhost:801/Content/Video/Demo.ogv" />
+Your browser does not support the video tag.
+</video>
+    </div>
+</li>

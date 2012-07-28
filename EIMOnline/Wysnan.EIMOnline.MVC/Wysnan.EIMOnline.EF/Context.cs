@@ -11,8 +11,6 @@ namespace Wysnan.EIMOnline.EF
 {
     public class Context : DbContext
     {
-        //public const string connectionString = null;
-
         public Context()
             : base()
         {
@@ -26,18 +24,27 @@ namespace Wysnan.EIMOnline.EF
         }
 
         DbSet<SecurityUser> SecurityUser { get; set; }
-        //DbSet<Task> Task { get; set; }
-        //DbSet<TestingProcess> TestingProcess { get; set; }
-        //DbSet<UseCase> UseCase { get; set; }
+        DbSet<OperateLog> OperateLog { get; set; }
+        DbSet<SecurityRole> SecurityRole { get; set; }
+        DbSet<SecurityUserRole> SecurityUserRole { get; set; }
+        DbSet<SystemModuleType> SystemModuleType { get; set; }
+        DbSet<SystemModule> SystemModule { get; set; }
+        DbSet<SystemModuleDetailPage> SystemModuleDetailPage { get; set; }
+        DbSet<SystemPermission> SystemPermission { get; set; }
+        DbSet<zMetaFormLayout> zMetaFormLayout { get; set; }
+        DbSet<Lookup> Lookup { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
+            modelBuilder.Configurations.Add(new SystemModuleMap());
             modelBuilder.Configurations.Add(new SecurityUserMap());
-            //modelBuilder.Configurations.Add(new TestingProcessMap());
-            //modelBuilder.Configurations.Add(new UseCaseMap());
+            modelBuilder.Configurations.Add(new SystemModuleTypeMap());
+            modelBuilder.Configurations.Add(new SystemModuleDetailPageMap());
+            modelBuilder.Configurations.Add(new SystemPermissionMap());
+            modelBuilder.Configurations.Add(new zMetaFormLayoutMap());
         }
     }
 }
