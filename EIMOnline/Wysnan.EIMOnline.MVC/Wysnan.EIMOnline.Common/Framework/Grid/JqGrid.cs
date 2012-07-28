@@ -262,7 +262,7 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid
             set
             {
                 type = value;
-                if (value == "datetime")
+                if (value == "datetime" ||value== "System.DateTime")
                 {
                     this.Formatter = string.Format(",formatter:'date',formatoptions:{{srcformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s'}}");
                     //this.Formatter = string.Format(",formatter:'date',formatoptions:{{srcformat: '{0}', newformat: '{0}'}}", Detefmt);

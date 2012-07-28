@@ -40,9 +40,12 @@ namespace Wysnan.EIMOnline.Common.Framework.Grid.JqGridColumn
             get { return nameAndType; }
             set
             {
-                nameAndType = value;
+                var tempValue = value;
+                tempValue = tempValue.Replace("System.Nullable`1[", "");
+                tempValue = tempValue.Replace("]]", "]");
+                nameAndType = tempValue;                
                 string pattern = @"\[((Name:)|(Type:))(\w+\.?\w+)\]";
-                var matchCollection = Regex.Matches(value, pattern);
+                var matchCollection = Regex.Matches(tempValue, pattern);
 
                 if (matchCollection != null && matchCollection.Count == 2)
                 {

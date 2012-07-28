@@ -20,9 +20,6 @@
   <object id="SecurityUserRole" type="Wysnan.EIMOnline.Business.SecurityUserRoleModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
   </object>
 
- <object id="SystemActionModel" type="Wysnan.EIMOnline.Business.SystemActionModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
-  </object>
-
   <object id="SystemModuleDetailPageModel" type="Wysnan.EIMOnline.Business.SystemModuleDetailPageModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
   </object>
 

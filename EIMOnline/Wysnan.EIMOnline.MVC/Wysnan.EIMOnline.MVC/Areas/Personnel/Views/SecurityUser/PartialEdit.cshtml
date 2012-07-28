@@ -169,6 +169,12 @@
                     </td>
                 </tr>
             </table>
+            @Html.HiddenFor(a => a.SystemStatus);
+            @Html.HiddenFor(a => a.CreatedOn)
+            @Html.HiddenFor(a => a.CreatedByUserID);
+            @Html.HiddenFor(a => a.Code);
+            @Html.HiddenFor(a => a.VacationDays);
+            @Html.HiddenFor(a => a.RemainingVacationDays);
         </div>
         <div id="tabs-2">
         </div>

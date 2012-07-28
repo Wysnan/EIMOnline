@@ -11,10 +11,5 @@ namespace Wysnan.EIMOnline.Business
     public class LookupModel : GenericBusinessModel<Lookup>, ILookupModel
     {
         public LookupModel() { }
-
-        public IQueryable<Lookup> Get(LookupCodeEnum lookupCode)
-        {
-            return null;
-        }
     }
 }

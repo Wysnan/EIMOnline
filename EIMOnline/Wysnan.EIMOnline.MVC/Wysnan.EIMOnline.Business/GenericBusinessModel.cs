@@ -61,20 +61,22 @@ namespace Wysnan.EIMOnline.Business
                             length = (stringLength.FirstOrDefault() as StringLengthAttribute).MaximumLength;
                         }
                     }
-                    if (oldValue == null)
+                    if (oldValue.Count() == 0)
                     {
                         if (item.Value.Length >= length)
                         {
                             throw new ApplicationException("CodeAttribute中前缀字符串超过字段定义长度。");
                         }
-                        value = item.Value.PadRight(length - item.Value.Length, '0') + 1;
-                        value = value.Substring(1);
+                        value = item.Value.PadRight(length-1, '0') + 1;
                     }
-                    foreach (dynamic v in oldValue)
+                    else
                     {
-                        value = v.Code;
-                        var newCode = Convert.ToInt32(value.Substring(item.Value.Length + 1)) + 1;
-                        value = item.Value + newCode.ToString().PadLeft(length - item.Value.Length, '0'); ;
+                        foreach (dynamic v in oldValue)
+                        {
+                            value = v.Code;
+                            var newCode = Convert.ToInt32(value.Substring(item.Value.Length + 1)) + 1;
+                            value = item.Value + newCode.ToString().PadLeft(length - item.Value.Length, '0'); ;
+                        }
                     }
                     if (p != null)
                     {

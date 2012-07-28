@@ -9,6 +9,5 @@ namespace Wysnan.EIMOnline.IBLL
 {
     public interface ILookupModel : IBusinessLogicModel<Lookup>
     {
-        IQueryable<Lookup> Get(LookupCodeEnum lookupCode);
     }
 }

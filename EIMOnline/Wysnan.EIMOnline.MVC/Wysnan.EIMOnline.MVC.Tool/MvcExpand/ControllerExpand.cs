@@ -63,7 +63,10 @@ namespace Wysnan.EIMOnline.MVC.Tool.MvcExpand
                         }
                     }
                     messageStr.Append("$(this).dialog( \"close\" );");
-                    messageStr.Append("refresh();");
+                    if (alertAction == AlertAction.CloseCurrentWindowAndRefresh)
+                    {
+                        messageStr.Append("refresh();");
+                    }
                     messageStr.Append("}}");
 
                     break;
@@ -81,6 +84,7 @@ namespace Wysnan.EIMOnline.MVC.Tool.MvcExpand
             switch (alertAction)
             {
                 case AlertAction.CloseCurrentWindow:
+                case AlertAction.CloseCurrentWindowAndRefresh:
                     messageStr.Append("GlobalObj.RemovePage(GlobalObj.currentPage)");
                     break;
             }
@@ -147,6 +151,7 @@ namespace Wysnan.EIMOnline.MVC.Tool.MvcExpand
     public enum AlertAction
     {
         None,
-        CloseCurrentWindow
+        CloseCurrentWindow,
+        CloseCurrentWindowAndRefresh
     }
 }
