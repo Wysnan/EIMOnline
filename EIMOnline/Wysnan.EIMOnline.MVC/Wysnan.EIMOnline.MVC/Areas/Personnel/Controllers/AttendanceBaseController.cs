@@ -26,6 +26,7 @@ namespace Wysnan.EIMOnline.MVC.Areas.Personnel.Controllers
       
         public ActionResult Attence()
         {
+
             return this.Alert("成功。");
         }
 

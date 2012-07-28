@@ -242,7 +242,10 @@
                 new Lookup("管理者", Common.Enum.LookupCodeEnum.EnumStaffCategory, EnumStaffCategory.Manager),
 
                 new Lookup("注销", Common.Enum.LookupCodeEnum.EnumAccountStatus, EnumAccountStatus.LogOff),
-                new Lookup("未注销", Common.Enum.LookupCodeEnum.EnumAccountStatus, EnumAccountStatus.NuLogOff)
+                new Lookup("未注销", Common.Enum.LookupCodeEnum.EnumAccountStatus, EnumAccountStatus.NuLogOff),
+
+                 new Lookup("08:00", Common.Enum.LookupCodeEnum.EnumAttendanceBase, EnumAttendanceBase.WorkStartTime),
+                new Lookup("17:00", Common.Enum.LookupCodeEnum.EnumAttendanceBase, EnumAttendanceBase.WorkEndTime)
                 );
             MigrationsHelp.InitDB(Sql);
             Sql("Exec Proc_InitialView 'SecurityUser'");
