@@ -54,5 +54,8 @@ namespace Wysnan.EIMOnline.Common.Poco
         public virtual ICollection<SecurityUser> SecurityUsers4 { get; set; }
         public virtual ICollection<SecurityUser> SecurityUsers5 { get; set; }
 
+        public virtual ICollection<Reimbursement> Reimbursements { get; set; }
+        public virtual ICollection<Reimbursement> Reimbursements1 { get; set; }
+        public virtual ICollection<Reimbursement> Reimbursements2 { get; set; }
     }
 }

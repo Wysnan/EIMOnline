@@ -80,6 +80,7 @@
     <Compile Include="Poco\Country.cs" />
     <Compile Include="Poco\OperateLog.cs" />
     <Compile Include="Poco\PersonnelAttendance.cs" />
+    <Compile Include="Poco\Reimbursement.cs" />
     <Compile Include="Poco\ReimbursementType.cs" />
     <Compile Include="Poco\SecurityRole.cs" />
     <Compile Include="Poco\SecurityUser.cs" />

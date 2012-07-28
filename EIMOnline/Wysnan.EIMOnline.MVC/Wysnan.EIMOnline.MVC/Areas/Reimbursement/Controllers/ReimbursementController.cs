@@ -12,9 +12,10 @@ using Wysnan.EIMOnline.Common.Framework.Enum;
 using Wysnan.EIMOnline.MVC.Framework.Extensions;
 using Wysnan.EIMOnline.Injection.JqGrid;
 using Wysnan.EIMOnline.MVC.Tool.MvcExpand;
+using EntityPoco = Wysnan.EIMOnline.Common.Poco;
 namespace Wysnan.EIMOnline.MVC.Areas.Reimbursement.Controllers
 {
-    public class ReimbursementTypeController : BaseController<IReimbursementTypeModel, ReimbursementType>
+    public class ReimbursementController : BaseController<IReimbursementModel, EntityPoco.Reimbursement>
     {
         public ActionResult Index()
         {
@@ -27,9 +28,9 @@ namespace Wysnan.EIMOnline.MVC.Areas.Reimbursement.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(ReimbursementType reimbursementType)
+        public ActionResult Add(EntityPoco.Reimbursement reimbursement)
         {
-            Model.Add(reimbursementType);
+            Model.Add(reimbursement);
             return this.Alert("添加成功", AlertAction.CloseCurrentWindow);
         }
 
@@ -40,7 +41,7 @@ namespace Wysnan.EIMOnline.MVC.Areas.Reimbursement.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(ReimbursementType reimbursementType)
+        public ActionResult Edit(EntityPoco.Reimbursement reimbursementType)
         {
             Model.Add(reimbursementType);
             return this.Alert("修改成功。", AlertAction.CloseCurrentWindow);

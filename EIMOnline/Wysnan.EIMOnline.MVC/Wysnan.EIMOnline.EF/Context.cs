@@ -34,6 +34,7 @@ namespace Wysnan.EIMOnline.EF
         DbSet<zMetaFormLayout> zMetaFormLayout { get; set; }
         DbSet<Lookup> Lookup { get; set; }
         DbSet<ReimbursementType> ReimbursementType { get; set; }
+        DbSet<Reimbursement> Reimbursement { get; set; }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -46,6 +47,7 @@ namespace Wysnan.EIMOnline.EF
             modelBuilder.Configurations.Add(new SystemModuleDetailPageMap());
             modelBuilder.Configurations.Add(new SystemPermissionMap());
             modelBuilder.Configurations.Add(new zMetaFormLayoutMap());
+            modelBuilder.Configurations.Add(new ReimbursementMap());
         }
     }
 }

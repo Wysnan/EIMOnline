@@ -7,7 +7,7 @@
   <!--<object id="Cache_SystemModule" type="Wysnan.EIMOnline.Business.Framework.Cache.Cache_SystemModule,Wysnan.EIMOnline.Business" singleton="false" >
     <property name="SystemModuleModel" ref="SystemModuleModel"/>
   </object>-->
-  
+
   <object id="SecurityUserModel" type="Wysnan.EIMOnline.Business.SecurityUserModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
   </object>
 
@@ -20,7 +20,7 @@
   <object id="SecurityUserRole" type="Wysnan.EIMOnline.Business.SecurityUserRoleModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
   </object>
 
- <object id="SystemActionModel" type="Wysnan.EIMOnline.Business.SystemActionModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
+  <object id="SystemActionModel" type="Wysnan.EIMOnline.Business.SystemActionModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
   </object>
 
   <object id="SystemModuleDetailPageModel" type="Wysnan.EIMOnline.Business.SystemModuleDetailPageModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
@@ -37,11 +37,15 @@
 
   <object id="SystemPermissionModel" type="Wysnan.EIMOnline.Business.SystemPermissionModel,Wysnan.EIMOnline.Business" singleton="false" parent="BusinessModel">
   </object>
-  
+
   <object id="PersonnelAttendanceModel" type="Wysnan.EIMOnline.Business.PersonnelAttendanceModel" singleton="false" parent="BusinessModel">
   </object>
   <object id="zMetaFormLayoutModel" type="Wysnan.EIMOnline.Business.zMetaFormLayoutModel" singleton="false" parent="BusinessModel">
   </object>
- <object id="ReimbursementTypeModel" type="Wysnan.EIMOnline.Business.ReimbursementTypeModel" singleton="false" parent="BusinessModel">
+  <object id="ReimbursementTypeModel" type="Wysnan.EIMOnline.Business.ReimbursementTypeModel" singleton="false" parent="BusinessModel">
   </object>
+
+  <object id="ReimbursementModel"  type="Wysnan.EIMOnline.Business.ReimbursementModel" singleton="false" parent="BusinessModel">
+  </object>
+
 </objects>

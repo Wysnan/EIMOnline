@@ -23,9 +23,53 @@ namespace Wysnan.EIMOnline.Business
             this.JqGrids[GridEnum.SecurityUser] = GetSecurityUserConfig();
             this.JqGrids[GridEnum.PersonnelAttendance] = GetPersonnelAttendance();
             this.JqGrids[GridEnum.ReimbursementType] = GetReimbursementType();
+            this.JqGrids[GridEnum.Reimbursement] = GetReimbursement();
         }
 
         public Dictionary<GridEnum, JqGrid> JqGrids { get; set; }
+
+        private JqGrid GetReimbursement()
+        {
+            JqGridConfig<Reimbursement, Reimbursement> grid = new JqGridConfig<Reimbursement, Reimbursement>()
+            {
+                RowNum = 10,
+                SortName = "ID",
+                SortOrder = "desc",
+            };
+            var columns = new GridColumnCollection()
+            {
+                new JqGridColumnTextBox(){
+                    Label="ID",
+                    Hidden=true,
+                    NameAndType=grid.Path(a=>a.ID)
+                },
+
+                new JqGridColumnTextBox(){
+                    Label="编号",
+                    NameAndType=grid.Path(a=>a.Code)
+                },
+                new JqGridColumnTextBox(){
+                    Label="报销类型",
+                    NameAndType=grid.Path(a=>a.FinanceApproverResult.Code)
+                },
+                new JqGridColumnTextBox(){
+                    Label="申请人",
+                    NameAndType=grid.Path(a=>a.SecurityUserApplicant.UserName)
+                },
+                new JqGridColumnTextBox(){
+                    Label="审批人",
+                    NameAndType=grid.Path(a=>a.SecurityUserApprover.UserName)
+                },
+                new JqGridColumnTextBox(){
+                    Label="审批状态",
+                    NameAndType=grid.Path(a=>a.ApproverStatus.Code)
+                },
+            };
+            grid.GridColumnCollection = columns;
+            grid.DataBind();
+            return grid;
+        }
+
 
         private JqGrid GetSecurityUserConfig()
         {

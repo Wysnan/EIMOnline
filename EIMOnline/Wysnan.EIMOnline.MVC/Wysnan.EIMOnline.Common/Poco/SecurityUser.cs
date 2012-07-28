@@ -252,9 +252,12 @@ namespace Wysnan.EIMOnline.Common.Poco
         public virtual ICollection<OperateLog> OperateLogs { get; set; }
         public virtual ICollection<SecurityUserRole> SecurityUserRoles { get; set; }
         public virtual ICollection<PersonnelAttendance> PersonnelAttendances { get; set; }
-
         public virtual ICollection<SecurityUser> SecurityUsers1 { get; set; }
         public virtual ICollection<SecurityUser> SecurityUsers2 { get; set; }
+
+        public virtual ICollection<Reimbursement> Reimbursements { get; set; }
+        public virtual ICollection<Reimbursement> Reimbursements1 { get; set; }
+
 
     }
 }

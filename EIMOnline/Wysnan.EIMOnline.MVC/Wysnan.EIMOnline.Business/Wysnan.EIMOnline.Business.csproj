@@ -66,6 +66,7 @@
     <Compile Include="OperateLogModel.cs" />
     <Compile Include="PersonnelAttendanceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReimbursementModel.cs" />
     <Compile Include="ReimbursementTypeModel.cs" />
     <Compile Include="SecurityRoleModel.cs" />
     <Compile Include="SecurityUserModel.cs" />

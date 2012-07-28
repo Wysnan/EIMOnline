@@ -49,6 +49,7 @@
     <Compile Include="Context.cs" />
     <Compile Include="EntityFrameworkModel.cs" />
     <Compile Include="Mapping\OperateLogMap.cs" />
+    <Compile Include="Mapping\ReimbursementMap.cs" />
     <Compile Include="Mapping\SecurityUserMap.cs" />
     <Compile Include="Mapping\SystemModuleDetailPageMap.cs" />
     <Compile Include="Mapping\SystemModuleMap.cs" />
@@ -63,6 +64,10 @@
     <Compile Include="Migrations\201207140706261_ReimbursementType.cs" />
     <Compile Include="Migrations\201207140706261_ReimbursementType.Designer.cs">
       <DependentUpon>201207140706261_ReimbursementType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201207280806259_Reimbursement.cs" />
+    <Compile Include="Migrations\201207280806259_Reimbursement.Designer.cs">
+      <DependentUpon>201207280806259_Reimbursement.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

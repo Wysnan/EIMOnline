@@ -95,6 +95,7 @@
     <Compile Include="Areas\Personnel\Controllers\SecurityUserController.cs" />
     <Compile Include="Areas\Personnel\Controllers\SecurityUserRoleController.cs" />
     <Compile Include="Areas\Purchase\PurchaseAreaRegistration.cs" />
+    <Compile Include="Areas\Reimbursement\Controllers\ReimbursementController.cs" />
     <Compile Include="Areas\Reimbursement\Controllers\ReimbursementTypeController.cs" />
     <Compile Include="Areas\Reimbursement\ReimbursementAreaRegistration.cs" />
     <Compile Include="Areas\Task\TaskAreaRegistration.cs" />

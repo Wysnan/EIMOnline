@@ -30,6 +30,16 @@ namespace Wysnan.EIMOnline.Common.Enum
         /// <summary>
         /// 账号状态
         /// </summary>
-        EnumAccountStatus
+        EnumAccountStatus,
+
+        /// <summary>
+        /// 报销审批状态
+        /// </summary>
+        EnumReimbursementStatus,
+
+        /// <summary>
+        /// 审批结果
+        /// </summary>
+        EnumApproveValue,
     }
 }

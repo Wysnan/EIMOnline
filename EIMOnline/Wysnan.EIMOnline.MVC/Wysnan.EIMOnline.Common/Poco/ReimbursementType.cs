@@ -42,5 +42,11 @@ namespace Wysnan.EIMOnline.Common.Poco
         [StringLength(200, ErrorMessage = "{0}信息内容不能超过200")]
         [Display(Name = "描述")]
         public string Description { get; set; }
+
+        #region ICollection
+
+        public ICollection<Reimbursement> Reimbursements { get; set; }
+
+        #endregion
     }
 }
