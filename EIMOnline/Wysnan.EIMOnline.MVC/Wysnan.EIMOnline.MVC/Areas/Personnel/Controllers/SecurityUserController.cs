@@ -32,18 +32,31 @@ namespace Wysnan.EIMOnline.MVC.Areas.Personnel.Controllers
         public ActionResult Add(SecurityUser user)
         {
             Model.Add(user);
-            return this.Alert("添加成功",AlertAction.CloseCurrentWindow);
+            return this.Alert("添加成功。", AlertAction.CloseCurrentWindow);
         }
 
-        public ActionResult Edit()
+        public ActionResult Edit(int id)
         {
-            return PartialView("PartialEdit");
+            var entity = Model.Get(id);
+            return PartialView("PartialEdit", entity);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(SecurityUser user)
+        {
+            Model.Add(user);
+            return this.Alert("修改成功。", AlertAction.CloseCurrentWindow);
         }
 
         public ActionResult Delete(string ids)
         {
             Model.LogicDelete(ids.ConvertToArray());
             return this.Alert("删除成功。");
+        }
+
+        public ActionResult View(int id)
+        {
+            return View(PartialView(id));
         }
     }
 }

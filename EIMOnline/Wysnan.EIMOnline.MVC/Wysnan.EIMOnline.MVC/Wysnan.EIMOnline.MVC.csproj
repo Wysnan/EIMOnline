@@ -146,10 +146,10 @@
     <Content Include="Areas\Permissions\Views\PersonnelAttendance\Index.cshtml" />
     <Content Include="Areas\Personnel\Views\SecurityUser\PartialAdd.cshtml" />
     <Content Include="Areas\Personnel\Views\SecurityUser\PartialEdit.cshtml" />
-    <Content Include="Areas\Personnel\Views\SecurityUser\PartialView.cshtml" />
     <Content Include="Areas\Permissions\Views\PersonnelAttendance\PartialAdd.cshtml" />
     <Content Include="Areas\Permissions\Views\PersonnelAttendance\PartialEdit.cshtml" />
     <Content Include="Content\controls\UploadFile\Style.css" />
+    <Content Include="Content\ViewPage.css" />
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\ViewPage.js" />
     <Content Include="Scripts\DropdownList\DropDownList.js" />
@@ -176,6 +176,10 @@
     <Content Include="Areas\Reimbursement\Views\ReimbursementType\PartialView.cshtml" />
     <Content Include="Areas\Reimbursement\Views\ReimbursementType\PartialAdd.cshtml" />
     <Content Include="Areas\Reimbursement\Views\ReimbursementType\PartialEdit.cshtml" />
+    <Content Include="Areas\Personnel\Views\SecurityUser\View.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\Reimbursement\Views\ReimbursementType\View.cshtml" />
     <None Include="Config\Message.config" />
     <Content Include="Config\FileDependency2.xml" />
     <Content Include="Config\FileDependency1.txt" />

@@ -54,12 +54,12 @@
     <Compile Include="Mapping\SystemModuleMap.cs" />
     <Compile Include="Mapping\SystemModuleTypeMap.cs" />
     <Compile Include="Mapping\SystemPermissionMap.cs" />
-    <Compile Include="Mapping\zMetaFormLayoutMap.cs" />
-    <Compile Include="MigrationsHelp.cs" />
     <Compile Include="Migrations\201207090733129_InitialData.cs" />
     <Compile Include="Migrations\201207090733129_InitialData.Designer.cs">
       <DependentUpon>201207090733129_InitialData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mapping\zMetaFormLayoutMap.cs" />
+    <Compile Include="MigrationsHelp.cs" />
     <Compile Include="Migrations\201207140706261_ReimbursementType.cs" />
     <Compile Include="Migrations\201207140706261_ReimbursementType.Designer.cs">
       <DependentUpon>201207140706261_ReimbursementType.cs</DependentUpon>

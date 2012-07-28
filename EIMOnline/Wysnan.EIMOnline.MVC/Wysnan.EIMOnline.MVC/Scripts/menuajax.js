@@ -5,5 +5,5 @@
         alert(data);
         //var obj = eval("(" + data + ")"); //转换后的JSON对象 
         $("#div_left_menu").html(obj.CellerList);
-    }, "html"); 
+    }, "html");
 }

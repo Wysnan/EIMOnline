@@ -52,5 +52,10 @@ namespace Wysnan.EIMOnline.MVC.Areas.Reimbursement.Controllers
             Model.LogicDelete(id);
             return this.Alert("删除成功。");
         }
+
+        public ActionResult View(int id)
+        {
+            return View(PartialView(id));
+        }
     }
 }
