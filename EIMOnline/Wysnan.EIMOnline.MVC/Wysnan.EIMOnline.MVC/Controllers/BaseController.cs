@@ -200,7 +200,6 @@ namespace Wysnan.EIMOnline.MVC.Controllers
 
         #endregion
 
-        public ActionResult View(int id)
         {
             var entity = Model.Get(id);
             if (entity == null)
@@ -219,7 +218,9 @@ namespace Wysnan.EIMOnline.MVC.Controllers
                 throw new ArgumentException("没有找到配置表");
             }
 
-            return PartialView("~/Views/Shared/_DetailView.cshtml",entity);
+            ViewBag.View = entity;
+            return entity;
+            //return PartialView("~/Views/Shared/_DetailView.cshtml",entity);
 
             // 直接跳转到区域中的View页面
             // return View();

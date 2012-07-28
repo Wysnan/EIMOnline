@@ -7,12 +7,7 @@ namespace Wysnan.EIMOnline.Tool.Extensions
 {
     public static class BaseTypeExtension
     {
-        /// <summary>
-        /// bool转换成 string
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <param name="isLower"></param>
-        /// <returns></returns>
+        
         public static string ConvertToString(this bool obj, bool isLower = false)
         {
             if (isLower)

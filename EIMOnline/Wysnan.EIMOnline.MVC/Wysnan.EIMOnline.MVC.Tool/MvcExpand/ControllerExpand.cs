@@ -63,6 +63,9 @@ namespace Wysnan.EIMOnline.MVC.Tool.MvcExpand
                         }
                     }
                     messageStr.Append("$(this).dialog( \"close\" );}}");
+                    messageStr.Append("refresh();");
+                    messageStr.Append("}}");
+
                     break;
                 case MessageType.YesOrNo:
                     messageStr.Append(",buttons:{\"Yes\": function(){");

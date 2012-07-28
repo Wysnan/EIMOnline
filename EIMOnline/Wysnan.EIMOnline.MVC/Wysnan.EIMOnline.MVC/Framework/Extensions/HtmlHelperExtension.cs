@@ -290,8 +290,8 @@ namespace Wysnan.EIMOnline.MVC.Framework.Extensions
                             {
                                 StringBuilder html = new StringBuilder();
                                 string id = "DropDownList_" + field;
-                                html.AppendFormat("<script>$(document).ready(function () {{ $(function () {{$(\"#{0}\").combobox();}});}});</script>", id);
-                                html.Append("<div class=\"ui-widget\">"); html.AppendFormat("<select id=\"{0}\" name=\"{1}\">", id, name);
+                                html.AppendFormat("<script>$(document).ready(function () {{ $(function () {{$(\"#{0}\").combobox();$('.lookupDropDownList').combobox();}});}});</script>", id);
+                                html.Append("<div class=\"ui-widget\">"); html.AppendFormat("<select id=\"{0}\" class='lookupDropDownList' name=\"{1}\">", id, name);
                                 foreach (var item in lookups)
                                 {
                                     if (string.IsNullOrEmpty(value) == false && item.ID.ToString() == value)

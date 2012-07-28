@@ -146,7 +146,7 @@
     <Content Include="Areas\Permissions\Views\PersonnelAttendance\Index.cshtml" />
     <Content Include="Areas\Personnel\Views\SecurityUser\PartialAdd.cshtml" />
     <Content Include="Areas\Personnel\Views\SecurityUser\PartialEdit.cshtml" />
-    <Content Include="Areas\Personnel\Views\SecurityUser\PartialView.cshtml" />
+    <Content Include="Areas\Personnel\Views\SecurityUser\View.cshtml" />
     <Content Include="Areas\Permissions\Views\PersonnelAttendance\PartialAdd.cshtml" />
     <Content Include="Areas\Permissions\Views\PersonnelAttendance\PartialEdit.cshtml" />
     <Content Include="Content\controls\UploadFile\Style.css" />

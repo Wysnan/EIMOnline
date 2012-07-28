@@ -166,3 +166,10 @@ function DeleteRecord(grid, deleteUrl, rowIds) {
         }
     });
 }
+function refresh() {
+    var liId = "li_wc_";
+    if (GlobalObj.currentPage && GlobalObj.currentPage != null) {
+        liId += GlobalObj.currentPage;
+    }
+    $("li[id*='" + liId + "'] div[id*='div_jq_'] table[id*='list']").trigger("reloadGrid"); //重新载入jqGrid数据 
+}

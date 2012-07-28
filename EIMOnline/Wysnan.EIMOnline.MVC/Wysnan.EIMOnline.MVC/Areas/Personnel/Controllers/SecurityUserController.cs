@@ -37,13 +37,26 @@ namespace Wysnan.EIMOnline.MVC.Areas.Personnel.Controllers
 
         public ActionResult Edit()
         {
+            var entity = Model.Get(id);
             return PartialView("PartialEdit");
+        }
+
+        [HttpPost]
+        public ActionResult Edit(SecurityUser user)
+        {
+            Model.Add(user);
+            return this.Alert("修改成功。", AlertAction.CloseCurrentWindow);
         }
 
         public ActionResult Delete(string ids)
         {
             Model.LogicDelete(ids.ConvertToArray());
             return this.Alert("删除成功。");
+        }
+
+        public ActionResult View(int id)
+        {
+            return View(PartialView(id));
         }
     }
 }
