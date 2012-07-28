@@ -9,6 +9,8 @@ namespace Wysnan.EIMOnline.Common.Framework.Enum
     {
         SecurityUser,
         PersonnelAttendance,
-        SecurityUserRole
+        SecurityUserRole,
+        ReimbursementType
+
     }
 }

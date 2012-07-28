@@ -18,7 +18,8 @@ namespace Wysnan.EIMOnline.EF.Migrations
                         Description = c.String(maxLength: 200),
                     })
                 .PrimaryKey(t => t.ID);
-            
+            Sql("EXEC Proc_EntityActionURLCreate 'Reimbursement','ReimbursementType'");
+            Sql("Exec Proc_InitialView 'ReimbursementType'"); 
         }
         
         public override void Down()

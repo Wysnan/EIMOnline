@@ -22,6 +22,7 @@ namespace Wysnan.EIMOnline.Business
 
             this.JqGrids[GridEnum.SecurityUser] = GetSecurityUserConfig();
             this.JqGrids[GridEnum.PersonnelAttendance] = GetPersonnelAttendance();
+            this.JqGrids[GridEnum.ReimbursementType] = GetReimbursementType();
         }
 
         public Dictionary<GridEnum, JqGrid> JqGrids { get; set; }
@@ -109,6 +110,40 @@ namespace Wysnan.EIMOnline.Business
                 new JqGridColumnTextBox(){
                     Label="下班时间",
                     NameAndType=grid.Path(a=>a.EndWorkTime)
+                },
+            };
+            grid.GridColumnCollection = columns;
+            grid.DataBind();
+            return grid;
+        }
+
+        private JqGrid GetReimbursementType()
+        {
+            JqGridConfig<ReimbursementType, ReimbursementType> grid = new JqGridConfig<ReimbursementType, ReimbursementType>()
+            {
+                RowNum = 10,
+                SortName = "ID",
+                SortOrder = "desc",
+            };
+            var columns = new GridColumnCollection()
+            {
+                new JqGridColumnTextBox(){
+                    Label="ID",
+                    Hidden=true,
+                    NameAndType=grid.Path(a=>a.ID)
+                },
+
+                new JqGridColumnTextBox(){
+                    Label="编号",
+                    NameAndType=grid.Path(a=>a.Code)
+                },
+                new JqGridColumnTextBox(){
+                    Label="报销类型",
+                    NameAndType=grid.Path(a=>a.Name)
+                },
+                new JqGridColumnTextBox(){
+                    Label="描述",
+                    NameAndType=grid.Path(a=>a.Description)
                 },
             };
             grid.GridColumnCollection = columns;

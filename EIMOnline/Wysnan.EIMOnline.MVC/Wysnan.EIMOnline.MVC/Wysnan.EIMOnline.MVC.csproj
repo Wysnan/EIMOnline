@@ -150,7 +150,6 @@
     <Content Include="Areas\Permissions\Views\PersonnelAttendance\PartialAdd.cshtml" />
     <Content Include="Areas\Permissions\Views\PersonnelAttendance\PartialEdit.cshtml" />
     <Content Include="Content\controls\UploadFile\Style.css" />
-    <Content Include="Content\ViewPage.css" />
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\ViewPage.js" />
     <Content Include="Scripts\DropdownList\DropDownList.js" />
@@ -173,6 +172,10 @@
     <Content Include="Areas\Inventory\Views\Web.config" />
     <Content Include="Areas\Assets\Views\Web.config" />
     <Content Include="Areas\Task\Views\Web.config" />
+    <Content Include="Areas\Reimbursement\Views\ReimbursementType\Index.cshtml" />
+    <Content Include="Areas\Reimbursement\Views\ReimbursementType\PartialView.cshtml" />
+    <Content Include="Areas\Reimbursement\Views\ReimbursementType\PartialAdd.cshtml" />
+    <Content Include="Areas\Reimbursement\Views\ReimbursementType\PartialEdit.cshtml" />
     <None Include="Config\Message.config" />
     <Content Include="Config\FileDependency2.xml" />
     <Content Include="Config\FileDependency1.txt" />

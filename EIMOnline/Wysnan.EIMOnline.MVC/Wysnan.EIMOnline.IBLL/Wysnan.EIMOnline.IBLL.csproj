@@ -48,6 +48,7 @@
     <Compile Include="ILookupModel.cs" />
     <Compile Include="IOperateLog.cs" />
     <Compile Include="IPersonnelAttendanceModel.cs" />
+    <Compile Include="IReimbursementTypeModel.cs" />
     <Compile Include="ISecurityRole.cs" />
     <Compile Include="ISecurityUser.cs" />
     <Compile Include="ISecurityUserRole.cs" />

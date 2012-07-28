@@ -42,5 +42,6 @@
   </object>
   <object id="zMetaFormLayoutModel" type="Wysnan.EIMOnline.Business.zMetaFormLayoutModel" singleton="false" parent="BusinessModel">
   </object>
-  
+ <object id="ReimbursementTypeModel" type="Wysnan.EIMOnline.Business.ReimbursementTypeModel" singleton="false" parent="BusinessModel">
+  </object>
 </objects>
