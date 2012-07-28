@@ -35,7 +35,7 @@ namespace Wysnan.EIMOnline.MVC.Areas.Personnel.Controllers
             return this.Alert("添加成功",AlertAction.CloseCurrentWindow);
         }
 
-        public ActionResult Edit()
+        public ActionResult Edit(int id)
         {
             var entity = Model.Get(id);
             return PartialView("PartialEdit");

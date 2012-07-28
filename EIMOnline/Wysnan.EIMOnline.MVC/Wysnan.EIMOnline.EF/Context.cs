@@ -33,6 +33,7 @@ namespace Wysnan.EIMOnline.EF
         DbSet<SystemPermission> SystemPermission { get; set; }
         DbSet<zMetaFormLayout> zMetaFormLayout { get; set; }
         DbSet<Lookup> Lookup { get; set; }
+        DbSet<PersonnelAttendance> PersonnelAttendance { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

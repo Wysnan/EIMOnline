@@ -21,24 +21,32 @@ namespace Wysnan.EIMOnline.MVC.Areas.Personnel.Controllers
         public ActionResult Index()
         {
             var entitys = GlobalEntity.Instance.Cache_Lookup.LookupDictionary[Common.Enum.LookupCodeEnum.EnumAttendanceBase];
+
             return View(entitys);
         }
 
         public ActionResult Attence()
         {
             var perAttendanceModel = GlobalEntity.Instance.ApplicationContext.GetObject("PersonnelAttendanceModel") as IPersonnelAttendanceModel;
-            var user = SystemEntity.CurrentSecurityUser;
             PersonnelAttendance perAttendance = new PersonnelAttendance();
-            perAttendance.SecurityUserID = user.ID;
-            perAttendance.BeginWorkTime = DateTime.Now.ToLocalTime();
-            perAttendanceModel.Add(perAttendance);
-
-            return this.Alert("成功。");
+            var perAttendanceResult = perAttendanceModel.Add(perAttendance);
+            if (perAttendanceResult.ResultStatus == false)
+            {
+                return this.Alert(perAttendanceResult.Message);
+            }
+            return this.Alert("签到成功。");
         }
 
         public ActionResult AttenceOut()
         {
-            return this.Alert("成功。");
+            var perAttendanceModel = GlobalEntity.Instance.ApplicationContext.GetObject("PersonnelAttendanceModel") as IPersonnelAttendanceModel;
+            var perAttResult = perAttendanceModel.Edit();
+            //perAttendanceModel.ed();
+            if (perAttResult.ResultStatus == false)
+            {
+                return this.Alert(perAttResult.Message);
+            }
+            return this.Alert("签退成功。");
         }
 
     }

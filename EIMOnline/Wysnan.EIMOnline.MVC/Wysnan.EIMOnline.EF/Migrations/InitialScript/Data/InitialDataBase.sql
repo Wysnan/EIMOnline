@@ -31,24 +31,24 @@ VALUES  ( 1 ,0 ,GETDATE() ,GETDATE() ,'USER000001' ,N'管理员' ,'admin' ,'admi
 SET IDENTITY_INSERT [dbo].[SecurityUser] OFF
 END
 
---插入考勤管理
-IF NOT EXISTS (SELECT ID FROM PersonnelAttendance)
-BEGIN
-SET IDENTITY_INSERT [dbo].PersonnelAttendance ON
-INSERT INTO dbo.PersonnelAttendance
-        ( [ID],
-          SystemStatus ,
-          SecurityUserID ,
-          BeginWorkTime ,
-          EndWorkTime ,
-          IsPunchCard 
-        )
-VALUES  ( 1,
-		  0 , -- SystemStatus - tinyint
-          1 , -- SecurityUserID - int
-          '2012-05-15 02:32:05' , -- BeginWorkTime - datetime
-          '2012-05-15 02:32:05' , -- EndWorkTime - datetime
-          1  -- IsPunchCard - bit
-        )
-SET IDENTITY_INSERT [dbo].PersonnelAttendance OFF
-END
+----插入考勤管理
+--IF NOT EXISTS (SELECT ID FROM PersonnelAttendance)
+--BEGIN
+--SET IDENTITY_INSERT [dbo].PersonnelAttendance ON
+--INSERT INTO dbo.PersonnelAttendance
+--        ( [ID],
+--          SystemStatus ,
+--          SecurityUserID ,
+--          BeginWorkTime ,
+--          EndWorkTime ,
+--          IsPunchCard 
+--        )
+--VALUES  ( 1,
+--		  0 , -- SystemStatus - tinyint
+--          1 , -- SecurityUserID - int
+--          '2012-05-15 02:32:05' , -- BeginWorkTime - datetime
+--          '2012-05-15 02:32:05' , -- EndWorkTime - datetime
+--          1  -- IsPunchCard - bit
+--        )
+--SET IDENTITY_INSERT [dbo].PersonnelAttendance OFF
+--END

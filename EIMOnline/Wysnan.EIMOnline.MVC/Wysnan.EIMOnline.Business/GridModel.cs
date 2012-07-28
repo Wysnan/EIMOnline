@@ -106,10 +106,10 @@ namespace Wysnan.EIMOnline.Business
                     Label="上班时间",
                     NameAndType=grid.Path(a=>a.BeginWorkTime)
                 },
-                new JqGridColumnTextBox(){
-                    Label="下班时间",
-                    NameAndType=grid.Path(a=>a.EndWorkTime)
-                },
+                //new JqGridColumnTextBox(){
+                //    Label="下班时间",
+                //    NameAndType=grid.Path(a=>a.EndWorkTime)
+                //},
             };
             grid.GridColumnCollection = columns;
             grid.DataBind();

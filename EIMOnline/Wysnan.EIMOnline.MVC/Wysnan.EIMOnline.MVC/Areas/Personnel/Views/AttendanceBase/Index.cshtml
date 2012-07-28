@@ -7,7 +7,7 @@
 {
     @Html.ValidationSummary("", new { id = "div_error", style = "display:none" })
   
-    <div id="tabs">
+    <div class="tabs">
         <ul>
             <li><a href="#tabs-1">详细</a></li>
         </ul>
@@ -45,14 +45,14 @@
                         }
                     </td>
                 </tr>
-                <tr style="padding-top: 200px; margin-top: 200px; line-height: 400px">
+                <tr style="line-height: 250px;">
                     <td colspan="2" style="text-align: center">
-                        <div class="div_titleAttence">
+                        <div>
                             @Ajax.ActionLink("签到登记", "Attence",null, new AjaxOptions { UpdateTargetId = "alert" },new { @class = "button" })
                         </div>
                     </td>
                     <td>
-                        <div class="div_titleAttence">
+                        <div>
                             @Ajax.ActionLink("签退登记", "AttenceOut", null, new AjaxOptions { UpdateTargetId = "alert" }, new { @class = "button" })                            
                         </div>
                     </td>

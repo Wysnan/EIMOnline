@@ -199,7 +199,7 @@ namespace Wysnan.EIMOnline.MVC.Controllers
         #region Privte Methods
 
         #endregion
-
+        public E PartialView(int id)
         {
             var entity = Model.Get(id);
             if (entity == null)

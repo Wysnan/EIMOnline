@@ -48,10 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="Enum\EnumAttendanceBase.cs" />
-=======
->>>>>>> Dev
     <Compile Include="Enum\EnumCultureStatus.cs" />
     <Compile Include="Enum\EnumMarriageStatus.cs" />
     <Compile Include="Enum\EnumSex.cs" />

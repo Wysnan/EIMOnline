@@ -60,6 +60,10 @@
     <Compile Include="Migrations\201207090733129_InitialData.Designer.cs">
       <DependentUpon>201207090733129_InitialData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201207280746235_PersonnelAttendance.cs" />
+    <Compile Include="Migrations\201207280746235_PersonnelAttendance.Designer.cs">
+      <DependentUpon>201207280746235_PersonnelAttendance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
